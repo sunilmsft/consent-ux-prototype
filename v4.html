@@ -7,7 +7,17 @@ CHANGE LOG — Ask Microsoft Consent & Identity UX Prototype
 Version: V4 — Refined UX Iteration (based on v3)
 Date: April 3, 2026
 
-- Option A: [in progress]
+- Option A: HYBRID — Ambient Affordance + Conversational Close
+    • Ambient "Save chat" link always visible in footer (between disclaimer & input)
+    • On click → inline email capture panel (no modal)
+    • Conversational close: after 2+ exchanges + wrap-up, agent offers once
+    • "If helpful, you can save this conversation or receive a summary."
+    • Actions: Send summary / Save conversation / Not now
+    • If user already used ambient, conversational close is skipped
+    • Returning user: "Would you like to continue your previous conversation?"
+      with Continue / Start new — loads only after explicit selection
+    • Tone: professional, concise, neutral — no "Want me to", "Glad I could help"
+    • 10 steps total (was 9)
 - Option B: [pending]
 - Option C: [pending]
 - Option D: [pending]
@@ -168,6 +178,12 @@ Date: April 3, 2026
 
   .pro{color:#107c10}.con{color:#a4262c}
   .hidden{display:none!important}
+
+  /* Ambient save link in footer */
+  .save-bar{display:flex;align-items:center;justify-content:center;gap:5px;padding:4px 0;font-size:11px;color:#999;border-top:1px solid #f0f0f0}
+  .save-bar a{color:#0078d4;text-decoration:none;cursor:pointer;font-weight:500}
+  .save-bar a:hover{text-decoration:underline}
+
   @media(max-width:900px){.row{flex-direction:column;align-items:center}.info{max-width:100%}.cw-wrap{flex:0 0 auto}.cw{width:100%;max-width:420px}}
 </style>
 </head>
@@ -187,7 +203,7 @@ Date: April 3, 2026
 </div>
 
 <div class="tabs">
-  <div class="tab active" data-t="A">Option A: Progressive Trust<span class="badge bg-green">Recommended</span></div>
+  <div class="tab active" data-t="A">Option A: Progressive Trust<span class="badge bg-green">Hybrid v4</span></div>
   <div class="tab" data-t="B">Option B: Contextual Nudge<span class="badge bg-yellow">Alternative</span></div>
   <div class="tab" data-t="C">Option C: End-of-Chat Summary<span class="badge bg-yellow">Alternative</span></div>
   <div class="tab" data-t="D">Option D: Customer-Initiated<span class="badge bg-green">New</span></div>
@@ -198,29 +214,28 @@ Date: April 3, 2026
 <!-- ════════ OPTION A ════════ -->
 <div class="panel active" id="pA">
   <div class="stitle">
-    <h2>Option A: Progressive Trust — Earn Before You Ask</h2>
-    <p>Agent provides value first. Only after genuine engagement does it naturally offer to save a summary. Email captured as a feature, not a gate.</p>
+    <h2>Option A: Progressive Trust — Ambient + Conversational Close</h2>
+    <p>Two low-pressure entry points: a persistent "Save chat" link in the footer, and a one-time conversational offer at wrap-up. Neither interrupts the flow.</p>
   </div>
   <div class="row">
     <div class="info">
       <span class="tag tg">Low Friction</span>
       <h3>How it works</h3>
-      <p class="lbl">Consent: Notice + Opt-Out</p>
+      <p class="lbl">Consent: Notice + Opt-In</p>
       <ul>
-        <li><strong>Step 1:</strong> Standard welcome — no gates.</li>
-        <li><strong>Step 2:</strong> Customer asks about features, agent responds.</li>
-        <li><strong>Step 3:</strong> After substantive exchange, agent offers: "Want me to save this for next time?"</li>
-        <li><strong>Step 4:</strong> Email capture — stacked layout, explicit continuity disclosure.</li>
-        <li><strong>Step 5:</strong> Confirmation + persistent opt-out link.</li>
+        <li><strong>Ambient:</strong> A persistent "Save chat" link sits in the footer — always available, never pushy. On click → inline email capture.</li>
+        <li><strong>Conversational close:</strong> After 2+ exchanges, when the customer wraps up, the agent offers once: "You can save this conversation or receive a summary."</li>
+        <li><strong>Email capture:</strong> Stacked layout, explicit continuity + privacy disclosure.</li>
+        <li><strong>Returning user:</strong> "Would you like to continue your previous conversation?" — context loads only after explicit selection.</li>
       </ul>
-      <div class="note"><strong>Key:</strong> Customer receives value before any ask. Email framed as benefit. Explicit continuity disclosure satisfies Privacy.</div>
+      <div class="note"><strong>Key:</strong> Ambient link is always there; conversational close happens once at wrap-up. If the customer uses the ambient link first, the close is skipped. If they dismiss the close, the ambient link remains.</div>
       <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Note:</strong> This flow is independent of Quotex. No pricing or quotes — purely about saving conversation context.</div>
     </div>
     <div class="cw-wrap"><div class="cw">
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
-      <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="a-p" disabled>← Back</button><span class="sl" id="a-l">1 / 9</span><button id="a-n">Next →</button></div>
+      <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">💾 <a href="#" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Save chat','Receive a summary of this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1';this.parentElement.innerHTML='<span style=\'color:#107c10;font-weight:500\'>✓ Saved</span>'}return false">Save chat</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+      <div class="steps"><button id="a-p" disabled>← Back</button><span class="sl" id="a-l">1 / 10</span><button id="a-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -406,20 +421,34 @@ function emailBlock(label,sub){
   </div>`;
 }
 
-// ═══ OPTION A: Progressive Trust ═══
+// ═══ OPTION A: Progressive Trust — Ambient + Conversational Close ═══
 const sA=[null,
+  // Step 2: User asks about plans
   ()=>{add('cA',usr("Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?"));add('cA','<span class="tsr">just now</span>')},
-  ()=>{add('cA',bot("Of course! Microsoft 365 Business plans come in three tiers, each building on the last:<br><br><strong>Business Basic</strong><br>✓ Web & mobile versions of Word, Excel, PowerPoint<br>✓ 1 TB cloud storage per user<br>✓ Microsoft Teams for chat & meetings<br><br><strong>Business Standard</strong><br>✓ Everything in Basic, plus full desktop apps<br>✓ Webinar hosting & attendee registration<br>✓ Microsoft Loop for collaborative workspaces<br><br><strong>Business Premium</strong><br>✓ Everything in Standard, plus advanced security<br>✓ Intune device management<br>✓ Conditional access & data loss prevention<br><br>What matters most to your team — collaboration features, desktop apps, or security?"));add('cA','<span class="ts">just now</span>')},
+  // Step 3: Agent responds with comparison
+  ()=>{add('cA',bot("Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong><br>✓ Web & mobile versions of Word, Excel, PowerPoint<br>✓ 1 TB cloud storage per user<br>✓ Microsoft Teams for chat & meetings<br><br><strong>Business Standard</strong><br>✓ Everything in Basic, plus full desktop apps<br>✓ Webinar hosting & attendee registration<br>✓ Microsoft Loop for collaborative workspaces<br><br><strong>Business Premium</strong><br>✓ Everything in Standard, plus advanced security<br>✓ Intune device management<br>✓ Conditional access & data loss prevention<br><br>What matters most to your team — collaboration features, desktop apps, or security?"));add('cA','<span class="ts">just now</span>')},
+  // Step 4: User asks about security, agent responds
   ()=>{add('cA',usr("Security is a big concern — we handle customer data. What does Premium offer there?"));add('cA','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cA',bot("Great focus. Business Premium includes several layers of protection:<br><br>✓ <strong>Microsoft Defender for Business</strong> — endpoint detection & response<br>✓ <strong>Azure Information Protection</strong> — classify & protect sensitive docs<br>✓ <strong>Intune</strong> — manage what apps & data are on employee devices<br>✓ <strong>Conditional Access</strong> — control who can access what, from where<br>✓ <strong>DLP policies</strong> — prevent accidental sharing of sensitive info<br><br>These features can help with compliance frameworks like HIPAA, SOC 2, and PCI-DSS.<br><br>Want me to save this summary and email it to you? That way you can review it with your team."));add('cA','<span class="ts">just now</span>')},300)},
-  ()=>{add('cA',usr("Yes, that would be great"));add('cA','<span class="tsr">just now</span>');
-    setTimeout(()=>add('cA',emailBlock("📧 Where should I send the summary?","Includes the feature comparison and security details we covered.")),300)},
-  ()=>{add('cA',bot("All set! Next time you visit, enter your email to pick up where we left off.<br><br>Anything else I can help with?"));
-    add('cA',`<div class="consent" style="margin-top:4px"><div class="ci">🔒</div><div class="cb">Conversation saved and linked to your email. <a href="#" onclick="this.closest('.consent').innerHTML='<div style=\'padding:4px;font-size:12px;color:#888\'>✓ Data removed.</div>';return false">Opt out & delete</a> · <a href="#">Manage data</a></div></div>`)},
+    setTimeout(()=>{add('cA',bot("Business Premium includes several layers of protection:<br><br>✓ <strong>Microsoft Defender for Business</strong> — endpoint detection & response<br>✓ <strong>Azure Information Protection</strong> — classify & protect sensitive docs<br>✓ <strong>Intune</strong> — manage what apps & data are on employee devices<br>✓ <strong>Conditional Access</strong> — control who can access what, from where<br>✓ <strong>DLP policies</strong> — prevent accidental sharing of sensitive info<br><br>These features can help with compliance frameworks like HIPAA, SOC 2, and PCI-DSS."));add('cA','<span class="ts">just now</span>')},300)},
+  // Step 5: User wraps up, agent offers conversational close (one-time)
+  ()=>{add('cA',usr("That covers it, thanks."));add('cA','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cA',bot("If helpful, you can save this conversation or receive a summary."));
+      setTimeout(()=>add('cA',`<div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Send summary</span>'">Send summary</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Save conversation</span>'">Save conversation</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Not now</span>'">Not now</button></div>`),300)},300)},
+  // Step 6: Email capture
+  ()=>add('cA',emailBlock("Where should I send the summary?","Plan comparison and security details from this conversation.")),
+  // Step 7: Confirmation
+  ()=>{add('cA',bot("Summary sent."));
+    add('cA',`<div class="consent" style="margin-top:4px"><div class="ci">🔒</div><div class="cb">Conversation saved and linked to your email. <a href="#" onclick="this.closest('.consent').innerHTML='<div style=\\'padding:4px;font-size:12px;color:#888\\'>✓ Data removed.</div>';return false">Opt out & delete</a> · <a href="#">Manage data</a></div></div>`);
+    const sv=document.getElementById('aA-sv');if(sv)sv.innerHTML='<span style="color:#107c10;font-weight:500">✓ Saved</span>'},
   // ── SESSION 2: Returning User ──
-  ()=>{const c=document.getElementById('cA');c.innerHTML='';add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cA',W);add('cA',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
+  ()=>{const c=document.getElementById('cA');c.innerHTML='';
+    const sv=document.getElementById('aA-sv');if(sv)sv.innerHTML='💾 <a href="#">Save chat</a>';
+    add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cA',W);add('cA',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
+  // Step 9: Email entry + match
   ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
-  ()=>{add('cA',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Business plans — security focus</strong><br><span style="font-size:11px;color:#888">Earlier today · Defender, Intune, DLP, Conditional Access</span></div></div></div>`);setTimeout(()=>add('cA',bot("Welcome back! Last time we discussed Business Premium security features — Defender, Intune, Conditional Access, and DLP.<br><br>Would you like to continue from there, or do you have a new question?")),300)}
+  // Step 10: Welcome back — explicit choice before context loads
+  ()=>{add('cA',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back.</div><p>Would you like to continue your previous conversation?</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Business plans — security focus</strong><br><span style="font-size:11px;color:#888">Earlier today · Defender, Intune, DLP, Conditional Access</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
+    setTimeout(()=>add('cA',bot("Last time we discussed Business Premium security features — Defender, Intune, Conditional Access, and DLP.<br><br>Would you like to continue from there?")),300)}
 ];
 
 // ═══ OPTION B: Contextual Nudge ═══

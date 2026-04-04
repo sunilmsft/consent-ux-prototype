@@ -70,7 +70,14 @@ Date: April 3, 2026
   .stitle p{font-size:13px;color:#888}
 
   /* ═══ CHAT WIDGET ═══ */
-  .cw-wrap{flex:0 0 420px}
+  .cw-wrap{flex:0 0 auto;display:flex;flex-direction:column;align-items:center}
+  .cw-nav{display:flex;align-items:center;gap:12px;width:100%}
+  .cw-nav .nav-btn{width:44px;height:700px;border:1px solid #e0e0e0;background:#fff;color:#0078d4;border-radius:8px;cursor:pointer;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  .cw-nav .nav-btn:hover{background:#e8f4fd;border-color:#0078d4}
+  .cw-nav .nav-btn:disabled{opacity:.25;cursor:default;background:#fafafa;color:#aaa;border-color:#e0e0e0}
+  .step-bar{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px}
+  .step-bar .sl{font-size:12px;color:#555;font-weight:600}
+  .step-bar .steps-label{font-size:10px;color:#0078d4;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
   .cw{width:420px;height:700px;background:#f5f5f5;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden;border:1px solid #ddd}
   .cw-head{display:flex;align-items:center;gap:14px;padding:16px 18px;background:#fff;flex-shrink:0}
   .cw-head .dot{width:36px;height:36px;background:#0078d4;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -88,12 +95,7 @@ Date: April 3, 2026
   .cw-input input::placeholder{color:#999}
   .cw-input .snd{background:none;border:none;cursor:pointer;color:#0078d4;padding:4px;display:flex;align-items:center}
   .cw-input .snd svg{width:22px;height:22px}
-  .steps{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-  .steps button{padding:7px 20px;border:1px solid #0078d4;background:#0078d4;color:#fff;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;transition:.15s}
-  .steps button:hover{background:#106ebe}
-  .steps button:disabled{opacity:.3;cursor:default;background:#ccc;border-color:#ccc;color:#888}
-  .steps .sl{font-size:12px;color:#555;min-width:80px;text-align:center;font-weight:600}
-  .steps .steps-label{font-size:11px;color:#0078d4;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  /* (old .steps removed — replaced by .cw-nav side buttons + .step-bar) */
 
   /* Messages */
   .m{max-width:90%;font-size:14px;line-height:1.6;animation:fu .3s ease}
@@ -234,12 +236,17 @@ Date: April 3, 2026
       <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Note:</strong> This flow is independent of Quotex. No pricing or quotes — purely about saving conversation context.</div>
     </div>
     <div class="cw-wrap">
-      <div class="steps"><span class="steps-label">Walk-through</span><button id="a-p" disabled>← Back</button><span class="sl" id="a-l">1 / 10</span><button id="a-n">Next →</button></div>
-      <div class="cw">
-      <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
-      <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
-      <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">💾 <a href="#" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Save chat','Receive a summary of this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1';this.parentElement.innerHTML='<span style=\'color:#107c10;font-weight:500\'>✓ Saved</span>'}return false">Save chat</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-    </div></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="a-l">1 / 10</span></div>
+      <div class="cw-nav">
+        <button class="nav-btn" id="a-p" disabled title="Back">‹</button>
+        <div class="cw">
+          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
+          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">💾 <a href="#" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Save chat','Receive a summary of this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1';this.parentElement.innerHTML='<span style=\'color:#107c10;font-weight:500\'>✓ Saved</span>'}return false">Save chat</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+        </div>
+        <button class="nav-btn" id="a-n" title="Next">›</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -263,12 +270,17 @@ Date: April 3, 2026
       <div class="note"><strong>Privacy:</strong> Nothing saved unless explicit opt-in. Strongest for Banner countries and early pilots.</div>
     </div>
     <div class="cw-wrap">
-      <div class="steps"><span class="steps-label">Walk-through</span><button id="b-p" disabled>← Back</button><span class="sl" id="b-l">1 / 8</span><button id="b-n">Next →</button></div>
-      <div class="cw">
-      <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
-      <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cB"></div></div>
-      <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-    </div></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="b-l">1 / 8</span></div>
+      <div class="cw-nav">
+        <button class="nav-btn" id="b-p" disabled title="Back">‹</button>
+        <div class="cw">
+          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
+          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cB"></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+        </div>
+        <button class="nav-btn" id="b-n" title="Next">›</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -291,12 +303,17 @@ Date: April 3, 2026
       <div class="note"><strong>Privacy:</strong> Nothing stored until explicit opt-in at exit. Easiest to defend with CELA. Best for sensitive markets.</div>
     </div>
     <div class="cw-wrap">
-      <div class="steps"><span class="steps-label">Walk-through</span><button id="c-p" disabled>← Back</button><span class="sl" id="c-l">1 / 11</span><button id="c-n">Next →</button></div>
-      <div class="cw">
-      <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
-      <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cC"></div></div>
-      <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-    </div></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="c-l">1 / 11</span></div>
+      <div class="cw-nav">
+        <button class="nav-btn" id="c-p" disabled title="Back">‹</button>
+        <div class="cw">
+          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
+          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cC"></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+        </div>
+        <button class="nav-btn" id="c-n" title="Next">›</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -321,12 +338,17 @@ Date: April 3, 2026
       <div class="note" style="border-left-color:#107c10;margin-top:8px"><strong>Privacy:</strong> Strongest possible posture. Nothing happens until the customer explicitly requests it. No consent banner needed — the action <em>is</em> the consent.</div>
     </div>
     <div class="cw-wrap">
-      <div class="steps"><span class="steps-label">Walk-through</span><button id="d-p" disabled>← Back</button><span class="sl" id="d-l">1 / 9</span><button id="d-n">Next →</button></div>
-      <div class="cw">
-      <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
-      <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cD"></div></div>
-      <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-    </div></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="d-l">1 / 9</span></div>
+      <div class="cw-nav">
+        <button class="nav-btn" id="d-p" disabled title="Back">‹</button>
+        <div class="cw">
+          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
+          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cD"></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+        </div>
+        <button class="nav-btn" id="d-n" title="Next">›</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -355,12 +377,17 @@ Date: April 3, 2026
       <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Limitation:</strong> If the previous user never provided an email (e.g., Options C/D where email is end-of-chat or customer-initiated), there's nothing to reconnect to. This flow is only possible when email was captured in a prior session.</div>
     </div>
     <div class="cw-wrap">
-      <div class="steps"><span class="steps-label">Walk-through</span><button id="r-p" disabled>← Back</button><span class="sl" id="r-l">1 / 6</span><button id="r-n">Next →</button></div>
-      <div class="cw">
-      <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
-      <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cR"></div></div>
-      <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-    </div></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="r-l">1 / 6</span></div>
+      <div class="cw-nav">
+        <button class="nav-btn" id="r-p" disabled title="Back">‹</button>
+        <div class="cw">
+          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
+          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cR"></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+        </div>
+        <button class="nav-btn" id="r-n" title="Next">›</button>
+      </div>
+    </div>
   </div>
 </div>
 

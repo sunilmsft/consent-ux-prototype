@@ -8,16 +8,16 @@ Version: V4 — Refined UX Iteration (based on v3)
 Date: April 3, 2026
 
 - Option A: HYBRID — Ambient Affordance + Conversational Close
-    • Ambient "Save chat" link always visible in footer (between disclaimer & input)
-    • On click → inline email capture panel (no modal)
-    • Conversational close: after 2+ exchanges + wrap-up, agent offers once
-    • "If helpful, you can save this conversation or receive a summary."
-    • Actions: Send summary / Save conversation / Not now
-    • If user already used ambient, conversational close is skipped
-    • Returning user: "Would you like to continue your previous conversation?"
-      with Continue / Start new — loads only after explicit selection
-    • Tone: professional, concise, neutral — no "Want me to", "Glad I could help"
-    • 10 steps total (was 9)
+    • REFINED: Single concept — "Summary" replaces "Save chat" / "Save conversation" / "Saved"
+    • Ambient footer link: "Summary" (📋) — on click → email capture in chat
+    • No "Saved" indicator — footer link stays as "Summary" throughout
+    • Conversational close: "You can receive a summary of this conversation."
+    • Buttons: Send summary / Not now (removed "Save conversation")
+    • One email capture per session — no duplicates
+    • Confirmation: "Summary sent." — no exclamation, no "Saved" state
+    • Privacy notice reworded: describes email use, not "saved and linked"
+    • Flow: conversation → close → email → confirmation (strict order)
+    • 10 steps total
 - Option B: [pending]
 - Option C: [pending]
 - Option D: [pending]
@@ -219,7 +219,7 @@ Date: April 3, 2026
 <div class="panel active" id="pA">
   <div class="stitle">
     <h2>Option A: Progressive Trust — Ambient + Conversational Close</h2>
-    <p>Two low-pressure entry points: a persistent "Save chat" link in the footer, and a one-time conversational offer at wrap-up. Neither interrupts the flow.</p>
+    <p>Two low-pressure entry points: a persistent "Summary" link in the footer, and a one-time conversational offer at wrap-up. One concept, one action, one email capture.</p>
   </div>
   <div class="row">
     <div class="info">
@@ -227,13 +227,13 @@ Date: April 3, 2026
       <h3>How it works</h3>
       <p class="lbl">Consent: Notice + Opt-In</p>
       <ul>
-        <li><strong>Ambient:</strong> A persistent "Save chat" link sits in the footer — always available, never pushy. On click → inline email capture.</li>
-        <li><strong>Conversational close:</strong> After 2+ exchanges, when the customer wraps up, the agent offers once: "You can save this conversation or receive a summary."</li>
-        <li><strong>Email capture:</strong> Stacked layout, explicit continuity + privacy disclosure.</li>
+        <li><strong>Ambient:</strong> A persistent "Summary" link sits in the footer — always available, never pushy. On click → email capture appears in chat.</li>
+        <li><strong>Conversational close:</strong> After 2+ exchanges, when the customer wraps up, the agent offers once: "You can receive a summary of this conversation." Only shown if the customer hasn't already used the ambient link.</li>
+        <li><strong>Email capture:</strong> Only one per session. Stacked layout, explicit continuity + privacy disclosure.</li>
         <li><strong>Returning user:</strong> "Would you like to continue your previous conversation?" — context loads only after explicit selection.</li>
       </ul>
-      <div class="note"><strong>Key:</strong> Ambient link is always there; conversational close happens once at wrap-up. If the customer uses the ambient link first, the close is skipped. If they dismiss the close, the ambient link remains.</div>
-      <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Note:</strong> This flow is independent of Quotex. No pricing or quotes — purely about saving conversation context.</div>
+      <div class="note"><strong>Key:</strong> One concept — "Summary." One email capture per session. If the customer uses the ambient link, the conversational close is skipped. If they dismiss the close, the ambient link remains.</div>
+      <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Note:</strong> This flow is independent of Quotex. No pricing or quotes — purely about sending a conversation summary.</div>
     </div>
     <div class="cw-wrap">
       <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="a-l">1 / 10</span></div>
@@ -242,7 +242,7 @@ Date: April 3, 2026
         <div class="cw">
           <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
           <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
-          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">💾 <a href="#" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Save chat','Receive a summary of this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1';this.parentElement.innerHTML='<span style=\'color:#107c10;font-weight:500\'>✓ Saved</span>'}return false">Save chat</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">� <a href="#" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Send summary','Plan comparison and details from this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1'}return false">Summary</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
         </div>
         <button class="nav-btn" id="a-n" title="Next">›</button>
       </div>
@@ -449,8 +449,8 @@ function emailBlock(label,sub){
     <div class="ec-t">${label}</div>
     <div class="ec-sub">${sub}</div>
     <input type="email" placeholder="your.email@company.com">
-    <button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#107c10;font-weight:600;font-size:13px\\'>✓ Summary sent!</div><div style=\\'font-size:12px;color:#888;margin-top:4px\\'>Use this email next time to continue where you left off.</div></div>'">Send summary to this email</button>
-    <button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>No problem — you can ask anytime.</div>'">Skip for now</button>
+    <button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#107c10;font-weight:600;font-size:13px\\'>✓ Summary sent.</div><div style=\\'font-size:12px;color:#888;margin-top:4px\\'>Use this email next time to continue where you left off.</div></div>'">Send summary to this email</button>
+    <button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>No problem.</div>'">Skip for now</button>
     ${FP}
   </div>`;
 }
@@ -466,17 +466,16 @@ const sA=[null,
     setTimeout(()=>{add('cA',bot("Business Premium includes several layers of protection:<br><br>✓ <strong>Microsoft Defender for Business</strong> — endpoint detection & response<br>✓ <strong>Azure Information Protection</strong> — classify & protect sensitive docs<br>✓ <strong>Intune</strong> — manage what apps & data are on employee devices<br>✓ <strong>Conditional Access</strong> — control who can access what, from where<br>✓ <strong>DLP policies</strong> — prevent accidental sharing of sensitive info<br><br>These features can help with compliance frameworks like HIPAA, SOC 2, and PCI-DSS."));add('cA','<span class="ts">just now</span>')},300)},
   // Step 5: User wraps up, agent offers conversational close (one-time)
   ()=>{add('cA',usr("That covers it, thanks."));add('cA','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cA',bot("If helpful, you can save this conversation or receive a summary."));
-      setTimeout(()=>add('cA',`<div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Send summary</span>'">Send summary</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Save conversation</span>'">Save conversation</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Not now</span>'">Not now</button></div>`),300)},300)},
-  // Step 6: Email capture
-  ()=>add('cA',emailBlock("Where should I send the summary?","Plan comparison and security details from this conversation.")),
-  // Step 7: Confirmation
+    setTimeout(()=>{add('cA',bot("You can receive a summary of this conversation."));
+      setTimeout(()=>add('cA',`<div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Send summary</span>'">Send summary</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Not now</span>'">Not now</button></div>`),300)},300)},
+  // Step 6: Email capture (only entry point — appears after user clicks "Send summary")
+  ()=>add('cA',emailBlock("Send summary","Plan comparison and security details from this conversation.")),
+  // Step 7: Confirmation — clean, no "Saved" state
   ()=>{add('cA',bot("Summary sent."));
-    add('cA',`<div class="consent" style="margin-top:4px"><div class="ci">🔒</div><div class="cb">Conversation saved and linked to your email. <a href="#" onclick="this.closest('.consent').innerHTML='<div style=\\'padding:4px;font-size:12px;color:#888\\'>✓ Data removed.</div>';return false">Opt out & delete</a> · <a href="#">Manage data</a></div></div>`);
-    const sv=document.getElementById('aA-sv');if(sv)sv.innerHTML='<span style="color:#107c10;font-weight:500">✓ Saved</span>'},
+    add('cA',`<div class="consent" style="margin-top:4px"><div class="ci">🔒</div><div class="cb">Your email will be used for this summary and to connect future conversations. <a href="#" onclick="this.closest('.consent').innerHTML='<div style=\\'padding:4px;font-size:12px;color:#888\\'>✓ Data removed.</div>';return false">Opt out & delete</a> · <a href="#">Manage data</a></div></div>`)},
   // ── SESSION 2: Returning User ──
   ()=>{const c=document.getElementById('cA');c.innerHTML='';
-    const sv=document.getElementById('aA-sv');if(sv)sv.innerHTML='💾 <a href="#">Save chat</a>';
+    const sv=document.getElementById('aA-sv');if(sv){sv.innerHTML='📋 <a href="#">Summary</a>';if(sv.querySelector('a'))sv.querySelector('a').dataset.used=''}
     add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cA',W);add('cA',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
   // Step 9: Email entry + match
   ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},

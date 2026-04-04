@@ -47,6 +47,7 @@ Date: April 3, 2026
   .tab.active{color:#0078d4;border-bottom-color:#0078d4}
   .badge{display:inline-block;font-size:9px;padding:1px 6px;border-radius:10px;margin-left:5px;font-weight:700;vertical-align:middle}
   .bg-green{background:#dff6dd;color:#107c10}.bg-yellow{background:#fff4ce;color:#8a6914}.bg-gray{background:#e1dfdd;color:#555}
+  .bg-blue{background:#e0f0ff;color:#0078d4}.bg-orange{background:#ffecd0;color:#b35900}
 
   /* Panels */
   .panel{display:none;padding:24px}
@@ -87,11 +88,12 @@ Date: April 3, 2026
   .cw-input input::placeholder{color:#999}
   .cw-input .snd{background:none;border:none;cursor:pointer;color:#0078d4;padding:4px;display:flex;align-items:center}
   .cw-input .snd svg{width:22px;height:22px}
-  .steps{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px;background:#eee;border-top:1px solid #ddd;flex-shrink:0}
-  .steps button{padding:6px 16px;border:1px solid #0078d4;background:#fff;color:#0078d4;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit}
-  .steps button:hover{background:#e8f4fd}
-  .steps button:disabled{opacity:.3;cursor:default}
-  .steps .sl{font-size:11px;color:#888;min-width:80px;text-align:center}
+  .steps{display:flex;align-items:center;justify-content:center;gap:12px;padding:10px 16px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  .steps button{padding:7px 20px;border:1px solid #0078d4;background:#0078d4;color:#fff;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;font-family:inherit;transition:.15s}
+  .steps button:hover{background:#106ebe}
+  .steps button:disabled{opacity:.3;cursor:default;background:#ccc;border-color:#ccc;color:#888}
+  .steps .sl{font-size:12px;color:#555;min-width:80px;text-align:center;font-weight:600}
+  .steps .steps-label{font-size:11px;color:#0078d4;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 
   /* Messages */
   .m{max-width:90%;font-size:14px;line-height:1.6;animation:fu .3s ease}
@@ -203,12 +205,12 @@ Date: April 3, 2026
 </div>
 
 <div class="tabs">
-  <div class="tab active" data-t="A">Option A: Progressive Trust<span class="badge bg-green">Hybrid v4</span></div>
-  <div class="tab" data-t="B">Option B: Contextual Nudge<span class="badge bg-yellow">Alternative</span></div>
-  <div class="tab" data-t="C">Option C: End-of-Chat Summary<span class="badge bg-yellow">Alternative</span></div>
-  <div class="tab" data-t="D">Option D: Customer-Initiated<span class="badge bg-green">New</span></div>
-  <div class="tab" data-t="R">Returning User Flows<span class="badge bg-gray">Privacy Fix</span></div>
-  <div class="tab" data-t="X">Comparison</div>
+  <div class="tab active" data-t="A">Option A: Progressive Trust<span class="badge bg-green">✓ Updated</span></div>
+  <div class="tab" data-t="B">Option B: Contextual Nudge<span class="badge bg-orange">Pending</span></div>
+  <div class="tab" data-t="C">Option C: End-of-Chat Summary<span class="badge bg-orange">Pending</span></div>
+  <div class="tab" data-t="D">Option D: Customer-Initiated<span class="badge bg-orange">Pending</span></div>
+  <div class="tab" data-t="R">Returning User Flows<span class="badge bg-orange">Pending</span></div>
+  <div class="tab" data-t="X">Comparison<span class="badge bg-gray">After All</span></div>
 </div>
 
 <!-- ════════ OPTION A ════════ -->
@@ -231,11 +233,12 @@ Date: April 3, 2026
       <div class="note"><strong>Key:</strong> Ambient link is always there; conversational close happens once at wrap-up. If the customer uses the ambient link first, the close is skipped. If they dismiss the close, the ambient link remains.</div>
       <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Note:</strong> This flow is independent of Quotex. No pricing or quotes — purely about saving conversation context.</div>
     </div>
-    <div class="cw-wrap"><div class="cw">
+    <div class="cw-wrap">
+      <div class="steps"><span class="steps-label">Walk-through</span><button id="a-p" disabled>← Back</button><span class="sl" id="a-l">1 / 10</span><button id="a-n">Next →</button></div>
+      <div class="cw">
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">💾 <a href="#" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Save chat','Receive a summary of this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1';this.parentElement.innerHTML='<span style=\'color:#107c10;font-weight:500\'>✓ Saved</span>'}return false">Save chat</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="a-p" disabled>← Back</button><span class="sl" id="a-l">1 / 10</span><button id="a-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -259,11 +262,12 @@ Date: April 3, 2026
       </ul>
       <div class="note"><strong>Privacy:</strong> Nothing saved unless explicit opt-in. Strongest for Banner countries and early pilots.</div>
     </div>
-    <div class="cw-wrap"><div class="cw">
+    <div class="cw-wrap">
+      <div class="steps"><span class="steps-label">Walk-through</span><button id="b-p" disabled>← Back</button><span class="sl" id="b-l">1 / 8</span><button id="b-n">Next →</button></div>
+      <div class="cw">
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cB"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="b-p" disabled>← Back</button><span class="sl" id="b-l">1 / 8</span><button id="b-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -286,11 +290,12 @@ Date: April 3, 2026
       </ul>
       <div class="note"><strong>Privacy:</strong> Nothing stored until explicit opt-in at exit. Easiest to defend with CELA. Best for sensitive markets.</div>
     </div>
-    <div class="cw-wrap"><div class="cw">
+    <div class="cw-wrap">
+      <div class="steps"><span class="steps-label">Walk-through</span><button id="c-p" disabled>← Back</button><span class="sl" id="c-l">1 / 11</span><button id="c-n">Next →</button></div>
+      <div class="cw">
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cC"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="c-p" disabled>← Back</button><span class="sl" id="c-l">1 / 11</span><button id="c-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -315,11 +320,12 @@ Date: April 3, 2026
       <div class="note"><strong>Why this works:</strong> Zero interruption. The customer decides if and when they want to save. The hint is ambient — easy to ignore if not interested, easy to act on when ready.</div>
       <div class="note" style="border-left-color:#107c10;margin-top:8px"><strong>Privacy:</strong> Strongest possible posture. Nothing happens until the customer explicitly requests it. No consent banner needed — the action <em>is</em> the consent.</div>
     </div>
-    <div class="cw-wrap"><div class="cw">
+    <div class="cw-wrap">
+      <div class="steps"><span class="steps-label">Walk-through</span><button id="d-p" disabled>← Back</button><span class="sl" id="d-l">1 / 9</span><button id="d-n">Next →</button></div>
+      <div class="cw">
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cD"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="d-p" disabled>← Back</button><span class="sl" id="d-l">1 / 9</span><button id="d-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -348,11 +354,12 @@ Date: April 3, 2026
       <div class="note" style="border-left-color:#107c10;margin-top:8px"><strong>Auto-expire:</strong> Saved sessions expire after 48 hrs (configurable). Even matched sessions don't persist indefinitely.</div>
       <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Limitation:</strong> If the previous user never provided an email (e.g., Options C/D where email is end-of-chat or customer-initiated), there's nothing to reconnect to. This flow is only possible when email was captured in a prior session.</div>
     </div>
-    <div class="cw-wrap"><div class="cw">
+    <div class="cw-wrap">
+      <div class="steps"><span class="steps-label">Walk-through</span><button id="r-p" disabled>← Back</button><span class="sl" id="r-l">1 / 6</span><button id="r-n">Next →</button></div>
+      <div class="cw">
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cR"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="r-p" disabled>← Back</button><span class="sl" id="r-l">1 / 6</span><button id="r-n">Next →</button></div>
     </div></div>
   </div>
 </div>

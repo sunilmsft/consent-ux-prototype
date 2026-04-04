@@ -203,7 +203,7 @@
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="a-p" disabled>← Back</button><span class="sl" id="a-l">1 / 6</span><button id="a-n">Next →</button></div>
+      <div class="steps"><button id="a-p" disabled>← Back</button><span class="sl" id="a-l">1 / 9</span><button id="a-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -231,7 +231,7 @@
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cB"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="b-p" disabled>← Back</button><span class="sl" id="b-l">1 / 5</span><button id="b-n">Next →</button></div>
+      <div class="steps"><button id="b-p" disabled>← Back</button><span class="sl" id="b-l">1 / 8</span><button id="b-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -258,7 +258,7 @@
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cC"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="c-p" disabled>← Back</button><span class="sl" id="c-l">1 / 8</span><button id="c-n">Next →</button></div>
+      <div class="steps"><button id="c-p" disabled>← Back</button><span class="sl" id="c-l">1 / 11</span><button id="c-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -287,7 +287,7 @@
       <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
       <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cD"></div></div>
       <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-      <div class="steps"><button id="d-p" disabled>← Back</button><span class="sl" id="d-l">1 / 6</span><button id="d-n">Next →</button></div>
+      <div class="steps"><button id="d-p" disabled>← Back</button><span class="sl" id="d-l">1 / 9</span><button id="d-n">Next →</button></div>
     </div></div>
   </div>
 </div>
@@ -398,7 +398,11 @@ const sA=[null,
       setTimeout(()=>{add('cA',`<div class="nudge"><div class="nt">📋 Save this for later?</div><p>I can email you a summary to review or share with your team.</p><div class="nb"><button class="bp" onclick="this.closest('.nudge').innerHTML='<div style=\\'padding:4px;color:#107c10;font-size:13px;font-weight:600\\'>I\\'ll need your email — see below.</div>'">Yes, email me a summary</button><button onclick="this.closest('.nudge').innerHTML='<div style=\\'padding:4px;color:#888;font-size:12px\\'>No problem — offer is always available.</div>'">Maybe later</button></div></div>`)},500)},300)},
   ()=>add('cA',emailBlock("📧 Where should I send the summary?","Includes the feature comparison and security details we covered.")),
   ()=>{add('cA',bot("All set! Next time you visit, enter your email to pick up where we left off.<br><br>Anything else I can help with?"));
-    add('cA',`<div class="consent" style="margin-top:4px"><div class="ci">🔒</div><div class="cb">Conversation saved and linked to your email. <a href="#" onclick="this.closest('.consent').innerHTML='<div style=\\'padding:4px;font-size:12px;color:#888\\'>✓ Data removed.</div>';return false">Opt out & delete</a> · <a href="#">Manage data</a></div></div>`)}
+    add('cA',`<div class="consent" style="margin-top:4px"><div class="ci">🔒</div><div class="cb">Conversation saved and linked to your email. <a href="#" onclick="this.closest('.consent').innerHTML='<div style=\'padding:4px;font-size:12px;color:#888\'>✓ Data removed.</div>';return false">Opt out & delete</a> · <a href="#">Manage data</a></div></div>`)},
+  // ── SESSION 2: Returning User ──
+  ()=>{const c=document.getElementById('cA');c.innerHTML='';add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cA',W);add('cA',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
+  ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
+  ()=>{add('cA',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Business plans — security focus</strong><br><span style="font-size:11px;color:#888">Earlier today · Defender, Intune, DLP, Conditional Access</span></div></div></div>`);setTimeout(()=>add('cA',bot("Welcome back! Last time we discussed Business Premium security features — Defender, Intune, Conditional Access, and DLP.<br><br>Would you like to continue from there, or do you have a new question?")),300)}
 ];
 
 // ═══ OPTION B: Contextual Nudge ═══
@@ -409,7 +413,11 @@ const sB=[null,
   ()=>{add('cB',usr("Family sounds good. Can everyone install the desktop apps?"));add('cB','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cB',bot("Yes! Each of the 6 family members gets:<br><br>✓ Desktop apps on up to 5 devices each (PC, Mac, tablet, phone)<br>✓ Their own 1 TB OneDrive — fully private<br>✓ Their own Outlook mailbox<br>✓ Access to Microsoft Editor and Clipchamp<br><br>Want me to send you a comparison to review with your family?"));add('cB','<span class="ts">just now</span>');
       setTimeout(()=>add('cB',`<div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Email me a comparison</span>'">📧 Email me a comparison</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Continue chatting</span>'">That's enough for now</button></div>`),300)},300)},
-  ()=>add('cB',emailBlock("📧 I'll send the comparison!","Family vs Personal features side by side."))
+  ()=>add('cB',emailBlock("📧 I'll send the comparison!","Family vs Personal features side by side.")),
+  // ── SESSION 2: Returning User ──
+  ()=>{const c=document.getElementById('cB');c.innerHTML='';add('cB',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cB',W);add('cB',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
+  ()=>{add('cB',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="user@family.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cB',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
+  ()=>{add('cB',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Family — features & device sharing</strong><br><span style="font-size:11px;color:#888">Yesterday · Family vs Personal, desktop apps, OneDrive</span></div></div></div>`);setTimeout(()=>add('cB',bot("Welcome back! Last time we covered Microsoft 365 Family — up to 6 users, desktop apps on 5 devices each, and 1 TB OneDrive per person.<br><br>Ready to pick up where you left off, or do you have a new question?")),300)}
 ];
 
 // ═══ OPTION C: End-of-Chat Summary ═══
@@ -429,7 +437,11 @@ const sC=[null,
   // Step 7: Email capture revealed
   ()=>add('cC',emailBlock("📧 Where should I send the summary?","Includes your M365 Personal overview and free trial link.")),
   // Step 8: Confirmation
-  ()=>add('cC',bot("Summary sent! 📨 Next time, enter your email to continue where we left off. Have a great day!"))
+  ()=>add('cC',bot("Summary sent! 📨 Next time, enter your email to continue where we left off. Have a great day!")),
+  // ── SESSION 2: Returning User ──
+  ()=>{const c=document.getElementById('cC');c.innerHTML='';add('cC',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cC',W);add('cC',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
+  ()=>{add('cC',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="freelancer@email.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cC',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
+  ()=>{add('cC',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Personal for freelancers</strong><br><span style="font-size:11px;color:#888">Yesterday · Desktop apps, OneDrive, Editor, free trial</span></div></div></div>`);setTimeout(()=>add('cC',bot("Welcome back! Last time we explored Microsoft 365 Personal for freelancing — desktop apps, 1 TB OneDrive, Editor, Clipchamp, and Designer. You were looking at the free trial.<br><br>Want to continue from there, or do you have a new question?")),300)}
 ];
 
 // ═══ OPTION D: Customer-Initiated ═══
@@ -452,7 +464,11 @@ const sD=[null,
     setTimeout(()=>{add('cD',bot("Of course! I'll save a summary of our conversation. Enter your email below — I'll send it there, and you'll be able to continue where we left off next time you visit."));
       setTimeout(()=>add('cD',emailBlock("📧 Save & send your conversation summary","Includes the collaboration tools overview and Loop details we covered.")),300)},300)},
   // Step 6: Confirmation
-  ()=>add('cD',bot("Done! Your summary is on its way. 📨<br><br>Next time, enter your email to pick up right where we left off."))
+  ()=>add('cD',bot("Done! Your summary is on its way. 📨<br><br>Next time, enter your email to pick up right where we left off.")),
+  // ── SESSION 2: Returning User ──
+  ()=>{const c=document.getElementById('cD');c.innerHTML='';add('cD',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cD',W);add('cD',`<div class="kw-hint">💡 Tip: Type <strong>"save my chat"</strong> anytime to keep a copy of this conversation.</div>`);add('cD',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
+  ()=>{add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cD',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
+  ()=>{add('cD',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 collaboration tools — Loop deep-dive</strong><br><span style="font-size:11px;color:#888">Yesterday · Teams, SharePoint, Loop, Planner</span></div></div></div>`);setTimeout(()=>add('cD',bot("Welcome back! Last time we explored Microsoft 365 collaboration tools, with a deep-dive into Microsoft Loop and how it compares to Notion.<br><br>Want to continue from there, or do you have a new question?")),300)}
 ];
 
 // ═══ RETURNING USER ═══

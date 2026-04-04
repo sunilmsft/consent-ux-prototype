@@ -226,7 +226,7 @@ Date: April 3, 2026
 <div class="panel active" id="pA">
   <div class="stitle">
     <h2>Option A: Progressive Trust — Ambient + Conversational Close</h2>
-    <p>Two low-pressure entry points: an "Email summary" link in the footer (visible after engagement), and a one-time conversational offer at wrap-up. One action, one email capture.</p>
+    <p>Two low-pressure entry points: an "Email me a summary" link in the footer (visible after engagement), and a one-time conversational offer at wrap-up. One action, one email capture.</p>
   </div>
   <div class="row">
     <div class="info">
@@ -234,7 +234,7 @@ Date: April 3, 2026
       <h3>How it works</h3>
       <p class="lbl">Consent: Notice + Opt-In</p>
       <ul>
-        <li><strong>Ambient:</strong> "Email summary" link appears in the footer after 1–2 meaningful exchanges. On click → email capture.</li>
+        <li><strong>Ambient:</strong> "Email me a summary" link appears in the footer after 1–2 meaningful exchanges. On click → email capture.</li>
         <li><strong>Conversational close:</strong> At wrap-up, agent offers once: "Receive a summary of this conversation." Only shown if the customer hasn't already used the footer link.</li>
         <li><strong>Email capture:</strong> One per session. Appears only after explicit user action.</li>
         <li><strong>Returning user:</strong> "Continue a previous conversation?" — summary loads only after explicit selection.</li>
@@ -249,7 +249,7 @@ Date: April 3, 2026
         <div class="cw">
           <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
           <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
-          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">📧 <a href="#" title="Send a summary of this conversation to your email" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Enter your email to receive the summary.','Use an email you have access to. You\'ll need it to continue this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1'}return false">Email summary</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv">✉️ <a href="#" title="Send a summary of this conversation to your email" onclick="if(!this.dataset.used){var el=document.createElement('div');el.innerHTML=emailBlock('Enter your email to receive the summary.','Use an email you have access to. You\'ll need it to continue this conversation.');document.getElementById('cA').appendChild(el.firstChild);document.getElementById('cA').scrollTop=document.getElementById('cA').scrollHeight;this.dataset.used='1'}return false">Email me a summary</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
         </div>
         <button class="nav-btn" id="a-n" title="Next">›</button>
       </div>
@@ -472,18 +472,17 @@ const sA=[null,
   // Step 4: User asks about security, agent responds
   ()=>{add('cA',usr("Security is a big concern — we handle customer data. What does Premium offer there?"));add('cA','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cA',bot("Business Premium includes several layers of protection:<br><br>✓ <strong>Microsoft Defender for Business</strong> — endpoint detection & response<br>✓ <strong>Azure Information Protection</strong> — classify & protect sensitive docs<br>✓ <strong>Intune</strong> — manage what apps & data are on employee devices<br>✓ <strong>Conditional Access</strong> — control who can access what, from where<br>✓ <strong>DLP policies</strong> — prevent accidental sharing of sensitive info<br><br>These features can help with compliance frameworks like HIPAA, SOC 2, and PCI-DSS."));add('cA','<span class="ts">just now</span>')},300)},
-  // Step 5: User wraps up, conversational close (one-time)
+  // Step 5: User wraps up, conversational close (one-time) — single add to avoid duplicates on replay
   ()=>{add('cA',usr("That covers it, thanks."));add('cA','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cA',bot("Receive a summary of this conversation."));
-      setTimeout(()=>add('cA',`<div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Send</span>'">Send</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Not now</span>'">Not now</button></div>`),300)},300)},
+    add('cA',`<div class="m mb">Receive a summary of this conversation.${T}</div><div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Send</span>'">Send</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Not now</span>'">Not now</button></div>`)},
   // Step 6: Email capture — appears after user clicks "Send"
   ()=>add('cA',emailBlock("Enter your email to receive the summary.","Use an email you have access to. You'll need it to continue this conversation.")),
-  // Step 7: Confirmation
-  ()=>{add('cA',bot("Summary sent."));
+  // Step 7: Confirmation — includes what was sent and what to expect
+  ()=>{add('cA',`<div class="m mb"><strong>✓ Summary sent.</strong><br><span style="font-size:13px;color:#555">A summary of this conversation has been sent to your email. Use it to reference what we covered or to continue this conversation next time.</span>${T}</div>`);
     add('cA',`<div style="margin-top:4px;font-size:11px;color:#888;text-align:center"><a href="#" style="color:#0078d4">Privacy Statement</a></div>`)},
   // ── SESSION 2: Returning User ──
   ()=>{const c=document.getElementById('cA');c.innerHTML='';
-    const sv=document.getElementById('aA-sv');if(sv){sv.classList.remove('visible');sv.innerHTML='📧 <a href="#" title="Send a summary of this conversation to your email">Email summary</a>';if(sv.querySelector('a'))sv.querySelector('a').dataset.used=''}
+    const sv=document.getElementById('aA-sv');if(sv){sv.classList.remove('visible');sv.innerHTML='✉️ <a href="#" title="Send a summary of this conversation to your email">Email me a summary</a>';if(sv.querySelector('a'))sv.querySelector('a').dataset.used=''}
     add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cA',W);add('cA',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Continue a previous conversation? <strong style='color:#0078d4'>Enter your email</strong></div>`)},
   // Step 9: Email entry + match
   ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Summary found.</div>`),400)},

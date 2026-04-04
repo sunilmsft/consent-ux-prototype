@@ -50,12 +50,12 @@ Date: April 3, 2026
   .bg-blue{background:#e0f0ff;color:#0078d4}.bg-orange{background:#ffecd0;color:#b35900}
 
   /* Panels */
-  .panel{display:none;padding:16px 24px}
+  .panel{display:none;padding:16px 24px 16px 24px}
   .panel.active{display:block}
 
   /* Layout */
-  .row{display:flex;gap:24px;flex-wrap:nowrap;max-width:1340px;margin:0 auto;align-items:flex-start}
-  .info{flex:1 1 340px;max-width:440px;background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.05);position:sticky;top:110px;max-height:calc(100vh - 130px);overflow-y:auto}
+  .row{display:flex;gap:24px;flex-wrap:nowrap;max-width:900px;margin:0 auto;align-items:flex-start}
+  .info{flex:1 1 100%;max-width:100%;background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
   .info h3{font-size:15px;font-weight:700;color:#0078d4;margin-bottom:5px}
   .info .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#999;font-weight:600;margin-bottom:3px}
   .info p{font-size:13px;color:#666;margin-bottom:10px}
@@ -65,29 +65,29 @@ Date: April 3, 2026
   .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:600;margin-bottom:8px}
   .tg{background:#dff6dd;color:#107c10}.ty{background:#fff4ce;color:#8a6914}.tr{background:#fde7e9;color:#a4262c}
 
-  .stitle{max-width:1340px;margin:0 auto 10px}
+  .stitle{max-width:900px;margin:0 auto 10px}
   .stitle h2{font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:2px}
   .stitle p{font-size:12px;color:#888}
 
-  /* ═══ CHAT WIDGET ═══ */
-  .cw-wrap{flex:0 0 auto;display:flex;flex-direction:column;align-items:center}
-  .cw-nav{display:flex;align-items:center;gap:12px;width:100%}
-  .cw-nav .nav-btn{width:40px;height:calc(100vh - 260px);border:1px solid #e0e0e0;background:#fff;color:#0078d4;border-radius:8px;cursor:pointer;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+  /* ═══ CHAT WIDGET — fixed right overlay ═══ */
+  .cw-wrap{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:200;display:flex;flex-direction:column;align-items:center}
+  .cw-nav{display:flex;align-items:center;gap:10px;width:100%}
+  .cw-nav .nav-btn{width:36px;height:700px;border:1px solid #e0e0e0;background:#fff;color:#0078d4;border-radius:8px;cursor:pointer;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
   .cw-nav .nav-btn:hover{background:#e8f4fd;border-color:#0078d4}
   .cw-nav .nav-btn:disabled{opacity:.25;cursor:default;background:#fafafa;color:#aaa;border-color:#e0e0e0}
   .step-bar{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}
   .step-bar .sl{font-size:12px;color:#555;font-weight:600}
   .step-bar .steps-label{font-size:10px;color:#0078d4;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-  .cw{width:420px;height:calc(100vh - 260px);background:#f5f5f5;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden;border:1px solid #ddd}
-  .cw-head{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;flex-shrink:0}
-  .cw-head .dot{width:32px;height:32px;background:#0078d4;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .cw-head .dot svg{width:16px;height:16px;fill:#fff}
+  .cw{width:380px;height:700px;background:#f5f5f5;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,.18);display:flex;flex-direction:column;overflow:hidden;border:1px solid #ddd}
+  .cw-head{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#fff;flex-shrink:0}
+  .cw-head .dot{width:34px;height:34px;background:#0078d4;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .cw-head .dot svg{width:17px;height:17px;fill:#fff}
   .cw-head .ttl{font-size:18px;font-weight:700;flex:1;color:#1a1a1a;letter-spacing:-.3px}
   .cw-head .x{width:28px;height:28px;border:none;background:none;cursor:pointer;font-size:20px;color:#666;display:flex;align-items:center;justify-content:center}
   .cw-main{flex:1;display:flex;overflow:hidden}
   .cw-bar{width:4px;background:linear-gradient(180deg,#0078d4,#4cc2ff,#0078d4);flex-shrink:0}
   .cw-body{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:8px;scroll-behavior:smooth;background:#f5f5f5}
-  .cw-foot{padding:6px 12px 10px;background:#fff;flex-shrink:0}
+  .cw-foot{padding:8px 12px 12px;background:#fff;flex-shrink:0}
   .cw-foot .disc{font-size:11px;color:#888;text-align:center;margin-bottom:6px;font-weight:500}
   .cw-input{display:flex;gap:6px;align-items:center;background:#fff;border:1px solid #ccc;border-radius:8px;padding:4px 10px;position:relative;overflow:hidden}
   .cw-input::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0078d4,#4cc2ff,#50e6ff,#4cc2ff,#0078d4);border-radius:0 0 8px 8px}
@@ -172,7 +172,7 @@ Date: April 3, 2026
   .sc .sb p{font-size:12px;color:#888;margin-bottom:8px}
 
   /* Comparison table */
-  .ctbl{max-width:1340px;margin:24px auto 0;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow-x:auto}
+  .ctbl{max-width:900px;margin:24px auto 0;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow-x:auto}
   .ctbl table{width:100%;border-collapse:collapse;font-size:12px;min-width:900px}
   .ctbl th{background:#0078d4;color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:11px}
   .ctbl td{padding:10px 12px;border-bottom:1px solid #eee;vertical-align:top}
@@ -188,7 +188,7 @@ Date: April 3, 2026
   .save-bar a{color:#0078d4;text-decoration:none;cursor:pointer;font-weight:500}
   .save-bar a:hover{text-decoration:underline}
 
-  @media(max-width:900px){.row{flex-direction:column;align-items:center}.info{max-width:100%;position:static;max-height:none}.cw-wrap{flex:0 0 auto}.cw{width:100%;max-width:420px}.cw-nav .nav-btn{height:500px}}
+  @media(max-width:900px){.row{flex-direction:column;align-items:center}.info{max-width:100%}.cw-wrap{position:static;transform:none;margin:16px auto}.cw{width:100%;max-width:380px}.cw-nav .nav-btn{height:500px}}
 </style>
 </head>
 <body>
@@ -418,7 +418,7 @@ Date: April 3, 2026
       <tr><td><strong>Returning user</strong></td><td colspan="4" style="text-align:center">All pair with the <strong>email-based reconnect</strong> flow. Only works when email was captured in a prior session.</td></tr>
     </tbody>
   </table></div>
-  <div style="max-width:1340px;margin:16px auto 0">
+  <div style="max-width:900px;margin:16px auto 0">
     <div class="note"><strong>Recommendation:</strong> Consider <strong>A + D hybrid</strong> — agent drops the "save my chat" hint subtly (D), but also nudges contextually when high intent is detected (A). Pair with the Returning User flows. For Banner countries, start with C or D.</div>
   </div>
 </div>

@@ -249,7 +249,7 @@ Date: April 3, 2026
         <div class="cw">
           <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
           <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cA"></div></div>
-          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="disc opt-out-line" id="aA-cs">Conversations may be saved. <a href="#" onclick="this.parentElement.innerHTML='✓ Opted out';return false">[Opt out]</a> · <a href="#" onclick="alert('We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email, this conversation may be connected to your profile to provide more seamless and personalized experiences.');return false">[Learn more]</a></div><div class="save-bar" id="aA-sv"></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar" id="aA-sv"></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
         </div>
         <button class="nav-btn" id="a-n" title="Next">›</button>
       </div>
@@ -499,7 +499,7 @@ function usr(t){return`<div class="m mu">${t}</div>`}
 
 const W=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT.<br><br>What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> ↗</div>${T}</div><span class="ts">an hour ago</span>`;
 
-const WA=W;
+const WA=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT.<br><br>What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> \u2197</div><div id="aA-cs" style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1px solid #eee;font-size:11px;color:#999"><span>Conversations may be saved</span><span style="display:flex;gap:12px"><a href="#" style="color:#0078d4;text-decoration:none" onclick="document.getElementById('aA-cs').innerHTML='<span style=\\'color:#a4262c;font-weight:600\\'>\u2713 Opted out</span>';return false">Opt out</a><a href="#" style="color:#0078d4;text-decoration:none" onclick="alert('We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email, this conversation may be connected to your profile to provide more seamless and personalized experiences.');return false">Learn more</a></span></div>${T}</div><span class="ts">an hour ago</span>`;
 document.getElementById('cA').innerHTML=WA;
 ['cB','cC','cD','cR'].forEach(id=>document.getElementById(id).innerHTML=W);
 

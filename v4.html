@@ -400,6 +400,56 @@ Date: April 3, 2026
     <h2>Side-by-Side Comparison</h2>
     <p>All four options across key dimensions. All pair with the Returning User flows.</p>
   </div>
+
+  <!-- ── What each option IS ── -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+    <div style="background:#e8f4fd;border:1px solid #b3d4fc;border-radius:10px;padding:14px;position:relative">
+      <div style="font-size:11px;font-weight:700;color:#0078d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">A: Notice + Opt-Out ★</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Preferred — Save by Default</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Conversation saved automatically with upfront notice + opt-out. Email asked <strong>mid-conversation</strong> to enable persistence — chat continues after. Summary auto-sent when customer leaves.</p>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #c0d8f0">
+        <div style="font-size:10px;font-weight:700;color:#0078d4;text-transform:uppercase;margin-bottom:4px">Flow</div>
+        <div style="font-size:11px;color:#444;line-height:1.7">
+          Welcome + notice [Opt out] →<br>Customer chats →<br>Agent nudge: "Keep this for later?" →<br>Email capture → <strong>chat continues</strong> →<br>Customer leaves → summary auto-sent →<br>Return: email lookup → resume
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px">
+      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">B: Contextual Nudge</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Opt-In Banner After Engagement</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Nothing saved until customer explicitly opts in via a dismissible banner. Email asked later when contextually relevant. More friction but stronger consent.</p>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">
+        <div style="font-size:10px;font-weight:700;color:#8a6914;text-transform:uppercase;margin-bottom:4px">Flow</div>
+        <div style="font-size:11px;color:#444;line-height:1.7">
+          Welcome (no notice) →<br>Customer chats →<br>Banner: "Remember for next time?" →<br>Opt in / dismiss →<br>Later: "Email you a comparison?" →<br>Email capture → <strong>ends conversation</strong> →<br>Return: email lookup → resume
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px">
+      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">C: End-of-Chat Summary</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Capture at the Finish Line</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Fully anonymous conversation. At wrap-up, agent offers a summary card. Customer provides email only if they want it emailed. Lowest friction during chat.</p>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">
+        <div style="font-size:10px;font-weight:700;color:#8a6914;text-transform:uppercase;margin-bottom:4px">Flow</div>
+        <div style="font-size:11px;color:#444;line-height:1.7">
+          Welcome (no notice) →<br>Customer chats anonymously →<br>Customer wraps up →<br>Agent: "Want a summary?" →<br>Summary card shown →<br>"Email it to me" → email capture →<br><strong>Ends conversation</strong> →<br>Return: email lookup → resume
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px">
+      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">D: Customer-Initiated</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">User Types "Save My Chat"</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Zero push from the agent. A subtle hint tells the customer they can type "save my chat" anytime. Email captured only when they initiate. Highest trust, lowest capture rate.</p>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">
+        <div style="font-size:10px;font-weight:700;color:#8a6914;text-transform:uppercase;margin-bottom:4px">Flow</div>
+        <div style="font-size:11px;color:#444;line-height:1.7">
+          Welcome + hint: "type save my chat" →<br>Customer chats freely →<br>Customer types "save my chat" →<br>Email capture →<br><strong>Ends conversation</strong> →<br>Return: email lookup → resume
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Comparison table ── -->
   <div class="ctbl"><table>
     <thead><tr>
       <th style="width:15%">Dimension</th>
@@ -411,6 +461,7 @@ Date: April 3, 2026
     <tbody>
       <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Opt-In at Exit</td><td>Customer-Initiated</td></tr>
       <tr><td><strong>When email asked</strong></td><td>Mid-conversation</td><td>Banner + later</td><td>End of chat only</td><td>When customer types keyword</td></tr>
+      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No — chat continues</span></td><td><span class="con">Yes</span></td><td><span class="con">Yes</span></td><td><span class="con">Yes</span></td></tr>
       <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">★ Low</span></td><td><span class="con">★★ Medium</span></td><td><span class="pro">★ Lowest</span></td><td><span class="pro">★ Zero push</span></td></tr>
       <tr><td><strong>Who initiates</strong></td><td>Agent (contextual)</td><td>System (banner)</td><td>Agent (at exit)</td><td>Customer (keyword)</td></tr>
       <tr><td><strong>Email capture rate</strong></td><td><span class="pro">Higher</span></td><td>Moderate</td><td><span class="con">Lower</span></td><td><span class="con">Lowest</span> but highest intent</td></tr>

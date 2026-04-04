@@ -239,10 +239,11 @@ Date: April 3, 2026
         <li><strong>Returning user:</strong> "Continue a previous conversation?" — email lookup reconnects to prior session.</li>
       </ul>
       <div class="note"><strong>Key difference:</strong> Email is NOT a conversation-ending action. It's a mid-conversation enablement that unlocks persistence and continuity. The customer decides when the conversation is over.</div>
+      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> Agent skips the email nudge entirely. Conversation flows without any email ask. If the customer later explicitly requests a summary (e.g., "email me a summary"), the email capture appears — honoring their intent.</div>
       <div class="note" style="border-left-color:#107c10;margin-top:8px"><strong>Aligns with Preferred consent model:</strong> "We may save conversations to improve your experience..." Strongest balance of trust, usability, and data value. Default for most eCommerce agent experiences.</div>
     </div>
     <div class="cw-wrap">
-      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="a-l">1 / 11</span></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="a-l">1 / 16</span></div>
       <div class="cw-nav">
         <button class="nav-btn" id="a-p" disabled title="Back">‹</button>
         <div class="cw">
@@ -534,13 +535,36 @@ const sA=[null,
   // Step 8: User asks follow-up — conversation continues after email capture
   ()=>{add('cA',usr("Yes — what's the per-user pricing for Business Premium?"));add('cA','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cA',bot("Business Premium is <strong>$22.00 per user/month</strong> with an annual commitment.<br><br>For comparison:<br>• Business Basic: $6.00/user/month<br>• Business Standard: $12.50/user/month<br>• Business Premium: $22.00/user/month<br><br>For a small team of, say, 10 users, that's $220/month — and it includes all the security features plus the full desktop app suite.<br><br><a href='#'>→ Start a free trial</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='#'>→ Compare all plans</a>"));add('cA','<span class="ts">just now</span>')},300)},
-  // ── SESSION 2: Returning User ──
+  // ═══ VARIANT: OPT-OUT PATH ═══
+  // Step 9: Reset — show what happens when user opts out
   ()=>{const c=document.getElementById('cA');c.innerHTML='';
     const sv=document.getElementById('aA-sv');if(sv){sv.classList.remove('visible');sv.innerHTML=''}
+    const cs=document.getElementById('aA-cs');if(cs)cs.innerHTML='\u2713 Opted out';
+    add('cA',`<div style="background:linear-gradient(135deg,#fde7e9,#fff0f0);border:1px solid #f3c6cb;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#a4262c;font-weight:700">\u26A0\uFE0F Variant: Opt-Out Path</div><div style="font-size:12px;color:#888;margin-top:2px">Customer clicked [Opt out] in the footer \u2014 what changes?</div></div>`);
+    add('cA',WA);c.scrollTop=0},
+  // Step 10: Same conversation happens, but no nudge
+  ()=>{add('cA',usr("Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?"));add('cA','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cA',bot("Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong><br>\u2713 Web & mobile versions of Word, Excel, PowerPoint<br>\u2713 1 TB cloud storage per user<br>\u2713 Microsoft Teams for chat & meetings<br><br><strong>Business Standard</strong><br>\u2713 Everything in Basic, plus full desktop apps<br><br><strong>Business Premium</strong><br>\u2713 Everything in Standard, plus advanced security<br>\u2713 Intune device management<br><br>What matters most to your team?"));add('cA','<span class="ts">just now</span>')},300)},
+  // Step 11: Where the nudge WOULD have been — it's skipped
+  ()=>{add('cA',usr("Security is key for us. Tell me more about Premium."));add('cA','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cA',bot("Business Premium includes several layers of protection:<br><br>\u2713 <strong>Microsoft Defender for Business</strong><br>\u2713 <strong>Intune</strong> device management<br>\u2713 <strong>Conditional Access</strong><br>\u2713 <strong>DLP policies</strong><br><br>These features help with HIPAA, SOC 2, and PCI-DSS compliance."));
+      setTimeout(()=>add('cA',`<div style="background:#fff8e1;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">\u261D\uFE0F No email nudge shown \u2014 user opted out. Conversation continues normally.</div>`),400)},300)},
+  // Step 12: User explicitly asks for summary (customer-initiated)
+  ()=>{add('cA',usr("This is helpful. Can you email me a summary of what we covered?"));add('cA','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cA',bot("Of course! I'd be happy to send you a summary."));
+      setTimeout(()=>add('cA',`<div class="ec"><div class="ec-t">\u{1F4E7} Where should I send the summary?</div><div class="ec-sub">Includes your M365 Business Premium overview and pricing.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#107c10;font-weight:600;font-size:13px\\'>\u2713 Summary sent.</div></div>'">Send</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),300)},300)},
+  // Step 13: Confirmation
+  ()=>{add('cA',bot("\u2713 Summary sent! If you'd like to continue this conversation next time, just enter your email when you return."));
+    add('cA',`<div style="background:#fff8e1;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">\u261D\uFE0F Email captured via explicit customer intent \u2014 not agent nudge. Opt-out respected.</div>`)},
+  // ═══ SESSION 2: RETURNING USER ═══
+  // Step 14: Returning user
+  ()=>{const c=document.getElementById('cA');c.innerHTML='';
+    const sv=document.getElementById('aA-sv');if(sv){sv.classList.remove('visible');sv.innerHTML=''}
+    const cs=document.getElementById('aA-cs');if(cs)cs.innerHTML='Conversations may be saved. <a href="#" onclick="this.parentElement.innerHTML=\'✓ Opted out\';return false">[Opt out]</a> · <a href="#" onclick="alert(\'We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email, this conversation may be connected to your profile to provide more seamless and personalized experiences.\');return false">[Learn more]</a>';
     add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cA',WA);add('cA',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Continue a previous conversation? <strong style='color:#0078d4'>Enter your email</strong></div>`);c.scrollTop=0},
-  // Step 10: Email entry + match
+  // Step 15: Email entry + match
   ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Summary found.</div>`),400)},
-  // Step 11: Continue or start new
+  // Step 16: Continue or start new
   ()=>{add('cA',`<div class="rv" style="margin-top:4px"><div class="rv-t">Continue a previous conversation?</div><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Business plans — security & pricing</strong><br><span style="font-size:11px;color:#888">Mar 28 · Defender, Intune, DLP, Pricing</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
     setTimeout(()=>add('cA',bot("Previous summary: Business Premium security features — Defender, Intune, Conditional Access, DLP. Pricing: $22/user/month for a 10-person team.")),300)}
 ];

@@ -50,12 +50,12 @@ Date: April 3, 2026
   .bg-blue{background:#e0f0ff;color:#0078d4}.bg-orange{background:#ffecd0;color:#b35900}
 
   /* Panels */
-  .panel{display:none;padding:16px 24px 16px 24px}
+  .panel{display:none;padding:16px 500px 16px 24px}
   .panel.active{display:block}
 
   /* Layout */
-  .row{display:flex;gap:24px;flex-wrap:nowrap;max-width:900px;margin:0 auto;align-items:flex-start}
-  .info{flex:1 1 100%;max-width:100%;background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+  .row{display:flex;gap:24px;flex-wrap:nowrap;max-width:100%;margin:0;align-items:flex-start}
+  .info{flex:1 1 100%;background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
   .info h3{font-size:15px;font-weight:700;color:#0078d4;margin-bottom:5px}
   .info .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#999;font-weight:600;margin-bottom:3px}
   .info p{font-size:13px;color:#666;margin-bottom:10px}
@@ -65,7 +65,7 @@ Date: April 3, 2026
   .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:600;margin-bottom:8px}
   .tg{background:#dff6dd;color:#107c10}.ty{background:#fff4ce;color:#8a6914}.tr{background:#fde7e9;color:#a4262c}
 
-  .stitle{max-width:900px;margin:0 auto 10px}
+  .stitle{margin:0 0 10px;padding-right:0}
   .stitle h2{font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:2px}
   .stitle p{font-size:12px;color:#888}
 
@@ -172,7 +172,7 @@ Date: April 3, 2026
   .sc .sb p{font-size:12px;color:#888;margin-bottom:8px}
 
   /* Comparison table */
-  .ctbl{max-width:900px;margin:24px auto 0;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow-x:auto}
+  .ctbl{margin:24px 0 0;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow-x:auto}
   .ctbl table{width:100%;border-collapse:collapse;font-size:12px;min-width:900px}
   .ctbl th{background:#0078d4;color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:11px}
   .ctbl td{padding:10px 12px;border-bottom:1px solid #eee;vertical-align:top}
@@ -188,7 +188,7 @@ Date: April 3, 2026
   .save-bar a{color:#0078d4;text-decoration:none;cursor:pointer;font-weight:500}
   .save-bar a:hover{text-decoration:underline}
 
-  @media(max-width:900px){.row{flex-direction:column;align-items:center}.info{max-width:100%}.cw-wrap{position:static;transform:none;margin:16px auto}.cw{width:100%;max-width:380px}.cw-nav .nav-btn{height:500px}}
+  @media(max-width:900px){.panel{padding-right:24px}.row{flex-direction:column;align-items:center}.info{max-width:100%}.cw-wrap{position:static;transform:none;margin:16px auto}.cw{width:100%;max-width:380px;border-radius:8px;border-right:1px solid #ddd}.cw-nav .nav-btn{height:500px}}
 </style>
 </head>
 <body>
@@ -418,7 +418,7 @@ Date: April 3, 2026
       <tr><td><strong>Returning user</strong></td><td colspan="4" style="text-align:center">All pair with the <strong>email-based reconnect</strong> flow. Only works when email was captured in a prior session.</td></tr>
     </tbody>
   </table></div>
-  <div style="max-width:900px;margin:16px auto 0">
+  <div style="margin:16px 0 0">
     <div class="note"><strong>Recommendation:</strong> Consider <strong>A + D hybrid</strong> — agent drops the "save my chat" hint subtly (D), but also nudges contextually when high intent is detected (A). Pair with the Returning User flows. For Banner countries, start with C or D.</div>
   </div>
 </div>

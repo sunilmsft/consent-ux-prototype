@@ -266,7 +266,7 @@ Date: April 3, 2026
   <div class="tab" data-t="B">Option B: Notice + Opt-In<span class="badge bg-green">✓ Updated</span></div>
   <div class="tab" data-t="C">Option C: End-of-Chat Summary<span class="badge bg-orange">Pending</span></div>
   <div class="tab" data-t="D">Option D: Always-On Passive<span class="badge bg-green">✓ Updated</span></div>
-  <div class="tab" data-t="R">Returning User Flows<span class="badge bg-orange">Pending</span></div>
+  
   <div class="tab" data-t="X">Comparison<span class="badge bg-gray">After All</span></div>
 </div>
 
@@ -289,7 +289,7 @@ Date: April 3, 2026
         <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">Agent offers</span><br>email connect</div></div>
         <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
       </div>
-      <div class="ov-who"><span>&#129302; Agent initiates</span><span>&#128100; Customer can opt out</span></div>
+      
     </div>
     <div class="ov-card oc-b" onclick="document.querySelector('[data-t=B]').click()">
       <span class="ov-tag">Option B</span>
@@ -302,7 +302,7 @@ Date: April 3, 2026
         <div class="ov-step key"><div class="ov-dot">&#9989;</div><div class="ov-lbl"><span class="ov-hl">Opt-in prompt</span><br>"Save this?"</div></div>
         <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
       </div>
-      <div class="ov-who"><span>&#129302; Agent prompts mid-chat</span><span>&#128100; Customer must opt in</span></div>
+      
     </div>
     <div class="ov-card oc-c" onclick="document.querySelector('[data-t=C]').click()">
       <span class="ov-tag">Option C</span>
@@ -315,8 +315,8 @@ Date: April 3, 2026
         <div class="ov-step"><div class="ov-dot">&#128075;</div><div class="ov-lbl">Wrapping up</div></div>
         <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">"Email summary?"</span><br>at exit</div></div>
       </div>
-      <div class="ov-who"><span>&#129302; Agent asks at exit only</span><span>&#128100; Zero mid-chat interruption</span></div>
-      <div class="ov-merge">&#x2795; Merging Option D concept: customer can always request a save anytime.</div>
+      
+      
     </div>
     <div class="ov-card oc-d" onclick="document.querySelector('[data-t=D]').click()">
       <span class="ov-tag">Option D</span>
@@ -329,14 +329,11 @@ Date: April 3, 2026
         <div class="ov-step key"><div class="ov-dot">&#128279;</div><div class="ov-lbl"><span class="ov-hl">Customer taps link</span><br>at any time</div></div>
         <div class="ov-step"><div class="ov-dot">&#9989;</div><div class="ov-lbl">Connected<br>footer updates</div></div> 
       </div>
-      <div class="ov-who"><span>&#128279; Link always available</span><span>&#128100; Customer chooses when</span></div>
+      
     </div>
   </div>
   <div class="ov-legend">
-    <span><span class="ov-sw" style="background:#0078d4"></span> Key consent moment</span>
-    <span><span class="ov-sw" style="background:#f5f5f5;border:1px solid #ccc"></span> Normal chat step</span>
-    <span style="color:#ccc">|</span>
-    <span>The core difference: <strong>when</strong> and <strong>who</strong> initiates data capture.</span>
+    <span>The core difference: <strong>when</strong> and <strong>who</strong> initiates data capture. Click any card to explore the full flow.</span>
   </div>
   <div class="ov-summary">
     <h3>Quick Comparison</h3>
@@ -491,45 +488,6 @@ Date: April 3, 2026
           <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar visible" id="aD-link" style="display:flex"><span style="font-size:13px"></span> <a href="#" onclick="return false" style="font-size:11px">Connect your email</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
         </div>
         <button class="nav-btn" id="d-n" title="Next">›</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ════════ RETURNING USER ════════ -->
-<div class="panel" id="pR">
-  <div class="stitle">
-    <h2>Returning User Flow — Email-Based Reconnect</h2>
-    <p>Every visitor sees the standard welcome. A subtle link lets returning users reconnect by entering their email. Works on any device — no cookie detection needed.</p>
-  </div>
-  <div class="row">
-    <div class="info">
-      <span class="tag tr">Addresses Privacy Blocker</span>
-      <h3>How it works</h3>
-      <p class="lbl">Key insight</p>
-      <p>This flow <strong>only works when the previous session captured an email</strong>. If the user browsed anonymously, every visit is a fresh start — there's nothing to reconnect to.</p>
-      <ul>
-        <li><strong>Step 1:</strong> Standard welcome — same for everyone, new or returning.</li>
-        <li><strong>Step 2:</strong> Subtle link below the welcome: <em>"Have a saved conversation? Enter your email to continue."</em></li>
-        <li><strong>Step 3:</strong> Customer enters email → system checks for a match.</li>
-        <li><strong>Step 4 (match):</strong> Previous topic context loads. Conversation resumes.</li>
-        <li><strong>Step 4 (no match):</strong> "No saved session found." Clean start.</li>
-      </ul>
-      <div class="note"><strong>Why this is better:</strong> No cookie detection, no private-vs-shared machine problem, no "Welcome back" assumption. Email is the key — works on any device, any browser. Solves Scenario 5 without needing device signals.</div>
-      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>Privacy safe:</strong> Zero PII exposed until email is entered and matched. A stranger sees nothing. No topic hints, no names, no history — just the standard welcome + a generic reconnect link.</div>
-      <div class="note" style="border-left-color:#107c10;margin-top:8px"><strong>Auto-expire:</strong> Saved sessions expire after 48 hrs (configurable). Even matched sessions don't persist indefinitely.</div>
-      <div class="note" style="border-left-color:#8a6914;margin-top:8px"><strong>Limitation:</strong> If the previous user never provided an email (e.g., Options C/D where email is end-of-chat or customer-initiated), there's nothing to reconnect to. This flow is only possible when email was captured in a prior session.</div>
-    </div>
-    <div class="cw-wrap">
-      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="r-l">1 / 6</span></div>
-      <div class="cw-nav">
-        <button class="nav-btn" id="r-p" disabled title="Back">‹</button>
-        <div class="cw">
-          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">✕</button></div>
-          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cR"></div></div>
-          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-        </div>
-        <button class="nav-btn" id="r-n" title="Next">›</button>
       </div>
     </div>
   </div>
@@ -832,26 +790,7 @@ const sD=[null,
     setTimeout(()=>add('cD',bot("Welcome back! Last time we discussed Surface Laptop 7 for Business starting at $1,399, and I recommended Microsoft Complete for Business warranty for your team's 3-year refresh cycle.<br><br>Would you like to continue from there, or do you have a new question?")),300)}
 ];
 
-// ═══ RETURNING USER ═══
-const sR=[null,
-  // Step 2: Standard welcome + subtle reconnect link
-  ()=>{
-    add('cR',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px;cursor:pointer" id="r-link" onclick="document.getElementById('r-link').classList.add('hidden');document.getElementById('r-email').classList.remove('hidden')">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>
-<div class="hidden" id="r-email"><div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" id="r-input"><button class="ec-btn" onclick="document.getElementById('r-email').innerHTML='<div style=\\'padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px\\'>✓ Match found — loading your session...</div>'">Continue</button><button class="ec-skip" onclick="document.getElementById('r-email').classList.add('hidden');document.getElementById('r-link').classList.remove('hidden')">Cancel</button></div></div>`)},
-  // Step 3: Match found — context loads
-  ()=>{
-    add('cR',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 collaboration tools</strong><br><span style="font-size:11px;color:#888">Yesterday · Microsoft Loop, Teams, SharePoint</span></div></div></div>`);
-    setTimeout(()=>add('cR',bot("Last time we covered:<br><br>💬 <strong>Topic:</strong> Microsoft 365 collaboration tools<br>📝 <strong>Deep-dive:</strong> Microsoft Loop vs Notion-style tools<br>🔗 <strong>Key takeaway:</strong> Loop components sync across Teams, Outlook, and Word<br><br>Want to continue exploring, or do you have a new question?")),300)},
-  // Step 4: No match scenario
-  ()=>{
-    add('cR',`<div style="background:#fde7e9;border:1px solid #f3c6cb;border-radius:8px;padding:10px 14px;font-size:12px;color:#a4262c;font-weight:600;text-align:center;margin:12px 0 8px">⚠️ Alternate outcome: No match found</div>`);
-    add('cR',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:14px;text-align:center"><div style="font-size:13px;color:#555;margin-bottom:6px">No saved conversation found for that email.</div><div style="font-size:12px;color:#888">This could mean the email is different, the session expired, or no email was captured last time.</div><div style="margin-top:10px"><button style="padding:7px 16px;background:#0078d4;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">Start a new conversation</button></div></div>`);
-    setTimeout(()=>add('cR',`<div style="border:2px dashed #c0d8f0;border-radius:8px;padding:14px;background:#fafafa;margin-top:12px"><div style="font-size:13px;font-weight:700;color:#0078d4;margin-bottom:4px">Why no match?</div><div style="font-size:12px;color:#555;line-height:1.6">• Previous user never provided an email (anonymous session)<br>• Email doesn't match what was saved<br>• Saved session expired (auto-expire after 48 hrs)<br>• Different person on a shared device</div></div>`),200)},
-  // Step 5: What a stranger / new user sees
-  ()=>{
-    add('cR',`<div style="border:2px dashed #c0d8f0;border-radius:8px;padding:14px;background:#fafafa;margin-top:8px"><div style="font-size:13px;font-weight:700;color:#0078d4;margin-bottom:6px">🔀 What a new user or stranger sees</div><div style="font-size:12px;color:#555;margin-bottom:10px">A new user simply ignores the reconnect link. They see the standard welcome and chat normally — zero friction added:</div><div class="m mb" style="margin:0;font-size:13px">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative.<br><br>What can I do for you?${T}</div><div style="font-size:11px;color:#888;margin-top:8px;text-align:center">↑ The reconnect link is one line — easy to ignore if not applicable.</div></div>`);
-    add('cR',`<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:10px 14px;flex:1;min-width:80px;text-align:center"><div style="font-weight:700;font-size:15px;color:#0078d4">24 hrs</div><div style="font-size:10px;color:#888">Conservative</div></div><div style="background:#e8f4fd;border:1px solid #c0d8f0;border-radius:8px;padding:10px 14px;flex:1;min-width:80px;text-align:center"><div style="font-weight:700;font-size:15px;color:#0078d4">48 hrs ⭐</div><div style="font-size:10px;color:#888">Recommended</div></div><div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:10px 14px;flex:1;min-width:80px;text-align:center"><div style="font-weight:700;font-size:15px;color:#0078d4">7 days</div><div style="font-size:10px;color:#888">Known users</div></div></div>`)}
-];
+
 
 // ═══ STEPPER ENGINE ═══
 function mkStep(p,steps,wHtml){
@@ -863,7 +802,7 @@ function mkStep(p,steps,wHtml){
   pb.addEventListener('click',()=>{if(s>0){rst();s--;for(let i=1;i<=s;i++)if(steps[i])steps[i]();u()}});
   u();
 }
-mkStep('a',sA,WA);mkStep('b',sB,W);mkStep('c',sC,W);mkStep('d',sD,W);mkStep('r',sR,W);
+mkStep('a',sA,WA);mkStep('b',sB,W);mkStep('c',sC,W);mkStep('d',sD,W);
 </script>
 </body>
 </html>

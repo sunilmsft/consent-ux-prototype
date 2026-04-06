@@ -7,90 +7,7 @@ CHANGE LOG — Ask Microsoft Consent & Identity UX Prototype
 Version: V4 — Refined UX Iteration (based on v3)
 Date: April 3, 2026
 
-<!--  OVERVIEW  -->
-<div class="panel active" id="pO">
-  <div class="stitle">
-    <h2>Consent &amp; Identity Options at a Glance</h2>
-    <p>Four approaches to transitioning customers from unknown to known. Click any card to explore its full walk-through.</p>
-  </div>
-  <div class="ov-grid">
-    <div class="ov-card oc-a" onclick="document.querySelector('[data-t=A]').click()">
-      <span class="ov-star">&#9733; Preferred</span>
-      <span class="ov-tag">Option A</span>
-      <h3>Notice + Opt-Out</h3>
-      <div class="ov-model">Consent Model #2 &middot; Default for most eCommerce</div>
-      <div class="ov-desc">"We let you know upfront that conversations may be saved. Opt out anytime."</div>
-      <div class="ov-tl">
-        <div class="ov-step key"><div class="ov-dot">&#128172;</div><div class="ov-lbl"><span class="ov-hl">Notice</span><br>in welcome</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Customer chats</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">Agent offers</span><br>email connect</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
-      </div>
-      <div class="ov-who"><span>&#129302; Agent initiates</span><span>&#128100; Customer can opt out</span></div>
-    </div>
-    <div class="ov-card oc-b" onclick="document.querySelector('[data-t=B]').click()">
-      <span class="ov-tag">Option B</span>
-      <h3>Notice + Opt-In</h3>
-      <div class="ov-model">Consent Model #3 &middot; Banner countries &amp; sensitive markets</div>
-      <div class="ov-desc">"Nothing is saved unless you explicitly choose to opt in."</div>
-      <div class="ov-tl">
-        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no saving)</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Customer chats</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#9989;</div><div class="ov-lbl"><span class="ov-hl">Opt-in prompt</span><br>"Save this?"</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
-      </div>
-      <div class="ov-who"><span>&#129302; Agent prompts mid-chat</span><span>&#128100; Customer must opt in</span></div>
-    </div>
-    <div class="ov-card oc-c" onclick="document.querySelector('[data-t=C]').click()">
-      <span class="ov-tag">Option C</span>
-      <h3>End-of-Chat Capture</h3>
-      <div class="ov-model">Opt-In at Exit &middot; Lowest friction during conversation</div>
-      <div class="ov-desc">"Chat without interruption. We only ask when you are ready to leave."</div>
-      <div class="ov-tl">
-        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no prompts)</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Full conversation<br>uninterrupted</div></div>
-        <div class="ov-step"><div class="ov-dot">&#128075;</div><div class="ov-lbl">Wrapping up</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">"Email summary?"</span><br>at exit</div></div>
-      </div>
-      <div class="ov-who"><span>&#129302; Agent asks at exit only</span><span>&#128100; Zero mid-chat interruption</span></div>
-      <div class="ov-merge">&#x2795; Merging Option D concept: customer can always request a save anytime.</div>
-    </div>
-    <div class="ov-card oc-d" onclick="document.querySelector('[data-t=D]').click()">
-      <span class="ov-dropped">Merging into C</span>
-      <span class="ov-tag">Option D</span>
-      <h3>Customer-Initiated</h3>
-      <div class="ov-model">Zero proactive prompts &middot; Privacy-first markets</div>
-      <div class="ov-desc">"We never ask. You tell us if you want something saved."</div>
-      <div class="ov-tl">
-        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no prompts)</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Full conversation</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">No prompts<br>ever shown</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#128100;</div><div class="ov-lbl"><span class="ov-hl">Customer asks</span><br>"Email me this"</div></div>
-      </div>
-      <div class="ov-who"><span>&#129302; Agent never initiates</span><span>&#128100; 100% customer-driven</span></div>
-    </div>
-  </div>
-  <div class="ov-legend">
-    <span><span class="ov-sw" style="background:#0078d4"></span> Key consent moment</span>
-    <span><span class="ov-sw" style="background:#f5f5f5;border:1px solid #ccc"></span> Normal chat step</span>
-    <span style="color:#ccc">|</span>
-    <span>The core difference: <strong>when</strong> and <strong>who</strong> initiates data capture.</span>
-  </div>
-  <div class="ov-summary">
-    <h3>Quick Comparison</h3>
-    <table>
-      <thead><tr><th>Dimension</th><th>A: Notice + Opt-Out &#9733;</th><th>B: Notice + Opt-In</th><th>C: End-of-Chat</th><th>D: Customer-Initiated</th></tr></thead>
-      <tbody>
-        <tr><td><strong>When asked</strong></td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>At exit only</td><td>Never (customer drives)</td></tr>
-        <tr><td><strong>Who initiates</strong></td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit)</td><td>Customer only</td></tr>
-        <tr><td><strong>Email ends chat?</strong></td><td style="color:#107c10">No &#8212; continues</td><td style="color:#107c10">No &#8212; continues</td><td>Yes &#8212; at exit</td><td>Yes &#8212; after save</td></tr>
-        <tr><td><strong>Friction level</strong></td><td style="color:#107c10">Low</td><td>Medium</td><td style="color:#107c10">Lowest</td><td style="color:#107c10">Zero push</td></tr>
-        <tr><td><strong>Privacy/CELA risk</strong></td><td style="color:#107c10">Low</td><td style="color:#107c10">Low</td><td style="color:#107c10">Lowest</td><td style="color:#107c10">Lowest</td></tr>
-        <tr><td><strong>Best for</strong></td><td>Default experience</td><td>Banner countries, pilots</td><td>Sensitive markets</td><td>Privacy-first markets</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+
 
 - Option A: NOTICE + OPT-OUT — Preferred Consent Model (REWORKED)
     • Aligns with Preferred consent model from User Consent Options table
@@ -348,6 +265,91 @@ Date: April 3, 2026
   <div class="tab" data-t="D">Option D: Customer-Initiated<span class="badge bg-orange">Pending</span></div>
   <div class="tab" data-t="R">Returning User Flows<span class="badge bg-orange">Pending</span></div>
   <div class="tab" data-t="X">Comparison<span class="badge bg-gray">After All</span></div>
+</div>
+
+<!--  OVERVIEW  -->
+<div class="panel active" id="pO">
+  <div class="stitle">
+    <h2>Consent &amp; Identity Options at a Glance</h2>
+    <p>Four approaches to transitioning customers from unknown to known. Click any card to explore its full walk-through.</p>
+  </div>
+  <div class="ov-grid">
+    <div class="ov-card oc-a" onclick="document.querySelector('[data-t=A]').click()">
+      <span class="ov-star">&#9733; Preferred</span>
+      <span class="ov-tag">Option A</span>
+      <h3>Notice + Opt-Out</h3>
+      <div class="ov-model">Consent Model #2 &middot; Default for most eCommerce</div>
+      <div class="ov-desc">"We let you know upfront that conversations may be saved. Opt out anytime."</div>
+      <div class="ov-tl">
+        <div class="ov-step key"><div class="ov-dot">&#128172;</div><div class="ov-lbl"><span class="ov-hl">Notice</span><br>in welcome</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Customer chats</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">Agent offers</span><br>email connect</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent initiates</span><span>&#128100; Customer can opt out</span></div>
+    </div>
+    <div class="ov-card oc-b" onclick="document.querySelector('[data-t=B]').click()">
+      <span class="ov-tag">Option B</span>
+      <h3>Notice + Opt-In</h3>
+      <div class="ov-model">Consent Model #3 &middot; Banner countries &amp; sensitive markets</div>
+      <div class="ov-desc">"Nothing is saved unless you explicitly choose to opt in."</div>
+      <div class="ov-tl">
+        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no saving)</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Customer chats</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#9989;</div><div class="ov-lbl"><span class="ov-hl">Opt-in prompt</span><br>"Save this?"</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent prompts mid-chat</span><span>&#128100; Customer must opt in</span></div>
+    </div>
+    <div class="ov-card oc-c" onclick="document.querySelector('[data-t=C]').click()">
+      <span class="ov-tag">Option C</span>
+      <h3>End-of-Chat Capture</h3>
+      <div class="ov-model">Opt-In at Exit &middot; Lowest friction during conversation</div>
+      <div class="ov-desc">"Chat without interruption. We only ask when you are ready to leave."</div>
+      <div class="ov-tl">
+        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no prompts)</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Full conversation<br>uninterrupted</div></div>
+        <div class="ov-step"><div class="ov-dot">&#128075;</div><div class="ov-lbl">Wrapping up</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">"Email summary?"</span><br>at exit</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent asks at exit only</span><span>&#128100; Zero mid-chat interruption</span></div>
+      <div class="ov-merge">&#x2795; Merging Option D concept: customer can always request a save anytime.</div>
+    </div>
+    <div class="ov-card oc-d" onclick="document.querySelector('[data-t=D]').click()">
+      <span class="ov-dropped">Merging into C</span>
+      <span class="ov-tag">Option D</span>
+      <h3>Customer-Initiated</h3>
+      <div class="ov-model">Zero proactive prompts &middot; Privacy-first markets</div>
+      <div class="ov-desc">"We never ask. You tell us if you want something saved."</div>
+      <div class="ov-tl">
+        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no prompts)</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Full conversation</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">No prompts<br>ever shown</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#128100;</div><div class="ov-lbl"><span class="ov-hl">Customer asks</span><br>"Email me this"</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent never initiates</span><span>&#128100; 100% customer-driven</span></div>
+    </div>
+  </div>
+  <div class="ov-legend">
+    <span><span class="ov-sw" style="background:#0078d4"></span> Key consent moment</span>
+    <span><span class="ov-sw" style="background:#f5f5f5;border:1px solid #ccc"></span> Normal chat step</span>
+    <span style="color:#ccc">|</span>
+    <span>The core difference: <strong>when</strong> and <strong>who</strong> initiates data capture.</span>
+  </div>
+  <div class="ov-summary">
+    <h3>Quick Comparison</h3>
+    <table>
+      <thead><tr><th>Dimension</th><th>A: Notice + Opt-Out &#9733;</th><th>B: Notice + Opt-In</th><th>C: End-of-Chat</th><th>D: Customer-Initiated</th></tr></thead>
+      <tbody>
+        <tr><td><strong>When asked</strong></td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>At exit only</td><td>Never (customer drives)</td></tr>
+        <tr><td><strong>Who initiates</strong></td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit)</td><td>Customer only</td></tr>
+        <tr><td><strong>Email ends chat?</strong></td><td style="color:#107c10">No &#8212; continues</td><td style="color:#107c10">No &#8212; continues</td><td>Yes &#8212; at exit</td><td>Yes &#8212; after save</td></tr>
+        <tr><td><strong>Friction level</strong></td><td style="color:#107c10">Low</td><td>Medium</td><td style="color:#107c10">Lowest</td><td style="color:#107c10">Zero push</td></tr>
+        <tr><td><strong>Privacy/CELA risk</strong></td><td style="color:#107c10">Low</td><td style="color:#107c10">Low</td><td style="color:#107c10">Lowest</td><td style="color:#107c10">Lowest</td></tr>
+        <tr><td><strong>Best for</strong></td><td>Default experience</td><td>Banner countries, pilots</td><td>Sensitive markets</td><td>Privacy-first markets</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- ════════ OPTION A ════════ -->

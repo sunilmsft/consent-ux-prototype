@@ -7,6 +7,91 @@ CHANGE LOG — Ask Microsoft Consent & Identity UX Prototype
 Version: V4 — Refined UX Iteration (based on v3)
 Date: April 3, 2026
 
+<!--  OVERVIEW  -->
+<div class="panel active" id="pO">
+  <div class="stitle">
+    <h2>Consent &amp; Identity Options at a Glance</h2>
+    <p>Four approaches to transitioning customers from unknown to known. Click any card to explore its full walk-through.</p>
+  </div>
+  <div class="ov-grid">
+    <div class="ov-card oc-a" onclick="document.querySelector('[data-t=A]').click()">
+      <span class="ov-star">&#9733; Preferred</span>
+      <span class="ov-tag">Option A</span>
+      <h3>Notice + Opt-Out</h3>
+      <div class="ov-model">Consent Model #2 &middot; Default for most eCommerce</div>
+      <div class="ov-desc">"We let you know upfront that conversations may be saved. Opt out anytime."</div>
+      <div class="ov-tl">
+        <div class="ov-step key"><div class="ov-dot">&#128172;</div><div class="ov-lbl"><span class="ov-hl">Notice</span><br>in welcome</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Customer chats</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">Agent offers</span><br>email connect</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent initiates</span><span>&#128100; Customer can opt out</span></div>
+    </div>
+    <div class="ov-card oc-b" onclick="document.querySelector('[data-t=B]').click()">
+      <span class="ov-tag">Option B</span>
+      <h3>Notice + Opt-In</h3>
+      <div class="ov-model">Consent Model #3 &middot; Banner countries &amp; sensitive markets</div>
+      <div class="ov-desc">"Nothing is saved unless you explicitly choose to opt in."</div>
+      <div class="ov-tl">
+        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no saving)</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Customer chats</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#9989;</div><div class="ov-lbl"><span class="ov-hl">Opt-in prompt</span><br>"Save this?"</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Chat continues</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent prompts mid-chat</span><span>&#128100; Customer must opt in</span></div>
+    </div>
+    <div class="ov-card oc-c" onclick="document.querySelector('[data-t=C]').click()">
+      <span class="ov-tag">Option C</span>
+      <h3>End-of-Chat Capture</h3>
+      <div class="ov-model">Opt-In at Exit &middot; Lowest friction during conversation</div>
+      <div class="ov-desc">"Chat without interruption. We only ask when you are ready to leave."</div>
+      <div class="ov-tl">
+        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no prompts)</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Full conversation<br>uninterrupted</div></div>
+        <div class="ov-step"><div class="ov-dot">&#128075;</div><div class="ov-lbl">Wrapping up</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">"Email summary?"</span><br>at exit</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent asks at exit only</span><span>&#128100; Zero mid-chat interruption</span></div>
+      <div class="ov-merge">&#x2795; Merging Option D concept: customer can always request a save anytime.</div>
+    </div>
+    <div class="ov-card oc-d" onclick="document.querySelector('[data-t=D]').click()">
+      <span class="ov-dropped">Merging into C</span>
+      <span class="ov-tag">Option D</span>
+      <h3>Customer-Initiated</h3>
+      <div class="ov-model">Zero proactive prompts &middot; Privacy-first markets</div>
+      <div class="ov-desc">"We never ask. You tell us if you want something saved."</div>
+      <div class="ov-tl">
+        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat starts<br>(no prompts)</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Full conversation</div></div>
+        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">No prompts<br>ever shown</div></div>
+        <div class="ov-step key"><div class="ov-dot">&#128100;</div><div class="ov-lbl"><span class="ov-hl">Customer asks</span><br>"Email me this"</div></div>
+      </div>
+      <div class="ov-who"><span>&#129302; Agent never initiates</span><span>&#128100; 100% customer-driven</span></div>
+    </div>
+  </div>
+  <div class="ov-legend">
+    <span><span class="ov-sw" style="background:#0078d4"></span> Key consent moment</span>
+    <span><span class="ov-sw" style="background:#f5f5f5;border:1px solid #ccc"></span> Normal chat step</span>
+    <span style="color:#ccc">|</span>
+    <span>The core difference: <strong>when</strong> and <strong>who</strong> initiates data capture.</span>
+  </div>
+  <div class="ov-summary">
+    <h3>Quick Comparison</h3>
+    <table>
+      <thead><tr><th>Dimension</th><th>A: Notice + Opt-Out &#9733;</th><th>B: Notice + Opt-In</th><th>C: End-of-Chat</th><th>D: Customer-Initiated</th></tr></thead>
+      <tbody>
+        <tr><td><strong>When asked</strong></td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>At exit only</td><td>Never (customer drives)</td></tr>
+        <tr><td><strong>Who initiates</strong></td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit)</td><td>Customer only</td></tr>
+        <tr><td><strong>Email ends chat?</strong></td><td style="color:#107c10">No &#8212; continues</td><td style="color:#107c10">No &#8212; continues</td><td>Yes &#8212; at exit</td><td>Yes &#8212; after save</td></tr>
+        <tr><td><strong>Friction level</strong></td><td style="color:#107c10">Low</td><td>Medium</td><td style="color:#107c10">Lowest</td><td style="color:#107c10">Zero push</td></tr>
+        <tr><td><strong>Privacy/CELA risk</strong></td><td style="color:#107c10">Low</td><td style="color:#107c10">Low</td><td style="color:#107c10">Lowest</td><td style="color:#107c10">Lowest</td></tr>
+        <tr><td><strong>Best for</strong></td><td>Default experience</td><td>Banner countries, pilots</td><td>Sensitive markets</td><td>Privacy-first markets</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 - Option A: NOTICE + OPT-OUT — Preferred Consent Model (REWORKED)
     • Aligns with Preferred consent model from User Consent Options table
     • Welcome message includes consent notice with [Opt out] link
@@ -19,10 +104,19 @@ Date: April 3, 2026
     • Returning user: "Continue a previous conversation?" with email lookup
     • 11 steps total
     • Previous version archived as v4-pre-rework.html
-- Option B: [pending]
+- Option B: NOTICE + OPT-IN  Explicit Consent Model (REWORKED Apr 5)
+     16-step flow: default path (1-8) + declined variant (9-13) + returning user (14-16)
+     Professional consent language: "Would you like to save this conversation?"
+     Email = enablement mid-conversation, chat continues after
+     Declined path: no nudges shown, customer-initiated email still honored
+     Comparison tab updated with new flow and descriptions
 - Option C: [pending]
 - Option D: [pending]
 - Returning User: [pending]
+- OVERVIEW TAB: Added as default landing page (Apr 5)
+     Visual cards for all 4 options with timeline diagrams
+     Click-to-navigate to individual option walk-throughs  
+     Quick comparison table
 - Comparison Table: [pending — update after all options finalized]
 
 ══════════════════════════════════════════════════════════════
@@ -53,6 +147,7 @@ Date: April 3, 2026
   /* Panels */
   .panel{display:none;padding:16px 500px 16px 24px}
   .panel.active{display:block}
+  #pO{padding-right:24px}
 
   /* Layout */
   .row{display:flex;gap:24px;flex-wrap:nowrap;max-width:100%;margin:0;align-items:flex-start}
@@ -193,6 +288,40 @@ Date: April 3, 2026
   .save-bar a{color:#0078d4;text-decoration:none;cursor:pointer;font-weight:500}
   .save-bar a:hover{text-decoration:underline}
 
+
+  /* Overview panel */
+  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px;margin:0 auto}
+  .ov-card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.06);position:relative;border-top:4px solid #ccc;cursor:pointer;transition:box-shadow .2s,transform .15s}
+  .ov-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);transform:translateY(-2px)}
+  .ov-card.oc-a{border-top-color:#0078d4}.ov-card.oc-b{border-top-color:#8661c5}.ov-card.oc-c{border-top-color:#13a10e}.ov-card.oc-d{border-top-color:#c19c00}
+  .ov-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:10px;color:#fff;margin-bottom:8px}
+  .ov-card.oc-a .ov-tag{background:#0078d4}.ov-card.oc-b .ov-tag{background:#8661c5}.ov-card.oc-c .ov-tag{background:#13a10e}.ov-card.oc-d .ov-tag{background:#c19c00}
+  .ov-card h3{font-size:15px;font-weight:700;margin-bottom:2px;color:#1a1a1a}
+  .ov-card .ov-model{font-size:11px;color:#888;margin-bottom:10px}
+  .ov-card .ov-desc{font-size:13px;color:#444;line-height:1.5;margin-bottom:14px;font-style:italic}
+  .ov-tl{display:flex;align-items:flex-start;position:relative;margin-bottom:12px}
+  .ov-tl::before{content:'';position:absolute;top:18px;left:18px;right:18px;height:2px;background:#e8e8e8;z-index:1}
+  .ov-step{flex:1;text-align:center;position:relative;min-width:0}
+  .ov-dot{width:36px;height:36px;border-radius:50%;margin:0 auto 5px;display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;z-index:2;background:#f5f5f5;border:2px solid #e0e0e0}
+  .ov-step.key .ov-dot{border-width:2px}
+  .ov-card.oc-a .ov-step.key .ov-dot{background:#0078d4;border-color:#0078d4;color:#fff}
+  .ov-card.oc-b .ov-step.key .ov-dot{background:#8661c5;border-color:#8661c5;color:#fff}
+  .ov-card.oc-c .ov-step.key .ov-dot{background:#13a10e;border-color:#13a10e;color:#fff}
+  .ov-card.oc-d .ov-step.key .ov-dot{background:#c19c00;border-color:#c19c00;color:#fff}
+  .ov-step .ov-lbl{font-size:10px;line-height:1.3;color:#666;padding:0 2px}
+  .ov-step .ov-hl{font-weight:700}
+  .ov-card.oc-a .ov-step .ov-hl{color:#0078d4}.ov-card.oc-b .ov-step .ov-hl{color:#8661c5}.ov-card.oc-c .ov-step .ov-hl{color:#13a10e}.ov-card.oc-d .ov-step .ov-hl{color:#c19c00}
+  .ov-who{display:flex;justify-content:space-between;font-size:11px;color:#999;border-top:1px solid #f0f0f0;padding-top:10px}
+  .ov-star{position:absolute;top:16px;right:16px;background:#fff3cd;color:#856404;font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px}
+  .ov-dropped{position:absolute;top:16px;right:16px;background:#f0f0f0;color:#999;font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;text-decoration:line-through}
+  .ov-merge{background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;font-size:11px;border-radius:0 6px 6px 0;color:#5d4037;margin-top:6px}
+  .ov-legend{margin-top:24px;display:flex;gap:20px;font-size:12px;color:#888;align-items:center;justify-content:center}
+  .ov-sw{width:14px;height:14px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle}
+  .ov-summary{max-width:1000px;margin:20px auto 0;background:#fff;border-radius:10px;padding:16px 20px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+  .ov-summary h3{font-size:14px;color:#0078d4;margin-bottom:8px}
+  .ov-summary table{width:100%;border-collapse:collapse;font-size:12px}
+  .ov-summary th{text-align:left;background:#f5f5f5;padding:8px 10px;font-weight:600;font-size:11px;color:#555}
+  .ov-summary td{padding:8px 10px;border-bottom:1px solid #f0f0f0;vertical-align:top}
   @media(max-width:900px){.panel{padding-right:24px}.row{flex-direction:column;align-items:center}.info{max-width:100%}.cw-wrap{position:static;transform:none;margin:16px auto}.cw{width:100%;max-width:380px;border-radius:8px;border-right:1px solid #ddd}.cw-nav .nav-btn{height:500px}}
 </style>
 </head>
@@ -212,8 +341,9 @@ Date: April 3, 2026
 </div>
 
 <div class="tabs">
-  <div class="tab active" data-t="A">Option A: Notice + Opt-Out ★<span class="badge bg-green">✓ Updated</span></div>
-  <div class="tab" data-t="B">Option B: Contextual Nudge<span class="badge bg-orange">Pending</span></div>
+  <div class="tab active" data-t="O">Overview<span class="badge bg-blue">Start Here</span></div>
+  <div class="tab" data-t="A">Option A: Notice + Opt-Out ★<span class="badge bg-green">✓ Updated</span></div>
+  <div class="tab" data-t="B">Option B: Notice + Opt-In<span class="badge bg-green">✓ Updated</span></div>
   <div class="tab" data-t="C">Option C: End-of-Chat Summary<span class="badge bg-orange">Pending</span></div>
   <div class="tab" data-t="D">Option D: Customer-Initiated<span class="badge bg-orange">Pending</span></div>
   <div class="tab" data-t="R">Returning User Flows<span class="badge bg-orange">Pending</span></div>
@@ -221,7 +351,7 @@ Date: April 3, 2026
 </div>
 
 <!-- ════════ OPTION A ════════ -->
-<div class="panel active" id="pA">
+<div class="panel" id="pA">
   <div class="stitle">
     <h2>Option A: Notice + Opt-Out — Preferred Consent Model ★</h2>
     <p>Conversation saved by default with upfront notice. Email capture mid-conversation enables identity connection — chat keeps going after. Summary auto-sent when customer leaves.</p>
@@ -260,24 +390,26 @@ Date: April 3, 2026
 <!-- ════════ OPTION B ════════ -->
 <div class="panel" id="pB">
   <div class="stitle">
-    <h2>Option B: Contextual Nudge — Subtle Banner After Engagement</h2>
-    <p>Dismissible consent banner appears after the customer's first message. Email captured when naturally relevant.</p>
+    <h2>Option B: Notice + Opt-In  Explicit Consent Before Saving</h2>
+    <p>Nothing is saved unless the customer explicitly opts in. After a few exchanges, a professional consent prompt gives the customer full control.</p>
   </div>
   <div class="row">
     <div class="info">
       <span class="tag ty">Medium Friction</span>
       <h3>How it works</h3>
-      <p class="lbl">Consent: Notice + Opt-In</p>
+      <p class="lbl">Consent: Notice + Opt-In (Model #3)</p>
       <ul>
-        <li><strong>Step 1:</strong> Standard welcome.</li>
-        <li><strong>Step 2:</strong> Customer engages, agent responds.</li>
-        <li><strong>Step 3:</strong> Subtle banner: "Remember this for next time?" with opt-in/dismiss.</li>
-        <li><strong>Step 4:</strong> Conversation continues. Email offered when natural.</li>
+        <li><strong>Welcome:</strong> Standard welcome with no consent notice. Nothing is saved by default.</li>
+        <li><strong>After engagement:</strong> Once the customer has shown interest, a consent prompt asks: "Would you like to save this conversation?" with clear opt-in/decline.</li>
+        <li><strong>If opted in:</strong> Agent offers email connection mid-conversation to enable continuity. Chat continues after email capture.</li>
+        <li><strong>If declined:</strong> Conversation continues normally with no further prompts. Customer can still request a summary at any time.</li>
+        <li><strong>Returning user:</strong> "Continue a previous conversation?"  email lookup reconnects to prior session.</li>
       </ul>
-      <div class="note"><strong>Privacy:</strong> Nothing saved unless explicit opt-in. Strongest for Banner countries and early pilots.</div>
-    </div>
-    <div class="cw-wrap">
-      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="b-l">1 / 8</span></div>
+      <div class="note"><strong>Key difference from Option A:</strong> No data is saved by default. The customer must actively choose to enable saving. This is the strongest model for Banner countries, sensitive markets, and early pilots.</div>
+      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If customer declines:</strong> No saving occurs. No email nudge is shown. But if the customer later explicitly asks (e.g., "Can you email me a summary?"), the request is honored.</div>
+      <div class="note" style="border-left-color:#107c10;margin-top:8px"><strong>Aligns with Opt-In consent model:</strong> "Would you like us to save this conversation to personalize future interactions?" Strongest privacy posture while still enabling data capture for willing customers.</div>
+    </div><div class="cw-wrap">
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="b-l">1 / 16</span></div>
       <div class="cw-nav">
         <button class="nav-btn" id="b-p" disabled title="Back">‹</button>
         <div class="cw">
@@ -419,13 +551,13 @@ Date: April 3, 2026
       </div>
     </div>
     <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px">
-      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">B: Contextual Nudge</div>
+      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">B: Notice + Opt-In</div>
       <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Opt-In Banner After Engagement</div>
       <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Nothing saved until customer explicitly opts in via a dismissible banner. Email asked later when contextually relevant. More friction but stronger consent.</p>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">
         <div style="font-size:10px;font-weight:700;color:#8a6914;text-transform:uppercase;margin-bottom:4px">Flow</div>
         <div style="font-size:11px;color:#444;line-height:1.7">
-          Welcome (no notice) →<br>Customer chats →<br>Banner: "Remember for next time?" →<br>Opt in / dismiss →<br>Later: "Email you a comparison?" →<br>Email capture → <strong>ends conversation</strong> →<br>Return: email lookup → resume
+          Welcome (no notice) →<br>Customer chats →<br>Consent prompt: "Save this conversation?" →<br>Opt in / decline →<br>Email connect mid-conversation <br><strong>Chat continues</strong> <br>Return: email lookup  resume
         </div>
       </div>
     </div>
@@ -458,14 +590,14 @@ Date: April 3, 2026
     <thead><tr>
       <th style="width:15%">Dimension</th>
       <th>A: Notice + Opt-Out ★</th>
-      <th>B: Contextual Nudge</th>
+      <th>B: Notice + Opt-In</th>
       <th>C: End-of-Chat Summary</th>
       <th>D: Customer-Initiated</th>
     </tr></thead>
     <tbody>
       <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Opt-In at Exit</td><td>Customer-Initiated</td></tr>
       <tr><td><strong>When email asked</strong></td><td>Mid-conversation</td><td>Banner + later</td><td>End of chat only</td><td>When customer types keyword</td></tr>
-      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No — chat continues</span></td><td><span class="con">Yes</span></td><td><span class="con">Yes</span></td><td><span class="con">Yes</span></td></tr>
+      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No — chat continues</span></td><td><span class="pro">No  chat continues</span></td><td><span class="con">Yes</span></td><td><span class="con">Yes</span></td></tr>
       <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">★ Low</span></td><td><span class="con">★★ Medium</span></td><td><span class="pro">★ Lowest</span></td><td><span class="pro">★ Zero push</span></td></tr>
       <tr><td><strong>Who initiates</strong></td><td>Agent (contextual)</td><td>System (banner)</td><td>Agent (at exit)</td><td>Customer (keyword)</td></tr>
       <tr><td><strong>Email capture rate</strong></td><td><span class="pro">Higher</span></td><td>Moderate</td><td><span class="con">Lower</span></td><td><span class="con">Lowest</span> but highest intent</td></tr>
@@ -568,20 +700,56 @@ const sA=[null,
     setTimeout(()=>add('cA',bot("Previous summary: Business Premium security features — Defender, Intune, Conditional Access, DLP. Pricing: $22/user/month for a 10-person team.")),300)}
 ];
 
-// ═══ OPTION B: Contextual Nudge ═══
+//  OPTION B: Notice + Opt-In  Explicit Consent Model 
 const sB=[null,
+  // Step 2: Customer asks about home plans
   ()=>{add('cB',usr("What features come with Microsoft 365 for home use?"));add('cB','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cB',bot("For home use, there are two options:<br><br><strong>Microsoft 365 Personal</strong><br>✓ Full desktop apps — Word, Excel, PowerPoint, Outlook<br>✓ 1 TB OneDrive storage<br>✓ Microsoft Editor (AI writing assistant)<br>✓ Clipchamp video editor<br><br><strong>Microsoft 365 Family</strong><br>✓ Everything in Personal, shared with up to 6 people<br>✓ 6 TB total OneDrive (1 TB per person)<br>✓ Family Safety — screen time, location sharing, content filters<br><br>Are you looking for just yourself or for family members too?"));add('cB','<span class="ts">just now</span>')},300)},
-  ()=>add('cB',`<div class="consent consent-optin"><div class="ci">✨</div><div class="cb"><strong>Remember this for next time?</strong><br>I can save your preferences for future visits.<div class="ca"><button class="bp" onclick="this.closest('.consent').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span>✓</span><div style=\\'font-size:12px;color:#107c10;font-weight:600\\'>Enabled — I\\'ll remember your preferences.</div></div>'">Yes, remember me</button><button onclick="this.closest('.consent').innerHTML='<div style=\\'font-size:12px;color:#888;padding:4px\\'>Browsing anonymously. Enable anytime.</div>'">No thanks</button></div></div></div>`),
+    setTimeout(()=>{add('cB',bot("For home use, there are two options:<br><br><strong>Microsoft 365 Personal</strong><br> Full desktop apps  Word, Excel, PowerPoint, Outlook<br> 1 TB OneDrive storage<br> Microsoft Editor (AI writing assistant)<br> Clipchamp video editor<br><br><strong>Microsoft 365 Family</strong><br> Everything in Personal, shared with up to 6 people<br> 6 TB total OneDrive (1 TB per person)<br> Family Safety  screen time, location sharing, content filters<br><br>Are you looking for just yourself or for family members too?"));add('cB','<span class="ts">just now</span>')},300)},
+  // Step 3: Opt-in consent prompt (professional language)
+  ()=>add('cB',`<div class="consent consent-optin"><div class="ci"></div><div class="cb"><strong>Would you like to save this conversation?</strong><br>If you opt in, we may save this conversation to personalize future interactions with Microsoft. You can connect your email later to access your conversation across sessions.<div class="ca"><button class="bp" onclick="this.closest('.consent').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span style=\\'color:#107c10\\'></span><div style=\\'font-size:12px;color:#107c10;font-weight:600\\'>Saving enabled  your conversation will be preserved.</div></div>'">Yes, save my conversation</button><button onclick="this.closest('.consent').innerHTML='<div style=\\'font-size:12px;color:#888;padding:4px\\'>No data will be saved from this session.</div>'">No, thanks</button></div></div></div>`),
+  // Step 4: Customer continues
   ()=>{add('cB',usr("Family sounds good. Can everyone install the desktop apps?"));add('cB','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cB',bot("Yes! Each of the 6 family members gets:<br><br>✓ Desktop apps on up to 5 devices each (PC, Mac, tablet, phone)<br>✓ Their own 1 TB OneDrive — fully private<br>✓ Their own Outlook mailbox<br>✓ Access to Microsoft Editor and Clipchamp<br><br>Want me to send you a comparison to review with your family?"));add('cB','<span class="ts">just now</span>');
-      setTimeout(()=>add('cB',`<div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Email me a comparison</span>'">📧 Email me a comparison</button><button onclick="this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>→ Continue chatting</span>'">That's enough for now</button></div>`),300)},300)},
-  ()=>add('cB',emailBlock("📧 I'll send the comparison!","Family vs Personal features side by side.")),
-  // ── SESSION 2: Returning User ──
-  ()=>{const c=document.getElementById('cB');c.innerHTML='';add('cB',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cB',W);add('cB',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
-  ()=>{add('cB',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="user@family.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cB',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
-  ()=>{add('cB',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Family — features & device sharing</strong><br><span style="font-size:11px;color:#888">Yesterday · Family vs Personal, desktop apps, OneDrive</span></div></div></div>`);setTimeout(()=>add('cB',bot("Welcome back! Last time we covered Microsoft 365 Family — up to 6 users, desktop apps on 5 devices each, and 1 TB OneDrive per person.<br><br>Ready to pick up where you left off, or do you have a new question?")),300)}
+    setTimeout(()=>{add('cB',bot("Yes  each of the 6 family members gets:<br><br> Desktop apps on up to 5 devices each (PC, Mac, tablet, phone)<br> Their own 1 TB OneDrive  fully private<br> Their own Outlook mailbox<br> Access to Microsoft Editor and Clipchamp<br><br>The Family plan is designed so each person has their own separate workspace."));add('cB','<span class="ts">just now</span>')},300)},
+  // Step 5: Agent nudge  email = enablement, NOT a close
+  ()=>{add('cB',`<div class="nudge"><div class="nt"> Keep this conversation for later?</div><p>I can connect this chat to your email so you can pick up where you left off next time  and I'll send you a summary when we're done.</p><div class="nb"><button class="bp" onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'> Yes, connect my email</div>'">Yes, connect my email</button><button onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'> Not now</div>'">Not now</button></div></div>`)},
+  // Step 6: Email capture
+  ()=>add('cB',`<div class="ec"><div class="ec-t">Enter your email to stay connected.</div><div class="ec-sub">You'll get a summary when we're done, and you can return to this conversation anytime.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#107c10;font-weight:600;font-size:13px\\'> Connected.</div></div>'">Connect</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),
+  // Step 7: Confirmation + chat CONTINUES
+  ()=>{add('cB',`<div style="padding:8px 12px;background:#dff6dd;border:1px solid #c8e6c0;border-radius:6px;font-size:12px;color:#107c10;font-weight:600;text-align:center"> Connected  I'll email you a summary when we wrap up.</div>`);
+    setTimeout(()=>{add('cB',bot("You're all set. Now, would you like to compare the Family plan pricing or learn about any specific features?"));add('cB','<span class="ts">just now</span>')},400)},
+  // Step 8: Customer asks follow-up  proves chat continues after email
+  ()=>{add('cB',usr("What's the pricing difference between Personal and Family?"));add('cB','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cB',bot("Here's a quick comparison:<br><br><strong>Microsoft 365 Personal:</strong> $9.99/month or $99.99/year<br> 1 person, 1 TB OneDrive, all desktop apps<br><br><strong>Microsoft 365 Family:</strong> $12.99/month or $129.99/year<br> Up to 6 people, 6 TB total OneDrive<br><br>Family is just $3 more per month and covers the whole household.<br><br><a href='#'> Start a free trial</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='#'> Compare all plans</a>"));add('cB','<span class="ts">just now</span>')},300)},
+  //  VARIANT: DECLINED PATH 
+  // Step 9: Reset  show what happens when customer clicks "No, thanks"
+  ()=>{const c=document.getElementById('cB');c.innerHTML='';
+    add('cB',`<div style="background:linear-gradient(135deg,#f0ebf8,#f8f5ff);border:1px solid #d4c5e9;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8661c5;font-weight:700"> Variant: Declined Path</div><div style="font-size:12px;color:#888;margin-top:2px">Customer clicked "No, thanks" on the opt-in prompt  what changes?</div></div>`);
+    add('cB',W);add('cB',`<div class="consent consent-optin"><div class="ci"></div><div class="cb"><div style="font-size:12px;color:#888;padding:4px">No data will be saved from this session.</div></div></div>`);c.scrollTop=0},
+  // Step 10: Same conversation  no nudge
+  ()=>{add('cB',usr("What features come with Microsoft 365 for home use?"));add('cB','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cB',bot("For home use, there are two options:<br><br><strong>Microsoft 365 Personal</strong><br> Full desktop apps  Word, Excel, PowerPoint, Outlook<br> 1 TB OneDrive storage<br><br><strong>Microsoft 365 Family</strong><br> Everything in Personal, shared with up to 6 people<br> 6 TB total OneDrive<br><br>Are you looking for yourself or for your family?"));add('cB','<span class="ts">just now</span>')},300)},
+  // Step 11: Where the email nudge WOULD have been  skipped
+  ()=>{add('cB',usr("Family plan  can I share it with my kids?"));add('cB','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cB',bot("Absolutely. Microsoft 365 Family supports up to 6 people. Each family member gets:<br><br> Their own account and 1 TB OneDrive<br> Desktop apps on up to 5 of their own devices<br> Family Safety features  screen time limits, content filters, and location sharing<br><br>It's designed for families with shared and private spaces."));
+      setTimeout(()=>add('cB',`<div style="background:#fff8e1;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px"> No email nudge shown  customer declined saving. Conversation continues normally.</div>`),400)},300)},
+  // Step 12: Customer explicitly asks for summary
+  ()=>{add('cB',usr("This is really helpful. Can you email me a comparison of Personal vs Family?"));add('cB','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cB',bot("Of course  I'd be happy to send you a comparison."));
+      setTimeout(()=>add('cB',`<div class="ec"><div class="ec-t"> Where should I send the comparison?</div><div class="ec-sub">Includes the Personal vs Family feature breakdown and pricing.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#107c10;font-weight:600;font-size:13px\\'> Comparison sent.</div></div>'">Send</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),300)},300)},
+  // Step 13: Annotation
+  ()=>{add('cB',bot(" Comparison sent! If you'd like to continue this conversation next time, just enter your email when you return."));
+    add('cB',`<div style="background:#fff8e1;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px"> Email captured via explicit customer request  not an agent nudge. Declined preference respected.</div>`)},
+  //  SESSION 2: RETURNING USER 
+  // Step 14: Returning user
+  ()=>{const c=document.getElementById('cB');c.innerHTML='';
+    add('cB',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700"> Session 2  Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cB',W);add('cB',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px"> Continue a previous conversation? <strong style='color:#0078d4'>Enter your email</strong></div>`);c.scrollTop=0},
+  // Step 15: Email entry + match
+  ()=>{add('cB',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="user@family.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cB',`<div style="padding:10px;text-align:center;color:#107c10;font-weight:600;font-size:13px"> Summary found.</div>`),400)},
+  // Step 16: Continue or start new
+  ()=>{add('cB',`<div class="rv" style="margin-top:4px"><div class="rv-t">Continue a previous conversation?</div><div class="rv-topic"><span class="ri"></span><div><strong>Microsoft 365 Family  features & pricing</strong><br><span style="font-size:11px;color:#888">Mar 28  Personal vs Family, desktop apps, OneDrive, pricing</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
+    setTimeout(()=>add('cB',bot("Previous summary: Microsoft 365 Family  up to 6 people, desktop apps on 5 devices each, 1 TB OneDrive per person. Family plan: $12.99/month. Personal: $9.99/month.")),300)}
 ];
+
 
 // ═══ OPTION C: End-of-Chat Summary ═══
 const sC=[null,

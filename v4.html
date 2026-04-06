@@ -237,7 +237,7 @@ Date: April 3, 2026
   .ov-lane-model{font-size:10px;color:#555;margin-bottom:4px}
   .ov-lane-desc{font-size:11.5px;color:#444;line-height:1.5;font-style:italic;margin:0}
   .ov-lane-star{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#e8edf5,#dce4f2);color:#2B579A;font-size:9px;font-weight:700;padding:3px 8px;border-radius:8px;border:1px solid #c4ccdd;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-  .ov-lane-right{flex:1;padding:20px 16px 40px;display:flex;align-items:flex-start;position:relative;overflow:visible}
+  .ov-lane-right{flex:1;padding:18px 16px 32px;display:flex;align-items:flex-start;position:relative;overflow:visible}
   /* Timeline bar */
   .ov-ln-flow{display:flex;align-items:flex-start;position:relative;width:100%}
   .ov-ln-flow::before{content:'';position:absolute;top:27px;left:36px;right:36px;height:3px;border-radius:2px;z-index:1}
@@ -248,7 +248,7 @@ Date: April 3, 2026
   /* Nodes  fixed min-width to prevent squishing */
   .ov-ln-node{flex:1 1 0;text-align:center;position:relative;min-width:90px;padding:0 4px;display:flex;flex-direction:column;align-items:center}
   /* 3D Icon circles  protected from flex compression */
-  .ov-ln-icon{width:54px;height:54px;min-width:54px;min-height:54px;border-radius:50%;margin:0 auto 7px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;flex-shrink:0;background:linear-gradient(180deg,#ffffff 0%,#eef0f4 100%);border:2.5px solid #c8cdd6;box-shadow:0 4px 14px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.06),inset 0 2px 6px rgba(255,255,255,.9),inset 0 -1px 3px rgba(0,0,0,.04)}
+  .ov-ln-icon{width:54px;height:54px;min-width:54px;min-height:54px;border-radius:50%;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;flex-shrink:0;background:linear-gradient(180deg,#ffffff 0%,#eef0f4 100%);border:2.5px solid #c8cdd6;box-shadow:0 4px 14px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.06),inset 0 2px 6px rgba(255,255,255,.9),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-ln-icon svg{width:26px;height:26px;flex-shrink:0}
   /* Highlighted nodes  richer 3D */
   .ov-ln-node.highlight .ov-ln-icon{border-width:3px;box-shadow:0 6px 18px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.08),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.05)}
@@ -262,13 +262,13 @@ Date: April 3, 2026
   .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#f0e8fa 0%,#ddd0f2 100%)}
   .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#e8edf7 0%,#c8d5ed 100%)}
   .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#e8edf5 0%,#c4d0e8 100%)}
-  .ov-ln-badge{display:block;font-size:9px;font-weight:700;background:#e8edf7;color:#2A4D80;padding:3px 10px;border-radius:6px;margin:6px auto 0;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap;border:1px solid #c4ccdd;width:fit-content}
+  .ov-ln-badge{display:block;font-size:8px;font-weight:700;background:#e8edf7;color:#2A4D80;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;border:1px solid #c4ccdd;width:fit-content}
   /* Notify step */
   .ov-ln-node.notice .ov-ln-icon{border-width:3px;box-shadow:0 6px 18px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.08),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.05)}
   .ov-lane.oc-a .ov-ln-node.notice .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#dceefb 0%,#b8d9f3 100%)}
-  .ov-ln-notice-tag{display:block;font-size:9px;font-weight:700;background:#dceefb;color:#0078d4;padding:3px 10px;border-radius:6px;margin:6px auto 0;letter-spacing:.4px;text-transform:uppercase;border:1px solid #a3cceb;white-space:nowrap;width:fit-content}
+  .ov-ln-notice-tag{display:block;font-size:8px;font-weight:700;background:#dceefb;color:#0078d4;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;border:1px solid #a3cceb;white-space:nowrap;width:fit-content}
   /* Bypass skip */
-  .ov-ln-skip{display:block;font-size:10px;color:#5B5FC7;margin-top:5px;letter-spacing:.2px;font-weight:500;font-style:italic}
+  .ov-ln-skip{display:block;font-size:9px;color:#5B5FC7;margin-top:2px;letter-spacing:.2px;font-weight:500;font-style:italic}
   /* Option D: passive zone */
   .ov-d-zone{position:absolute;bottom:6px;left:50px;right:50px;text-align:center;font-size:10px;color:#2B579A;font-weight:600;letter-spacing:.3px;border-top:2px dashed rgba(43,87,154,.25);padding-top:3px}
   .ov-d-zone span{background:#fff;padding:0 10px;position:relative;top:-1px}
@@ -279,7 +279,7 @@ Date: April 3, 2026
   .ov-ln-node.return .ov-ln-path.p-continue{background:#dceefb;color:#0078d4;border:1px solid #a3cceb}
   .ov-ln-node.return .ov-ln-path.p-fresh{background:#ece0f9;color:#6a4da0;border:1px solid #cdb8e8}
   /* Labels */
-  .ov-ln-txt{font-size:13px;line-height:1.35;color:#1a1a1a;font-weight:600;padding:0 2px}
+  .ov-ln-txt{font-size:12.5px;line-height:1.25;color:#1a1a1a;font-weight:600;padding:0 2px;margin:0}
   .ov-ln-txt strong{font-weight:700;color:#111;font-size:13.5px}
   .ov-ln-sub{font-size:9px;color:#666;font-style:normal;margin-top:2px;letter-spacing:.1px;line-height:1.3}
   /* Tooltips */

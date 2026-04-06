@@ -274,6 +274,15 @@ Date: April 3, 2026
   .ov-ln-txt{font-size:10px;line-height:1.3;color:#555;font-weight:500;padding:0 2px}
   .ov-ln-txt strong{font-weight:700;color:#1a1a1a}
   .ov-ln-sub{font-size:8.5px;color:#999;font-style:italic;margin-top:1px}
+  /* Tooltips */
+  .ov-ln-node[data-tip]{position:relative}
+  .ov-ln-node[data-tip]::before{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;font-size:11px;font-weight:400;font-style:normal;line-height:1.5;padding:10px 14px;border-radius:8px;white-space:normal;width:220px;text-align:left;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+  .ov-ln-node[data-tip]::after{content:'';position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a1a1a;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100}
+  .ov-ln-node[data-tip]:hover::before,.ov-ln-node[data-tip]:hover::after{opacity:1}
+  .ov-ln-node[data-tip].tt-right::before{left:auto;right:-10px;transform:none}
+  .ov-ln-node[data-tip].tt-right::after{left:auto;right:14px;transform:none}
+  .ov-ln-node[data-tip].tt-left::before{left:-10px;right:auto;transform:none}
+  .ov-ln-node[data-tip].tt-left::after{left:14px;right:auto;transform:none}
 
   /*  Comparison table  */
   .ov-summary{max-width:1100px;margin:24px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
@@ -346,9 +355,9 @@ Date: April 3, 2026
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
-          <div class="ov-ln-node notice"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Greeting + notice shown</div><div class="ov-ln-notice-tag">&#128274; Notice</div></div>
+          <div class="ov-ln-node notice" data-tip="Chat opens with a greeting that includes a privacy notice: &quot;Conversations may be saved to improve your experience. You can opt out anytime.&quot;"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Greeting + notice shown</div><div class="ov-ln-notice-tag">&#128274; Notice</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Chat saved by default</div></div>
-          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9993;</div><div class="ov-ln-txt"><strong>Agent Nudge</strong></div><div class="ov-ln-sub">Offers email connect</div><div class="ov-ln-badge">Optional</div></div>
+          <div class="ov-ln-node consent" data-tip="Mid-conversation, the agent naturally offers: &quot;I can connect this chat to your email so you can pick up where you left off.&quot; Customer can accept or skip &mdash; chat continues either way."><div class="ov-ln-icon">&#9993;</div><div class="ov-ln-txt"><strong>Agent Nudge</strong></div><div class="ov-ln-sub">Offers email connect</div><div class="ov-ln-badge">Optional</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
           <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>
@@ -367,9 +376,9 @@ Date: April 3, 2026
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
-          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat, no notice</div></div>
+          <div class="ov-ln-node highlight" data-tip="Chat starts clean &mdash; no privacy notice, no data saved. The customer chats freely until they choose to opt in."><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat, no notice</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Nothing saved yet</div></div>
-          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9989;</div><div class="ov-ln-txt"><strong>Opt-In Prompt</strong></div><div class="ov-ln-sub">&ldquo;Save this chat?&rdquo;</div><div class="ov-ln-badge">Optional</div></div>
+          <div class="ov-ln-node consent" data-tip="Agent asks: &quot;Would you like to save this conversation?&quot; Customer must actively choose yes. No data is saved by default."><div class="ov-ln-icon">&#9989;</div><div class="ov-ln-txt"><strong>Opt-In Prompt</strong></div><div class="ov-ln-sub">&ldquo;Save this chat?&rdquo;</div><div class="ov-ln-badge">Optional</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
           <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>
@@ -392,7 +401,7 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Compares plans, asks questions</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">No interruptions</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, satisfied</div></div>
-          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9993;</div><div class="ov-ln-txt"><strong>Exit Offer</strong></div><div class="ov-ln-sub">&ldquo;Email a summary?&rdquo;</div><div class="ov-ln-badge">Optional</div></div>
+          <div class="ov-ln-node consent tt-right" data-tip="Only when the customer is ready to leave, the agent asks: &quot;Want me to email you a summary of what we discussed?&quot; The entire conversation flows uninterrupted until this point."><div class="ov-ln-icon">&#9993;</div><div class="ov-ln-txt"><strong>Exit Offer</strong></div><div class="ov-ln-sub">&ldquo;Email a summary?&rdquo;</div><div class="ov-ln-badge">Optional</div></div>
           <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>
         </div>
       </div>
@@ -409,9 +418,9 @@ Date: April 3, 2026
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
-          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Link visible from start</div></div>
+          <div class="ov-ln-node highlight" data-tip="When the chat opens, a subtle &quot;Connect your email&quot; link is already visible in the footer. No banner, no prompt &mdash; just a quiet, always-available option."><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Link visible from start</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Link always visible</div></div>
-          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#128279;</div><div class="ov-ln-txt"><strong>Customer Taps Link</strong></div><div class="ov-ln-sub">If &amp; when they choose</div><div class="ov-ln-badge">Customer-driven</div></div>
+          <div class="ov-ln-node consent" data-tip="A small &quot;Connect your email&quot; link sits in the chat footer from the start &mdash; always visible, never pushed. The customer decides if and when to tap it. Zero prompts, zero nudges, 100% customer-initiated."><div class="ov-ln-icon">&#128279;</div><div class="ov-ln-txt"><strong>Customer Taps Link</strong></div><div class="ov-ln-sub">If &amp; when they choose</div><div class="ov-ln-badge">Customer-driven</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
           <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>

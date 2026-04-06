@@ -596,7 +596,7 @@ const W=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and
 
 const WA=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT.<br><br>What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> \u2197</div><div id="aA-cs" style="margin-top:10px;padding-top:8px;border-top:1px solid #eee;font-size:11px;color:#999;line-height:1.5">We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email, this conversation may be connected to your profile to provide more seamless and personalized experiences. <a href="#" style="color:#0078d4;text-decoration:none" onclick="document.getElementById('aA-cs').innerHTML='<span style=\\'color:#a4262c;font-weight:600\\'>✓ Opted out — this conversation will not be saved.</span>';return false">[Opt out]</a></div>${T}</div><span class="ts">an hour ago</span>`;
 document.getElementById('cA').innerHTML=WA;
-['cB','cC','cD','cR'].forEach(id=>document.getElementById(id).innerHTML=W);
+['cB','cC','cD'].forEach(id=>document.getElementById(id).innerHTML=W);
 
 // ═══ Email capture block (stacked) ═══
 function emailBlock(label,sub){
@@ -794,16 +794,14 @@ const sD=[null,
 
 // ═══ STEPPER ENGINE ═══
 function mkStep(p,steps,wHtml){
-  console.log('mkStep('+p+') steps='+steps.length+' pb='+!!document.getElementById(p+'-p')+' nb='+!!document.getElementById(p+'-n'));
-  let s=0;const n=steps.length;
+    let s=0;const n=steps.length;
   const pb=document.getElementById(p+'-p'),nb=document.getElementById(p+'-n'),lb=document.getElementById(p+'-l');
   function u(){lb.textContent=`${s+1} / ${n}`;pb.disabled=s<=0;nb.disabled=s>=n-1}
   function rst(){document.getElementById('c'+p.toUpperCase()).innerHTML=wHtml}
-  nb.addEventListener('click',()=>{console.log('Next clicked for '+p+' s='+s+' n='+n);if(s<n-1){s++;if(steps[s])steps[s]();u()}});
+  nb.addEventListener('click',()=>{if(s<n-1){s++;if(steps[s])steps[s]();u()}});
   pb.addEventListener('click',()=>{if(s>0){rst();s--;for(let i=1;i<=s;i++)if(steps[i])steps[i]();u()}});
   u();
 }
-console.log('About to call mkStep for all options');
 mkStep('a',sA,WA);mkStep('b',sB,W);mkStep('c',sC,W);mkStep('d',sD,W);
 </script>
 </body>

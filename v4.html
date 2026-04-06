@@ -259,6 +259,10 @@ Date: April 3, 2026
   .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#13a10e}
   .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#c19c00}
   .ov-ln-badge{display:inline-block;font-size:7.5px;font-weight:700;background:#e8f5e9;color:#2e7d32;padding:2px 7px;border-radius:6px;margin-top:3px;letter-spacing:.3px;text-transform:uppercase}
+  /* Notice step (Option A upfront notice) */
+  .ov-ln-node.notice .ov-ln-icon{border-width:3.5px;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+  .ov-lane.oc-a .ov-ln-node.notice .ov-ln-icon{border-color:#0078d4;background:linear-gradient(135deg,#e8f4fd,#f0f6ff)}
+  .ov-ln-notice-tag{display:inline-block;font-size:7px;font-weight:700;background:#e3f2fd;color:#0078d4;padding:2px 6px;border-radius:5px;margin-top:2px;letter-spacing:.3px;text-transform:uppercase;border:1px solid #bbdefb}
   /* Bypass arc */
   .ov-ln-node.consent::after{content:'or skip';position:absolute;top:52px;left:2px;right:2px;height:14px;border:1.5px dashed rgba(0,0,0,.13);border-top:none;border-radius:0 0 12px 12px;z-index:0;font-size:7px;color:#bbb;text-align:center;line-height:30px;letter-spacing:.3px}
   /* Option D: passive zone bar under flow */
@@ -342,8 +346,8 @@ Date: April 3, 2026
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
-          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat</div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Compares plans, asks questions</div></div>
+          <div class="ov-ln-node notice"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Greeting + notice shown</div><div class="ov-ln-notice-tag">&#128274; Notice</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Chat saved by default</div></div>
           <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9993;</div><div class="ov-ln-txt"><strong>Agent Nudge</strong></div><div class="ov-ln-sub">Offers email connect</div><div class="ov-ln-badge">Optional</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
@@ -363,8 +367,8 @@ Date: April 3, 2026
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
-          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat</div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Compares plans, asks questions</div></div>
+          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat, no notice</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Nothing saved yet</div></div>
           <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9989;</div><div class="ov-ln-txt"><strong>Opt-In Prompt</strong></div><div class="ov-ln-sub">&ldquo;Save this chat?&rdquo;</div><div class="ov-ln-badge">Optional</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>

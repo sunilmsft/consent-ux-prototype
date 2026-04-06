@@ -794,14 +794,16 @@ const sD=[null,
 
 // ═══ STEPPER ENGINE ═══
 function mkStep(p,steps,wHtml){
+  console.log('mkStep('+p+') steps='+steps.length+' pb='+!!document.getElementById(p+'-p')+' nb='+!!document.getElementById(p+'-n'));
   let s=0;const n=steps.length;
   const pb=document.getElementById(p+'-p'),nb=document.getElementById(p+'-n'),lb=document.getElementById(p+'-l');
   function u(){lb.textContent=`${s+1} / ${n}`;pb.disabled=s<=0;nb.disabled=s>=n-1}
   function rst(){document.getElementById('c'+p.toUpperCase()).innerHTML=wHtml}
-  nb.addEventListener('click',()=>{if(s<n-1){s++;if(steps[s])steps[s]();u()}});
+  nb.addEventListener('click',()=>{console.log('Next clicked for '+p+' s='+s+' n='+n);if(s<n-1){s++;if(steps[s])steps[s]();u()}});
   pb.addEventListener('click',()=>{if(s>0){rst();s--;for(let i=1;i<=s;i++)if(steps[i])steps[i]();u()}});
   u();
 }
+console.log('About to call mkStep for all options');
 mkStep('a',sA,WA);mkStep('b',sB,W);mkStep('c',sC,W);mkStep('d',sD,W);
 </script>
 </body>

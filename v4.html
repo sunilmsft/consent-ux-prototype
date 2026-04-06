@@ -61,7 +61,7 @@ Date: April 3, 2026
   .tab:hover{color:#0078d4;background:#f8f8f8}
   .tab.active{color:#0078d4;border-bottom-color:#0078d4}
   .badge{display:inline-block;font-size:9px;padding:1px 6px;border-radius:10px;margin-left:5px;font-weight:700;vertical-align:middle}
-  .bg-green{background:#daeef1;color:#0E7090}.bg-yellow{background:#e8eaf6;color:#8a6914}.bg-gray{background:#e1dfdd;color:#555}
+  .bg-green{background:#dee8f5;color:#3F6FAE}.bg-yellow{background:#e8eaf6;color:#8a6914}.bg-gray{background:#e1dfdd;color:#555}
   .bg-blue{background:#e0f0ff;color:#0078d4}.bg-orange{background:#ffecd0;color:#b35900}
 
   /* Panels */
@@ -79,7 +79,7 @@ Date: April 3, 2026
   .info li{margin-bottom:5px}
   .note{background:#fafafa;border-left:3px solid #0078d4;padding:9px 12px;font-size:12px;color:#555;border-radius:0 6px 6px 0;margin-top:10px}
   .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:600;margin-bottom:8px}
-  .tg{background:#daeef1;color:#0E7090}.ty{background:#e8eaf6;color:#8a6914}.tr{background:#fde7e9;color:#a4262c}
+  .tg{background:#dee8f5;color:#3F6FAE}.ty{background:#e8eaf6;color:#8a6914}.tr{background:#fde7e9;color:#a4262c}
 
   .stitle{margin:0 0 10px;padding-right:0}
   .stitle h2{font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:2px}
@@ -199,7 +199,7 @@ Date: April 3, 2026
   .ctbl tr:hover td{background:#fafafa}
   .hl td{background:#f0f7ff!important}
 
-  .pro{color:#0E7090}.con{color:#a4262c}
+  .pro{color:#3F6FAE}.con{color:#a4262c}
   .hidden{display:none!important}
 
   /* Ambient save link in footer */
@@ -211,93 +211,93 @@ Date: April 3, 2026
 
   /* Overview panel */
   /*  Overview hero  */
-  .ov-hero{max-width:1100px;margin:0 auto 24px;text-align:center}
+  .ov-hero{max-width:1200px;margin:0 auto 24px;text-align:center}
   .ov-hero h2{font-size:26px;font-weight:800;color:#1a1a1a;margin-bottom:6px;letter-spacing:-.3px}
   .ov-hero .ov-sub{font-size:14px;color:#555;margin-bottom:0;line-height:1.6;max-width:940px;margin-left:auto;margin-right:auto}
   .ov-hero .ov-sub strong{color:#0078d4}
 
 
   /*  Context callout  */
-  .ov-context{max-width:1100px;margin:0 auto 24px;background:linear-gradient(135deg,#f0f6ff 0%,#f8f4ff 50%,#edf7f9 100%);border-radius:12px;padding:14px 20px;font-size:13px;color:#444;line-height:1.7;border:1px solid #e4e8f0;display:flex;align-items:flex-start;gap:12px}
+  .ov-context{max-width:1200px;margin:0 auto 24px;background:linear-gradient(135deg,#f0f6ff 0%,#f8f4ff 50%,#eef2fa 100%);border-radius:12px;padding:14px 20px;font-size:13px;color:#444;line-height:1.7;border:1px solid #e4e8f0;display:flex;align-items:flex-start;gap:12px}
   .ov-context svg{flex-shrink:0;margin-top:2px}
 
   /*  Swim Lane Layout  */
-  .ov-lanes{max-width:1100px;margin:0 auto}
-  .ov-lane{display:flex;align-items:stretch;background:#fff;border-radius:16px;margin-bottom:16px;border:1px solid #e0e4ea;overflow:visible;transition:all .25s;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-  .ov-lane:hover{box-shadow:0 8px 28px rgba(0,0,0,.1);transform:translateY(-2px)}
-  .ov-lane-left{width:180px;flex-shrink:0;padding:18px 14px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #f0f0f0;position:relative}
+  .ov-lanes{max-width:1200px;margin:0 auto}
+  .ov-lane{display:flex;align-items:stretch;background:#fff;border-radius:16px;margin-bottom:18px;border:1px solid #dce0e8;overflow:visible;transition:all .25s;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+  .ov-lane:hover{box-shadow:0 10px 32px rgba(0,0,0,.12);transform:translateY(-2px)}
+  .ov-lane-left{width:175px;flex-shrink:0;padding:20px 16px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #eee;position:relative}
   .ov-lane.oc-a .ov-lane-left{border-left:5px solid #0078d4}
   .ov-lane.oc-b .ov-lane-left{border-left:5px solid #8661c5}
-  .ov-lane.oc-c .ov-lane-left{border-left:5px solid #0E7090}
+  .ov-lane.oc-c .ov-lane-left{border-left:5px solid #3F6FAE}
   .ov-lane.oc-d .ov-lane-left{border-left:5px solid #2B579A}
-  .ov-lane-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:8px;color:#fff;margin-bottom:5px;width:fit-content}
-  .ov-lane.oc-a .ov-lane-tag{background:#0078d4}.ov-lane.oc-b .ov-lane-tag{background:#8661c5}
-  .ov-lane.oc-c .ov-lane-tag{background:#0E7090}.ov-lane.oc-d .ov-lane-tag{background:#2B579A}
-  .ov-lane-left h3{font-size:14px;font-weight:800;margin:0 0 2px;color:#1a1a1a;letter-spacing:-.2px}
-  .ov-lane-model{font-size:9px;color:#888;margin-bottom:3px}
-  .ov-lane-desc{font-size:10.5px;color:#555;line-height:1.45;font-style:italic;margin:0}
-  .ov-lane-star{position:absolute;top:6px;right:6px;background:linear-gradient(135deg,#e8eaf6,#e8eaf6);color:#1B3A6B;font-size:8px;font-weight:700;padding:2px 7px;border-radius:7px;border:1px solid #b8c4db}
-  .ov-lane-right{flex:1;padding:18px 14px 30px;display:flex;align-items:flex-start;position:relative;overflow:visible}
+  .ov-lane-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:3px 10px;border-radius:10px;color:#fff;margin-bottom:6px;width:fit-content}
+  .ov-lane.oc-a .ov-lane-tag{background:linear-gradient(135deg,#0078d4,#005a9e)}.ov-lane.oc-b .ov-lane-tag{background:linear-gradient(135deg,#8661c5,#6a4da0)}
+  .ov-lane.oc-c .ov-lane-tag{background:linear-gradient(135deg,#3F6FAE,#2c5790)}.ov-lane.oc-d .ov-lane-tag{background:linear-gradient(135deg,#2B579A,#1e3d6e)}
+  .ov-lane-left h3{font-size:15px;font-weight:800;margin:0 0 3px;color:#1a1a1a;letter-spacing:-.3px}
+  .ov-lane-model{font-size:9px;color:#888;margin-bottom:4px}
+  .ov-lane-desc{font-size:10.5px;color:#555;line-height:1.5;font-style:italic;margin:0}
+  .ov-lane-star{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#e8edf5,#dce4f2);color:#2B579A;font-size:8px;font-weight:700;padding:3px 8px;border-radius:8px;border:1px solid #c4ccdd;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+  .ov-lane-right{flex:1;padding:20px 16px 34px;display:flex;align-items:flex-start;position:relative;overflow:visible}
   /* Timeline bar */
-  .ov-ln-flow{display:flex;align-items:flex-start;position:relative;width:100%;padding:0 4px;gap:2px}
-  .ov-ln-flow::before{content:'';position:absolute;top:22px;left:30px;right:30px;height:3px;border-radius:2px;z-index:1}
-  .ov-lane.oc-a .ov-ln-flow::before{background:linear-gradient(90deg,#0078d4,#4da3e0)}
+  .ov-ln-flow{display:flex;align-items:flex-start;position:relative;width:100%}
+  .ov-ln-flow::before{content:'';position:absolute;top:24px;left:36px;right:36px;height:3px;border-radius:2px;z-index:1}
+  .ov-lane.oc-a .ov-ln-flow::before{background:linear-gradient(90deg,#0078d4,#3a9eec)}
   .ov-lane.oc-b .ov-ln-flow::before{background:linear-gradient(90deg,#8661c5,#a98ad8)}
-  .ov-lane.oc-c .ov-ln-flow::before{background:linear-gradient(90deg,#0E7090,#2c9ab5)}
+  .ov-lane.oc-c .ov-ln-flow::before{background:linear-gradient(90deg,#3F6FAE,#6b93c8)}
   .ov-lane.oc-d .ov-ln-flow::before{background:linear-gradient(90deg,#2B579A,#4a7ab5)}
-  /* Nodes */
-  .ov-ln-node{flex:1;text-align:center;position:relative;min-width:0;padding:0 1px}
-  /* 3D Icon circles */
-  .ov-ln-icon{width:44px;height:44px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;background:linear-gradient(180deg,#ffffff 0%,#f0f2f5 100%);border:2.5px solid #d0d4dc;box-shadow:0 4px 10px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.06),inset 0 2px 4px rgba(255,255,255,.8)}
-  .ov-ln-icon svg{width:22px;height:22px;flex-shrink:0}
-  /* Highlighted nodes  deeper 3D */
-  .ov-ln-node.highlight .ov-ln-icon{border-width:3px;box-shadow:0 6px 16px rgba(0,0,0,.13),0 2px 4px rgba(0,0,0,.08),inset 0 2px 4px rgba(255,255,255,.9)}
-  .ov-lane.oc-a .ov-ln-node.highlight .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#e8f4fd 0%,#cce4f7 100%)}
-  .ov-lane.oc-b .ov-ln-node.highlight .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#f3eefa 0%,#e4d8f3 100%)}
-  .ov-lane.oc-c .ov-ln-node.highlight .ov-ln-icon{border-color:#0E7090;background:linear-gradient(180deg,#e0f2f4 0%,#b8dce2 100%)}
-  .ov-lane.oc-d .ov-ln-node.highlight .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#eef1f8 0%,#d6ddef 100%)}
-  /* Consent step: dashed border, 3D */
-  .ov-ln-node.consent .ov-ln-icon{border-style:dashed;border-width:2.5px;box-shadow:0 4px 12px rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.06),inset 0 2px 4px rgba(255,255,255,.8)}
-  .ov-lane.oc-a .ov-ln-node.consent .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#f0f8ff 0%,#dceefb 100%)}
-  .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#f8f4ff 0%,#ece0f9 100%)}
-  .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#0E7090;background:linear-gradient(180deg,#edf7f9 0%,#bedfe5 100%)}
-  .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#eef1f8 0%,#d6ddef 100%)}
-  .ov-ln-badge{display:inline-block;font-size:7.5px;font-weight:700;background:#e0f2f4;color:#065A6E;padding:2px 7px;border-radius:6px;margin-top:2px;letter-spacing:.3px;text-transform:uppercase;white-space:nowrap}
-  /* Notify step (Option A) */
-  .ov-ln-node.notice .ov-ln-icon{border-width:3px;box-shadow:0 6px 16px rgba(0,0,0,.13),0 2px 4px rgba(0,0,0,.08),inset 0 2px 4px rgba(255,255,255,.9)}
-  .ov-lane.oc-a .ov-ln-node.notice .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#e8f4fd 0%,#cce4f7 100%)}
-  .ov-ln-notice-tag{display:inline-block;font-size:7px;font-weight:700;background:#e3f2fd;color:#0078d4;padding:2px 6px;border-radius:5px;margin-top:2px;letter-spacing:.3px;text-transform:uppercase;border:1px solid #bbdefb;white-space:nowrap}
-  /* Bypass skip text */
-  .ov-ln-skip{font-size:7.5px;color:#aaa;margin-top:1px;letter-spacing:.2px}
-  /* Option D: passive zone bar */
-  .ov-d-zone{position:absolute;bottom:5px;left:50px;right:50px;text-align:center;font-size:8.5px;color:#2B579A;font-weight:600;letter-spacing:.3px;border-top:2px dashed rgba(193,156,0,.3);padding-top:3px}
-  .ov-d-zone span{background:#eef1f8;padding:0 8px;position:relative;top:-1px}
+  /* Nodes  fixed min-width to prevent squishing */
+  .ov-ln-node{flex:1 1 0;text-align:center;position:relative;min-width:80px;padding:0 2px}
+  /* 3D Icon circles  protected from flex compression */
+  .ov-ln-icon{width:48px;height:48px;min-width:48px;min-height:48px;border-radius:50%;margin:0 auto 7px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;flex-shrink:0;background:linear-gradient(180deg,#ffffff 0%,#eef0f4 100%);border:2.5px solid #c8cdd6;box-shadow:0 4px 14px rgba(0,0,0,.1),0 2px 4px rgba(0,0,0,.06),inset 0 2px 6px rgba(255,255,255,.9),inset 0 -1px 3px rgba(0,0,0,.04)}
+  .ov-ln-icon svg{width:24px;height:24px;flex-shrink:0}
+  /* Highlighted nodes  richer 3D */
+  .ov-ln-node.highlight .ov-ln-icon{border-width:3px;box-shadow:0 6px 18px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.08),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.05)}
+  .ov-lane.oc-a .ov-ln-node.highlight .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#dceefb 0%,#b8d9f3 100%)}
+  .ov-lane.oc-b .ov-ln-node.highlight .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#ece0f9 0%,#d6c4ef 100%)}
+  .ov-lane.oc-c .ov-ln-node.highlight .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#dce6f5 0%,#bfd0ea 100%)}
+  .ov-lane.oc-d .ov-ln-node.highlight .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#dce4f2 0%,#b8c8e2 100%)}
+  /* Consent node */
+  .ov-ln-node.consent .ov-ln-icon{border-style:dashed;border-width:2.5px;box-shadow:0 5px 16px rgba(0,0,0,.11),0 2px 4px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.9),inset 0 -1px 3px rgba(0,0,0,.04)}
+  .ov-lane.oc-a .ov-ln-node.consent .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#e8f2fc 0%,#cce0f5 100%)}
+  .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#f0e8fa 0%,#ddd0f2 100%)}
+  .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#e8edf7 0%,#c8d5ed 100%)}
+  .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#e8edf5 0%,#c4d0e8 100%)}
+  .ov-ln-badge{display:inline-block;font-size:8px;font-weight:700;background:#e8edf7;color:#2A4D80;padding:3px 8px;border-radius:6px;margin-top:3px;letter-spacing:.3px;text-transform:uppercase;white-space:nowrap;border:1px solid #c4ccdd}
+  /* Notify step */
+  .ov-ln-node.notice .ov-ln-icon{border-width:3px;box-shadow:0 6px 18px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.08),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.05)}
+  .ov-lane.oc-a .ov-ln-node.notice .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#dceefb 0%,#b8d9f3 100%)}
+  .ov-ln-notice-tag{display:inline-block;font-size:7.5px;font-weight:700;background:#dceefb;color:#0078d4;padding:3px 7px;border-radius:6px;margin-top:3px;letter-spacing:.3px;text-transform:uppercase;border:1px solid #a3cceb;white-space:nowrap}
+  /* Bypass skip */
+  .ov-ln-skip{font-size:8px;color:#aaa;margin-top:2px;letter-spacing:.3px}
+  /* Option D: passive zone */
+  .ov-d-zone{position:absolute;bottom:6px;left:50px;right:50px;text-align:center;font-size:9px;color:#2B579A;font-weight:600;letter-spacing:.3px;border-top:2px dashed rgba(43,87,154,.25);padding-top:3px}
+  .ov-d-zone span{background:#fff;padding:0 10px;position:relative;top:-1px}
   /* Return step */
-  .ov-ln-node.return .ov-ln-icon{border-style:dashed;border-color:#2B579A;background:linear-gradient(180deg,#eef1f8 0%,#d6ddef 100%);box-shadow:0 4px 10px rgba(0,0,0,.08),inset 0 2px 4px rgba(255,255,255,.8)}
-  .ov-ln-node.return .ov-ln-paths{display:flex;justify-content:center;gap:4px;margin-top:2px;flex-wrap:wrap}
-  .ov-ln-node.return .ov-ln-path{font-size:7px;font-weight:600;padding:1px 5px;border-radius:4px;letter-spacing:.2px;white-space:nowrap}
-  .ov-ln-node.return .ov-ln-path.p-continue{background:#e3f2fd;color:#0078d4;border:1px solid #bbdefb}
-  .ov-ln-node.return .ov-ln-path.p-fresh{background:#f3e5f5;color:#7b1fa2;border:1px solid #e1bee7}
+  .ov-ln-node.return .ov-ln-icon{border-style:dashed;border-color:#5B5FC7;background:linear-gradient(180deg,#eeeefa 0%,#ddd8f3 100%);box-shadow:0 4px 14px rgba(0,0,0,.09),inset 0 2px 5px rgba(255,255,255,.85),inset 0 -1px 3px rgba(0,0,0,.04)}
+  .ov-ln-node.return .ov-ln-paths{display:flex;justify-content:center;gap:4px;margin-top:3px;flex-wrap:wrap}
+  .ov-ln-node.return .ov-ln-path{font-size:7.5px;font-weight:600;padding:2px 6px;border-radius:5px;letter-spacing:.2px;white-space:nowrap}
+  .ov-ln-node.return .ov-ln-path.p-continue{background:#dceefb;color:#0078d4;border:1px solid #a3cceb}
+  .ov-ln-node.return .ov-ln-path.p-fresh{background:#ece0f9;color:#6a4da0;border:1px solid #cdb8e8}
   /* Labels */
-  .ov-ln-txt{font-size:10px;line-height:1.3;color:#444;font-weight:500;padding:0 1px}
-  .ov-ln-txt strong{font-weight:700;color:#1a1a1a;font-size:9.5px}
-  .ov-ln-sub{font-size:8.5px;color:#666;font-style:normal;margin-top:1px;letter-spacing:.1px}
-  /* Tooltips via span (no ::before/::after conflicts) */
+  .ov-ln-txt{font-size:11px;line-height:1.35;color:#333;font-weight:500;padding:0 2px}
+  .ov-ln-txt strong{font-weight:700;color:#1a1a1a;font-size:10.5px}
+  .ov-ln-sub{font-size:9px;color:#666;font-style:normal;margin-top:2px;letter-spacing:.1px;line-height:1.3}
+  /* Tooltips */
   .ov-ln-node[data-tip]{position:relative}
   .ov-ln-node[data-tip] .ov-ln-icon{cursor:help}
-  .ov-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(20,20,20,.95);color:#fff;font-size:11px;font-weight:400;line-height:1.55;padding:10px 14px;border-radius:10px;white-space:normal;width:230px;text-align:left;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.3);backdrop-filter:blur(4px)}
-  .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(20,20,20,.95)}
+  .ov-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(15,15,20,.94);color:#fff;font-size:11.5px;font-weight:400;line-height:1.6;padding:12px 16px;border-radius:10px;white-space:normal;width:240px;text-align:left;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);backdrop-filter:blur(6px)}
+  .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,15,20,.94)}
   .ov-ln-node[data-tip]:hover .ov-tip{opacity:1}
   .ov-ln-node.tt-right .ov-tip{left:auto;right:-10px;transform:none}
   .ov-ln-node.tt-right .ov-tip::after{left:auto;right:14px;transform:none}/*  Comparison table  */
-  .ov-summary{max-width:1100px;margin:24px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
+  .ov-summary{max-width:1200px;margin:24px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
   .ov-summary h3{font-size:16px;font-weight:700;color:#fff;margin:0;padding:14px 22px;background:linear-gradient(135deg,#0078d4 0%,#005a9e 100%)}
   .ov-summary table{width:100%;border-collapse:collapse;font-size:12.5px}
   .ov-summary th{text-align:left;background:#f0f4f8;padding:10px 14px;font-weight:700;font-size:11.5px;color:#333;border-bottom:2px solid #d0dbe6}
   .ov-summary th:first-child{color:#555}
   .ov-summary th:nth-child(2){color:#0078d4}
   .ov-summary th:nth-child(3){color:#8661c5}
-  .ov-summary th:nth-child(4){color:#0E7090}
+  .ov-summary th:nth-child(4){color:#3F6FAE}
   .ov-summary th:nth-child(5){color:#2B579A}
   .ov-summary td{padding:10px 14px;border-bottom:1px solid #f0f0f0;vertical-align:top}
   .ov-summary tr:nth-child(even) td{background:#fafbfc}
@@ -383,7 +383,7 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
           <div class="ov-ln-node highlight" data-tip="Chat starts clean &mdash; no notification, no data saved. The customer chats freely until they choose to opt in."><span class="ov-tip">Chat starts clean &mdash; no notification, no data saved. The customer chats freely until they choose to opt in.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#5B5FC7" stroke-width="2" fill="#E8EAFF"/><circle cx="9" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="12" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="15" cy="10.5" r="1" fill="#5B5FC7"/></svg></div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat, no notification</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#B4570A" stroke-width="2" fill="#E8EAF6"/><path d="M9 21h6M10 18h4" stroke="#B4570A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Nothing saved yet</div></div>
-          <div class="ov-ln-node consent" data-tip="Agent asks: &quot;Would you like to save this conversation?&quot; Customer must actively choose yes. No data is saved by default."><span class="ov-tip">Agent asks: &quot;Would you like to save this conversation?&quot; Customer must actively choose yes. No data is saved by default.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#0E7090" stroke-width="2" fill="#E0F2F4"/><path d="M7 12.5l3 3 7-7" stroke="#0E7090" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Opt-In Prompt</strong></div><div class="ov-ln-sub">&ldquo;Save this chat?&rdquo;</div><div class="ov-ln-badge">Optional</div><div class="ov-ln-skip">or skip</div></div>
+          <div class="ov-ln-node consent" data-tip="Agent asks: &quot;Would you like to save this conversation?&quot; Customer must actively choose yes. No data is saved by default."><span class="ov-tip">Agent asks: &quot;Would you like to save this conversation?&quot; Customer must actively choose yes. No data is saved by default.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#3F6FAE" stroke-width="2" fill="#E0F2F4"/><path d="M7 12.5l3 3 7-7" stroke="#3F6FAE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Opt-In Prompt</strong></div><div class="ov-ln-sub">&ldquo;Save this chat?&rdquo;</div><div class="ov-ln-badge">Optional</div><div class="ov-ln-skip">or skip</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
           <div class="ov-ln-node return" data-tip="If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required."><span class="ov-tip">If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#2B579A" stroke-width="2" fill="#E8EDF5"/><path d="M14 2v6h6" stroke="#2B579A" stroke-width="2" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="#2B579A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">Picks up where they left off</div><div class="ov-ln-paths"><span class="ov-ln-path p-continue">&#9993; Continue</span><span class="ov-ln-path p-fresh">&#10024; Start fresh</span></div></div>
@@ -444,9 +444,9 @@ Date: April 3, 2026
       <tbody>
         <tr><td>When asked</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>At exit only</td><td>Never &mdash; link always visible</td></tr>
         <tr><td>Who initiates</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit)</td><td>Customer only</td></tr>
-        <tr><td>Email ends chat?</td><td style="color:#0E7090">No &mdash; continues</td><td style="color:#0E7090">No &mdash; continues</td><td>Yes &mdash; at exit</td><td style="color:#0E7090">No &mdash; continues</td></tr>
-        <tr><td>Friction level</td><td style="color:#0E7090">Low</td><td>Medium</td><td style="color:#0E7090">Lowest</td><td style="color:#0E7090">Zero push</td></tr>
-        <tr><td>Privacy / CELA risk</td><td style="color:#0E7090">Low</td><td style="color:#0E7090">Low</td><td style="color:#0E7090">Lowest</td><td style="color:#0E7090">Lowest</td></tr>
+        <tr><td>Email ends chat?</td><td style="color:#3F6FAE">No &mdash; continues</td><td style="color:#3F6FAE">No &mdash; continues</td><td>Yes &mdash; at exit</td><td style="color:#3F6FAE">No &mdash; continues</td></tr>
+        <tr><td>Friction level</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#3F6FAE">Lowest</td><td style="color:#3F6FAE">Zero push</td></tr>
+        <tr><td>Privacy / CELA risk</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Lowest</td><td style="color:#3F6FAE">Lowest</td></tr>
         <tr><td>Best for</td><td>Default experience</td><td>Banner countries, pilots</td><td>Sensitive markets</td><td>Privacy-first markets</td></tr>
       </tbody>
     </table>
@@ -473,7 +473,7 @@ Date: April 3, 2026
       </ul>
       <div class="note"><strong>Key difference:</strong> Email is NOT a conversation-ending action. It's a mid-conversation enablement that unlocks persistence and continuity. The customer decides when the conversation is over.</div>
       <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> Agent skips the email nudge entirely. Conversation flows without any email ask. If the customer later explicitly requests a summary (e.g., "email me a summary"), the email capture appears — honoring their intent.</div>
-      <div class="note" style="border-left-color:#0E7090;margin-top:8px"><strong>Aligns with Preferred consent model:</strong> "We may save conversations to improve your experience..." Strongest balance of trust, usability, and data value. Default for most eCommerce agent experiences.</div>
+      <div class="note" style="border-left-color:#3F6FAE;margin-top:8px"><strong>Aligns with Preferred consent model:</strong> "We may save conversations to improve your experience..." Strongest balance of trust, usability, and data value. Default for most eCommerce agent experiences.</div>
     </div>
     <div class="cw-wrap">
       <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="a-l">1 / 16</span></div>
@@ -510,7 +510,7 @@ Date: April 3, 2026
       </ul>
       <div class="note"><strong>Key difference from Option A:</strong> No data is saved by default. The customer must actively choose to enable saving. This is the strongest model for Banner countries, sensitive markets, and early pilots.</div>
       <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If customer declines:</strong> No saving occurs. No email nudge is shown. But if the customer later explicitly asks (e.g., "Can you email me a summary?"), the request is honored.</div>
-      <div class="note" style="border-left-color:#0E7090;margin-top:8px"><strong>Aligns with Opt-In consent model:</strong> "Would you like us to save this conversation to personalize future interactions?" Strongest privacy posture while still enabling data capture for willing customers.</div>
+      <div class="note" style="border-left-color:#3F6FAE;margin-top:8px"><strong>Aligns with Opt-In consent model:</strong> "Would you like us to save this conversation to personalize future interactions?" Strongest privacy posture while still enabling data capture for willing customers.</div>
     </div><div class="cw-wrap">
       <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="b-l">1 / 16</span></div>
       <div class="cw-nav">
@@ -579,7 +579,7 @@ Date: April 3, 2026
       </ul>
       <div class="note"><strong>Key difference from other options:</strong> No agent-initiated prompts at any point. The UI affordance is always visible but passive  like a settings icon. The customer decides if, when, and whether to engage.</div>
       <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If customer never taps:</strong> Conversation proceeds fully anonymously. No data saved. No friction added.</div>
-      <div class="note" style="border-left-color:#0E7090;margin-top:8px"><strong>Privacy:</strong> Strongest possible posture. No consent banner needed  the action <em>is</em> the consent. Pairs well with A, B, or C as a passive complement.</div>
+      <div class="note" style="border-left-color:#3F6FAE;margin-top:8px"><strong>Privacy:</strong> Strongest possible posture. No consent banner needed  the action <em>is</em> the consent. Pairs well with A, B, or C as a passive complement.</div>
     </div><div class="cw-wrap">
       <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="d-l">1 / 16</span></div>
       <div class="cw-nav">
@@ -706,7 +706,7 @@ function emailBlock(label,sub){
     <div class="ec-t">${label}</div>
     <div class="ec-sub">${sub}</div>
     <input type="email" placeholder="your.email@company.com">
-    <button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#0E7090;font-weight:600;font-size:13px\\'>✓ Summary sent.</div></div>'">Send</button>
+    <button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#3F6FAE;font-weight:600;font-size:13px\\'>✓ Summary sent.</div></div>'">Send</button>
     <button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>
     ${FP}
   </div>`;
@@ -724,10 +724,10 @@ const sA=[null,
   // Step 5: Agent nudge — email = enablement, NOT a close
   ()=>{add('cA',`<div class="nudge"><div class="nt">📧 Keep this conversation for later?</div><p>I can connect this chat to your email so you can pick up where you left off next time — and I'll send you a summary when we're done.</p><div class="nb"><button class="bp" onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'>→ Yes, connect my email</div>'">Yes, connect my email</button><button onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'>→ Not now</div>'">Not now</button></div></div>`)},
   // Step 6: Email capture
-  ()=>add('cA',`<div class="ec"><div class="ec-t">Enter your email to stay connected.</div><div class="ec-sub">You'll get a summary when we're done, and you can return to this conversation anytime.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#0E7090;font-weight:600;font-size:13px\\'>✓ Connected.</div></div>'">Connect</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),
+  ()=>add('cA',`<div class="ec"><div class="ec-t">Enter your email to stay connected.</div><div class="ec-sub">You'll get a summary when we're done, and you can return to this conversation anytime.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#3F6FAE;font-weight:600;font-size:13px\\'>✓ Connected.</div></div>'">Connect</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),
   // Step 7: Confirmation + conversation CONTINUES
-  ()=>{add('cA',`<div style="padding:8px 12px;background:#daeef1;border:1px solid #c8e6c0;border-radius:6px;font-size:12px;color:#0E7090;font-weight:600;text-align:center">✓ Connected — I'll email you a summary when we wrap up.</div>`);
-    const sv=document.getElementById('aA-sv');if(sv){sv.classList.add('visible');sv.innerHTML='✓ <span style="color:#0E7090;font-weight:500">Connected to your email</span>'}
+  ()=>{add('cA',`<div style="padding:8px 12px;background:#dee8f5;border:1px solid #c8e6c0;border-radius:6px;font-size:12px;color:#3F6FAE;font-weight:600;text-align:center">✓ Connected — I'll email you a summary when we wrap up.</div>`);
+    const sv=document.getElementById('aA-sv');if(sv){sv.classList.add('visible');sv.innerHTML='✓ <span style="color:#3F6FAE;font-weight:500">Connected to your email</span>'}
     setTimeout(()=>{add('cA',bot("Great — you're all set. Now, anything else about those security features? Were you thinking about a specific compliance framework?"));add('cA','<span class="ts">just now</span>')},400)},
   // Step 8: User asks follow-up — conversation continues after email capture
   ()=>{add('cA',usr("Yes — what's the per-user pricing for Business Premium?"));add('cA','<span class="tsr">just now</span>');
@@ -749,7 +749,7 @@ const sA=[null,
   // Step 12: User explicitly asks for summary (customer-initiated)
   ()=>{add('cA',usr("This is helpful. Can you email me a summary of what we covered?"));add('cA','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cA',bot("Of course! I'd be happy to send you a summary."));
-      setTimeout(()=>add('cA',`<div class="ec"><div class="ec-t">\u{1F4E7} Where should I send the summary?</div><div class="ec-sub">Includes your M365 Business Premium overview and pricing.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#0E7090;font-weight:600;font-size:13px\\'>\u2713 Summary sent.</div></div>'">Send</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),300)},300)},
+      setTimeout(()=>add('cA',`<div class="ec"><div class="ec-t">\u{1F4E7} Where should I send the summary?</div><div class="ec-sub">Includes your M365 Business Premium overview and pricing.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#3F6FAE;font-weight:600;font-size:13px\\'>\u2713 Summary sent.</div></div>'">Send</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),300)},300)},
   // Step 13: Confirmation
   ()=>{add('cA',bot("\u2713 Summary sent! If you'd like to continue this conversation next time, just enter your email when you return."));
     add('cA',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">\u261D\uFE0F Email captured via explicit customer intent \u2014 not agent nudge. Opt-out respected.</div>`)},
@@ -759,7 +759,7 @@ const sA=[null,
     const sv=document.getElementById('aA-sv');if(sv){sv.classList.remove('visible');sv.innerHTML=''}
     add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cA',WA);add('cA',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Continue a previous conversation? <strong style='color:#0078d4'>Enter your email</strong></div>`);c.scrollTop=0},
   // Step 15: Email entry + match
-  ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#0E7090;font-weight:600;font-size:13px">✓ Summary found.</div>`),400)},
+  ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">✓ Summary found.</div>`),400)},
   // Step 16: Continue or start new
   ()=>{add('cA',`<div class="rv" style="margin-top:4px"><div class="rv-t">Continue a previous conversation?</div><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Business plans — security & pricing</strong><br><span style="font-size:11px;color:#888">Mar 28 · Defender, Intune, DLP, Pricing</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
     setTimeout(()=>add('cA',bot("Previous summary: Business Premium security features — Defender, Intune, Conditional Access, DLP. Pricing: $22/user/month for a 10-person team.")),300)}
@@ -771,16 +771,16 @@ const sB=[null,
   ()=>{add('cB',usr("What features come with Microsoft 365 for home use?"));add('cB','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cB',bot("For home use, there are two options:<br><br><strong>Microsoft 365 Personal</strong><br> Full desktop apps  Word, Excel, PowerPoint, Outlook<br> 1 TB OneDrive storage<br> Microsoft Editor (AI writing assistant)<br> Clipchamp video editor<br><br><strong>Microsoft 365 Family</strong><br> Everything in Personal, shared with up to 6 people<br> 6 TB total OneDrive (1 TB per person)<br> Family Safety  screen time, location sharing, content filters<br><br>Are you looking for just yourself or for family members too?"));add('cB','<span class="ts">just now</span>')},300)},
   // Step 3: Opt-in consent prompt (professional language)
-  ()=>add('cB',`<div class="consent consent-optin"><div class="ci"></div><div class="cb"><strong>Would you like to save this conversation?</strong><br>If you opt in, we may save this conversation to personalize future interactions with Microsoft. You can connect your email later to access your conversation across sessions.<div class="ca"><button class="bp" onclick="this.closest('.consent').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span style=\\'color:#0E7090\\'></span><div style=\\'font-size:12px;color:#0E7090;font-weight:600\\'>Saving enabled  your conversation will be preserved.</div></div>'">Yes, save my conversation</button><button onclick="this.closest('.consent').innerHTML='<div style=\\'font-size:12px;color:#888;padding:4px\\'>No data will be saved from this session.</div>'">No, thanks</button></div></div></div>`),
+  ()=>add('cB',`<div class="consent consent-optin"><div class="ci"></div><div class="cb"><strong>Would you like to save this conversation?</strong><br>If you opt in, we may save this conversation to personalize future interactions with Microsoft. You can connect your email later to access your conversation across sessions.<div class="ca"><button class="bp" onclick="this.closest('.consent').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span style=\\'color:#3F6FAE\\'></span><div style=\\'font-size:12px;color:#3F6FAE;font-weight:600\\'>Saving enabled  your conversation will be preserved.</div></div>'">Yes, save my conversation</button><button onclick="this.closest('.consent').innerHTML='<div style=\\'font-size:12px;color:#888;padding:4px\\'>No data will be saved from this session.</div>'">No, thanks</button></div></div></div>`),
   // Step 4: Customer continues
   ()=>{add('cB',usr("Family sounds good. Can everyone install the desktop apps?"));add('cB','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cB',bot("Yes  each of the 6 family members gets:<br><br> Desktop apps on up to 5 devices each (PC, Mac, tablet, phone)<br> Their own 1 TB OneDrive  fully private<br> Their own Outlook mailbox<br> Access to Microsoft Editor and Clipchamp<br><br>The Family plan is designed so each person has their own separate workspace."));add('cB','<span class="ts">just now</span>')},300)},
   // Step 5: Agent nudge  email = enablement, NOT a close
   ()=>{add('cB',`<div class="nudge"><div class="nt"> Keep this conversation for later?</div><p>I can connect this chat to your email so you can pick up where you left off next time  and I'll send you a summary when we're done.</p><div class="nb"><button class="bp" onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'> Yes, connect my email</div>'">Yes, connect my email</button><button onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'> Not now</div>'">Not now</button></div></div>`)},
   // Step 6: Email capture
-  ()=>add('cB',`<div class="ec"><div class="ec-t">Enter your email to stay connected.</div><div class="ec-sub">You'll get a summary when we're done, and you can return to this conversation anytime.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#0E7090;font-weight:600;font-size:13px\\'> Connected.</div></div>'">Connect</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),
+  ()=>add('cB',`<div class="ec"><div class="ec-t">Enter your email to stay connected.</div><div class="ec-sub">You'll get a summary when we're done, and you can return to this conversation anytime.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#3F6FAE;font-weight:600;font-size:13px\\'> Connected.</div></div>'">Connect</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),
   // Step 7: Confirmation + chat CONTINUES
-  ()=>{add('cB',`<div style="padding:8px 12px;background:#daeef1;border:1px solid #c8e6c0;border-radius:6px;font-size:12px;color:#0E7090;font-weight:600;text-align:center"> Connected  I'll email you a summary when we wrap up.</div>`);
+  ()=>{add('cB',`<div style="padding:8px 12px;background:#dee8f5;border:1px solid #c8e6c0;border-radius:6px;font-size:12px;color:#3F6FAE;font-weight:600;text-align:center"> Connected  I'll email you a summary when we wrap up.</div>`);
     setTimeout(()=>{add('cB',bot("You're all set. Now, would you like to compare the Family plan pricing or learn about any specific features?"));add('cB','<span class="ts">just now</span>')},400)},
   // Step 8: Customer asks follow-up  proves chat continues after email
   ()=>{add('cB',usr("What's the pricing difference between Personal and Family?"));add('cB','<span class="tsr">just now</span>');
@@ -800,7 +800,7 @@ const sB=[null,
   // Step 12: Customer explicitly asks for summary
   ()=>{add('cB',usr("This is really helpful. Can you email me a comparison of Personal vs Family?"));add('cB','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cB',bot("Of course  I'd be happy to send you a comparison."));
-      setTimeout(()=>add('cB',`<div class="ec"><div class="ec-t"> Where should I send the comparison?</div><div class="ec-sub">Includes the Personal vs Family feature breakdown and pricing.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#0E7090;font-weight:600;font-size:13px\\'> Comparison sent.</div></div>'">Send</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),300)},300)},
+      setTimeout(()=>add('cB',`<div class="ec"><div class="ec-t"> Where should I send the comparison?</div><div class="ec-sub">Includes the Personal vs Family feature breakdown and pricing.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#3F6FAE;font-weight:600;font-size:13px\\'> Comparison sent.</div></div>'">Send</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),300)},300)},
   // Step 13: Annotation
   ()=>{add('cB',bot(" Comparison sent! If you'd like to continue this conversation next time, just enter your email when you return."));
     add('cB',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px"> Email captured via explicit customer request  not an agent nudge. Declined preference respected.</div>`)},
@@ -809,7 +809,7 @@ const sB=[null,
   ()=>{const c=document.getElementById('cB');c.innerHTML='';
     add('cB',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700"> Session 2  Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cB',W);add('cB',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px"> Continue a previous conversation? <strong style='color:#0078d4'>Enter your email</strong></div>`);c.scrollTop=0},
   // Step 15: Email entry + match
-  ()=>{add('cB',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="user@family.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cB',`<div style="padding:10px;text-align:center;color:#0E7090;font-weight:600;font-size:13px"> Summary found.</div>`),400)},
+  ()=>{add('cB',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="user@family.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cB',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px"> Summary found.</div>`),400)},
   // Step 16: Continue or start new
   ()=>{add('cB',`<div class="rv" style="margin-top:4px"><div class="rv-t">Continue a previous conversation?</div><div class="rv-topic"><span class="ri"></span><div><strong>Microsoft 365 Family  features & pricing</strong><br><span style="font-size:11px;color:#888">Mar 28  Personal vs Family, desktop apps, OneDrive, pricing</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
     setTimeout(()=>add('cB',bot("Previous summary: Microsoft 365 Family  up to 6 people, desktop apps on 5 devices each, 1 TB OneDrive per person. Family plan: $12.99/month. Personal: $9.99/month.")),300)}
@@ -836,7 +836,7 @@ const sC=[null,
   ()=>add('cC',bot("Summary sent! 📨 Next time, enter your email to continue where we left off. Have a great day!")),
   // ── SESSION 2: Returning User ──
   ()=>{const c=document.getElementById('cC');c.innerHTML='';add('cC',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">🔄 Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cC',W);add('cC',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Have a saved conversation? <strong style='color:#0078d4'>Enter your email to continue</strong></div>`)},
-  ()=>{add('cC',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="freelancer@email.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cC',`<div style="padding:10px;text-align:center;color:#0E7090;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
+  ()=>{add('cC',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="freelancer@email.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cC',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
   ()=>{add('cC',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Personal for freelancers</strong><br><span style="font-size:11px;color:#888">Yesterday · Desktop apps, OneDrive, Editor, free trial</span></div></div></div>`);setTimeout(()=>add('cC',bot("Welcome back! Last time we explored Microsoft 365 Personal for freelancing — desktop apps, 1 TB OneDrive, Editor, Clipchamp, and Designer. You were looking at the free trial.<br><br>Want to continue from there, or do you have a new question?")),300)}
 ];
 
@@ -851,11 +851,11 @@ const sD=[null,
   ()=>{add('cD',usr("Laptop format works better for us. How much is the Surface Laptop for business?"));add('cD','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cD',bot("Surface Laptop for Business starts at:<br><br><strong>Surface Laptop 7 for Business</strong><br>• 13.8\" — from $1,399<br>• 15\" — from $1,699<br><br>Both come with:<br>✓ Snapdragon X Elite or Intel Core Ultra processors<br>✓ Up to 64 GB RAM, 1 TB SSD<br>✓ Windows 11 Pro with Copilot<br>✓ Enterprise-grade security (TPM 2.0, Secured-core)<br><br>Volume licensing and Surface Plus financing are also available for fleet purchases."));add('cD','<span class="ts">just now</span>')},300)},
   // Step 5: Customer taps the footer link mid-chat
-  ()=>{add('cD',`<div style="background:#e0f2f4;border:1px solid #a5d6a7;border-radius:6px;padding:8px 12px;font-size:11px;color:#065A6E;text-align:center;margin-top:6px">👆 Customer taps the "Connect your email" link in the footer — email capture expands inline below.</div>`);
+  ()=>{add('cD',`<div style="background:#e8edf7;border:1px solid #a5d6a7;border-radius:6px;padding:8px 12px;font-size:11px;color:#2A4D80;text-align:center;margin-top:6px">👆 Customer taps the "Connect your email" link in the footer — email capture expands inline below.</div>`);
     setTimeout(()=>add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Connect your email to save this conversation</div><div class="ec-sub">Pick up where you left off next time you visit.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Connect</button></div>`),300)},
   // Step 6: Email connected — footer updates
-  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#0E7090;font-weight:600;font-size:13px">✓ Email connected. Your conversation will be saved.</div>`);
-    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">✓</span> <span style="font-size:11px;color:#0E7090;font-weight:600">Connected</span>'}},
+  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">✓ Email connected. Your conversation will be saved.</div>`);
+    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">✓</span> <span style="font-size:11px;color:#3F6FAE;font-weight:600">Connected</span>'}},
   // Step 7: Chat continues seamlessly — annotation
   ()=>{add('cD',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">📌 No interruption — email was captured inline. Footer now shows "✓ Connected." Chat continues.</div>`)},
   // Step 8: Follow-up proves continuity
@@ -877,8 +877,8 @@ const sD=[null,
     setTimeout(()=>{add('cD',bot("Of course. I can send you a summary covering Surface Laptop vs Pro, pricing, and warranty options.<br><br>Please enter your email below and I'll send it right over."));
       setTimeout(()=>add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter your email to receive the summary</div><div class="ec-sub">We'll also save this conversation so you can return to it.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Send</button></div>`),300)},300)},
   // Step 13: Email captured + annotation
-  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#0E7090;font-weight:600;font-size:13px">✓ Summary sent to j.chen@contoso.com</div>`);
-    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">✓</span> <span style="font-size:11px;color:#0E7090;font-weight:600">Connected</span>'}
+  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">✓ Summary sent to j.chen@contoso.com</div>`);
+    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">✓</span> <span style="font-size:11px;color:#3F6FAE;font-weight:600">Connected</span>'}
     setTimeout(()=>add('cD',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">📌 Email captured via explicit customer request — not a system prompt. The link was always there but the customer chose their own moment.</div>`),300)},
   // ★ SESSION 2: RETURNING USER
   // Step 14: Returning user
@@ -886,7 +886,7 @@ const sD=[null,
     const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">🔗</span> <a href="#" onclick="return false" style="font-size:11px">Connect your email</a>'}
     add('cD',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">★ Session 2 — Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cD',W);add('cD',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">🔗 Continue a previous conversation? <strong style='color:#0078d4'>Enter your email</strong></div>`);c.scrollTop=0},
   // Step 15: Email entry + match
-  ()=>{add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cD',`<div style="padding:10px;text-align:center;color:#0E7090;font-weight:600;font-size:13px">✓ Summary found.</div>`),400)},
+  ()=>{add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cD',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">✓ Summary found.</div>`),400)},
   // Step 16: Context resume
   ()=>{add('cD',`<div class="rv" style="margin-top:4px"><div class="rv-t">Continue a previous conversation?</div><div class="rv-topic"><span class="ri">💼</span><div><strong>Surface Laptop for Business — pricing & warranty</strong><br><span style="font-size:11px;color:#888">Mar 28 — Surface Laptop vs Pro, fleet pricing, warranty tiers</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
     setTimeout(()=>add('cD',bot("Welcome back! Last time we discussed Surface Laptop 7 for Business starting at $1,399, and I recommended Microsoft Complete for Business warranty for your team's 3-year refresh cycle.<br><br>Would you like to continue from there, or do you have a new question?")),300)}

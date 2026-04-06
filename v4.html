@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 ══════════════════════════════════════════════════════════════
 CHANGE LOG — Ask Microsoft Consent & Identity UX Prototype
@@ -211,98 +211,68 @@ Date: April 3, 2026
 
   /* Overview panel */
   /*  Overview hero  */
-  .ov-hero{max-width:1020px;margin:0 auto 24px;text-align:center}
+  .ov-hero{max-width:1100px;margin:0 auto 24px;text-align:center}
   .ov-hero h2{font-size:26px;font-weight:800;color:#1a1a1a;margin-bottom:6px;letter-spacing:-.3px}
-  .ov-hero .ov-sub{font-size:14px;color:#555;margin-bottom:0;line-height:1.6;max-width:860px;margin-left:auto;margin-right:auto}
+  .ov-hero .ov-sub{font-size:14px;color:#555;margin-bottom:0;line-height:1.6;max-width:940px;margin-left:auto;margin-right:auto}
   .ov-hero .ov-sub strong{color:#0078d4}
 
-  /*  Customer Journey Flow  */
-  .ov-journey{max-width:1020px;margin:0 auto 28px;background:#fff;border-radius:14px;padding:22px 28px 18px;border:1px solid #e4e8f0;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-  .ov-journey h4{font-size:13px;font-weight:700;color:#0078d4;text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .ov-journey h4 svg{flex-shrink:0}
-  .ov-jflow{display:flex;align-items:flex-start;position:relative;padding:0 8px}
-  .ov-jflow::before{content:'';position:absolute;top:24px;left:32px;right:32px;height:3px;background:linear-gradient(90deg,#0078d4 0%,#5c5cd6 25%,#8661c5 50%,#13a10e 75%,#c19c00 100%);border-radius:2px;z-index:1}
-  .ov-jstep{flex:1;text-align:center;position:relative;min-width:0}
-  .ov-jdot{width:48px;height:48px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:20px;position:relative;z-index:2;background:#fff;border:3px solid #e0e0e0;box-shadow:0 2px 6px rgba(0,0,0,.06)}
-  .ov-jstep.jkey .ov-jdot{border-color:#0078d4;background:linear-gradient(135deg,#e8f4fd,#f0f0ff)}
-  .ov-jstep.jreturn .ov-jdot{border-style:dashed;border-color:#c19c00;background:#fffef5}
-  .ov-jlbl{font-size:11px;line-height:1.35;color:#555;padding:0 4px;font-weight:500}
-  .ov-jlbl strong{color:#1a1a1a;font-weight:700}
-  .ov-jnote{font-size:10px;color:#888;font-style:italic;margin-top:2px}
-  .ov-jwhere{max-width:1020px;margin:-16px auto 24px;text-align:center;font-size:12px;color:#777;padding:8px 0}
-  .ov-jwhere strong{color:#0078d4}
 
   /*  Context callout  */
-  .ov-context{max-width:1020px;margin:0 auto 28px;background:linear-gradient(135deg,#f0f6ff 0%,#f8f4ff 50%,#f0fff0 100%);border-radius:12px;padding:16px 22px;font-size:13px;color:#444;line-height:1.7;border:1px solid #e4e8f0;display:flex;align-items:flex-start;gap:12px}
+  .ov-context{max-width:1100px;margin:0 auto 24px;background:linear-gradient(135deg,#f0f6ff 0%,#f8f4ff 50%,#f0fff0 100%);border-radius:12px;padding:14px 20px;font-size:13px;color:#444;line-height:1.7;border:1px solid #e4e8f0;display:flex;align-items:flex-start;gap:12px}
   .ov-context svg{flex-shrink:0;margin-top:2px}
 
-  /*  Overview grid  */
-  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1020px;margin:0 auto}
-  .ov-card{background:#fff;border-radius:14px;padding:28px 26px 22px;position:relative;cursor:pointer;transition:box-shadow .2s,transform .15s;border:1px solid #e8e8e8;border-top:5px solid #ccc}
-  .ov-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.1);transform:translateY(-3px)}
-  .ov-card.oc-a{border-top-color:#0078d4}.ov-card.oc-b{border-top-color:#8661c5}.ov-card.oc-c{border-top-color:#13a10e}.ov-card.oc-d{border-top-color:#c19c00}
-  .ov-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:10px;color:#fff;margin-bottom:10px}
-  .ov-card.oc-a .ov-tag{background:#0078d4}.ov-card.oc-b .ov-tag{background:#8661c5}.ov-card.oc-c .ov-tag{background:#13a10e}.ov-card.oc-d .ov-tag{background:#c19c00}
-  .ov-card h3{font-size:20px;font-weight:800;margin-bottom:4px;color:#1a1a1a;letter-spacing:-.2px}
-  .ov-card .ov-model{font-size:11.5px;color:#777;margin-bottom:12px;font-weight:500}
-  .ov-card .ov-desc{font-size:13.5px;color:#444;line-height:1.6;margin-bottom:18px;font-style:italic;border-left:3px solid #e0e0e0;padding-left:12px}
-  .ov-card.oc-a .ov-desc{border-left-color:#0078d4}.ov-card.oc-b .ov-desc{border-left-color:#8661c5}.ov-card.oc-c .ov-desc{border-left-color:#13a10e}.ov-card.oc-d .ov-desc{border-left-color:#c19c00}
-  .ov-tl{display:flex;align-items:flex-start;position:relative;margin-bottom:6px;padding:0 4px}
-  .ov-tl::before{content:'';position:absolute;top:19px;left:18px;right:18px;height:2px;background:linear-gradient(90deg,#e0e0e0 0%,#d0d0d0 50%,#e0e0e0 100%);z-index:1}
-  .ov-step{flex:1;text-align:center;position:relative;min-width:0}
-  .ov-dot{width:38px;height:38px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:18px;position:relative;z-index:2;background:#f8f8f8;border:2px solid #ddd;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-  .ov-step.key .ov-dot{border-width:2.5px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-  .ov-card.oc-a .ov-step.key .ov-dot{background:#0078d4;border-color:#0078d4;color:#fff}
-  .ov-card.oc-b .ov-step.key .ov-dot{background:#8661c5;border-color:#8661c5;color:#fff}
-  .ov-card.oc-c .ov-step.key .ov-dot{background:#13a10e;border-color:#13a10e;color:#fff}
-  .ov-card.oc-d .ov-step.key .ov-dot{background:#c19c00;border-color:#c19c00;color:#fff}
-  .ov-step .ov-lbl{font-size:10.5px;line-height:1.35;color:#555;padding:0 2px}
-  .ov-step .ov-hl{font-weight:700}
-  .ov-step .ov-lbl em{font-size:9.5px;color:#999;font-style:italic}
-  .ov-card.oc-a .ov-step .ov-hl{color:#0078d4}.ov-card.oc-b .ov-step .ov-hl{color:#8661c5}.ov-card.oc-c .ov-step .ov-hl{color:#13a10e}.ov-card.oc-d .ov-step .ov-hl{color:#c19c00}
-  .ov-who{display:flex;justify-content:space-between;font-size:11px;color:#999;border-top:1px solid #f0f0f0;padding-top:10px}
-  .ov-star{position:absolute;top:18px;right:18px;background:linear-gradient(135deg,#fff8e1,#fff3cd);color:#7b6608;font-size:11px;font-weight:700;padding:4px 12px;border-radius:12px;border:1px solid #f0e0a0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-  .ov-dropped{position:absolute;top:16px;right:16px;background:#f0f0f0;color:#999;font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;text-decoration:line-through}
-  .ov-merge{background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;font-size:11px;border-radius:0 6px 6px 0;color:#5d4037;margin-top:6px}
-  .ov-legend{margin-top:28px;display:flex;gap:20px;font-size:12.5px;color:#666;align-items:center;justify-content:center}
-  .ov-sw{width:14px;height:14px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle}
+  /*  Swim Lane Layout  */
+  .ov-lanes{max-width:1100px;margin:0 auto}
+  .ov-lane{display:flex;align-items:stretch;background:#fff;border-radius:14px;margin-bottom:14px;border:1px solid #e8e8e8;overflow:visible;transition:all .2s;cursor:pointer}
+  .ov-lane:hover{box-shadow:0 6px 24px rgba(0,0,0,.09);transform:translateY(-1px)}
+  .ov-lane-left{width:195px;flex-shrink:0;padding:18px 16px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #f0f0f0;position:relative}
+  .ov-lane.oc-a .ov-lane-left{border-left:5px solid #0078d4}
+  .ov-lane.oc-b .ov-lane-left{border-left:5px solid #8661c5}
+  .ov-lane.oc-c .ov-lane-left{border-left:5px solid #13a10e}
+  .ov-lane.oc-d .ov-lane-left{border-left:5px solid #c19c00}
+  .ov-lane-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:8px;color:#fff;margin-bottom:5px;width:fit-content}
+  .ov-lane.oc-a .ov-lane-tag{background:#0078d4}.ov-lane.oc-b .ov-lane-tag{background:#8661c5}
+  .ov-lane.oc-c .ov-lane-tag{background:#13a10e}.ov-lane.oc-d .ov-lane-tag{background:#c19c00}
+  .ov-lane-left h3{font-size:14px;font-weight:800;margin:0 0 2px;color:#1a1a1a;letter-spacing:-.2px}
+  .ov-lane-model{font-size:9px;color:#888;margin-bottom:3px}
+  .ov-lane-desc{font-size:10.5px;color:#555;line-height:1.45;font-style:italic;margin:0}
+  .ov-lane-star{position:absolute;top:6px;right:6px;background:linear-gradient(135deg,#fff8e1,#fff3cd);color:#7b6608;font-size:8px;font-weight:700;padding:2px 7px;border-radius:7px;border:1px solid #f0e0a0}
+  .ov-lane-right{flex:1;padding:14px 20px 22px;display:flex;align-items:flex-start;position:relative;overflow:visible}
+  /* Timeline in lane */
+  .ov-ln-flow{display:flex;align-items:flex-start;position:relative;width:100%;padding:0 6px}
+  .ov-ln-flow::before{content:'';position:absolute;top:24px;left:32px;right:32px;height:3px;border-radius:2px;z-index:1}
+  .ov-lane.oc-a .ov-ln-flow::before{background:linear-gradient(90deg,#0078d4,#4da3e0)}
+  .ov-lane.oc-b .ov-ln-flow::before{background:linear-gradient(90deg,#8661c5,#a98ad8)}
+  .ov-lane.oc-c .ov-ln-flow::before{background:linear-gradient(90deg,#13a10e,#4dc449)}
+  .ov-lane.oc-d .ov-ln-flow::before{background:linear-gradient(90deg,#c19c00,#e0c040)}
+  .ov-ln-node{flex:1;text-align:center;position:relative;min-width:0}
+  .ov-ln-icon{width:48px;height:48px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:20px;position:relative;z-index:2;background:#fff;border:3px solid #e0e0e0;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+  .ov-ln-node.highlight .ov-ln-icon{border-width:3.5px;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+  .ov-lane.oc-a .ov-ln-node.highlight .ov-ln-icon{border-color:#0078d4;background:linear-gradient(135deg,#e8f4fd,#f0f6ff)}
+  .ov-lane.oc-b .ov-ln-node.highlight .ov-ln-icon{border-color:#8661c5;background:linear-gradient(135deg,#f3eefa,#f8f4ff)}
+  .ov-lane.oc-c .ov-ln-node.highlight .ov-ln-icon{border-color:#13a10e;background:linear-gradient(135deg,#e8f8e7,#f0fff0)}
+  .ov-lane.oc-d .ov-ln-node.highlight .ov-ln-icon{border-color:#c19c00;background:linear-gradient(135deg,#fdf8e8,#fffef5)}
+  /* Consent step: dashed optional */
+  .ov-ln-node.consent .ov-ln-icon{border-style:dashed;border-width:2.5px}
+  .ov-lane.oc-a .ov-ln-node.consent .ov-ln-icon{border-color:#0078d4}
+  .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#8661c5}
+  .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#13a10e}
+  .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#c19c00}
+  .ov-ln-badge{display:inline-block;font-size:7.5px;font-weight:700;background:#e8f5e9;color:#2e7d32;padding:2px 7px;border-radius:6px;margin-top:3px;letter-spacing:.3px;text-transform:uppercase}
+  /* Bypass arc */
+  .ov-ln-node.consent::after{content:'or skip';position:absolute;top:52px;left:2px;right:2px;height:14px;border:1.5px dashed rgba(0,0,0,.13);border-top:none;border-radius:0 0 12px 12px;z-index:0;font-size:7px;color:#bbb;text-align:center;line-height:30px;letter-spacing:.3px}
+  /* Option D: passive zone bar under flow */
+  .ov-d-zone{position:absolute;bottom:0;left:80px;right:80px;text-align:center;font-size:8px;color:#a88600;font-weight:600;letter-spacing:.3px;border-top:2px dashed rgba(193,156,0,.3);padding-top:2px}
+  .ov-d-zone span{background:#fffef5;padding:0 8px;position:relative;top:-1px}
+  /* Return step */
+  .ov-ln-node.return .ov-ln-icon{border-style:dashed;border-color:#c19c00;background:#fffef5}
+  /* Labels */
+  .ov-ln-txt{font-size:10px;line-height:1.3;color:#555;font-weight:500;padding:0 2px}
+  .ov-ln-txt strong{font-weight:700;color:#1a1a1a}
+  .ov-ln-sub{font-size:8.5px;color:#999;font-style:italic;margin-top:1px}
 
   /*  Comparison table  */
-  .ov-summary{max-width:1020px;margin:28px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
-  .ov-summary h3{font-size:16px;font-weight:700;color:#fff;margin:0;padding:14px 22px;background:linear-gradient(135deg,#0078d4 0%,#005a9e 100%)}
-  .ov-summary table{width:100%;border-collapse:collapse;font-size:12.5px}
-  .ov-summary th{text-align:left;background:#f0f4f8;padding:10px 14px;font-weight:700;font-size:11.5px;color:#333;border-bottom:2px solid #d0dbe6}
-  .ov-summary th:first-child{color:#555}
-  .ov-summary th:nth-child(2){color:#0078d4}
-  .ov-summary th:nth-child(3){color:#8661c5}
-  .ov-summary th:nth-child(4){color:#13a10e}
-  .ov-summary th:nth-child(5){color:#c19c00}
-  .ov-summary td{padding:10px 14px;border-bottom:1px solid #f0f0f0;vertical-align:top}
-  .ov-summary tr:nth-child(even) td{background:#fafbfc}
-  .ov-summary tr:last-child td{border-bottom:none}
-  .ov-summary td:first-child{font-weight:600;color:#333}v-card.oc-c .ov-desc{border-left-color:#13a10e}.ov-card.oc-d .ov-desc{border-left-color:#c19c00}
-  .ov-tl{display:flex;align-items:flex-start;position:relative;margin-bottom:6px;padding:0 4px}
-  .ov-tl::before{content:'';position:absolute;top:19px;left:18px;right:18px;height:2px;background:linear-gradient(90deg,#e0e0e0 0%,#d0d0d0 50%,#e0e0e0 100%);z-index:1}
-  .ov-step{flex:1;text-align:center;position:relative;min-width:0}
-  .ov-dot{width:38px;height:38px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:18px;position:relative;z-index:2;background:#f8f8f8;border:2px solid #ddd;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-  .ov-step.key .ov-dot{border-width:2.5px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-  .ov-card.oc-a .ov-step.key .ov-dot{background:#0078d4;border-color:#0078d4;color:#fff}
-  .ov-card.oc-b .ov-step.key .ov-dot{background:#8661c5;border-color:#8661c5;color:#fff}
-  .ov-card.oc-c .ov-step.key .ov-dot{background:#13a10e;border-color:#13a10e;color:#fff}
-  .ov-card.oc-d .ov-step.key .ov-dot{background:#c19c00;border-color:#c19c00;color:#fff}
-  .ov-step .ov-lbl{font-size:10.5px;line-height:1.35;color:#555;padding:0 2px}
-  .ov-step .ov-hl{font-weight:700}
-  .ov-step .ov-lbl em{font-size:9.5px;color:#999;font-style:italic}
-  .ov-card.oc-a .ov-step .ov-hl{color:#0078d4}.ov-card.oc-b .ov-step .ov-hl{color:#8661c5}.ov-card.oc-c .ov-step .ov-hl{color:#13a10e}.ov-card.oc-d .ov-step .ov-hl{color:#c19c00}
-  .ov-who{display:flex;justify-content:space-between;font-size:11px;color:#999;border-top:1px solid #f0f0f0;padding-top:10px}
-  .ov-star{position:absolute;top:18px;right:18px;background:linear-gradient(135deg,#fff8e1,#fff3cd);color:#7b6608;font-size:11px;font-weight:700;padding:4px 12px;border-radius:12px;border:1px solid #f0e0a0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-  .ov-dropped{position:absolute;top:16px;right:16px;background:#f0f0f0;color:#999;font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;text-decoration:line-through}
-  .ov-merge{background:#fffde7;border-left:3px solid #f9a825;padding:6px 10px;font-size:11px;border-radius:0 6px 6px 0;color:#5d4037;margin-top:6px}
-  .ov-legend{margin-top:28px;display:flex;gap:20px;font-size:12.5px;color:#666;align-items:center;justify-content:center}
-  .ov-sw{width:14px;height:14px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:middle}
-
-  /*  Comparison table  */
-  .ov-summary{max-width:1020px;margin:28px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
+  .ov-summary{max-width:1100px;margin:24px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
   .ov-summary h3{font-size:16px;font-weight:700;color:#fff;margin:0;padding:14px 22px;background:linear-gradient(135deg,#0078d4 0%,#005a9e 100%)}
   .ov-summary table{width:100%;border-collapse:collapse;font-size:12.5px}
   .ov-summary th{text-align:left;background:#f0f4f8;padding:10px 14px;font-weight:700;font-size:11.5px;color:#333;border-bottom:2px solid #d0dbe6}
@@ -353,70 +323,96 @@ Date: April 3, 2026
   <!-- Context callout -->
   <div class="ov-context">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#0078d4" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.5" stroke="#0078d4" stroke-width="1.8" stroke-linecap="round"/></svg>
-    <span>Each card below shows the same customer journey through <strong>Ask Microsoft</strong>. The highlighted step reveals <strong>where</strong> each option&rsquo;s consent moment happens &mdash; and how it shapes the experience. Click any card to explore its full 16-step walk-through.</span>
+    <span>Each swim lane below shows the same customer journey on <strong>microsoft.com</strong>. The dashed circle marks where each option&rsquo;s consent moment happens &mdash; always <strong>optional</strong>, never gated. The chat <strong>always continues</strong> regardless. Click any lane to explore its full walk-through.</span>
   </div>
 
   <!-- Option Cards Grid -->
-  <div class="ov-grid">
+  <!-- Swim Lanes -->
+  <div class="ov-lanes">
 
     <!-- OPTION A -->
-    <div class="ov-card oc-a" onclick="document.querySelector('[data-t=A]').click()">
-      <span class="ov-star">&#9733; Preferred</span>
-      <span class="ov-tag">Option A</span>
-      <h3>Notice + Opt-Out</h3>
-      <div class="ov-model">Consent Model #2 &middot; Default for most eCommerce</div>
-      <div class="ov-desc">&ldquo;We let you know upfront that conversations may be saved. Opt out anytime.&rdquo;</div>
-      <div class="ov-tl">
-        <div class="ov-step key"><div class="ov-dot">&#128172;</div><div class="ov-lbl"><span class="ov-hl">Chat opens</span><br><em>Notice shown</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128161;</div><div class="ov-lbl">Explores<br>&amp; asks</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">Agent offers</span><br><em>email connect</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128075;</div><div class="ov-lbl">Wraps<br>up</div></div>
-        <div class="ov-step"><div class="ov-dot">&#128257;</div><div class="ov-lbl">Returns<br>later</div></div>
+    <div class="ov-lane oc-a" onclick="document.querySelector('[data-t=A]').click()">
+      <div class="ov-lane-left">
+        <span class="ov-lane-star">&#9733; Preferred</span>
+        <span class="ov-lane-tag">Option A</span>
+        <h3>Notice + Opt-Out</h3>
+        <div class="ov-lane-model">Consent Model #2 &middot; Default eCommerce</div>
+        <p class="ov-lane-desc">&ldquo;We let you know upfront. Opt out anytime.&rdquo;</p>
+      </div>
+      <div class="ov-lane-right">
+        <div class="ov-ln-flow">
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
+          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Compares plans, asks questions</div></div>
+          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9993;</div><div class="ov-ln-txt"><strong>Agent Nudge</strong></div><div class="ov-ln-sub">Offers email connect</div><div class="ov-ln-badge">Optional</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
+          <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>
+        </div>
       </div>
     </div>
 
     <!-- OPTION B -->
-    <div class="ov-card oc-b" onclick="document.querySelector('[data-t=B]').click()">
-      <span class="ov-tag">Option B</span>
-      <h3>Notice + Opt-In</h3>
-      <div class="ov-model">Consent Model #3 &middot; Banner countries &amp; sensitive markets</div>
-      <div class="ov-desc">&ldquo;Nothing is saved unless you explicitly choose to opt in.&rdquo;</div>
-      <div class="ov-tl">
-        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat opens<br><em>no saving</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128161;</div><div class="ov-lbl">Explores<br>&amp; asks</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#9989;</div><div class="ov-lbl"><span class="ov-hl">Opt-in prompt</span><br><em>&ldquo;Save this?&rdquo;</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128075;</div><div class="ov-lbl">Wraps<br>up</div></div>
-        <div class="ov-step"><div class="ov-dot">&#128257;</div><div class="ov-lbl">Returns<br>later</div></div>
+    <div class="ov-lane oc-b" onclick="document.querySelector('[data-t=B]').click()">
+      <div class="ov-lane-left">
+        <span class="ov-lane-tag">Option B</span>
+        <h3>Notice + Opt-In</h3>
+        <div class="ov-lane-model">Consent Model #3 &middot; Banner countries</div>
+        <p class="ov-lane-desc">&ldquo;Nothing saved unless you explicitly opt in.&rdquo;</p>
+      </div>
+      <div class="ov-lane-right">
+        <div class="ov-ln-flow">
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
+          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Compares plans, asks questions</div></div>
+          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9989;</div><div class="ov-ln-txt"><strong>Opt-In Prompt</strong></div><div class="ov-ln-sub">&ldquo;Save this chat?&rdquo;</div><div class="ov-ln-badge">Optional</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
+          <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>
+        </div>
       </div>
     </div>
 
     <!-- OPTION C -->
-    <div class="ov-card oc-c" onclick="document.querySelector('[data-t=C]').click()">
-      <span class="ov-tag">Option C</span>
-      <h3>End-of-Chat Capture</h3>
-      <div class="ov-model">Opt-In at Exit &middot; Lowest friction during conversation</div>
-      <div class="ov-desc">&ldquo;Chat without interruption. We only ask when you are ready to leave.&rdquo;</div>
-      <div class="ov-tl">
-        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat opens<br><em>no prompts</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128161;</div><div class="ov-lbl">Explores<br>&amp; asks</div></div>
-        <div class="ov-step"><div class="ov-dot">&#8596;</div><div class="ov-lbl">Conversation<br>flows</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#9993;</div><div class="ov-lbl"><span class="ov-hl">&ldquo;Email summary?&rdquo;</span><br><em>at exit</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128257;</div><div class="ov-lbl">Returns<br>later</div></div>
+    <div class="ov-lane oc-c" onclick="document.querySelector('[data-t=C]').click()">
+      <div class="ov-lane-left">
+        <span class="ov-lane-tag">Option C</span>
+        <h3>End-of-Chat Capture</h3>
+        <div class="ov-lane-model">Opt-In at Exit &middot; Lowest friction</div>
+        <p class="ov-lane-desc">&ldquo;Chat freely. We only ask when you&rsquo;re ready to leave.&rdquo;</p>
+      </div>
+      <div class="ov-lane-right">
+        <div class="ov-ln-flow">
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
+          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Starts a chat</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Compares plans, asks questions</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">No interruptions</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, satisfied</div></div>
+          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#9993;</div><div class="ov-ln-txt"><strong>Exit Offer</strong></div><div class="ov-ln-sub">&ldquo;Email a summary?&rdquo;</div><div class="ov-ln-badge">Optional</div></div>
+          <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>
+        </div>
       </div>
     </div>
 
     <!-- OPTION D -->
-    <div class="ov-card oc-d" onclick="document.querySelector('[data-t=D]').click()">
-      <span class="ov-tag">Option D</span>
-      <h3>Always-On Passive Link</h3>
-      <div class="ov-model">Persistent footer link &middot; Zero interruptions</div>
-      <div class="ov-desc">&ldquo;A link is always there. You tap it when you&rsquo;re ready.&rdquo;</div>
-      <div class="ov-tl">
-        <div class="ov-step"><div class="ov-dot">&#128172;</div><div class="ov-lbl">Chat opens<br><em>link visible</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128161;</div><div class="ov-lbl">Explores<br>&amp; asks</div></div>
-        <div class="ov-step key"><div class="ov-dot">&#128279;</div><div class="ov-lbl"><span class="ov-hl">Customer taps</span><br><em>link, any time</em></div></div>
-        <div class="ov-step"><div class="ov-dot">&#128075;</div><div class="ov-lbl">Wraps<br>up</div></div>
-        <div class="ov-step"><div class="ov-dot">&#128257;</div><div class="ov-lbl">Returns<br>later</div></div>
+    <div class="ov-lane oc-d" onclick="document.querySelector('[data-t=D]').click()">
+      <div class="ov-lane-left">
+        <span class="ov-lane-tag">Option D</span>
+        <h3>Always-On Passive Link</h3>
+        <div class="ov-lane-model">Persistent footer link &middot; Zero push</div>
+        <p class="ov-lane-desc">&ldquo;A link is always there. You tap it when you&rsquo;re ready.&rdquo;</p>
+      </div>
+      <div class="ov-lane-right">
+        <div class="ov-ln-flow">
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#127760;</div><div class="ov-ln-txt"><strong>Visits M365</strong></div><div class="ov-ln-sub">Browses plans &amp; features</div></div>
+          <div class="ov-ln-node highlight"><div class="ov-ln-icon">&#128172;</div><div class="ov-ln-txt"><strong>Opens Ask Microsoft</strong></div><div class="ov-ln-sub">Link visible from start</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128161;</div><div class="ov-ln-txt"><strong>Explores &amp; Asks</strong></div><div class="ov-ln-sub">Link always visible</div></div>
+          <div class="ov-ln-node consent"><div class="ov-ln-icon">&#128279;</div><div class="ov-ln-txt"><strong>Customer Taps Link</strong></div><div class="ov-ln-sub">If &amp; when they choose</div><div class="ov-ln-badge">Customer-driven</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#8596;</div><div class="ov-ln-txt"><strong>Continues Chat</strong></div><div class="ov-ln-sub">Conversation keeps flowing</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon">&#128075;</div><div class="ov-ln-txt"><strong>Wraps Up</strong></div><div class="ov-ln-sub">Gets answers, leaves satisfied</div></div>
+          <div class="ov-ln-node return"><div class="ov-ln-icon">&#128203;</div><div class="ov-ln-txt"><strong>Returns Later</strong></div><div class="ov-ln-sub">If email was shared</div></div>
+        </div>
+        <div class="ov-d-zone"><span>&#128279; Link always visible &mdash; customer decides if &amp; when to connect</span></div>
       </div>
     </div>
 

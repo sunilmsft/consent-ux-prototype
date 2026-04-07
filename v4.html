@@ -237,7 +237,7 @@ Date: April 3, 2026
   .ov-lane-model{font-size:10px;color:#6b7280;margin-bottom:6px;letter-spacing:.2px}
   .ov-lane-desc{font-size:11.5px;color:#5a6370;line-height:1.5;font-style:italic;margin:0}
   .ov-lane-star{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#edf2fa,#dce4f2);color:#1a4a7a;font-size:9px;font-weight:700;padding:4px 10px;border-radius:10px;border:1px solid #b8c6da;box-shadow:0 2px 6px rgba(0,60,120,.1),0 1px 2px rgba(0,0,0,.04)}
-  .ov-lane-right{flex:1;padding:18px 16px 32px;display:flex;align-items:flex-start;position:relative;overflow:visible}
+  .ov-lane-right{flex:1;padding:18px 16px 32px;display:flex;flex-wrap:wrap;align-items:flex-start;position:relative;overflow:visible}
   /* Timeline bar */
   .ov-ln-flow{display:flex;align-items:flex-start;position:relative;width:100%}
   .ov-ln-flow::before{content:'';position:absolute;top:27px;left:36px;right:36px;height:3px;border-radius:2px;z-index:1}
@@ -280,16 +280,14 @@ Date: April 3, 2026
   .ov-ln-node.branch .ov-ln-txt strong{font-size:12px}
   /* Re-entry section  separate from main flow */
   /* Re-entry card */
-  .ov-reentry{position:relative;margin:0 0 0 auto;width:310px;padding:16px 20px 14px;border:1.5px dashed rgba(91,95,199,.2);border-radius:14px;background:linear-gradient(180deg,#fafafd 0%,#f3f4fa 100%)}
+  .ov-reentry{position:relative;margin:4px 0 0 auto;width:310px;padding:16px 20px 14px;border:1.5px dashed rgba(91,95,199,.2);border-radius:14px;background:linear-gradient(180deg,#fafafd 0%,#f3f4fa 100%)}
   .ov-reentry[data-tip]{cursor:help}
   .ov-reentry[data-tip]:hover > .ov-tip{opacity:1}
   .ov-reentry > .ov-tip{bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);width:260px;font-size:11px;position:absolute;background:rgba(15,15,20,.94);color:#fff;padding:12px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);line-height:1.6;white-space:normal;text-align:left}
   .ov-reentry > .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,15,20,.94)}
-  /* Dotted drop connector from Wraps Up */
-  /* Bridge connector: Wraps Up to Returns card */
-  .ov-re-bridge{position:relative;height:36px;margin:0}
-  .ov-re-bridge-vert{position:absolute;top:0;right:calc(14.28% - 1px);width:0;height:100%;border-left:2px dotted rgba(91,95,199,.3)}
-  .ov-re-bridge-tag{position:absolute;top:50%;right:calc(14.28% - 40px);transform:translateY(-50%);font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4;white-space:nowrap;z-index:2}
+  /* Wraps Up → Returns card connector */
+  .ov-ln-node.wrapup::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:24px;border-left:2px dotted rgba(91,95,199,.35);z-index:3}
+  .ov-re-tag{display:inline-block;font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4;white-space:nowrap;margin-bottom:6px}
   /* Card header */
   .ov-re-header{font-size:11px;color:#5B5FC7;font-weight:700;margin-bottom:12px;letter-spacing:.1px;text-align:center}
   /* Two-path fork */
@@ -407,13 +405,10 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#B4570A" stroke-width="2" fill="#E8EAF6"/><path d="M9 21h6M10 18h4" stroke="#B4570A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
           <div class="ov-ln-node consent branch" data-tip="The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual."><span class="ov-tip">The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Keep this conversation</strong></div><div class="ov-ln-micro">Get a summary &middot; Return anytime</div><div class="ov-ln-skip">Or continue chatting</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
-        </div>
-        <div class="ov-re-bridge">
-          <div class="ov-re-bridge-vert"></div>
-          <span class="ov-re-bridge-tag">if they return</span>
+          <div class="ov-ln-node wrapup"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
         </div>
         <div class="ov-reentry" data-tip="container"><span class="ov-tip">If the customer returns later, they can resume a previous conversation or start a new one. Either way, the experience continues.</span>
+          <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
           <div class="ov-re-header">Customer returns later</div>
           <div class="ov-re-choices">
             <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Available if the customer connected their email during a previous conversation.</span>
@@ -906,7 +901,8 @@ const sC=[null,
   ()=>{add('cC',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="freelancer@email.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cC',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">✓ Match found — loading your session...</div>`),400)},
   ()=>{add('cC',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here's where you left off:</p><div class="rv-topic"><span class="ri">💬</span><div><strong>Microsoft 365 Personal for freelancers</strong><br><span style="font-size:11px;color:#888">Yesterday · Desktop apps, OneDrive, Editor, free trial</span></div></div></div>`);setTimeout(()=>add('cC',bot("Welcome back! Last time we explored Microsoft 365 Personal for freelancing — desktop apps, 1 TB OneDrive, Editor, Clipchamp, and Designer. You were looking at the free trial.<br><br>Want to continue from there, or do you have a new question?")),300)}
 ];
-
+
+
 // ═══ OPTION D: Always-On Passive Link ═══
 const sD=[null,
   // Step 2: Customer asks about Surface devices

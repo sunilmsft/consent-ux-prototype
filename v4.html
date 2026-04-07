@@ -278,6 +278,22 @@ Date: April 3, 2026
   .ov-ln-node.branch .ov-ln-icon{width:46px;height:46px;min-width:46px;min-height:46px}
   .ov-ln-node.branch .ov-ln-icon svg{width:22px;height:22px}
   .ov-ln-node.branch .ov-ln-txt strong{font-size:12px}
+  /* Re-entry section  separate from main flow */
+  .ov-reentry{position:relative;margin-top:16px;padding:12px 0 0;display:flex;align-items:center;gap:12px}
+  .ov-reentry-connector{position:absolute;top:-16px;right:calc(14.28% + 2px);width:0;height:16px;border-left:2px dotted rgba(91,95,199,.3)}
+  .ov-reentry-label{font-size:9px;color:#6b7280;font-weight:600;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;flex-shrink:0;padding-left:4px}
+  .ov-reentry-icon{width:38px;height:38px;min-width:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px dashed #5B5FC7;background:linear-gradient(180deg,#eeeefa 0%,#ddd8f3 100%);box-shadow:0 2px 8px rgba(0,0,0,.06);flex-shrink:0}
+  .ov-reentry-icon svg{width:18px;height:18px;flex-shrink:0}
+  .ov-reentry-paths{display:flex;gap:8px;align-items:center}
+  .ov-reentry-path{font-size:10px;font-weight:600;padding:4px 12px;border-radius:8px;letter-spacing:.2px;white-space:nowrap;cursor:help;position:relative}
+  .ov-reentry-path.p-resume{background:linear-gradient(135deg,#dceefb,#c8e0f5);color:#0062b1;border:1px solid #a3cceb}
+  .ov-reentry-path.p-resume::after{content:'if email connected';font-size:8px;font-weight:400;color:#6b7280;display:block;margin-top:1px;font-style:italic}
+  .ov-reentry-path.p-fresh{background:linear-gradient(135deg,#f0f1f5,#e4e6ec);color:#444;border:1px solid #cdd0d8}
+  .ov-reentry-sep{font-size:9px;color:#aaa;font-style:italic}
+  .ov-reentry-time{position:absolute;top:-14px;right:calc(14.28% - 14px);font-size:8px;color:#999;letter-spacing:.3px;white-space:nowrap}
+  /* Re-entry tooltip */
+  .ov-reentry-path[data-tip]{position:relative}
+  .ov-reentry-path[data-tip] .ov-tip{bottom:calc(100% + 6px);width:200px;font-size:11px}
   /* Option D: passive zone */
   .ov-d-zone{position:absolute;bottom:6px;left:50px;right:50px;text-align:center;font-size:10px;color:#2B579A;font-weight:600;letter-spacing:.3px;border-top:2px dashed rgba(43,87,154,.25);padding-top:3px}
   .ov-d-zone span{background:#fff;padding:0 10px;position:relative;top:-1px}
@@ -374,7 +390,17 @@ Date: April 3, 2026
           <div class="ov-ln-node consent branch" data-tip="The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual."><span class="ov-tip">The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Keep this conversation</strong></div><div class="ov-ln-micro">Get a summary &middot; Return anytime</div><div class="ov-ln-skip">Or continue chatting</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
-          <div class="ov-ln-node return" data-tip="If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required."><span class="ov-tip">If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#2B579A" stroke-width="2" fill="#E8EDF5"/><path d="M14 2v6h6" stroke="#2B579A" stroke-width="2" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="#2B579A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Returns</strong></div><div class="ov-ln-paths"><span class="ov-ln-path p-continue">&#9993; Continue</span><span class="ov-ln-path p-fresh">&#10024; Start fresh</span></div></div>
+        </div>
+        <div class="ov-reentry">
+          <div class="ov-reentry-connector"></div>
+          <span class="ov-reentry-time">&#8987; Later</span>
+          <div class="ov-reentry-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#5B5FC7" stroke-width="1.8" fill="#eeeefa"/><path d="M14 2v6h6" stroke="#5B5FC7" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="#5B5FC7" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="ov-reentry-label">Returns</span>
+          <div class="ov-reentry-paths">
+            <span class="ov-reentry-path p-resume" data-tip="resume"><span class="ov-tip">Available if you connected your email earlier.</span>&#9993; Resume conversation</span>
+            <span class="ov-reentry-sep">or</span>
+            <span class="ov-reentry-path p-fresh">&#10024; Start fresh</span>
+          </div>
         </div>
       </div>
     </div>

@@ -817,8 +817,10 @@ function emailBlock(label,sub){
 
 // ═══ OPTION A: Notice + Opt-Out — Preferred Consent Model ═══
 const sA=[null,
-  // Step 2: User asks about plans
-  ()=>{add('cA',usr("Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?"));add('cA','<span class="tsr">just now</span>')},
+  // Step 2: Path indicator + User asks about plans
+  ()=>{
+    add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">&#9432; Default Path</div><div style="font-size:12px;color:#888;margin-top:2px">Customer did not opt out &mdash; conversation is saved by default</div></div>`);
+    add('cA',usr("Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?"));add('cA','<span class="tsr">just now</span>')},
   // Step 3: Agent responds
   ()=>{add('cA',bot("Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong><br>✓ Web & mobile versions of Word, Excel, PowerPoint<br>✓ 1 TB cloud storage per user<br>✓ Microsoft Teams for chat & meetings<br><br><strong>Business Standard</strong><br>✓ Everything in Basic, plus full desktop apps<br>✓ Webinar hosting & attendee registration<br>✓ Microsoft Loop for collaborative workspaces<br><br><strong>Business Premium</strong><br>✓ Everything in Standard, plus advanced security<br>✓ Intune device management<br>✓ Conditional access & data loss prevention<br><br>What matters most to your team — collaboration features, desktop apps, or security?"));add('cA','<span class="ts">just now</span>')},
   // Step 4: User asks about security, agent responds

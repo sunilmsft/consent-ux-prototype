@@ -279,29 +279,36 @@ Date: April 3, 2026
   .ov-ln-node.branch .ov-ln-icon svg{width:22px;height:22px}
   .ov-ln-node.branch .ov-ln-txt strong{font-size:12px}
   /* Re-entry section  separate from main flow */
-  /* Re-entry container */
-  .ov-reentry-wrap{position:relative;margin-top:0;display:flex;align-items:flex-start;justify-content:flex-end;padding-right:12px}
-  .ov-reentry-line{position:absolute;top:0;right:calc(14.28% + 2px);width:0;height:100%;display:flex;flex-direction:column;align-items:center}
-  .ov-reentry-line::before{content:'';width:0;height:20px;border-left:2px dotted rgba(91,95,199,.3)}
-  .ov-reentry-line-label{font-size:8.5px;color:#7b7fc4;font-weight:600;letter-spacing:.4px;text-transform:uppercase;background:#fff;padding:2px 6px;border-radius:4px;border:1px solid rgba(91,95,199,.15);margin:2px 0;white-space:nowrap}
-  .ov-reentry-line::after{content:'';width:0;flex:1;border-left:2px dotted rgba(91,95,199,.3)}
-  .ov-reentry{position:relative;margin-top:6px;padding:12px 16px 10px;display:flex;align-items:center;gap:14px;border:1.5px dashed rgba(91,95,199,.2);border-radius:12px;background:linear-gradient(135deg,#fafafd 0%,#f2f3f9 100%)}
-  .ov-reentry-title{font-size:11.5px;color:#5B5FC7;font-weight:700;white-space:nowrap;flex-shrink:0;letter-spacing:.1px}
-  .ov-reentry-divider{width:1px;height:32px;background:rgba(91,95,199,.12);flex-shrink:0}
-  .ov-reentry-paths{display:flex;gap:8px;align-items:stretch}
-  .ov-reentry-path{font-size:10.5px;font-weight:600;padding:8px 16px;border-radius:10px;letter-spacing:.15px;white-space:nowrap;position:relative;cursor:default;display:flex;flex-direction:column;align-items:center;text-align:center;min-width:120px}
-  .ov-reentry-path.p-resume{background:linear-gradient(180deg,#e6f1fc,#d4e6f7);color:#0062b1;border:1px solid #a3cceb;cursor:help}
-  .ov-reentry-path.p-resume .ov-reentry-sub{font-size:8.5px;font-weight:400;color:#6b7280;margin-top:2px;font-style:italic}
-  .ov-reentry-path.p-fresh{background:linear-gradient(180deg,#eef0f4,#e4e6ec);color:#3a3f47;border:1px solid #c8ccd4}
-  .ov-reentry-sep{font-size:10px;color:#999;font-weight:500;align-self:center;padding:0 2px}
-  .ov-reentry-cont{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:8.5px;color:#888;letter-spacing:.2px}
-  .ov-reentry-cont::before{content:'';width:12px;height:0;border-top:1px dashed #bbb}
-  .ov-reentry-cont::after{content:'&#8594;'}
-  /* Re-entry tooltip */
-  .ov-reentry-path[data-tip]{position:relative}
-  .ov-reentry-path[data-tip] .ov-tip{bottom:calc(100% + 6px);width:210px;font-size:11px}
-  .ov-reentry[data-tip]{position:relative;cursor:help}
+  /* Re-entry mini-flow */
+  .ov-reentry{position:relative;margin-top:10px;padding:14px 20px 14px 16px;border:1.5px dashed rgba(91,95,199,.18);border-radius:14px;background:linear-gradient(135deg,#fafafd 0%,#f3f4fa 100%);display:flex;align-items:center;gap:0}
+  .ov-reentry[data-tip]{cursor:help}
   .ov-reentry[data-tip] .ov-tip{bottom:calc(100% + 6px);left:50%;width:260px;font-size:11px}
+  .ov-re-gap{position:absolute;top:-10px;right:calc(14.28% + 2px);display:flex;flex-direction:column;align-items:center}
+  .ov-re-gap::before{content:'';width:0;height:6px;border-left:2px dotted rgba(91,95,199,.3)}
+  .ov-re-gap-tag{font-size:8px;color:#7b7fc4;font-weight:600;letter-spacing:.5px;text-transform:uppercase;background:#fff;padding:1px 6px;border-radius:3px;border:1px solid rgba(91,95,199,.12)}
+  /* Mini-flow nodes */
+  .ov-re-node{display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0;position:relative}
+  .ov-re-circle{width:36px;height:36px;min-width:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:4px;position:relative;z-index:2}
+  .ov-re-circle svg{width:16px;height:16px;flex-shrink:0}
+  .ov-re-circle.c-return{border:2px dashed #5B5FC7;background:linear-gradient(180deg,#eeeefa,#ddd8f3);box-shadow:0 2px 8px rgba(91,95,199,.1)}
+  .ov-re-circle.c-path{border:1.5px solid #c0c7d3;background:linear-gradient(180deg,#f7f9fc,#e8ecf2);box-shadow:0 2px 6px rgba(0,0,0,.05)}
+  .ov-re-circle.c-end{border:1.5px solid #c0c7d3;background:linear-gradient(180deg,#f7f9fc,#e8ecf2);box-shadow:0 2px 6px rgba(0,0,0,.05);width:30px;height:30px;min-width:30px}
+  .ov-re-circle.c-end svg{width:14px;height:14px}
+  .ov-re-label{font-size:11px;font-weight:600;color:#333;line-height:1.2}
+  .ov-re-sub{font-size:8.5px;color:#7b8290;font-style:italic;margin-top:1px}
+  /* Connectors within mini-flow */
+  .ov-re-conn{width:28px;height:2px;background:none;border-top:2px dotted rgba(91,95,199,.2);flex-shrink:0;align-self:center;margin:0 2px;margin-bottom:16px}
+  .ov-re-fork{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;margin:0 4px}
+  .ov-re-fork::before{content:'';position:absolute;top:18px;left:0;right:0;height:0;border-top:1.5px dotted rgba(91,95,199,.15)}
+  .ov-re-fork-paths{display:flex;gap:20px;align-items:flex-start}
+  .ov-re-merge{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;margin-left:4px}
+  .ov-re-merge::before{content:'';position:absolute;top:14px;left:-24px;right:calc(50% + 1px);height:0;border-top:1.5px dotted rgba(91,95,199,.15)}
+  .ov-re-merge-line{width:0;height:14px;border-left:1.5px dotted rgba(91,95,199,.15)}
+  /* Re-entry tooltip on paths */
+  .ov-re-node[data-tip]{position:relative}
+  .ov-re-node[data-tip] .ov-re-circle{cursor:help}
+  .ov-re-node[data-tip] .ov-tip{bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);width:200px;font-size:11px}
+  .ov-re-node[data-tip]:hover .ov-tip{opacity:1}
   /* Option D: passive zone */
   .ov-d-zone{position:absolute;bottom:6px;left:50px;right:50px;text-align:center;font-size:10px;color:#2B579A;font-weight:600;letter-spacing:.3px;border-top:2px dashed rgba(43,87,154,.25);padding-top:3px}
   .ov-d-zone span{background:#fff;padding:0 10px;position:relative;top:-1px}
@@ -399,16 +406,30 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
         </div>
-        <div class="ov-reentry-wrap">
-          <div class="ov-reentry-line"><span class="ov-reentry-line-label">Later</span></div>
-          <div class="ov-reentry" data-tip="container"><span class="ov-tip">Customers can return later to resume their conversation or start a new one.</span>
-            <span class="ov-reentry-title">Returns later</span>
-            <div class="ov-reentry-divider"></div>
-            <div class="ov-reentry-paths">
-              <div class="ov-reentry-path p-resume" data-tip="resume"><span class="ov-tip">Available if you connected your email earlier.</span>&#9993; Resume conversation<span class="ov-reentry-sub">(if email connected)</span><span class="ov-reentry-cont">continues</span></div>
-              <span class="ov-reentry-sep">or</span>
-              <div class="ov-reentry-path p-fresh">&#10024; Start fresh<span class="ov-reentry-cont">continues</span></div>
+        <div class="ov-reentry" data-tip="container"><span class="ov-tip">Customers can return later to resume their conversation or start a new one.</span>
+          <div class="ov-re-gap"><span class="ov-re-gap-tag">later</span></div>
+          <div class="ov-re-node">
+            <div class="ov-re-circle c-return"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#5B5FC7" stroke-width="2" fill="#ddd8f3"/><path d="M14 2v6h6" stroke="#5B5FC7" stroke-width="2"/><path d="M8 13h8M8 17h5" stroke="#5B5FC7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <span class="ov-re-label">Returns</span>
+          </div>
+          <div class="ov-re-conn"></div>
+          <div class="ov-re-fork">
+            <div class="ov-re-fork-paths">
+              <div class="ov-re-node" data-tip="resume"><span class="ov-tip">Available if you connected your email earlier.</span>
+                <div class="ov-re-circle c-path"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0062b1" stroke-width="1.8" fill="#e6f1fc"/><path d="M3 7l9 6 9-6" stroke="#0062b1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                <span class="ov-re-label">Resume</span>
+                <span class="ov-re-sub">if email connected</span>
+              </div>
+              <div class="ov-re-node">
+                <div class="ov-re-circle c-path"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
+                <span class="ov-re-label">Start fresh</span>
+              </div>
             </div>
+          </div>
+          <div class="ov-re-conn"></div>
+          <div class="ov-re-node">
+            <div class="ov-re-circle c-end"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="ov-re-label" style="font-size:10px;color:#888">Continues</span>
           </div>
         </div>
       </div>

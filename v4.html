@@ -259,22 +259,27 @@ Date: April 3, 2026
   /* Consent node */
   .ov-ln-node.consent .ov-ln-icon{border-style:dashed;border-width:2.5px;box-shadow:0 5px 16px rgba(0,0,0,.11),0 2px 4px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.9),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-lane.oc-a .ov-ln-node.consent .ov-ln-icon{border-color:#0062b1;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#2b88d8 0%,#0062b1 100%);box-shadow:0 4px 16px rgba(0,120,212,.25),0 0 0 4px rgba(0,120,212,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
-  .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#f0e8fa 0%,#ddd0f2 100%)}
+  .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#6b3fa0;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#9b71d1 0%,#6b3fa0 100%);box-shadow:0 4px 16px rgba(134,97,197,.25),0 0 0 4px rgba(134,97,197,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
   .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#e8edf7 0%,#c8d5ed 100%)}
   .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#e8edf5 0%,#c4d0e8 100%)}
   .ov-ln-badge{display:block;font-size:8px;font-weight:700;background:#e8edf7;color:#2A4D80;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;border:1px solid #c4ccdd;width:fit-content}
   /* Notify step */
   .ov-ln-node.notice .ov-ln-icon{border-width:3px;box-shadow:0 6px 18px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.08),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.05)}
   .ov-lane.oc-a .ov-ln-node.notice .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#d4e9fa 0%,#a8ccee 100%);box-shadow:0 5px 18px rgba(0,120,212,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
+  .ov-lane.oc-b .ov-ln-node.notice .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#ece0f9 0%,#d6c4ef 100%);box-shadow:0 5px 18px rgba(134,97,197,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-ln-notice-tag{display:block;font-size:8px;font-weight:700;background:#dceefb;color:#0078d4;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;border:1px solid #a3cceb;white-space:nowrap;width:fit-content}
+  .ov-ln-optin-tag{display:block;font-size:8px;font-weight:700;background:#ece0f9;color:#6b3fa0;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;border:1px solid #c9b3e4;white-space:nowrap;width:fit-content}
   /* Bypass skip */
   .ov-ln-skip{display:block;font-size:9px;color:#5B5FC7;margin-top:2px;letter-spacing:.2px;font-weight:500;font-style:italic}
   .ov-ln-micro{font-size:10px;color:#555;margin-top:2px;letter-spacing:.1px;line-height:1.3;font-weight:400}
   /* Branch node  off the main flow */
   .ov-ln-node.branch{padding-top:58px;position:relative}
   .ov-ln-node.branch::before{content:'';position:absolute;top:23px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:linear-gradient(180deg,#4da3e8,#0078d4);border:2px solid #fff;z-index:3;box-shadow:0 1px 5px rgba(0,120,212,.3)}
+  .ov-lane.oc-b .ov-ln-node.branch::before{background:linear-gradient(180deg,#a98ad8,#6b3fa0);box-shadow:0 1px 5px rgba(134,97,197,.3)}
   .ov-ln-node.branch::after{content:'';position:absolute;top:35px;left:50%;transform:translateX(-50%);width:0;height:18px;border-left:2px dashed rgba(0,120,212,.35);z-index:1}
+  .ov-lane.oc-b .ov-ln-node.branch::after{border-left-color:rgba(134,97,197,.35)}
   .ov-ln-node.branch .ov-ln-icon::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid rgba(0,120,212,.4);z-index:4}
+  .ov-lane.oc-b .ov-ln-node.branch .ov-ln-icon::before{border-top-color:rgba(134,97,197,.4)}
   .ov-ln-node.branch .ov-ln-icon{width:46px;height:46px;min-width:46px;min-height:46px}
   .ov-ln-node.branch .ov-ln-icon svg{width:22px;height:22px}
   .ov-ln-node.branch .ov-ln-txt strong{font-size:12px}
@@ -290,6 +295,7 @@ Date: April 3, 2026
   .ov-ln-node.wrapup::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:12px;border-left:2px dotted rgba(91,95,199,.35);z-index:3}
   .ov-ln-node.wrapup .ov-reentry{position:absolute;top:calc(100% + 10px);right:-16px;width:310px;z-index:10}
   .ov-lane.oc-a .ov-lane-right{padding-bottom:112px}
+  .ov-lane.oc-b .ov-lane-right{padding-bottom:112px}
   .ov-re-tag{display:inline-block;font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4;white-space:nowrap;margin-bottom:6px}
   /* Card header */
   .ov-re-header{font-size:11px;color:#5B5FC7;font-weight:700;margin-bottom:12px;letter-spacing:.1px;text-align:center}
@@ -402,7 +408,7 @@ Date: April 3, 2026
         <span class="ov-lane-star">&#9733; Preferred</span>
         <span class="ov-lane-tag">Option A</span>
         <h3>Notice + Opt-Out</h3>
-        <div class="ov-lane-model">Consent Model #2 &middot; Default eCommerce</div>
+        <div class="ov-lane-model">Preferred Consent Model &middot; Default eCommerce</div>
         <p class="ov-lane-desc">&ldquo;Notified upfront, opt out anytime. Email offered later to get a summary and return anytime.&rdquo;</p>
       </div>
       <div class="ov-lane-right">
@@ -445,18 +451,40 @@ Date: April 3, 2026
       <div class="ov-lane-left">
         <span class="ov-lane-tag">Option B</span>
         <h3>Notice + Opt-In</h3>
-        <div class="ov-lane-model">Consent Model #3 &middot; Banner countries</div>
-        <p class="ov-lane-desc">&ldquo;Nothing saved unless you explicitly opt in.&rdquo;</p>
+        <div class="ov-lane-model">Explicit Consent &middot; Banner countries</div>
+        <p class="ov-lane-desc">&ldquo;Nothing saved unless you opt in. Email is optional.&rdquo;</p>
       </div>
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
-          <div class="ov-ln-node highlight" data-tip="Chat starts clean &mdash; no notification, no data saved. The customer chats freely until they choose to opt in."><span class="ov-tip">Chat starts clean &mdash; no notification, no data saved. The customer chats freely until they choose to opt in.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#5B5FC7" stroke-width="2" fill="#E8EAFF"/><circle cx="9" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="12" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="15" cy="10.5" r="1" fill="#5B5FC7"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div></div>
+          <div class="ov-ln-node notice" data-tip="Chat opens with a notice: &quot;We can save this conversation to help you next time. Choose to opt in anytime.&quot;"><span class="ov-tip">Chat opens with a notice: &quot;We can save this conversation to help you next time. Choose to opt in anytime.&quot;</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#5B5FC7" stroke-width="2" fill="#E8EAFF"/><circle cx="9" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="12" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="15" cy="10.5" r="1" fill="#5B5FC7"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-optin-tag">&#9745; Opt-In</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#B4570A" stroke-width="2" fill="#E8EAF6"/><path d="M9 21h6M10 18h4" stroke="#B4570A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
-          <div class="ov-ln-node consent" data-tip="Agent asks: &quot;Would you like to save this conversation?&quot; Customer must actively choose yes. No data is saved by default."><span class="ov-tip">Agent asks: &quot;Would you like to save this conversation?&quot; Customer must actively choose yes. No data is saved by default.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#3F6FAE" stroke-width="2" fill="#E0F2F4"/><path d="M7 12.5l3 3 7-7" stroke="#3F6FAE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Opt-In</strong></div><div class="ov-ln-badge">Optional</div><div class="ov-ln-skip">or Skip &#8594;</div></div>
+          <div class="ov-ln-node consent branch" data-tip="The agent offers to save this conversation. The customer can choose to save only, or also add their email for a summary. Both are optional and independent."><span class="ov-tip">The agent offers to save this conversation. The customer can choose to save only, or also add their email for a summary. Both are optional and independent.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Save this conversation</strong></div><div class="ov-ln-micro">Save only &middot; or add email too</div><div class="ov-ln-skip">Or continue chatting</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
-          <div class="ov-ln-node return" data-tip="If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required."><span class="ov-tip">If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#2B579A" stroke-width="2" fill="#E8EDF5"/><path d="M14 2v6h6" stroke="#2B579A" stroke-width="2" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="#2B579A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Returns</strong></div><div class="ov-ln-paths"><span class="ov-ln-path p-continue">&#9993; Continue</span><span class="ov-ln-path p-fresh">&#10024; Start fresh</span></div></div>
+          <div class="ov-ln-node wrapup" data-tip="If the customer opted in and shared their email, a conversation summary is sent to their inbox."><span class="ov-tip">If the customer opted in and shared their email, a conversation summary is sent to their inbox.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
+            <div class="ov-reentry" data-tip="container"><span class="ov-tip">If the customer returns later, they can resume a previous conversation or start a new one. Either way, the experience continues.</span>
+              <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
+              <div class="ov-re-header">Customer returns later</div>
+              <div class="ov-re-choices">
+                <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Available if the customer saved their conversation and provided their email.</span>
+                  <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#6b3fa0" stroke-width="1.8" fill="#f0e8fa"/><path d="M3 7l9 6 9-6" stroke="#6b3fa0" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                  <span class="ov-re-choice-label">Resume conversation</span>
+                  <span class="ov-re-choice-sub">if email was connected</span>
+                  <span class="ov-re-choice-or">or</span>
+                </div>
+                <div class="ov-re-choice">
+                  <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
+                  <span class="ov-re-choice-label">Start fresh</span>
+                  <span class="ov-re-choice-sub">always available</span>
+                </div>
+              </div>
+              <div class="ov-re-merge">
+                <div class="ov-re-merge-line"></div>
+                <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
+                <div class="ov-re-merge-line"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

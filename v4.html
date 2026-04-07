@@ -593,24 +593,25 @@ Date: April 3, 2026
 <!-- ════════ OPTION B ════════ -->
 <div class="panel" id="pB">
   <div class="stitle">
-    <h2>Option B: Notice + Opt-In  Explicit Consent Before Saving</h2>
-    <p>Nothing is saved unless the customer explicitly opts in. After a few exchanges, a professional consent prompt gives the customer full control.</p>
+    <h2>Option B: Notice + Opt-In &mdash; Explicit Consent Model</h2>
+    <p>Nothing saved unless you opt in. Email is optional. The customer decides what to save and whether to connect their email &mdash; both are independent choices.</p>
   </div>
   <div class="row">
     <div class="info">
       <span class="tag ty">Medium Friction</span>
       <h3>How it works</h3>
-      <p class="lbl">Consent: Notice + Opt-In (Model #3)</p>
+      <p class="lbl">Consent: Explicit Opt-In &middot; Banner countries</p>
       <ul>
-        <li><strong>Welcome:</strong> Standard welcome with no consent notice. Nothing is saved by default.</li>
-        <li><strong>After engagement:</strong> Once the customer has shown interest, a consent prompt asks: "Would you like to save this conversation?" with clear opt-in/decline.</li>
-        <li><strong>If opted in:</strong> Agent offers email connection mid-conversation to enable continuity. Chat continues after email capture.</li>
-        <li><strong>If declined:</strong> Conversation continues normally with no further prompts. Customer can still request a summary at any time.</li>
-        <li><strong>Returning user:</strong> "Continue a previous conversation?"  email lookup reconnects to prior session.</li>
+        <li><strong>Welcome:</strong> Chat opens with a notice that conversations can be saved if the customer chooses to opt in.</li>
+        <li><strong>After engagement:</strong> Agent offers to save the conversation. Customer can save only, or also add their email for a summary. Both are optional and independent.</li>
+        <li><strong>If opted in (save only):</strong> Conversation is saved for future reference. No email required.</li>
+        <li><strong>If opted in (save + email):</strong> Summary emailed at wrap-up. Customer can return and pick up where they left off.</li>
+        <li><strong>If declined:</strong> Conversation continues normally. No data saved. Customer can still explicitly request a summary later.</li>
+        <li><strong>Returning user:</strong> If email was provided, can resume previous conversation or start fresh.</li>
       </ul>
-      <div class="note"><strong>Key difference from Option A:</strong> No data is saved by default. The customer must actively choose to enable saving. This is the strongest model for Banner countries, sensitive markets, and early pilots.</div>
-      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If customer declines:</strong> No saving occurs. No email nudge is shown. But if the customer later explicitly asks (e.g., "Can you email me a summary?"), the request is honored.</div>
-      <div class="note" style="border-left-color:#3F6FAE;margin-top:8px"><strong>Aligns with Opt-In consent model:</strong> "Would you like us to save this conversation to personalize future interactions?" Strongest privacy posture while still enabling data capture for willing customers.</div>
+      <div class="note"><strong>Key difference from Option A:</strong> No data is saved by default. The customer must actively choose to enable saving. Saving and email are independent &mdash; you can save without connecting email.</div>
+      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If customer declines:</strong> No saving occurs. No email nudge is shown. But if the customer later explicitly asks (e.g., &ldquo;Can you email me a summary?&rdquo;), the request is honored.</div>
+      <div class="note" style="border-left-color:#3F6FAE;margin-top:8px"><strong>Aligns with Opt-In consent model:</strong> Strongest privacy posture while still enabling data capture for willing customers. Default for Banner countries and sensitive markets.</div>
     </div><div class="cw-wrap">
       <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="b-l">1 / 16</span></div>
       <div class="cw-nav">
@@ -798,7 +799,10 @@ const W=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and
 
 const WA=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT.<br><br>What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> \u2197</div><div id="aA-cs" style="margin-top:10px;padding-top:8px;border-top:1px solid #eee;font-size:11px;color:#999;line-height:1.5">We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email, this conversation may be connected to your profile to provide more seamless and personalized experiences. <a href="#" style="color:#0078d4;text-decoration:none" onclick="document.getElementById('aA-cs').innerHTML='<span style=\\'color:#a4262c;font-weight:600\\'>✓ Opted out — this conversation will not be saved.</span>';return false">[Opt out]</a></div>${T}</div><span class="ts">an hour ago</span>`;
 document.getElementById('cA').innerHTML=WA;
-['cB','cC','cD'].forEach(id=>document.getElementById(id).innerHTML=W);
+
+const WB=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT.<br><br>What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> &#8599;</div><div style="margin-top:10px;padding-top:8px;border-top:1px solid #eee;font-size:11px;color:#999;line-height:1.5">We can save this conversation to help you next time. Choose to <strong style="color:#6b3fa0">opt in</strong> anytime during the chat.</div>${T}</div><span class="ts">an hour ago</span>`;
+document.getElementById('cB').innerHTML=WB;
+['cC','cD'].forEach(id=>document.getElementById(id).innerHTML=W);
 
 // ═══ Email capture block (stacked) ═══
 function emailBlock(label,sub){
@@ -870,13 +874,13 @@ const sB=[null,
   // Step 2: Customer asks about home plans
   ()=>{add('cB',usr("What features come with Microsoft 365 for home use?"));add('cB','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cB',bot("For home use, there are two options:<br><br><strong>Microsoft 365 Personal</strong><br> Full desktop apps  Word, Excel, PowerPoint, Outlook<br> 1 TB OneDrive storage<br> Microsoft Editor (AI writing assistant)<br> Clipchamp video editor<br><br><strong>Microsoft 365 Family</strong><br> Everything in Personal, shared with up to 6 people<br> 6 TB total OneDrive (1 TB per person)<br> Family Safety  screen time, location sharing, content filters<br><br>Are you looking for just yourself or for family members too?"));add('cB','<span class="ts">just now</span>')},300)},
-  // Step 3: Opt-in consent prompt (professional language)
-  ()=>add('cB',`<div class="consent consent-optin"><div class="ci"></div><div class="cb"><strong>Would you like to save this conversation?</strong><br>If you opt in, we may save this conversation to personalize future interactions with Microsoft. You can connect your email later to access your conversation across sessions.<div class="ca"><button class="bp" onclick="this.closest('.consent').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span style=\\'color:#3F6FAE\\'></span><div style=\\'font-size:12px;color:#3F6FAE;font-weight:600\\'>Saving enabled  your conversation will be preserved.</div></div>'">Yes, save my conversation</button><button onclick="this.closest('.consent').innerHTML='<div style=\\'font-size:12px;color:#888;padding:4px\\'>No data will be saved from this session.</div>'">No, thanks</button></div></div></div>`),
+  // Step 3: Opt-in consent prompt (save + optional email)
+  ()=>add('cB',`<div class="consent consent-optin"><div class="ci"></div><div class="cb"><strong>Save this conversation?</strong><br>We can save this chat so you can pick up where you left off. You can also add your email to get a summary &mdash; but that's optional.<div class="ca"><button class="bp" onclick="this.closest('.consent').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span style=\\'color:#6b3fa0\\'></span><div style=\\'font-size:12px;color:#6b3fa0;font-weight:600\\'>Saving enabled. You can add your email anytime.</div></div>'">Yes, save my conversation</button><button onclick="this.closest('.consent').innerHTML='<div style=\\'font-size:12px;color:#888;padding:4px\\'>No data will be saved from this session.</div>'">No, thanks</button></div></div></div>`),
   // Step 4: Customer continues
   ()=>{add('cB',usr("Family sounds good. Can everyone install the desktop apps?"));add('cB','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cB',bot("Yes  each of the 6 family members gets:<br><br> Desktop apps on up to 5 devices each (PC, Mac, tablet, phone)<br> Their own 1 TB OneDrive  fully private<br> Their own Outlook mailbox<br> Access to Microsoft Editor and Clipchamp<br><br>The Family plan is designed so each person has their own separate workspace."));add('cB','<span class="ts">just now</span>')},300)},
-  // Step 5: Agent nudge  email = enablement, NOT a close
-  ()=>{add('cB',`<div class="nudge"><div class="nt"> Keep this conversation for later?</div><p>I can connect this chat to your email so you can pick up where you left off next time  and I'll send you a summary when we're done.</p><div class="nb"><button class="bp" onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'> Yes, connect my email</div>'">Yes, connect my email</button><button onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'> Not now</div>'">Not now</button></div></div>`)},
+  // Step 5: Agent nudge — optional email after save
+  ()=>{add('cB',`<div class="nudge"><div class="nt">&#9993; Add your email?</div><p>Since you opted in to save, I can also connect your email — that way I'll send you a summary and you can pick up where you left off next time. This is optional.</p><div class="nb"><button class="bp" onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'>&#8594; Yes, connect my email</div>'">Yes, connect my email</button><button onclick="this.closest('.nudge').innerHTML='<div style=\\'font-size:12px;color:#888\\'>&#8594; No thanks, just save</div>'">No thanks, just save</button></div></div>`)},
   // Step 6: Email capture
   ()=>add('cB',`<div class="ec"><div class="ec-t">Enter your email to stay connected.</div><div class="ec-sub">You'll get a summary when we're done, and you can return to this conversation anytime.</div><input type="email" placeholder="your.email@company.com"><button class="ec-btn" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:12px;text-align:center\\'><div style=\\'color:#3F6FAE;font-weight:600;font-size:13px\\'> Connected.</div></div>'">Connect</button><button class="ec-skip" onclick="this.closest('.ec').innerHTML='<div style=\\'padding:8px;font-size:12px;color:#888\\'>Dismissed.</div>'">Skip</button>${FP}</div>`),
   // Step 7: Confirmation + chat CONTINUES

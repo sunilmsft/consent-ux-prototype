@@ -332,6 +332,9 @@ Date: April 3, 2026
   .ov-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(15,15,20,.94);color:#fff;font-size:12.5px;font-weight:400;line-height:1.6;padding:12px 16px;border-radius:10px;white-space:normal;width:240px;text-align:left;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);backdrop-filter:blur(6px)}
   .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,15,20,.94)}
   .ov-ln-node[data-tip]:hover .ov-tip{opacity:1}
+  .ov-ln-node[data-tip].tip-off:hover .ov-tip{opacity:0}
+  .ov-reentry[data-tip].tip-off:hover > .ov-tip{opacity:0}
+  .ov-re-choice[data-tip].tip-off:hover .ov-tip{opacity:0}
   .ov-ln-node.tt-right .ov-tip{left:auto;right:-10px;transform:none}
   .ov-ln-node.tt-right .ov-tip::after{left:auto;right:14px;transform:none}/*  Comparison table  */
   .ov-summary{max-width:1200px;margin:24px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
@@ -408,7 +411,7 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#B4570A" stroke-width="2" fill="#E8EAF6"/><path d="M9 21h6M10 18h4" stroke="#B4570A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
           <div class="ov-ln-node consent branch" data-tip="The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual."><span class="ov-tip">The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Keep this conversation</strong></div><div class="ov-ln-micro">Get a summary &middot; Return anytime</div><div class="ov-ln-skip">Or continue chatting</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
-          <div class="ov-ln-node wrapup"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
+          <div class="ov-ln-node wrapup" data-tip="If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time."><span class="ov-tip">If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
             <div class="ov-reentry" data-tip="container"><span class="ov-tip">If the customer returns later, they can resume a previous conversation or start a new one. Either way, the experience continues.</span>
               <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
               <div class="ov-re-header">Customer returns later</div>
@@ -745,6 +748,15 @@ Date: April 3, 2026
 </div>
 
 <script>
+// ── Exclusive tooltips: only one visible at a time ──
+document.querySelectorAll('[data-tip]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    document.querySelectorAll('[data-tip]').forEach(o=>{if(o!==el&&!el.contains(o)&&!o.contains(el))o.classList.add('tip-off')});
+  });
+  el.addEventListener('mouseleave',()=>{
+    document.querySelectorAll('[data-tip]').forEach(o=>o.classList.remove('tip-off'));
+  });
+});
 // ── Shared ──
 const T=`<div class="fb"><button class="tb"><svg><use href="#ic-up"/></svg></button><button class="tb"><svg><use href="#ic-dn"/></svg></button></div>`;
 const FP=`<p class="fp"><a href="#">Privacy Statement</a></p>`;

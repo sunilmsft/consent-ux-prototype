@@ -289,7 +289,7 @@ Date: April 3, 2026
   .ov-ln-node.wrapup{overflow:visible}
   .ov-ln-node.wrapup::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:12px;border-left:2px dotted rgba(91,95,199,.35);z-index:3}
   .ov-ln-node.wrapup .ov-reentry{position:absolute;top:calc(100% + 10px);right:-16px;width:310px;z-index:10}
-  .ov-lane.oc-a{padding-bottom:240px}
+  .ov-lane.oc-a{padding-bottom:80px}
   .ov-re-tag{display:inline-block;font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4;white-space:nowrap;margin-bottom:6px}
   /* Card header */
   .ov-re-header{font-size:11px;color:#5B5FC7;font-weight:700;margin-bottom:12px;letter-spacing:.1px;text-align:center}
@@ -310,7 +310,7 @@ Date: April 3, 2026
   .ov-re-merge-txt{font-size:10px;color:#888;font-weight:500;white-space:nowrap}
   /* Choice tooltip */
   .ov-re-choice[data-tip]{cursor:help;position:relative}
-  .ov-re-choice[data-tip]:hover .ov-tip{opacity:1}
+  .ov-re-choice[data-tip]:hover > .ov-tip{opacity:1}
   .ov-re-choice .ov-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);width:200px;font-size:11px;background:rgba(15,15,20,.94);color:#fff;padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);line-height:1.5;white-space:normal;text-align:left}
   .ov-re-choice .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,15,20,.94)}
   /* Option D: passive zone */
@@ -331,10 +331,11 @@ Date: April 3, 2026
   .ov-ln-node[data-tip] .ov-ln-icon{cursor:help}
   .ov-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(15,15,20,.94);color:#fff;font-size:12.5px;font-weight:400;line-height:1.6;padding:12px 16px;border-radius:10px;white-space:normal;width:240px;text-align:left;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);backdrop-filter:blur(6px)}
   .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,15,20,.94)}
-  .ov-ln-node[data-tip]:hover .ov-tip{opacity:1}
-  .ov-ln-node[data-tip].tip-off:hover .ov-tip{opacity:0}
-  .ov-reentry[data-tip].tip-off:hover > .ov-tip{opacity:0}
-  .ov-re-choice[data-tip].tip-off:hover .ov-tip{opacity:0}
+  .ov-ln-node[data-tip]:hover > .ov-tip{opacity:1}
+  .ov-ln-node.wrapup:has(.ov-reentry:hover) > .ov-tip{opacity:0!important}
+  .ov-re-choice[data-tip]:hover > .ov-tip{opacity:1}
+  .ov-reentry[data-tip]:hover > .ov-tip{opacity:1}
+  .ov-reentry:has(.ov-re-choice:hover) > .ov-tip{opacity:0!important}
   .ov-ln-node.tt-right .ov-tip{left:auto;right:-10px;transform:none}
   .ov-ln-node.tt-right .ov-tip::after{left:auto;right:14px;transform:none}/*  Comparison table  */
   .ov-summary{max-width:1200px;margin:24px auto 0;background:#fff;border-radius:12px;padding:0;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;border:1px solid #e8e8e8}
@@ -748,15 +749,6 @@ Date: April 3, 2026
 </div>
 
 <script>
-// ── Exclusive tooltips: only one visible at a time ──
-document.querySelectorAll('[data-tip]').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{
-    document.querySelectorAll('[data-tip]').forEach(o=>{if(o!==el&&!el.contains(o)&&!o.contains(el))o.classList.add('tip-off')});
-  });
-  el.addEventListener('mouseleave',()=>{
-    document.querySelectorAll('[data-tip]').forEach(o=>o.classList.remove('tip-off'));
-  });
-});
 // ── Shared ──
 const T=`<div class="fb"><button class="tb"><svg><use href="#ic-up"/></svg></button><button class="tb"><svg><use href="#ic-dn"/></svg></button></div>`;
 const FP=`<p class="fp"><a href="#">Privacy Statement</a></p>`;

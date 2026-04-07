@@ -279,36 +279,39 @@ Date: April 3, 2026
   .ov-ln-node.branch .ov-ln-icon svg{width:22px;height:22px}
   .ov-ln-node.branch .ov-ln-txt strong{font-size:12px}
   /* Re-entry section  separate from main flow */
-  /* Re-entry mini-flow */
-  .ov-reentry{position:relative;margin-top:10px;padding:14px 20px 14px 16px;border:1.5px dashed rgba(91,95,199,.18);border-radius:14px;background:linear-gradient(135deg,#fafafd 0%,#f3f4fa 100%);display:flex;align-items:center;gap:0}
+  /* Re-entry card */
+  .ov-reentry{position:relative;margin:16px 0 0 auto;width:310px;padding:16px 20px 14px;border:1.5px dashed rgba(91,95,199,.2);border-radius:14px;background:linear-gradient(180deg,#fafafd 0%,#f3f4fa 100%)}
   .ov-reentry[data-tip]{cursor:help}
-  .ov-reentry[data-tip] .ov-tip{bottom:calc(100% + 6px);left:50%;width:260px;font-size:11px}
-  .ov-re-gap{position:absolute;top:-10px;right:calc(14.28% + 2px);display:flex;flex-direction:column;align-items:center}
-  .ov-re-gap::before{content:'';width:0;height:6px;border-left:2px dotted rgba(91,95,199,.3)}
-  .ov-re-gap-tag{font-size:8px;color:#7b7fc4;font-weight:600;letter-spacing:.5px;text-transform:uppercase;background:#fff;padding:1px 6px;border-radius:3px;border:1px solid rgba(91,95,199,.12)}
-  /* Mini-flow nodes */
-  .ov-re-node{display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0;position:relative}
-  .ov-re-circle{width:36px;height:36px;min-width:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:4px;position:relative;z-index:2}
-  .ov-re-circle svg{width:16px;height:16px;flex-shrink:0}
-  .ov-re-circle.c-return{border:2px dashed #5B5FC7;background:linear-gradient(180deg,#eeeefa,#ddd8f3);box-shadow:0 2px 8px rgba(91,95,199,.1)}
-  .ov-re-circle.c-path{border:1.5px solid #c0c7d3;background:linear-gradient(180deg,#f7f9fc,#e8ecf2);box-shadow:0 2px 6px rgba(0,0,0,.05)}
-  .ov-re-circle.c-end{border:1.5px solid #c0c7d3;background:linear-gradient(180deg,#f7f9fc,#e8ecf2);box-shadow:0 2px 6px rgba(0,0,0,.05);width:30px;height:30px;min-width:30px}
-  .ov-re-circle.c-end svg{width:14px;height:14px}
-  .ov-re-label{font-size:11px;font-weight:600;color:#333;line-height:1.2}
-  .ov-re-sub{font-size:8.5px;color:#7b8290;font-style:italic;margin-top:1px}
-  /* Connectors within mini-flow */
-  .ov-re-conn{width:28px;height:2px;background:none;border-top:2px dotted rgba(91,95,199,.2);flex-shrink:0;align-self:center;margin:0 2px;margin-bottom:16px}
-  .ov-re-fork{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;margin:0 4px}
-  .ov-re-fork::before{content:'';position:absolute;top:18px;left:0;right:0;height:0;border-top:1.5px dotted rgba(91,95,199,.15)}
-  .ov-re-fork-paths{display:flex;gap:20px;align-items:flex-start}
-  .ov-re-merge{display:flex;flex-direction:column;align-items:center;gap:0;position:relative;margin-left:4px}
-  .ov-re-merge::before{content:'';position:absolute;top:14px;left:-24px;right:calc(50% + 1px);height:0;border-top:1.5px dotted rgba(91,95,199,.15)}
-  .ov-re-merge-line{width:0;height:14px;border-left:1.5px dotted rgba(91,95,199,.15)}
-  /* Re-entry tooltip on paths */
-  .ov-re-node[data-tip]{position:relative}
-  .ov-re-node[data-tip] .ov-re-circle{cursor:help}
-  .ov-re-node[data-tip] .ov-tip{bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);width:200px;font-size:11px}
-  .ov-re-node[data-tip]:hover .ov-tip{opacity:1}
+  .ov-reentry[data-tip]:hover > .ov-tip{opacity:1}
+  .ov-reentry > .ov-tip{bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);width:260px;font-size:11px;position:absolute;background:rgba(15,15,20,.94);color:#fff;padding:12px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);line-height:1.6;white-space:normal;text-align:left}
+  .ov-reentry > .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,15,20,.94)}
+  /* Dotted drop connector from Wraps Up */
+  .ov-re-drop{position:absolute;top:-16px;left:50%;display:flex;flex-direction:column;align-items:center;transform:translateX(-50%)}
+  .ov-re-drop::before{content:'';width:0;height:5px;border-left:2px dotted rgba(91,95,199,.25)}
+  .ov-re-drop-tag{font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4}
+  .ov-re-drop::after{content:'';width:0;height:5px;border-left:2px dotted rgba(91,95,199,.25)}
+  /* Card header */
+  .ov-re-header{font-size:11px;color:#5B5FC7;font-weight:700;margin-bottom:12px;letter-spacing:.1px;text-align:center}
+  /* Two-path fork */
+  .ov-re-choices{display:flex;gap:12px;align-items:stretch;margin-bottom:10px}
+  .ov-re-choice{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:10px 8px;border-radius:10px;border:1.5px solid #dde1ea;background:linear-gradient(180deg,#fff 0%,#f5f6fa 100%);position:relative}
+  .ov-re-choice:hover{border-color:#b8c0d0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .ov-re-choice-icon{width:32px;height:32px;min-width:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:5px}
+  .ov-re-choice-icon svg{width:16px;height:16px}
+  .ov-re-choice-icon.ci-resume{border:1.5px solid #a3cceb;background:linear-gradient(180deg,#e6f1fc,#d4e6f7)}
+  .ov-re-choice-icon.ci-fresh{border:1.5px solid #c8ccd4;background:linear-gradient(180deg,#f0f1f5,#e4e6ec)}
+  .ov-re-choice-label{font-size:11px;font-weight:600;color:#333;line-height:1.3}
+  .ov-re-choice-sub{font-size:8.5px;color:#7b8290;font-style:italic;margin-top:2px;line-height:1.3}
+  .ov-re-choice-or{position:absolute;top:50%;right:-18px;transform:translateY(-50%);font-size:9px;color:#999;font-style:italic;z-index:2;background:#f5f6fa;padding:2px 4px;border-radius:3px}
+  /* Merge line */
+  .ov-re-merge{display:flex;align-items:center;justify-content:center;gap:6px;padding-top:2px}
+  .ov-re-merge-line{width:40px;height:0;border-top:1.5px dotted rgba(91,95,199,.18)}
+  .ov-re-merge-txt{font-size:10px;color:#888;font-weight:500;white-space:nowrap}
+  /* Choice tooltip */
+  .ov-re-choice[data-tip]{cursor:help;position:relative}
+  .ov-re-choice[data-tip]:hover .ov-tip{opacity:1}
+  .ov-re-choice .ov-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);width:200px;font-size:11px;background:rgba(15,15,20,.94);color:#fff;padding:10px 14px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.3);line-height:1.5;white-space:normal;text-align:left}
+  .ov-re-choice .ov-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:rgba(15,15,20,.94)}
   /* Option D: passive zone */
   .ov-d-zone{position:absolute;bottom:6px;left:50px;right:50px;text-align:center;font-size:10px;color:#2B579A;font-weight:600;letter-spacing:.3px;border-top:2px dashed rgba(43,87,154,.25);padding-top:3px}
   .ov-d-zone span{background:#fff;padding:0 10px;position:relative;top:-1px}
@@ -406,30 +409,26 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
         </div>
-        <div class="ov-reentry" data-tip="container"><span class="ov-tip">Customers can return later to resume their conversation or start a new one.</span>
-          <div class="ov-re-gap"><span class="ov-re-gap-tag">later</span></div>
-          <div class="ov-re-node">
-            <div class="ov-re-circle c-return"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#5B5FC7" stroke-width="2" fill="#ddd8f3"/><path d="M14 2v6h6" stroke="#5B5FC7" stroke-width="2"/><path d="M8 13h8M8 17h5" stroke="#5B5FC7" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-            <span class="ov-re-label">Returns</span>
-          </div>
-          <div class="ov-re-conn"></div>
-          <div class="ov-re-fork">
-            <div class="ov-re-fork-paths">
-              <div class="ov-re-node" data-tip="resume"><span class="ov-tip">Available if you connected your email earlier.</span>
-                <div class="ov-re-circle c-path"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0062b1" stroke-width="1.8" fill="#e6f1fc"/><path d="M3 7l9 6 9-6" stroke="#0062b1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-                <span class="ov-re-label">Resume</span>
-                <span class="ov-re-sub">if email connected</span>
-              </div>
-              <div class="ov-re-node">
-                <div class="ov-re-circle c-path"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
-                <span class="ov-re-label">Start fresh</span>
-              </div>
+        <div class="ov-reentry" data-tip="container"><span class="ov-tip">If the customer returns later, they can resume a previous conversation or start a new one. Either way, the experience continues.</span>
+          <div class="ov-re-drop"><span class="ov-re-drop-tag">if they return</span></div>
+          <div class="ov-re-header">Customer returns later</div>
+          <div class="ov-re-choices">
+            <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Available if the customer connected their email during a previous conversation.</span>
+              <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0062b1" stroke-width="1.8" fill="#e6f1fc"/><path d="M3 7l9 6 9-6" stroke="#0062b1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+              <span class="ov-re-choice-label">Resume conversation</span>
+              <span class="ov-re-choice-sub">if email was connected</span>
+              <span class="ov-re-choice-or">or</span>
+            </div>
+            <div class="ov-re-choice">
+              <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
+              <span class="ov-re-choice-label">Start fresh</span>
+              <span class="ov-re-choice-sub">always available</span>
             </div>
           </div>
-          <div class="ov-re-conn"></div>
-          <div class="ov-re-node">
-            <div class="ov-re-circle c-end"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span class="ov-re-label" style="font-size:10px;color:#888">Continues</span>
+          <div class="ov-re-merge">
+            <div class="ov-re-merge-line"></div>
+            <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
+            <div class="ov-re-merge-line"></div>
           </div>
         </div>
       </div>

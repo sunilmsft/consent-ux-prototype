@@ -168,14 +168,37 @@ Date: April 3, 2026
   .kw-hint strong{color:#0078d4}
 
   /* Return verify */
-  .rv{background:linear-gradient(135deg,#f0f7ff,#eaf2fb);border:1px solid #b3d4fc;border-radius:8px;padding:16px;animation:fu .35s ease}
-  .rv .rv-t{font-size:15px;font-weight:700;color:#0078d4;margin-bottom:6px}
-  .rv p{font-size:13px;color:#555;margin-bottom:10px}
-  .rv .rv-topic{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:10px 12px;font-size:13px;color:#1a1a1a;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-  .rv .rv-topic .ri{color:#0078d4;font-size:18px}
+  .rv{background:#fff;border:1px solid #d0dff0;border-radius:10px;padding:0;animation:fu .35s ease;overflow:hidden;box-shadow:0 2px 8px rgba(0,60,130,.08)}
+  .rv .rv-head{background:linear-gradient(135deg,#0078d4,#1a5fb4);padding:12px 16px;color:#fff}
+  .rv .rv-head-t{font-size:13px;font-weight:700;letter-spacing:.2px}
+  .rv .rv-head-sub{font-size:11px;opacity:.8;margin-top:2px}
+  .rv .rv-body{padding:14px 16px}
+  .rv .rv-topic{background:#f8fafe;border:1px solid #e4ecf4;border-radius:8px;padding:12px 14px;display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}
+  .rv .rv-topic .ri{width:36px;height:36px;background:#e8f0fe;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .rv .rv-topic-info{flex:1;min-width:0}
+  .rv .rv-topic-title{font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.3}
+  .rv .rv-topic-meta{font-size:11px;color:#888;margin-top:3px;display:flex;gap:8px;align-items:center}
+  .rv .rv-topic-meta span{display:inline-flex;align-items:center;gap:3px}
   .rv .rv-acts{display:flex;gap:8px;flex-wrap:wrap}
-  .rv .rv-acts button{padding:7px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid #ccc;background:#fff;color:#1a1a1a;font-family:inherit;transition:.15s}
-  .rv .rv-acts button:hover{background:#f0f0f0}
+  .rv .rv-acts .bp{padding:8px 20px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:#0078d4;color:#fff;font-family:inherit;transition:.15s}
+  .rv .rv-acts .bp:hover{background:#106ebe}
+  .rv .rv-acts button:not(.bp){padding:8px 20px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid #d0d0d0;background:#fff;color:#555;font-family:inherit;transition:.15s}
+  .rv .rv-acts button:not(.bp):hover{background:#f5f5f5;border-color:#bbb}
+
+  /* Email lookup (returning user variant) */
+  .ec-lookup{background:#fff;border:1px solid #d0dff0;border-radius:10px;padding:0;animation:fu .35s ease;overflow:hidden;box-shadow:0 2px 8px rgba(0,60,130,.08)}
+  .ec-lookup .ec-lk-head{background:linear-gradient(135deg,#f0f7ff,#e6f0fc);padding:14px 16px;border-bottom:1px solid #e0ecf6}
+  .ec-lookup .ec-lk-head .ec-lk-icon{width:32px;height:32px;background:#0078d4;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;margin-bottom:8px}
+  .ec-lookup .ec-lk-title{font-size:13px;font-weight:700;color:#1a1a1a}
+  .ec-lookup .ec-lk-sub{font-size:11px;color:#888;margin-top:3px;line-height:1.4}
+  .ec-lookup .ec-lk-body{padding:14px 16px}
+  .ec-lookup input[type="email"]{width:100%;padding:10px 12px;border:1.5px solid #c0d0e0;border-radius:6px;font-size:13px;font-family:inherit;outline:none;transition:.2s}
+  .ec-lookup input[type="email"]:focus{border-color:#0078d4;box-shadow:0 0 0 3px rgba(0,120,212,.12)}
+  .ec-lookup .ec-lk-btn{display:block;width:100%;padding:10px;background:#0078d4;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-align:center;margin-top:8px;transition:.15s}
+  .ec-lookup .ec-lk-btn:hover{background:#106ebe}
+  .ec-lookup .ec-lk-found{padding:12px 16px;background:#f0faf0;border-top:1px solid #c8e6c0;display:flex;align-items:center;gap:8px}
+  .ec-lookup .ec-lk-found .ec-lk-check{width:24px;height:24px;background:#107c10;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;flex-shrink:0}
+  .ec-lookup .ec-lk-found-text{font-size:12px;color:#107c10;font-weight:600}
 
   /* Quick-reply chips */
   .qr{display:flex;gap:6px;flex-wrap:wrap;animation:fu .35s ease}
@@ -848,9 +871,9 @@ const sA=[null,
     const sv=document.getElementById('aA-sv');if(sv){sv.classList.remove('visible');sv.innerHTML=''}
     add('cA',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">&#128260; Session 2 &#8212; Returning Customer</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session. Same welcome screen &#8212; clicks &#34;Returning?&#34; starter prompt.</div></div>`);add('cA',WA);c.scrollTop=0},
   // Step 10: Email entry -- inline expansion from starter prompt click
-  ()=>{add('cA',`<div class="ec" style="margin-top:4px"><div class="ec-t">&#128279; Enter the email from your previous session</div><div class="ec-sub">We&#39;ll look up your conversation so you can pick up where you left off.</div><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-btn" disabled style="opacity:.7">Look up</button></div>`);setTimeout(()=>add('cA',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">&#10003; Previous conversation found.</div>`),400)},
+  ()=>{add('cA',`<div class="ec-lookup" style="margin-top:6px"><div class="ec-lk-head"><div class="ec-lk-icon">&#128279;</div><div class="ec-lk-title">Welcome back</div><div class="ec-lk-sub">Enter the email from your previous session and we&#39;ll reconnect you.</div></div><div class="ec-lk-body"><input type="email" placeholder="your.email@company.com" value="user@company.com" disabled><button class="ec-lk-btn" disabled style="opacity:.7">Look up my conversation</button></div></div>`);setTimeout(()=>{const el=document.querySelector('.ec-lookup');if(el){const f=document.createElement('div');f.className='ec-lk-found';f.innerHTML='<div class="ec-lk-check">&#10003;</div><div class="ec-lk-found-text">Previous conversation found &#8212; ready to continue</div>';el.appendChild(f)}},500)},
   // Step 11: Session card -- continue or start new
-  ()=>{add('cA',`<div class="rv" style="margin-top:4px"><div class="rv-t">Continue a previous conversation?</div><div class="rv-topic"><span class="ri">&#128172;</span><div><strong>Microsoft 365 Business plans &#8212; security &amp; pricing</strong><br><span style="font-size:11px;color:#888">Mar 28 &#183; Defender, Intune, DLP, Pricing</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
+  ()=>{add('cA',`<div class="rv" style="margin-top:6px"><div class="rv-head"><div class="rv-head-t">Continue where you left off?</div><div class="rv-head-sub">We found your previous conversation</div></div><div class="rv-body"><div class="rv-topic"><div class="ri">&#128172;</div><div class="rv-topic-info"><div class="rv-topic-title">Microsoft 365 Business plans &#8212; security &amp; pricing</div><div class="rv-topic-meta"><span>&#128197; Mar 28</span><span>&#183;</span><span>Defender, Intune, DLP, Pricing</span></div></div></div><div class="rv-acts"><button class="bp">Continue conversation</button><button>Start new</button></div></div></div>`);
     setTimeout(()=>add('cA',bot("Welcome back! Last time we discussed Business Premium security features &#8212; Defender, Intune, Conditional Access, DLP &#8212; and pricing at $22/user/month for a 10-person team.<br><br>Would you like to continue from there, or do you have a new question?")),300)}
 ];
 

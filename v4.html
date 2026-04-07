@@ -870,8 +870,13 @@ const sA=[null,
 
 //  OPTION B: Notice + Opt-In  Explicit Consent Model 
 const sB=[null,
-  // Step 2: Customer asks about home plans
-  ()=>{add('cB',usr("What features come with Microsoft 365 for home use?"));add('cB','<span class="tsr">just now</span>');
+  // Step 2: Path indicator + customer asks about home plans
+  ()=>{
+    // Show welcome with opted-in state resolved
+    const cs=document.getElementById('aB-cs');
+    if(cs)cs.innerHTML='<div style="display:flex;gap:8px;align-items:center"><span style="color:#6b3fa0;font-weight:700">&#9745;</span><span style="font-size:11px;color:#6b3fa0;font-weight:600">Saving enabled. You can connect your email anytime.</span></div>';
+    add('cB',`<div style="background:linear-gradient(135deg,#f0ebf8,#f8f5ff);border:1px solid #d4c5e9;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#6b3fa0;font-weight:700">&#9745; Opted-In Path</div><div style="font-size:12px;color:#888;margin-top:2px">Customer clicked &ldquo;Yes, save and personalize&rdquo; in the welcome</div></div>`);
+    add('cB',usr("What features come with Microsoft 365 for home use?"));add('cB','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cB',bot("For home use, there are two options:<br><br><strong>Microsoft 365 Personal</strong><br> Full desktop apps  Word, Excel, PowerPoint, Outlook<br> 1 TB OneDrive storage<br> Microsoft Editor (AI writing assistant)<br> Clipchamp video editor<br><br><strong>Microsoft 365 Family</strong><br> Everything in Personal, shared with up to 6 people<br> 6 TB total OneDrive (1 TB per person)<br> Family Safety  screen time, location sharing, content filters<br><br>Are you looking for just yourself or for family members too?"));add('cB','<span class="ts">just now</span>')},300)},
   // Step 3: Customer continues
   ()=>{add('cB',usr("Family sounds good. Can everyone install the desktop apps?"));add('cB','<span class="tsr">just now</span>');

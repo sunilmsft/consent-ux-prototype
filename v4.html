@@ -339,7 +339,15 @@ Date: April 3, 2026
   .ov-ln-node.wrapup > .ov-tip::after{top:14px;left:100%;right:auto;transform:none;border:6px solid transparent;border-left-color:rgba(15,15,20,.94);border-top-color:transparent}
   .ov-ln-node.wrapup::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:12px;border-left:2px dotted rgba(91,95,199,.35);z-index:3}
   .ov-ln-node.wrapup .ov-reentry{position:absolute;top:calc(100% + 10px);right:0;width:220px;z-index:10}
-  .ov-lane.oc-a .ov-lane-right{padding-bottom:112px}
+  /* Return loop */
+  .ov-return-loop{position:relative;margin:-6px 36px 0;text-align:center}
+  .ov-return-arrow{width:100%;height:28px;display:block}
+  .ov-return-label{font-size:11px;color:#666;margin-top:2px;letter-spacing:.1px}
+  .ov-return-label strong{color:#0078d4}
+  .ov-lane.oc-a .ov-return-label strong{color:#0078d4}
+  .ov-lane.oc-b .ov-return-label strong{color:#8661c5}
+  .ov-lane.oc-c .ov-return-label strong{color:#2B8C96}
+  .ov-lane.oc-d .ov-return-label strong{color:#107C10}
   .ov-lane.oc-b .ov-lane-right{padding-bottom:112px}
   .ov-lane.oc-c .ov-lane-right{padding-bottom:112px}
   .ov-re-tag{display:inline-block;font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4;white-space:nowrap;margin-bottom:6px}
@@ -473,29 +481,15 @@ Date: April 3, 2026
           <div class="ov-ln-node consent branch" data-tip="The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual."><span class="ov-tip">The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You'll see a prompt to enter your email or choose &ldquo;Not now.&rdquo; If you connect, you'll get a summary and can return later. If you skip, the chat continues as usual.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Keep this conversation</strong></div><div class="ov-ln-micro">Get a summary &middot; Return anytime</div><div class="ov-ln-skip">Or continue chatting</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
           <div class="ov-ln-node wrapup" data-tip="If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time."><span class="ov-tip">If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#0078d4" stroke-width="2" stroke-linecap="round" fill="#dceefb"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
-            <div class="ov-reentry" data-tip="container"><span class="ov-tip">Returning customers see the same welcome screen. They click the &#34;Returning?&#34; starter prompt, enter their email, and pick up where they left off. No separate flow needed.</span>
-              <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
-              <div class="ov-re-header">Same welcome screen</div>
-              <div class="ov-re-choices">
-                <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Customer clicks &#34;Returning?&#34; starter prompt and enters their email to reconnect.</span>
-                  <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0062b1" stroke-width="1.8" fill="#e6f1fc"/><path d="M3 7l9 6 9-6" stroke="#0062b1" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-                  <span class="ov-re-choice-label">&#128279; Returning?</span>
-                  <span class="ov-re-choice-sub">starter prompt &#8594; enter email</span>
-                  <span class="ov-re-choice-or">or</span>
-                </div>
-                <div class="ov-re-choice">
-                  <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
-                  <span class="ov-re-choice-label">Start fresh</span>
-                  <span class="ov-re-choice-sub">use any other starter prompt</span>
-                </div>
-              </div>
-              <div class="ov-re-merge">
-                <div class="ov-re-merge-line"></div>
-                <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
-                <div class="ov-re-merge-line"></div>
-              </div>
-            </div>
           </div>
+        </div>
+        <!-- Return loop -->
+        <div class="ov-return-loop">
+          <svg class="ov-return-arrow" viewBox="0 0 680 28" fill="none" preserveAspectRatio="none">
+            <path d="M670 2C670 14 660 24 648 24H32C20 24 10 14 10 2" stroke="#0078d4" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity=".4"/>
+            <path d="M14 8L10 1L6 8" stroke="#0078d4" stroke-width="1.5" fill="none" opacity=".5"/>
+          </svg>
+          <div class="ov-return-label">&#8634; Returns &#8594; same welcome screen &mdash; <strong>Returning?</strong> prompt or start fresh</div>
         </div>
       </div>
     </div>

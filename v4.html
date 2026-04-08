@@ -271,7 +271,7 @@ Date: April 3, 2026
   .ov-lane-model{font-size:10px;color:#6b7280;margin-bottom:6px;letter-spacing:.2px}
   .ov-lane-desc{font-size:11.5px;color:#5a6370;line-height:1.5;font-style:italic;margin:0}
   .ov-lane-star{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#edf2fa,#dce4f2);color:#1a4a7a;font-size:9px;font-weight:700;padding:4px 10px;border-radius:10px;border:1px solid #b8c6da;box-shadow:0 2px 6px rgba(0,60,120,.1),0 1px 2px rgba(0,0,0,.04)}
-  .ov-lane-right{flex:1;padding:18px 16px 32px;display:flex;align-items:flex-start;position:relative;overflow:visible}
+  .ov-lane-right{flex:1;padding:18px 16px 32px;display:flex;flex-wrap:wrap;align-items:flex-start;position:relative;overflow:visible}
   /* Timeline bar */
   .ov-ln-flow{display:flex;align-items:flex-start;position:relative;width:100%}
   .ov-ln-flow::before{content:'';position:absolute;top:27px;left:36px;right:36px;height:3px;border-radius:2px;z-index:1}
@@ -343,8 +343,8 @@ Date: April 3, 2026
   .ov-fork-badge{display:block;font-size:8px;font-weight:700;color:#0078d4;text-transform:uppercase;letter-spacing:.4px;margin-top:3px;opacity:.7}
   .ov-lane.oc-b .ov-fork-badge{color:#8661c5}.ov-lane.oc-c .ov-fork-badge{color:#2B8C96}.ov-lane.oc-d .ov-fork-badge{color:#107C10}
   /* Returning branch row */
-  .ov-branch-row{position:relative;margin:6px 0 0 0;padding:8px 12px 6px 80px;display:flex;align-items:center;gap:0}
-  .ov-branch-connector{position:absolute;left:107px;top:-8px;width:0;height:16px;border-left:2px dashed rgba(0,120,212,.3)}
+  .ov-branch-row{position:relative;margin:6px 0 0 0;padding:8px 12px 6px calc(25% - 40px);display:flex;align-items:center;gap:0;width:100%}
+  .ov-branch-connector{position:absolute;left:25%;top:-8px;width:0;height:16px;border-left:2px dashed rgba(0,120,212,.3)}
   .ov-lane.oc-b .ov-branch-connector{border-left-color:rgba(134,97,197,.3)}.ov-lane.oc-c .ov-branch-connector{border-left-color:rgba(43,140,150,.3)}.ov-lane.oc-d .ov-branch-connector{border-left-color:rgba(16,124,16,.3)}
   .ov-branch-flow{display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#f5f8fc,#edf2f9);border:1px dashed rgba(0,120,212,.2);border-radius:8px;padding:6px 14px;font-size:11px;color:#555}
   .ov-lane.oc-b .ov-branch-flow{background:linear-gradient(135deg,#f5f0fa,#ece0f9);border-color:rgba(134,97,197,.2)}

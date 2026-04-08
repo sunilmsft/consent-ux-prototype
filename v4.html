@@ -120,13 +120,13 @@ Date: April 3, 2026
   .m{max-width:100%;font-size:13px;line-height:1.4;animation:fu .3s ease}
   @keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
   .mb{background:#fff;padding:10px 12px;border-radius:4px 12px 12px 12px;align-self:flex-start;border:1px solid #e6e6e6;color:#1a1a1a}
-  .mu{background:#e8f4fd;padding:10px 12px;border-radius:12px 4px 12px 12px;align-self:flex-end;border:1px solid #d0e4f3;color:#1a1a1a}
+  .mu{background:#d6e8f7;padding:10px 12px;border-radius:12px 4px 12px 12px;align-self:flex-end;border:1px solid #b8d4ee;color:#1a1a1a}
   .mb a{color:#0078d4;text-decoration:underline}
   .mb .tr-note{font-size:12px;color:#888;margin-top:6px}
   .fb{margin-top:6px;display:flex;gap:8px}
-  .tb{background:none;border:none;cursor:pointer;padding:2px;color:#0078d4;display:flex;align-items:center;transition:transform .15s}
-  .tb:hover{transform:scale(1.2)}
-  .tb svg{width:20px;height:20px}
+  .tb{background:none;border:none;cursor:pointer;padding:2px;color:#8899aa;display:flex;align-items:center;transition:all .15s}
+  .tb:hover{color:#0078d4;transform:scale(1.15)}
+  .tb svg{width:22px;height:22px}
   .ts{font-size:11px;color:#999;margin-top:2px;align-self:flex-start}
   .tsr{font-size:11px;color:#999;margin-top:2px;align-self:flex-end}
 
@@ -256,16 +256,16 @@ Date: April 3, 2026
 
   /*  Swim Lane Layout  */
   .ov-lanes{max-width:1360px;margin:0 auto}
-  .ov-lane{display:flex;align-items:stretch;background:#fff;border-radius:16px;margin-bottom:18px;border:1px solid #dce0e8;overflow:visible;transition:all .25s;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.06);position:relative;z-index:0}
-  .ov-lane:hover{box-shadow:0 10px 32px rgba(0,0,0,.12);transform:translateY(-2px);z-index:10}
+  .ov-lane{display:flex;align-items:stretch;background:#fff;border-radius:16px;margin-bottom:18px;border:1px solid #dce0e8;overflow:visible;transition:all .25s;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.06);position:relative}
+  .ov-lane:hover{box-shadow:0 10px 32px rgba(0,0,0,.12);transform:translateY(-2px);z-index:50}
   .ov-lane-left{width:175px;flex-shrink:0;padding:20px 16px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #eee;position:relative}
   .ov-lane.oc-a .ov-lane-left{border-left:6px solid transparent;border-image:linear-gradient(180deg,#0078d4,#005a9e) 1;border-right:1px solid #eee;background:linear-gradient(180deg,#f5f8fc 0%,#edf2f9 100%)}
   .ov-lane.oc-b .ov-lane-left{border-left:6px solid transparent;border-image:linear-gradient(180deg,#8661c5,#5a3d8f) 1;border-right:1px solid #eee;background:linear-gradient(180deg,#f3edf9 0%,#e8ddf2 100%)}
-  .ov-lane.oc-c .ov-lane-left{border-left:5px solid #3F6FAE}
+  .ov-lane.oc-c .ov-lane-left{border-left:6px solid transparent;border-image:linear-gradient(180deg,#C4820E,#9a6200) 1;border-right:1px solid #eee;background:linear-gradient(180deg,#fdf6ec 0%,#f5eadb 100%)}
   .ov-lane.oc-d .ov-lane-left{border-left:6px solid transparent;border-image:linear-gradient(180deg,#107C10,#0b5e0b) 1;border-right:1px solid #eee;background:linear-gradient(180deg,#f0f8f0 0%,#e2f0e2 100%)}
   .ov-lane-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:3px 10px;border-radius:10px;color:#fff;margin-bottom:6px;width:fit-content}
   .ov-lane.oc-a .ov-lane-tag{background:linear-gradient(135deg,#0078d4,#005a9e);box-shadow:0 2px 6px rgba(0,90,158,.25)}.ov-lane.oc-b .ov-lane-tag{background:linear-gradient(135deg,#8661c5,#6a4da0)}
-  .ov-lane.oc-c .ov-lane-tag{background:linear-gradient(135deg,#3F6FAE,#2c5790)}.ov-lane.oc-d .ov-lane-tag{background:linear-gradient(135deg,#107C10,#0b5e0b)}
+  .ov-lane.oc-c .ov-lane-tag{background:linear-gradient(135deg,#C4820E,#9a6200)}.ov-lane.oc-d .ov-lane-tag{background:linear-gradient(135deg,#107C10,#0b5e0b)}
   .ov-lane-left h3{font-size:16px;font-weight:800;margin:0 0 5px;color:#111;letter-spacing:-.3px}
   .ov-lane-model{font-size:10px;color:#6b7280;margin-bottom:6px;letter-spacing:.2px}
   .ov-lane-desc{font-size:11.5px;color:#5a6370;line-height:1.5;font-style:italic;margin:0}
@@ -276,7 +276,7 @@ Date: April 3, 2026
   .ov-ln-flow::before{content:'';position:absolute;top:27px;left:36px;right:36px;height:3px;border-radius:2px;z-index:1}
   .ov-lane.oc-a .ov-ln-flow::before{background:linear-gradient(90deg,#0078d4,#3a9eec)}
   .ov-lane.oc-b .ov-ln-flow::before{background:linear-gradient(90deg,#8661c5,#a98ad8)}
-  .ov-lane.oc-c .ov-ln-flow::before{background:linear-gradient(90deg,#3F6FAE,#6b93c8)}
+  .ov-lane.oc-c .ov-ln-flow::before{background:linear-gradient(90deg,#C4820E,#e8a83c)}
   .ov-lane.oc-d .ov-ln-flow::before{background:linear-gradient(90deg,#107C10,#3da93d)}
   /* Nodes  fixed min-width to prevent squishing */
   .ov-ln-node{flex:1 1 0;text-align:center;position:relative;min-width:90px;padding:0 4px;display:flex;flex-direction:column;align-items:center}
@@ -287,13 +287,13 @@ Date: April 3, 2026
   .ov-ln-node.highlight .ov-ln-icon{border-width:3px;box-shadow:0 6px 18px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.08),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.05)}
   .ov-lane.oc-a .ov-ln-node.highlight .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#dceefb 0%,#b8d9f3 100%)}
   .ov-lane.oc-b .ov-ln-node.highlight .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#ece0f9 0%,#d6c4ef 100%)}
-  .ov-lane.oc-c .ov-ln-node.highlight .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#dce6f5 0%,#bfd0ea 100%)}
+  .ov-lane.oc-c .ov-ln-node.highlight .ov-ln-icon{border-color:#C4820E;background:linear-gradient(180deg,#fdf0d9 0%,#f2dab3 100%)}
   .ov-lane.oc-d .ov-ln-node.highlight .ov-ln-icon{border-color:#107C10;background:linear-gradient(180deg,#ddf5dd 0%,#b8e4b8 100%)}
   /* Consent node */
   .ov-ln-node.consent .ov-ln-icon{border-style:dashed;border-width:2.5px;box-shadow:0 5px 16px rgba(0,0,0,.11),0 2px 4px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.9),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-lane.oc-a .ov-ln-node.consent .ov-ln-icon{border-color:#0062b1;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#2b88d8 0%,#0062b1 100%);box-shadow:0 4px 16px rgba(0,120,212,.25),0 0 0 4px rgba(0,120,212,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
   .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#6b3fa0;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#9b71d1 0%,#6b3fa0 100%);box-shadow:0 4px 16px rgba(134,97,197,.25),0 0 0 4px rgba(134,97,197,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
-  .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#e8edf7 0%,#c8d5ed 100%)}
+  .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#9a6200;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#e8a83c 0%,#9a6200 100%);box-shadow:0 4px 16px rgba(196,130,14,.25),0 0 0 4px rgba(196,130,14,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
   .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#0b5e0b;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#3da93d 0%,#0b5e0b 100%);box-shadow:0 4px 16px rgba(16,124,16,.25),0 0 0 4px rgba(16,124,16,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
   .ov-ln-badge{display:block;font-size:8px;font-weight:700;background:#e8edf7;color:#2A4D80;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;border:1px solid #c4ccdd;width:fit-content}
   /* Notify step */
@@ -301,7 +301,9 @@ Date: April 3, 2026
   .ov-lane.oc-a .ov-ln-node.notice .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#d4e9fa 0%,#a8ccee 100%);box-shadow:0 5px 18px rgba(0,120,212,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-lane.oc-b .ov-ln-node.notice .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#ece0f9 0%,#d6c4ef 100%);box-shadow:0 5px 18px rgba(134,97,197,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-lane.oc-d .ov-ln-node.notice .ov-ln-icon{border-color:#107C10;background:linear-gradient(180deg,#ddf5dd 0%,#b8e4b8 100%);box-shadow:0 5px 18px rgba(16,124,16,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
+  .ov-lane.oc-c .ov-ln-node.notice .ov-ln-icon{border-color:#C4820E;background:linear-gradient(180deg,#fdf0d9 0%,#f2dab3 100%);box-shadow:0 5px 18px rgba(196,130,14,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-ln-notice-tag{display:block;font-size:8px;font-weight:700;background:#dceefb;color:#0078d4;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;border:1px solid #a3cceb;white-space:nowrap;width:fit-content}
+  .ov-lane.oc-c .ov-ln-notice-tag{background:#fdf0d9;color:#9a6200;border-color:#e8c576}
   .ov-ln-optin-tag{display:block;font-size:8px;font-weight:700;background:#ece0f9;color:#6b3fa0;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;border:1px solid #c9b3e4;white-space:nowrap;width:fit-content}
   /* Bypass skip */
   .ov-ln-skip{display:block;font-size:9px;color:#5B5FC7;margin-top:2px;letter-spacing:.2px;font-weight:500;font-style:italic}
@@ -311,12 +313,15 @@ Date: April 3, 2026
   .ov-ln-node.branch::before{content:'';position:absolute;top:23px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:linear-gradient(180deg,#4da3e8,#0078d4);border:2px solid #fff;z-index:3;box-shadow:0 1px 5px rgba(0,120,212,.3)}
   .ov-lane.oc-b .ov-ln-node.branch::before{background:linear-gradient(180deg,#a98ad8,#6b3fa0);box-shadow:0 1px 5px rgba(134,97,197,.3)}
   .ov-lane.oc-d .ov-ln-node.branch::before{background:linear-gradient(180deg,#3da93d,#107C10);box-shadow:0 1px 5px rgba(16,124,16,.3)}
+  .ov-lane.oc-c .ov-ln-node.branch::before{background:linear-gradient(180deg,#e8a83c,#C4820E);box-shadow:0 1px 5px rgba(196,130,14,.3)}
   .ov-ln-node.branch::after{content:'';position:absolute;top:35px;left:50%;transform:translateX(-50%);width:0;height:18px;border-left:2px dashed rgba(0,120,212,.35);z-index:1}
   .ov-lane.oc-b .ov-ln-node.branch::after{border-left-color:rgba(134,97,197,.35)}
   .ov-lane.oc-d .ov-ln-node.branch::after{border-left-color:rgba(16,124,16,.35)}
+  .ov-lane.oc-c .ov-ln-node.branch::after{border-left-color:rgba(196,130,14,.35)}
   .ov-ln-node.branch .ov-ln-icon::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid rgba(0,120,212,.4);z-index:4}
   .ov-lane.oc-b .ov-ln-node.branch .ov-ln-icon::before{border-top-color:rgba(134,97,197,.4)}
   .ov-lane.oc-d .ov-ln-node.branch .ov-ln-icon::before{border-top-color:rgba(16,124,16,.4)}
+  .ov-lane.oc-c .ov-ln-node.branch .ov-ln-icon::before{border-top-color:rgba(196,130,14,.4)}
   .ov-ln-node.branch .ov-ln-icon{width:46px;height:46px;min-width:46px;min-height:46px}
   .ov-ln-node.branch .ov-ln-icon svg{width:22px;height:22px}
   .ov-ln-node.branch .ov-ln-txt strong{font-size:12px}
@@ -335,6 +340,7 @@ Date: April 3, 2026
   .ov-ln-node.wrapup .ov-reentry{position:absolute;top:calc(100% + 10px);right:-16px;width:310px;z-index:10}
   .ov-lane.oc-a .ov-lane-right{padding-bottom:112px}
   .ov-lane.oc-b .ov-lane-right{padding-bottom:112px}
+  .ov-lane.oc-c .ov-lane-right{padding-bottom:112px}
   .ov-re-tag{display:inline-block;font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4;white-space:nowrap;margin-bottom:6px}
   /* Card header */
   .ov-re-header{font-size:11px;color:#5B5FC7;font-weight:700;margin-bottom:12px;letter-spacing:.1px;text-align:center}
@@ -407,8 +413,8 @@ Date: April 3, 2026
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
   <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></symbol>
-  <symbol id="ic-up" viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zM23 10c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></symbol>
-  <symbol id="ic-dn" viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.58-6.59c.37-.36.59-.86.59-1.41V5c0-1.1-.9-2-2-2zM19 3v12h4V3h-4z"/></symbol>
+  <symbol id="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22V11M2 13V20a2 2 0 002 2h13.4a2 2 0 002-1.7l1.4-9a2 2 0 00-2-2.3H15V4a2 2 0 00-2-2h0a2 2 0 00-2 1.6L9 11H4a2 2 0 00-2 2z"/></symbol>
+  <symbol id="ic-dn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2V13M22 11V4a2 2 0 00-2-2H6.6a2 2 0 00-2 1.7L3.2 12.7A2 2 0 005.2 15H9v3a2 2 0 002 2h0a2 2 0 002-1.6L15 13h5a2 2 0 002-2z"/></symbol>
   <symbol id="ic-send" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></symbol>
 </svg>
 
@@ -422,7 +428,7 @@ Date: April 3, 2026
   <div class="tab active" data-t="O">&#127968; Overview<span class="badge" style="background:#fff;color:#0078d4">Start Here</span></div>
   <div class="tab" data-t="A">Option A: Notice + Opt-Out &#9733;<span class="badge bg-green">&#10003; Updated</span></div>
   <div class="tab" data-t="B">Option B: Notice + Opt-In<span class="badge bg-green">&#10003; Updated</span></div>
-  <div class="tab" data-t="C">Option C: End-of-Chat Summary<span class="badge bg-orange">Pending</span></div>
+  <div class="tab" data-t="C">Option C: Notice + End Summary<span class="badge bg-green">&#10003; Updated</span></div>
   <div class="tab" data-t="D">Option D: Always-On Passive<span class="badge bg-green">&#10003; Updated</span></div>
   
   <div class="tab" data-t="X">Comparison<span class="badge bg-gray">After All</span></div>
@@ -537,19 +543,41 @@ Date: April 3, 2026
     <div class="ov-lane oc-c" onclick="document.querySelector('[data-t=C]').click()">
       <div class="ov-lane-left">
         <span class="ov-lane-tag">Option C</span>
-        <h3>End-of-Chat Capture</h3>
-        <div class="ov-lane-model">Opt-In at Exit &middot; Lowest friction</div>
-        <p class="ov-lane-desc">&ldquo;Chat freely. We only ask when you&rsquo;re ready to leave.&rdquo;</p>
+        <h3>Notice + End Summary</h3>
+        <div class="ov-lane-model">Notice + Opt-Out &middot; Summary at Exit</div>
+        <p class="ov-lane-desc">&ldquo;Same notice as A. No mid-chat interruption. Email captured only when offering a summary at the end.&rdquo;</p>
       </div>
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
-          <div class="ov-ln-node highlight"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#5B5FC7" stroke-width="2" fill="#E8EAFF"/><circle cx="9" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="12" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="15" cy="10.5" r="1" fill="#5B5FC7"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div></div>
+          <div class="ov-ln-node notice" data-tip="Chat opens with the same greeting as Option A: consent notice, [Opt out] link, and a &quot;Returning?&quot; pill for returning customers."><span class="ov-tip">Chat opens with the same greeting as Option A: consent notice, [Opt out] link, and a &#34;Returning?&#34; pill for returning customers.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#5B5FC7" stroke-width="2" fill="#E8EAFF"/><circle cx="9" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="12" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="15" cy="10.5" r="1" fill="#5B5FC7"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-notice-tag">Notice &middot; Opt-Out</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#B4570A" stroke-width="2" fill="#E8EAF6"/><path d="M9 21h6M10 18h4" stroke="#B4570A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
-          <div class="ov-ln-node consent tt-right" data-tip="Only when the customer is ready to leave, the agent asks: &quot;Want me to email you a summary of what we discussed?&quot; The entire conversation flows uninterrupted until this point."><span class="ov-tip">Only when the customer is ready to leave, the agent asks: &quot;Want me to email you a summary of what we discussed?&quot; The entire conversation flows uninterrupted until this point.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0078d4" stroke-width="2" fill="#E3F2FD"/><path d="M3 7l9 6 9-6" stroke="#0078d4" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Exit Offer</strong></div><div class="ov-ln-badge">Optional</div><div class="ov-ln-skip">or Skip &#8594;</div></div>
-          <div class="ov-ln-node return" data-tip="If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required."><span class="ov-tip">If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#2B579A" stroke-width="2" fill="#E8EDF5"/><path d="M14 2v6h6" stroke="#2B579A" stroke-width="2" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="#2B579A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Returns</strong></div><div class="ov-ln-paths"><span class="ov-ln-path p-continue">&#9993; Continue</span><span class="ov-ln-path p-fresh">&#10024; Start fresh</span></div></div>
+          <div class="ov-ln-node consent branch" data-tip="When the customer wraps up, the agent offers: &quot;Would you like me to email you a summary?&quot; If yes, email capture appears. If no or if opted out, conversation ends naturally."><span class="ov-tip">When the customer wraps up, the agent offers: &#34;Would you like me to email you a summary?&#34; If yes, email capture appears. If no or if opted out, conversation ends naturally.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Exit Summary</strong></div><div class="ov-ln-micro">Email summary &middot; Or just leave</div><div class="ov-ln-skip">Or skip and go</div></div>
+          <div class="ov-ln-node wrapup" data-tip="If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off."><span class="ov-tip">If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
+            <div class="ov-reentry" data-tip="container"><span class="ov-tip">Returning customers see the same welcome screen. They click the &#34;Returning?&#34; pill, enter their email, and pick up where they left off.</span>
+              <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
+              <div class="ov-re-header">Same welcome screen</div>
+              <div class="ov-re-choices">
+                <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Customer clicks &#34;Returning?&#34; pill and enters their email to reconnect.</span>
+                  <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#9a6200" stroke-width="1.8" fill="#fdf0d9"/><path d="M3 7l9 6 9-6" stroke="#9a6200" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                  <span class="ov-re-choice-label">&#128279; Returning?</span>
+                  <span class="ov-re-choice-sub">pill &#8594; enter email</span>
+                  <span class="ov-re-choice-or">or</span>
+                </div>
+                <div class="ov-re-choice">
+                  <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
+                  <span class="ov-re-choice-label">Start fresh</span>
+                  <span class="ov-re-choice-sub">use any other starter prompt</span>
+                </div>
+              </div>
+              <div class="ov-re-merge">
+                <div class="ov-re-merge-line"></div>
+                <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
+                <div class="ov-re-merge-line"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -603,14 +631,14 @@ Date: April 3, 2026
   <div class="ov-summary">
     <h3>Quick Comparison</h3>
     <table>
-      <thead><tr><th>Dimension</th><th>A: Notice + Opt-Out &#9733;</th><th>B: Notice + Opt-In</th><th>C: End-of-Chat</th><th>D: Always-On Passive</th></tr></thead>
+      <thead><tr><th>Dimension</th><th>A: Notice + Opt-Out &#9733;</th><th>B: Notice + Opt-In</th><th>C: Notice + End Summary</th><th>D: Always-On Passive</th></tr></thead>
       <tbody>
-        <tr><td>When asked</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>At exit only</td><td>Never &#8212; button always visible</td></tr>
-        <tr><td>Who initiates</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit)</td><td>Customer only</td></tr>
-        <tr><td>Email ends chat?</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td>Yes &#8212; at exit</td><td style="color:#107C10">No &#8212; continues</td></tr>
-        <tr><td>Friction level</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#3F6FAE">Lowest</td><td style="color:#107C10">Zero push</td></tr>
-        <tr><td>Privacy / CELA risk</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Lowest</td><td style="color:#107C10">Lowest</td></tr>
-        <tr><td>Best for</td><td>Default experience</td><td>Banner countries, pilots</td><td>Sensitive markets</td><td>Privacy-first markets</td></tr>
+        <tr><td>When asked</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>Upfront notice + at exit</td><td>Never &#8212; button always visible</td></tr>
+        <tr><td>Who initiates</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit, with opt-out)</td><td>Customer only</td></tr>
+        <tr><td>Email ends chat?</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#C4820E">Yes &#8212; at exit</td><td style="color:#107C10">No &#8212; continues</td></tr>
+        <tr><td>Friction level</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#C4820E">Low (zero during chat)</td><td style="color:#107C10">Zero push</td></tr>
+        <tr><td>Privacy / CELA risk</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#C4820E">Low</td><td style="color:#107C10">Lowest</td></tr>
+        <tr><td>Best for</td><td>Default experience</td><td>Banner countries, pilots</td><td>Uninterrupted conversations</td><td>Privacy-first markets</td></tr>
       </tbody>
     </table>
   </div>
@@ -693,20 +721,25 @@ Date: April 3, 2026
 <!-- ======== OPTION C ======== -->
 <div class="panel" id="pC">
   <div class="stitle">
-    <h2>Option C: End-of-Chat Summary &#8212; Capture at the Finish Line</h2>
-    <p>Fully anonymous conversation. At the end, agent offers to email a summary &#8212; the most natural moment to capture identity.</p>
+    <h2>Option C: Notice + End-of-Chat Summary &#8212; Summary at the Finish Line</h2>
+    <p>Conversation saved by default with upfront notice (same as A). The difference: email capture happens at the end when the agent offers to send a summary &#8212; not mid-conversation.</p>
   </div>
   <div class="row">
     <div class="info">
-      <span class="tag tg">Lowest Friction</span>
+      <span class="tag tg" style="background:#C4820E">End-of-Chat</span>
       <h3>How it works</h3>
-      <p class="lbl">Consent: Notice + Opt-In at Exit</p>
+      <p class="lbl">Consent: Notice + Opt-Out (Summary at Exit)</p>
       <ul>
-        <li><strong>Steps 1&#8211;3:</strong> Fully anonymous, no prompts.</li>
-        <li><strong>Step 4:</strong> At wrap-up, agent offers a summary card.</li>
-        <li><strong>Step 5:</strong> Email capture with continuity disclosure.</li>
+        <li><strong>Welcome notice:</strong> Consent notice embedded in the welcome message &#8212; conversation saved by default. Customer can [Opt out] anytime.</li>
+        <li><strong>Returning customer link:</strong> A subtle &#8220;Returning?&#8221; pill below the greeting lets returning customers self-identify and enter their email to reconnect.</li>
+        <li><strong>Uninterrupted conversation:</strong> No mid-conversation nudge or email prompt. The entire chat flows naturally without any identity capture.</li>
+        <li><strong>End-of-chat summary:</strong> When the customer wraps up, the agent offers to email a summary of the conversation. Customer chooses &#8220;Yes, email me&#8221; or &#8220;No thanks.&#8221;</li>
+        <li><strong>Email = persistence toggle:</strong> If they opt for the summary, email capture connects their identity. Summary is sent and conversation is saved for future return.</li>
+        <li><strong>Returning user:</strong> Same welcome screen &#8212; customer clicks the &#8220;Returning?&#8221; pill to reconnect. No separate flow needed.</li>
       </ul>
-      <div class="note"><strong>Privacy:</strong> Nothing stored until explicit opt-in at exit. Easiest to defend with CELA. Best for sensitive markets.</div>
+      <div class="note" style="border-left-color:#C4820E"><strong>Key difference from A:</strong> Email is captured at the END when offering a summary, not mid-conversation. This means zero interruption during the active conversation &#8212; the customer gets full value first.</div>
+      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> No summary offer at the end. Conversation flows and ends naturally without any email prompt.</div>
+      <div class="note" style="border-left-color:#C4820E;margin-top:8px"><strong>One welcome, all customers:</strong> The &#8220;Returning?&#8221; link handles both new and returning customers in a single unified experience &#8212; same as Option A.</div>
     </div>
     <div class="cw-wrap">
       <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="c-l">1 / 11</span></div>
@@ -790,14 +823,14 @@ Date: April 3, 2026
         </div>
       </div>
     </div>
-    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px">
-      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">C: End-of-Chat Summary</div>
-      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Capture at the Finish Line</div>
-      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Fully anonymous conversation. At wrap-up, agent offers a summary card. Customer provides email only if they want it emailed. Lowest friction during chat.</p>
-      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">
-        <div style="font-size:10px;font-weight:700;color:#8a6914;text-transform:uppercase;margin-bottom:4px">Flow</div>
+    <div style="background:#fdf6ec;border:1px solid #e8c576;border-radius:10px;padding:14px">
+      <div style="font-size:11px;font-weight:700;color:#C4820E;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">C: Notice + End Summary</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Summary at the Finish Line</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Same upfront notice and opt-out as Option A. The difference: no mid-conversation nudge. Email captured only at the end when the agent offers to send a conversation summary.</p>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8c576">
+        <div style="font-size:10px;font-weight:700;color:#C4820E;text-transform:uppercase;margin-bottom:4px">Flow</div>
         <div style="font-size:11px;color:#444;line-height:1.7">
-          Welcome (no notice) &#8594;<br>Customer chats anonymously &#8594;<br>Customer wraps up &#8594;<br>Agent: "Want a summary?" &#8594;<br>Summary card shown &#8594;<br>"Email it to me" &#8594; email capture &#8594;<br><strong>Ends conversation</strong> &#8594;<br>Return: email lookup &#8594; resume
+          Welcome + notice [Opt out] &#8594;<br>Customer chats freely &#8594;<br>No mid-chat interruption &#8594;<br>Customer wraps up &#8594;<br>Agent: "Email you a summary?" &#8594;<br>Email capture &#8594; <strong>summary sent</strong> &#8594;<br>Return: email lookup &#8594; resume
         </div>
       </div>
     </div>
@@ -820,19 +853,19 @@ Date: April 3, 2026
       <th style="width:15%">Dimension</th>
       <th>A: Notice + Opt-Out &#9733;</th>
       <th>B: Notice + Opt-In</th>
-      <th>C: End-of-Chat Summary</th>
+      <th>C: Notice + End Summary</th>
       <th>D: Always-On Passive</th>
     </tr></thead>
     <tbody>
-      <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Opt-In at Exit</td><td>Always-On Passive Button</td></tr>
-      <tr><td><strong>When email asked</strong></td><td>Mid-conversation</td><td>Banner + later</td><td>End of chat only</td><td>When customer taps Save chat</td></tr>
-      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No  chat continues</span></td><td><span class="con">Yes</span></td><td><span class="pro">No &#8212; chat continues</span></td></tr>
-      <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">&#9733; Low</span></td><td><span class="con">&#9733;&#9733; Medium</span></td><td><span class="pro">&#9733; Lowest</span></td><td><span class="pro">&#9733; Zero push</span></td></tr>
+      <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Notice + Opt-Out</td><td>Always-On Passive Button</td></tr>
+      <tr><td><strong>When email asked</strong></td><td>Mid-conversation</td><td>Banner + later</td><td>End of chat (summary offer)</td><td>When customer taps Save chat</td></tr>
+      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No  chat continues</span></td><td>Yes &#8212; at exit</td><td><span class="pro">No &#8212; chat continues</span></td></tr>
+      <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">&#9733; Low</span></td><td><span class="con">&#9733;&#9733; Medium</span></td><td><span class="pro">&#9733; Low (zero during chat)</span></td><td><span class="pro">&#9733; Zero push</span></td></tr>
       <tr><td><strong>Who initiates</strong></td><td>Agent (contextual)</td><td>System (banner)</td><td>Agent (at exit)</td><td>Customer (button tap)</td></tr>
-      <tr><td><strong>Email capture rate</strong></td><td><span class="pro">Higher</span></td><td>Moderate</td><td><span class="con">Lower</span></td><td><span class="con">Lowest</span> but highest intent</td></tr>
-      <tr class="hl"><td><strong>Privacy/CELA risk</strong></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Lowest</span></td><td><span class="pro">Lowest</span></td></tr>
-      <tr><td><strong>Regulatory fit</strong></td><td>Default for most eCommerce</td><td>Banner countries, pilots</td><td>All regions</td><td>All regions</td></tr>
-      <tr><td><strong>Best for</strong></td><td>Default experience</td><td>Sensitive markets, pilots</td><td>Pilots, sensitive markets</td><td>Privacy-first markets</td></tr>
+      <tr><td><strong>Email capture rate</strong></td><td><span class="pro">Higher</span></td><td>Moderate</td><td>Moderate (end of chat)</td><td><span class="con">Lowest</span> but highest intent</td></tr>
+      <tr class="hl"><td><strong>Privacy/CELA risk</strong></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Lowest</span></td></tr>
+      <tr><td><strong>Regulatory fit</strong></td><td>Default for most eCommerce</td><td>Banner countries, pilots</td><td>Default + sensitive regions</td><td>All regions</td></tr>
+      <tr><td><strong>Best for</strong></td><td>Default experience</td><td>Sensitive markets, pilots</td><td>Uninterrupted conversations</td><td>Privacy-first markets</td></tr>
       <tr><td><strong>Quotex</strong></td><td colspan="4" style="text-align:center">All options are independent of Quotex. Email here is for <strong>conversation continuity</strong> only.</td></tr>
       <tr><td><strong>Returning user</strong></td><td colspan="4" style="text-align:center">All pair with the <strong>email-based reconnect</strong> flow. Only works when email was captured in a prior session.</td></tr>
     </tbody>
@@ -865,7 +898,10 @@ document.getElementById('cA').innerHTML=WA;
 
 const WB=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> &#8599;</div><div id="aB-cs" style="margin-top:8px;padding-top:6px;border-top:1px solid #eee;font-size:11px;color:#666;line-height:1.4">We can save this conversation to improve your experience. If you sign in or share your email, it may be connected to your profile.<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap"><button onclick="document.getElementById('aB-cs').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span style=\\'color:#6b3fa0;font-weight:700\\'>&#9745;</span><span style=\\'font-size:11px;color:#6b3fa0;font-weight:600\\'>Saving enabled. You can connect your email anytime.</span></div>';window._bOptIn=true;return false" style="font-size:11px;padding:4px 10px;border-radius:5px;cursor:pointer;font-weight:600;border:1px solid #8661c5;background:#8661c5;color:#fff;font-family:inherit">Yes, save and personalize</button><button onclick="window._bOptIn=false;document.getElementById('aB-cs').innerHTML='<span style=\\'color:#888;font-size:11px\\'>No data will be saved from this session.</span>';return false" style="font-size:11px;padding:4px 10px;border-radius:5px;cursor:pointer;font-weight:600;border:1px solid #ccc;background:#fff;color:#555;font-family:inherit">No, continue without saving</button></div></div>${T}</div><span class="ts">an hour ago</span>`;
 document.getElementById('cB').innerHTML=WB;
-['cC','cD'].forEach(id=>document.getElementById(id).innerHTML=W);
+
+const WC=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> &#8599;</div><div id="aC-cs" style="margin-top:6px;padding-top:4px;border-top:1px solid #eee;font-size:11px;color:#999;line-height:1.35">We may save conversations to improve your experience. If you sign in or share your email, this conversation may be connected to your profile. <a href="#" style="color:#C4820E;text-decoration:none" onclick="window._cOptOut=true;document.getElementById('aC-cs').innerHTML='<span style=\\'color:#a4262c;font-weight:600\\'>&#10003; Opted out &#8212; this conversation will not be saved.</span>';return false">[Opt out]</a></div><div style="margin-top:5px;font-size:11px"><a href="#" class="sp-return-link" onclick="window._cReturn=true;if(window._jumpc)window._jumpc(8,9);return false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 105.64-8.36L1 10"/></svg>Returning? Pick up where you left off</a></div>${T}</div><span class="ts">an hour ago</span>`;
+document.getElementById('cC').innerHTML=WC;
+document.getElementById('cD').innerHTML=W;
 
 // === Email capture block (stacked) ===
 function emailBlock(label,sub){
@@ -970,35 +1006,42 @@ const sB=[null,
 ];
 
 
-// === OPTION C: End-of-Chat Summary ===
+// === OPTION C: Notice + Opt-Out with End-of-Chat Summary ===
+window._cOptOut=false;window._cEmail=true;window._cReturn=false;
 const sC=[null,
-  ()=>{add('cC',usr("What's included with Microsoft 365 for a freelancer?"));add('cC','<span class="tsr">just now</span>')},
-  ()=>{add('cC',bot("Microsoft 365 Personal is a great fit for freelancers:<br><br>&#10003; <strong>Desktop apps</strong> &#8212; Word, Excel, PowerPoint, Outlook<br>&#10003; <strong>1 TB OneDrive</strong> &#8212; share files with clients securely<br>&#10003; <strong>Microsoft Editor</strong> &#8212; AI-powered writing & grammar<br>&#10003; <strong>Clipchamp</strong> &#8212; create & edit videos<br>&#10003; <strong>Outlook calendar</strong> &#8212; schedule client meetings<br>&#10003; <strong>Microsoft Designer</strong> &#8212; create social media graphics<br><br>Would you like to know about any specific feature?"));add('cC','<span class="ts">just now</span>')},
+  // Step 2: Customer asks about freelancer plans
+  ()=>{add('cC',usr("What&#39;s included with Microsoft 365 for a freelancer?"));add('cC','<span class="tsr">just now</span>')},
+  // Step 3: Agent responds with M365 Personal features
+  ()=>{add('cC',bot("Microsoft 365 Personal is a great fit for freelancers:<br><br>&#10003; <strong>Desktop apps</strong> &#8212; Word, Excel, PowerPoint, Outlook<br>&#10003; <strong>1 TB OneDrive</strong> &#8212; share files with clients securely<br>&#10003; <strong>Microsoft Editor</strong> &#8212; AI-powered writing &amp; grammar<br>&#10003; <strong>Clipchamp</strong> &#8212; create &amp; edit videos<br>&#10003; <strong>Outlook calendar</strong> &#8212; schedule client meetings<br>&#10003; <strong>Microsoft Designer</strong> &#8212; create social media graphics<br><br>Would you like to know about any specific feature?"));add('cC','<span class="ts">just now</span>')},
+  // Step 4: Customer asks about free trial
   ()=>{add('cC',usr("Can I try it first?"));add('cC','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cC',bot("Yes &#8212; there's a 1-month free trial with full access to everything, including desktop apps, 1 TB OneDrive, and all the AI features. No commitment required.<br><br><a href='#'>&#8594; Start your free trial</a>"));add('cC','<span class="ts">just now</span>')},200)},
-  // Step 5: User wraps up, agent offers a summary
-  ()=>{add('cC',usr("Great, thanks for all the info!"));add('cC','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cC',bot("Happy to help! Before you go &#8212; would you like me to put together a quick summary of what we covered?"));
-      setTimeout(()=>add('cC',`<div class="qr"><button onclick="this.parentElement.innerHTML='<span style=\'font-size:12px;color:#888\'>&#8594; Yes, that would be great</span>'">Yes, that would be great</button><button onclick="this.parentElement.innerHTML='<span style=\'font-size:12px;color:#888\'>&#8594; No thanks, I\'m good</span>'">No thanks, I'm good</button></div>`),300)},200)},
-  // Step 6: Summary card appears with email offer
-  ()=>{add('cC',usr("Yes, that would be great"));add('cC','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cC',`<div class="m mb">Here's your recap:</div>`);
-      setTimeout(()=>add('cC',`<div class="sc"><div class="sh">&#128203; Conversation Summary</div><div class="sb"><ul><li><strong>Recommended:</strong> Microsoft 365 Personal</li><li><strong>Key features:</strong> Desktop apps, 1 TB OneDrive, Editor, Clipchamp, Designer</li><li><strong>Next step:</strong> Free trial available</li></ul><p>Want me to email this? You'll also be able to continue this chat next time.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="bp" style="padding:8px 16px;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;opacity:.7" disabled>Yes, email it to me &#8592;</button><button style="padding:8px 16px;background:#fff;color:#1a1a1a;border:1px solid #ccc;border-radius:6px;font-size:13px;font-weight:600;cursor:default;opacity:.5" disabled>No thanks</button></div><div style="font-size:10px;color:#888;margin-top:6px;font-style:italic">&#8593; Customer taps "Yes, email it to me" (click Next to see)</div></div></div>`),400)},200)},
-  // Step 7: Email capture revealed
-  ()=>add('cC',emailBlock("&#128231; Where should I send the summary?","Includes your M365 Personal overview and free trial link.")),
+    setTimeout(()=>{add('cC',bot("Yes &#8212; there&#39;s a 1-month free trial with full access to everything, including desktop apps, 1 TB OneDrive, and all the AI features. No commitment required.<br><br><a href=\'#\'>&#8594; Start your free trial</a>"));add('cC','<span class="ts">just now</span>')},300)},
+  // Step 5: Follow-up question about Clipchamp
+  ()=>{add('cC',usr("What can I do with Clipchamp exactly?"));add('cC','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cC',bot("<strong>Clipchamp</strong> is a video editor built into Microsoft 365:<br><br>&#10003; Trim, merge, and crop video clips<br>&#10003; Add text overlays, transitions, and music<br>&#10003; Screen recording with webcam overlay<br>&#10003; AI-powered auto-captions<br>&#10003; Export up to 1080p<br>&#10003; Social media templates (Instagram, TikTok, YouTube)<br><br>It&#39;s great for creating client presentations, social content, or training videos."));add('cC','<span class="ts">just now</span>')},300)},
+  // Step 6: Customer wraps up -- agent offers summary (skipped if opted out)
+  ()=>{if(window._cOptOut){add('cC',usr("Great, thanks for all the info!"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("You&#39;re welcome! Good luck with your freelancing. If you need anything else, just come back anytime.<br><br><a href=\'#\'>&#8594; Start your free trial</a>"));add('cC','<span class="ts">just now</span>')},300);return}
+    add('cC',usr("Great, thanks for all the info!"));add('cC','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cC',bot("Happy to help! Before you go &#8212; would you like me to put together a quick summary of what we covered? I can email it to you so you have it handy."));
+      setTimeout(()=>add('cC',`<div class="qr"><button class="bp" onclick="window._cEmail=true;this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>&#8594; Yes, email me a summary</span>'">Yes, email me a summary</button><button onclick="window._cEmail=false;this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>&#8594; No thanks, I&#39;m good</span>'">No thanks, I&#39;m good</button></div>`),300)},300)},
+  // Step 7: Email capture or skip (conditional)
+  ()=>{if(window._cOptOut||!window._cEmail){add('cC',bot("No problem! Good luck with your freelancing. If you need anything else, just come back anytime. &#128075;"));add('cC','<span class="ts">just now</span>');return}
+    add('cC',`<div class="sc"><div class="sh">&#128203; Conversation Summary</div><div class="sb"><ul><li><strong>Recommended:</strong> Microsoft 365 Personal ($9.99/month)</li><li><strong>Key features:</strong> Desktop apps, 1 TB OneDrive, Editor, Clipchamp, Designer</li><li><strong>Clipchamp:</strong> Video editor with AI captions and social templates</li><li><strong>Next step:</strong> Free 1-month trial available</li></ul></div></div>`);
+    setTimeout(()=>add('cC',emailBlock("&#128231; Where should I send the summary?","Includes your M365 Personal overview and free trial link.")),400)},
   // Step 8: Confirmation
-  ()=>add('cC',bot("Summary sent! &#128232; Next time, enter your email to continue where we left off. Have a great day!")),
-  // &#9472;&#9472; SESSION 2: Returning User &#9472;&#9472;
+  ()=>{if(window._cOptOut||!window._cEmail){setTimeout(()=>document.getElementById('c-n').click(),50);return}
+    add('cC',bot("Summary sent! &#128232; You can also return anytime and enter your email to continue where we left off. Have a great day!"));add('cC','<span class="ts">just now</span>')},
+  // === SESSION 2: RETURNING USER ===
+  // Step 9: Fresh session welcome
   ()=>{const c=document.getElementById('cC');c.innerHTML='';window._cReturn=false;
-    add('cC',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#3F6FAE;font-weight:700">&#128260; Session 2 &#8212; New Session</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns. Click &#34;Returning?&#34; to see returning flow, or Next for a fresh conversation.</div></div>`);
-    const wc=`<div class="m mb">${W.match(/<div class="m mb">([\s\S]*?)<\/div><span/)[1]}<div style="margin-top:5px;font-size:11px"><a href="#" class="sp-return-link" onclick="window._cReturn=true;if(window._jumpc)window._jumpc(8,9);return false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 105.64-8.36L1 10"/></svg>Returning? Pick up where you left off</a></div>${T}</div><span class="ts">an hour ago</span>`;
-    add('cC',wc)},
-  // Step 10: Conditional
-  ()=>{if(!window._cReturn){add('cC',usr("I want to set up Microsoft Designer for social media graphics. Is that included?"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("Yes! Microsoft Designer is included with Microsoft 365 Personal and Family plans at no extra cost.<br><br>You can:<br>&#10003; Create social media posts, flyers, and invitations<br>&#10003; Use AI-generated images and layouts<br>&#10003; Access thousands of templates<br>&#10003; Export in multiple formats<br><br>It&#39;s a great tool for freelancers who need quick, professional-looking graphics."));add('cC','<span class="ts">just now</span>')},300);return}
-    add('cC',`<div class="ec" style="margin-top:4px"><div class="ec-t">Continue a saved conversation</div><div class="ec-sub">Enter the email you used last time.</div><input type="email" placeholder="your.email@company.com" value="freelancer@email.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cC',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">&#10003; Match found &#8212; loading your session...</div>`),400)},
-  // Step 11: Conditional
-  ()=>{if(!window._cReturn){add('cC',usr("Can I use it on my phone too?"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("Absolutely. Microsoft Designer has mobile apps for both iOS and Android. Create and edit on the go, and everything syncs with your OneDrive.<br><br><a href=\'#\'>&#8594; Download Microsoft Designer</a>"));add('cC','<span class="ts">just now</span>')},300);return}
-    add('cC',`<div class="rv" style="margin-top:4px"><div class="rv-t">Welcome back!</div><p>Here&#39;s where you left off:</p><div class="rv-topic"><span class="ri">&#128172;</span><div><strong>Microsoft 365 Personal for freelancers</strong><br><span style="font-size:11px;color:#888">Yesterday &#183; Desktop apps, OneDrive, Editor, free trial</span></div></div></div>`);setTimeout(()=>add('cC',bot("Welcome back! Last time we explored Microsoft 365 Personal for freelancing &#8212; desktop apps, 1 TB OneDrive, Editor, Clipchamp, and Designer. You were looking at the free trial.<br><br>Want to continue from there, or do you have a new question?")),300)}
+    add('cC',`<div style="background:linear-gradient(135deg,#fdf6ec,#faecd4);border:1px solid #e8c576;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#C4820E;font-weight:700">&#128260; Session 2 &#8212; New Session</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns. Click &#34;Returning?&#34; to see returning flow, or Next for a fresh conversation.</div></div>`);add('cC',WC);c.scrollTop=0},
+  // Step 10: Conditional -- if Returning?: email lookup. If not: fresh conversation.
+  ()=>{if(!window._cReturn){add('cC',usr("I want to set up Microsoft Designer for social media graphics. How do I start?"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("Getting started with Designer is easy:<br><br>1. Go to <a href=\'#\'>designer.microsoft.com</a><br>2. Sign in with your Microsoft 365 account<br>3. Choose a template or start from scratch<br>4. Use AI to generate images and layouts<br><br>It works in the browser and there&#39;s also a Windows app. All your designs save to OneDrive automatically."));add('cC','<span class="ts">just now</span>')},300);return}
+    add('cC',`<div class="ec-lookup" style="margin-top:6px"><div class="ec-lk-head"><div class="ec-lk-icon">&#128278;</div><div class="ec-lk-title">Welcome back</div><div class="ec-lk-sub">Enter the email from your previous session and we&#39;ll reconnect you.</div></div><div class="ec-lk-body"><input type="email" placeholder="your.email@company.com" value="freelancer@email.com" disabled><button class="ec-lk-btn" disabled style="opacity:.7">Look up my conversation</button></div></div>`);setTimeout(()=>{const el=document.querySelector('#cC .ec-lookup');if(el){el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{const f=document.createElement('div');f.className='ec-lk-found';f.innerHTML='<div class="ec-lk-check">&#10003;</div><div class="ec-lk-found-text">Previous conversation found &#8212; ready to continue</div>';el.appendChild(f)},400)}},150)},
+  // Step 11: Conditional -- if Returning?: session card. If not: continue fresh.
+  ()=>{if(!window._cReturn){add('cC',usr("Can I use it on my phone too?"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("Yes! Microsoft Designer has mobile apps for both iOS and Android. Create and edit on the go, and everything syncs with your OneDrive.<br><br><a href=\'#\'>&#8594; Download Microsoft Designer</a>"));add('cC','<span class="ts">just now</span>')},300);return}
+    add('cC',`<div class="rv" style="margin-top:6px"><div class="rv-head" style="background:linear-gradient(135deg,#C4820E,#9a6200)"><div class="rv-head-t">Continue where you left off?</div><div class="rv-head-sub">We found your previous conversation</div></div><div class="rv-body"><div class="rv-topic"><div class="ri">&#128172;</div><div class="rv-topic-info"><div class="rv-topic-title">Microsoft 365 Personal for freelancers</div><div class="rv-topic-meta"><span>&#128197; Yesterday</span><span>&#183;</span><span>Desktop apps, OneDrive, Clipchamp, free trial</span></div></div></div><div class="rv-acts"><button class="bp" style="background:#C4820E!important;border-color:#C4820E!important">Continue conversation</button><button>Start new</button></div></div></div>`);setTimeout(()=>{const rv=document.querySelector('#cC .rv');if(rv)rv.scrollIntoView({behavior:'smooth',block:'start'})},100);
+    setTimeout(()=>add('cC',bot("Welcome back! Last time we explored Microsoft 365 Personal for freelancing &#8212; desktop apps, 1 TB OneDrive, Editor, Clipchamp, and Designer. You were looking at the free trial.<br><br>Want to continue from there, or do you have a new question?")),300)}
 ];
 
 

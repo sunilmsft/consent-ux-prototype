@@ -750,7 +750,7 @@ Date: April 3, 2026
         <div class="cw">
           <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">&#10005;</button></div>
           <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cD"></div></div>
-          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-passive" id="aD-link"><svg class="sp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label">Save chat</span><span class="sp-tip">Save this conversation to your email and return later</span></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-passive" id="aD-link" onclick="window._dSave &amp;&amp; window._dSave()"><svg class="sp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label">Save chat</span><span class="sp-tip">Save this conversation to your email and return later</span></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
         </div>
         <button class="nav-btn" id="d-n" title="Next">&#8250;</button>
       </div>
@@ -999,17 +999,18 @@ const sD=[null,
   // Step 4: More conversation
   ()=>{add('cD',usr("Can you compare the warranty options for business orders?"));add('cD','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cD',bot("For business Surface devices, you have three warranty tiers:<br><br><strong>Standard Warranty</strong> (included)<br>&#10003; 1 year hardware warranty<br>&#10003; 90 days of technical support<br><br><strong>Microsoft Complete for Business</strong><br>&#10003; Extends coverage to 3 or 4 years<br>&#10003; Accidental damage protection (2 claims)<br>&#10003; Next business day replacement<br><br><strong>Microsoft Complete for Business Plus</strong><br>&#10003; Everything above, plus on-site service<br>&#10003; Battery replacement after 50% degradation<br><br>For a team order, I&#39;d recommend Complete for Business &#8212; it covers the most common issues during a 3-year refresh cycle."));add('cD','<span class="ts">just now</span>')},300)},
-  // Step 5: Customer clicks the Save chat button in footer -- email capture inline
-  ()=>{add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Save this conversation</div><div class="ec-sub">Enter your email to get a summary and pick up where you left off next time.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Connect</button>${FP}</div>`)},
-  // Step 6: Email connected -- footer updates to Saved
-  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#107C10;font-weight:600;font-size:13px">&#10003; Connected. Your conversation will be saved.</div>`);
-    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<svg class="sp-icon" viewBox="0 0 24 24" fill="#107C10" stroke="#107C10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#107C10"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label" style="color:#107C10;font-weight:600">&#10003; Saved</span>'}},
-  // Step 7: Chat continues seamlessly
+  // Step 5: Bulk ordering question
   ()=>{add('cD',usr("What about bulk ordering? We need about 50 units."));add('cD','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cD',bot("For a 50-unit order, I&#39;d recommend going through a <strong>Microsoft Authorized Reseller</strong> or your Microsoft account team:<br><br>&#10003; Volume pricing with discounts<br>&#10003; Custom configuration options<br>&#10003; Centralized deployment with Autopilot<br>&#10003; Surface Plus financing &#8212; spread costs over 24 or 36 months<br><br>I can connect you with a Surface specialist who handles fleet orders. Would you like that?"));add('cD','<span class="ts">just now</span>')},300)},
-  // Step 8: Follow-up proves continuity
+  // Step 6: Docking stations follow-up
   ()=>{add('cD',usr("Yes, that sounds great. Also, do they come with docking stations?"));add('cD','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cD',bot("Great question! The <strong>Surface Thunderbolt 4 Dock</strong> is the recommended option:<br><br>&#10003; Dual 4K monitor support<br>&#10003; USB-C, USB-A, Ethernet, and audio ports<br>&#10003; 96W power delivery &#8212; charges the laptop while docked<br>&#10003; $299 per dock<br><br>For a fleet of 50, your reseller can bundle docks with the laptops for a package deal. I&#39;ll include this in the summary I&#39;m saving for you."));add('cD','<span class="ts">just now</span>')},300)},
+    setTimeout(()=>{add('cD',bot("Great question! The <strong>Surface Thunderbolt 4 Dock</strong> is the recommended option:<br><br>&#10003; Dual 4K monitor support<br>&#10003; USB-C, USB-A, Ethernet, and audio ports<br>&#10003; 96W power delivery &#8212; charges the laptop while docked<br>&#10003; $299 per dock<br><br>For a fleet of 50, your reseller can bundle docks with the laptops for a package deal."));add('cD','<span class="ts">just now</span>')},300)},
+  // Step 7: Another follow-up
+  ()=>{add('cD',usr("What about deployment? Can we pre-configure them before handing out to employees?"));add('cD','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cD',bot("Absolutely. <strong>Windows Autopilot</strong> lets you:<br><br>&#10003; Pre-register devices by serial number<br>&#10003; Auto-configure policies, apps, and settings on first boot<br>&#10003; Ship directly to employees &#8212; they sign in and everything is ready<br>&#10003; No IT touch required for imaging<br><br>Paired with Intune, you can manage all 50 devices from a single dashboard. Most resellers can register Autopilot profiles as part of the order."));add('cD','<span class="ts">just now</span>')},300)},
+  // Step 8: Final question
+  ()=>{add('cD',usr("That&#39;s really helpful. Can I get a formal quote for 50 Laptop 7s with docks and Complete for Business?"));add('cD','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cD',bot("I can connect you with a Surface sales specialist who can prepare a formal quote. They&#39;ll include:<br><br>&#10003; 50x Surface Laptop 7 for Business (your config)<br>&#10003; 50x Surface Thunderbolt 4 Docks<br>&#10003; Microsoft Complete for Business (3-year)<br>&#10003; Volume pricing and financing options<br><br><a href='#'>&#8594; Request a quote</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='#'>&#8594; Talk to a specialist</a>"));add('cD','<span class="ts">just now</span>')},300)},
   // === SESSION 2: RETURNING USER ===
   // Step 9: Customer returns -- same welcome with Returning? link
   ()=>{const c=document.getElementById('cD');c.innerHTML='';
@@ -1025,6 +1026,25 @@ const sD=[null,
 ];
 
 
+
+// === OPTION D: Save chat handler ===
+window._dSave=function(){
+  var lnk=document.getElementById('aD-link');
+  if(!lnk||lnk.dataset.saved)return;
+  lnk.dataset.saved='1';
+  var c=document.getElementById('cD');
+  var card=document.createElement('div');card.className='ec';card.style.marginTop='4px';
+  card.innerHTML='<div class="ec-t">Save this conversation</div>'
+    +'<div class="ec-sub">Enter your email to get a summary and pick up where you left off next time.</div>'
+    +'<input type="email" placeholder="your.email@company.com">'
+    +'<button class="ec-btn">Connect</button>';
+  card.querySelector('.ec-btn').addEventListener('click',function(){
+    card.innerHTML='<div style="padding:12px;text-align:center"><div style="color:#107C10;font-weight:600;font-size:13px">&#10003; Connected. Your conversation will be saved.</div></div>';
+    lnk.innerHTML='<svg class="sp-icon" viewBox="0 0 24 24" fill="#107C10" stroke="#107C10" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label" style="color:#107C10;font-weight:600">&#10003; Saved</span>';
+  });
+  c.appendChild(card);
+  c.scrollTop=c.scrollHeight;
+};
 
 // === STEPPER ENGINE ===
 function mkStep(p,steps,wHtml){

@@ -345,22 +345,13 @@ Date: April 3, 2026
   /* Full-width centered header text */
   .ov-flow-header{width:100%;text-align:center;font-size:12px;font-weight:600;color:#444;padding:0 0 6px;letter-spacing:.2px}
   /* Dashed vertical connector between flows — centered on Ask Microsoft (2nd of 6 = 25%) */
-  .ov-fork-connector{width:100%;position:relative;height:36px}
+  .ov-fork-connector{width:100%;position:relative;height:56px;margin-top:-6px}
   .ov-fork-connector::before{content:'';position:absolute;left:25%;top:0;height:100%;border-left:3px dashed rgba(0,120,212,.35);transform:translateX(-50%)}
   .oc-b .ov-fork-connector::before{border-left-color:rgba(134,97,197,.35)}
   .oc-c .ov-fork-connector::before{border-left-color:rgba(43,140,150,.35)}
   .oc-d .ov-fork-connector::before{border-left-color:rgba(16,124,16,.35)}
-  /* Returning label — positioned at Ask Microsoft column */
-  .ov-ret-label{width:100%;padding:0 0 4px;font-size:10px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:6px;margin-left:calc(100%/6 + 8px)}
-  .oc-a .ov-ret-label{color:#0078d4}
-  .oc-b .ov-ret-label{color:#8661c5}
-  .oc-c .ov-ret-label{color:#2B8C96}
-  .oc-d .ov-ret-label{color:#107C10}
-  .ov-ret-label::before{content:'';display:inline-block;width:8px;height:8px;border-radius:2px}
-  .oc-a .ov-ret-label::before{background:#0078d4}
-  .oc-b .ov-ret-label::before{background:#8661c5}
-  .oc-c .ov-ret-label::before{background:#2B8C96}
-  .oc-d .ov-ret-label::before{background:#107C10}
+  /* Returning label — centered, matches flow-header style */
+  .ov-ret-label{width:100%;text-align:center;font-size:12px;font-weight:600;color:#444;padding:0 0 6px;letter-spacing:.2px}
   /* Second flow row — starts at Ask Microsoft column, same node style */
   .ov-ln-flow-alt{display:flex;align-items:flex-start;position:relative;width:calc(100% - 100%/6);margin-left:calc(100%/6)}
   .ov-ln-flow-alt::before{content:'';position:absolute;top:27px;left:36px;right:36px;height:3px;border-radius:2px;z-index:1}
@@ -500,7 +491,7 @@ Date: April 3, 2026
         <!-- Main flow -->
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
-          <div class="ov-ln-node notice" data-tip="The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts."><span class="ov-tip">The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><circle cx="9" cy="10.5" r="1" fill="#0078d4"/><circle cx="12" cy="10.5" r="1" fill="#0078d4"/><circle cx="15" cy="10.5" r="1" fill="#0078d4"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div></div>
+          <div class="ov-ln-node notice" data-tip="The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts."><span class="ov-tip">The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><circle cx="9" cy="10.5" r="1" fill="#0078d4"/><circle cx="12" cy="10.5" r="1" fill="#0078d4"/><circle cx="15" cy="10.5" r="1" fill="#0078d4"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-notice-tag">Notice &middot; Opt-Out</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><path d="M9 21h6M10 18h4" stroke="#0078d4" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
           <div class="ov-ln-node consent" data-tip="The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You&#39;ll see a prompt to enter your email or choose &quot;Not now.&quot; If you connect, you&#39;ll get a summary and can return later. If you skip, the chat continues as usual."><span class="ov-tip">The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You&#39;ll see a prompt to enter your email or choose &#34;Not now.&#34; If you connect, you&#39;ll get a summary and can return later. If you skip, the chat continues as usual.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Email Nudge</strong></div><div class="ov-ln-micro">Get a summary &middot; Return anytime</div><div class="ov-ln-skip">Or continue without</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
@@ -509,7 +500,7 @@ Date: April 3, 2026
         <!-- Dashed connector from Ask Microsoft down -->
         <div class="ov-fork-connector"></div>
         <!-- Returning label -->
-        <div class="ov-ret-label">Returning &middot; Email Connected</div>
+        <div class="ov-ret-label">Returning Customers &middot; Email Connected (Known Customer Flow)</div>
         <!-- Returning flow — full-size nodes, same style -->
         <div class="ov-ln-flow-alt">
           <div class="ov-ln-node" data-tip="Returning customer is recognized via their email address from a previous session."><span class="ov-tip">Returning customer is recognized via their email address from a previous session.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><path d="M3 7l9 6 9-6" stroke="#0078d4" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Email Lookup</strong></div></div>

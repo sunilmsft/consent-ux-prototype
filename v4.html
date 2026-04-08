@@ -340,21 +340,31 @@ Date: April 3, 2026
   .ov-ln-node.wrapup::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:12px;border-left:2px dotted rgba(91,95,199,.35);z-index:3}
   .ov-ln-node.wrapup .ov-reentry{position:absolute;top:calc(100% + 10px);right:0;width:220px;z-index:10}
   /* Two-path fork layout */
-  .ov-lane-right.has-fork{flex-direction:column;flex-wrap:nowrap;gap:0;padding:10px 16px 18px}
-  .ov-row-label{font-size:9px;font-weight:700;letter-spacing:.3px;padding:0 0 3px 36px;display:flex;align-items:center;gap:5px}
-  .ov-row-label::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%}
+  .ov-lane-right.has-fork{flex-direction:column;flex-wrap:nowrap;gap:0;padding:10px 16px 16px}
+  .has-fork .ov-ln-node.wrapup::after{display:none}
+  /* Top path label — positioned above Ask Microsoft column */
+  .ov-row-label{font-size:9px;font-weight:700;letter-spacing:.3px;padding:0 0 3px 0;margin-left:calc(100%/6);display:flex;align-items:center;gap:5px}
+  .ov-row-label::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%}
   .oc-a .ov-row-label{color:#0078d4}.oc-a .ov-row-label::before{background:#0078d4}
   .oc-b .ov-row-label{color:#8661c5}.oc-b .ov-row-label::before{background:#8661c5}
   .oc-c .ov-row-label{color:#2B8C96}.oc-c .ov-row-label::before{background:#2B8C96}
   .oc-d .ov-row-label{color:#107C10}.oc-d .ov-row-label::before{background:#107C10}
-  .ov-row-label-alt{padding-left:calc(100%/6 + 36px);margin-top:6px}
-  .ov-row-label-alt::before{border-radius:0;width:6px;height:6px;background:none;border:1.5px solid currentColor}
-  .ov-alt-flow{display:flex;align-items:center;gap:8px;margin-left:calc(100%/6);padding:5px 12px 5px 16px;background:linear-gradient(135deg,#f5f8fc,#edf2f9);border:1px solid rgba(0,120,212,.12);border-radius:8px;font-size:11px;color:#555;position:relative}
-  .ov-alt-flow::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:4px;height:60%;border-radius:0 2px 2px 0}
-  .oc-a .ov-alt-flow::before{background:#0078d4}
-  .oc-b .ov-alt-flow{background:linear-gradient(135deg,#f5f0fa,#ece0f9);border-color:rgba(134,97,197,.12)}.oc-b .ov-alt-flow::before{background:#8661c5}
-  .oc-c .ov-alt-flow{background:linear-gradient(135deg,#edf7f8,#DFF0F2);border-color:rgba(43,140,150,.12)}.oc-c .ov-alt-flow::before{background:#2B8C96}
-  .oc-d .ov-alt-flow{background:linear-gradient(135deg,#f0f8f0,#e2f0e2);border-color:rgba(16,124,16,.12)}.oc-d .ov-alt-flow::before{background:#107C10}
+  /* Fork branch — left border acts as tree-branch connector */
+  .ov-fork-branch{margin:10px 0 0 calc(25%);padding:6px 0 2px 16px;border-left:2.5px solid rgba(0,120,212,.3);display:flex;flex-direction:column;gap:5px}
+  .oc-b .ov-fork-branch{border-left-color:rgba(134,97,197,.3)}
+  .oc-c .ov-fork-branch{border-left-color:rgba(43,140,150,.3)}
+  .oc-d .ov-fork-branch{border-left-color:rgba(16,124,16,.3)}
+  .ov-branch-tag{font-size:9px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:5px}
+  .ov-branch-tag::before{content:'';display:inline-block;width:5px;height:5px;border:1.5px solid currentColor;border-radius:1px}
+  .oc-a .ov-branch-tag{color:#0078d4}
+  .oc-b .ov-branch-tag{color:#8661c5}
+  .oc-c .ov-branch-tag{color:#2B8C96}
+  .oc-d .ov-branch-tag{color:#107C10}
+  /* Alt flow — compact returning path */
+  .ov-alt-flow{display:flex;align-items:center;gap:8px;padding:6px 14px;border-radius:8px;font-size:11.5px;color:#555;background:linear-gradient(135deg,#f5f8fc,#edf2f9);border:1px solid rgba(0,120,212,.12)}
+  .oc-b .ov-alt-flow{background:linear-gradient(135deg,#f5f0fa,#ece0f9);border-color:rgba(134,97,197,.12)}
+  .oc-c .ov-alt-flow{background:linear-gradient(135deg,#edf7f8,#DFF0F2);border-color:rgba(43,140,150,.12)}
+  .oc-d .ov-alt-flow{background:linear-gradient(135deg,#f0f8f0,#e2f0e2);border-color:rgba(16,124,16,.12)}
   .ov-alt-icon{width:24px;height:24px;min-width:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .oc-a .ov-alt-icon{background:#edf5fc;border:1.5px solid rgba(0,120,212,.2)}
   .oc-b .ov-alt-icon{background:#f5f0fa;border:1.5px solid rgba(134,97,197,.2)}
@@ -496,18 +506,20 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
           <div class="ov-ln-node notice" data-tip="The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts."><span class="ov-tip">The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><circle cx="9" cy="10.5" r="1" fill="#0078d4"/><circle cx="12" cy="10.5" r="1" fill="#0078d4"/><circle cx="15" cy="10.5" r="1" fill="#0078d4"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><path d="M9 21h6M10 18h4" stroke="#0078d4" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
-          <div class="ov-ln-node consent branch" data-tip="The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You&#39;ll see a prompt to enter your email or choose &quot;Not now.&quot; If you connect, you&#39;ll get a summary and can return later. If you skip, the chat continues as usual."><span class="ov-tip">The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You&#39;ll see a prompt to enter your email or choose &#34;Not now.&#34; If you connect, you&#39;ll get a summary and can return later. If you skip, the chat continues as usual.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Email Nudge</strong></div><div class="ov-ln-micro">Get a summary &middot; Return anytime</div><div class="ov-ln-skip">Or continue without</div></div>
+          <div class="ov-ln-node consent" data-tip="The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You&#39;ll see a prompt to enter your email or choose &quot;Not now.&quot; If you connect, you&#39;ll get a summary and can return later. If you skip, the chat continues as usual."><span class="ov-tip">The Ask Microsoft agent may offer to connect this chat to your email during the conversation. You&#39;ll see a prompt to enter your email or choose &#34;Not now.&#34; If you connect, you&#39;ll get a summary and can return later. If you skip, the chat continues as usual.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Email Nudge</strong></div><div class="ov-ln-micro">Get a summary &middot; Return anytime</div><div class="ov-ln-skip">Or continue without</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
           <div class="ov-ln-node wrapup" data-tip="If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time."><span class="ov-tip">If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#0078d4" stroke-width="2" stroke-linecap="round" fill="#dceefb"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
         </div>
-        <!-- Path 2: Returning -->
-        <div class="ov-row-label ov-row-label-alt">Returning &middot; Email Connected</div>
-        <div class="ov-alt-flow">
-          <div class="ov-alt-step"><div class="ov-alt-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0078d4" stroke-width="1.8" fill="#dceefb"/><path d="M3 7l9 6 9-6" stroke="#0078d4" stroke-width="1.8" stroke-linecap="round"/></svg></div><span>Email lookup</span></div>
-          <div class="ov-alt-arrow">&#8594;</div>
-          <div class="ov-alt-step"><div class="ov-alt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#0078d4" stroke-width="1.8" fill="#dceefb"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0078d4" stroke-width="1.8"/></svg></div><span>Context restored</span></div>
-          <div class="ov-alt-arrow">&#8594;</div>
-          <div class="ov-alt-merge">Continues &#8594; Wraps Up</div>
+        <!-- Path 2: Returning (tree-branch from Ask Microsoft column) -->
+        <div class="ov-fork-branch">
+          <div class="ov-branch-tag">Returning &middot; Email Connected</div>
+          <div class="ov-alt-flow">
+            <div class="ov-alt-step"><div class="ov-alt-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0078d4" stroke-width="1.8" fill="#dceefb"/><path d="M3 7l9 6 9-6" stroke="#0078d4" stroke-width="1.8" stroke-linecap="round"/></svg></div><span>Email lookup</span></div>
+            <div class="ov-alt-arrow">&#8594;</div>
+            <div class="ov-alt-step"><div class="ov-alt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#0078d4" stroke-width="1.8" fill="#dceefb"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0078d4" stroke-width="1.8"/></svg></div><span>Context restored</span></div>
+            <div class="ov-alt-arrow">&#8594;</div>
+            <div class="ov-alt-merge">Continues &#8594; Wraps Up</div>
+          </div>
         </div>
       </div>
     </div>

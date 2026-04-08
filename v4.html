@@ -54,12 +54,12 @@ Date: April 3, 2026
 
   /* Tabs */
   .tabs{display:flex;flex-wrap:wrap;background:#f5f5f5;border-bottom:1px solid #ddd;padding:0 16px;position:sticky;top:52px;z-index:99}
-  .tab{padding:13px 16px;font-size:12px;font-weight:600;color:#666;cursor:pointer;border-bottom:3px solid transparent;transition:.2s;white-space:nowrap}
+  .tab{padding:13px 16px;font-size:12px;font-weight:600;color:#666;cursor:pointer;border-bottom:3px solid transparent;transition:.2s;white-space:nowrap;border-radius:6px 6px 0 0}
   .tab[data-t="O"]{background:#0078d4;color:#fff;border-radius:6px 6px 0 0;margin:4px 8px 0 4px;padding:9px 18px;border-bottom:none;font-weight:700;letter-spacing:.3px}
   .tab[data-t="O"]:hover{background:#106ebe;color:#fff}
   .tab[data-t="O"].active{background:#0078d4;color:#fff;border-bottom:none;box-shadow:0 2px 6px rgba(0,120,212,.3)}
-  .tab:hover{color:#0078d4;background:#f8f8f8}
-  .tab.active{color:#0078d4;border-bottom-color:#0078d4}
+  .tab:hover{color:#0078d4;background:#eef4fb}
+  .tab.active{color:#fff;background:#1a1a1a;border-bottom-color:#1a1a1a;border-radius:6px 6px 0 0}
   .badge{display:inline-block;font-size:9px;padding:1px 6px;border-radius:10px;margin-left:5px;font-weight:700;vertical-align:middle}
   .bg-green{background:#dee8f5;color:#3F6FAE}.bg-yellow{background:#e8eaf6;color:#8a6914}.bg-gray{background:#e1dfdd;color:#555}
   .bg-blue{background:#e0f0ff;color:#0078d4}.bg-orange{background:#ffecd0;color:#b35900}
@@ -244,14 +244,15 @@ Date: April 3, 2026
 
   /* Overview panel */
   /*  Overview hero  */
-  .ov-hero{max-width:1200px;margin:0 auto 24px;text-align:center}
+  .ov-sticky-intro{position:sticky;top:91px;z-index:30;background:#fff;padding:16px 24px 0;margin:-16px -24px 0;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+  .ov-hero{max-width:1200px;margin:0 auto 12px;text-align:center}
   .ov-hero h2{font-size:26px;font-weight:800;color:#1a1a1a;margin-bottom:6px;letter-spacing:-.3px}
   .ov-hero .ov-sub{font-size:14px;color:#555;margin-bottom:0;line-height:1.6;max-width:940px;margin-left:auto;margin-right:auto}
   .ov-hero .ov-sub strong{color:#0078d4}
 
 
   /*  Context callout  */
-  .ov-context{max-width:1200px;margin:0 auto 24px;background:linear-gradient(135deg,#f0f6ff 0%,#f8f4ff 50%,#eef2fa 100%);border-radius:12px;padding:14px 20px;font-size:13px;color:#444;line-height:1.7;border:1px solid #e4e8f0;display:flex;align-items:flex-start;gap:12px}
+  .ov-context{max-width:1200px;margin:0 auto 16px;background:linear-gradient(135deg,#f0f6ff 0%,#f8f4ff 50%,#eef2fa 100%);border-radius:12px;padding:14px 20px;font-size:13px;color:#444;line-height:1.7;border:1px solid #e4e8f0;display:flex;align-items:flex-start;gap:12px}
   .ov-context svg{flex-shrink:0;margin-top:2px}
 
   /*  Swim Lane Layout  */
@@ -436,7 +437,8 @@ Date: April 3, 2026
 
 <!--  OVERVIEW  -->
 <div class="panel active" id="pO">
-  <!-- Hero Section -->
+  <!-- Sticky Intro -->
+  <div class="ov-sticky-intro">
   <div class="ov-hero">
     <h2>Consent &amp; Identity Options for Ask Microsoft</h2>
     <p class="ov-sub">When a customer visits <strong>microsoft.com</strong> to explore <strong>Microsoft 365</strong>, they can chat with <strong>Ask Microsoft</strong> to compare plans, get answers, and connect with sales. These four options define how we transition that customer from anonymous to known &mdash; respectfully, transparently, and on their terms.</p>
@@ -446,6 +448,7 @@ Date: April 3, 2026
   <div class="ov-context">
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#0078d4" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.5" stroke="#0078d4" stroke-width="1.8" stroke-linecap="round"/></svg>
     <span>Each swim lane below shows the same customer journey on <strong>microsoft.com</strong>. The dashed circle marks where each option&rsquo;s consent moment happens &mdash; always <strong>optional</strong>, never gated. The chat <strong>always continues</strong> regardless. Click any lane to explore its full walk-through.</span>
+  </div>
   </div>
 
   <!-- Option Cards Grid -->

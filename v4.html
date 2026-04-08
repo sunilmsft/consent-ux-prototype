@@ -230,6 +230,15 @@ Date: April 3, 2026
   .save-bar.visible{display:flex}
   .save-bar a{color:#0078d4;text-decoration:none;cursor:pointer;font-weight:500}
   .save-bar a:hover{text-decoration:underline}
+  /* Option D: passive save button */
+  .save-passive{display:flex;align-items:center;gap:4px;padding:3px 0;justify-content:center;border-top:1px solid #f0f0f0;cursor:pointer;position:relative}
+  .save-passive:hover .sp-label{color:#107C10}
+  .save-passive .sp-icon{width:14px;height:14px;color:#888;flex-shrink:0;transition:.15s}
+  .save-passive:hover .sp-icon{color:#107C10}
+  .save-passive .sp-label{font-size:10px;color:#999;font-weight:500;transition:.15s}
+  .save-passive .sp-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(15,15,20,.92);color:#fff;font-size:11px;padding:6px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;z-index:50}
+  .save-passive .sp-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:rgba(15,15,20,.92)}
+  .save-passive:hover .sp-tip{opacity:1}
 
 
   /* Overview panel */
@@ -252,10 +261,10 @@ Date: April 3, 2026
   .ov-lane.oc-a .ov-lane-left{border-left:6px solid transparent;border-image:linear-gradient(180deg,#0078d4,#005a9e) 1;border-right:1px solid #eee;background:linear-gradient(180deg,#f5f8fc 0%,#edf2f9 100%)}
   .ov-lane.oc-b .ov-lane-left{border-left:6px solid transparent;border-image:linear-gradient(180deg,#8661c5,#5a3d8f) 1;border-right:1px solid #eee;background:linear-gradient(180deg,#f3edf9 0%,#e8ddf2 100%)}
   .ov-lane.oc-c .ov-lane-left{border-left:5px solid #3F6FAE}
-  .ov-lane.oc-d .ov-lane-left{border-left:5px solid #2B579A}
+  .ov-lane.oc-d .ov-lane-left{border-left:6px solid transparent;border-image:linear-gradient(180deg,#107C10,#0b5e0b) 1;border-right:1px solid #eee;background:linear-gradient(180deg,#f0f8f0 0%,#e2f0e2 100%)}
   .ov-lane-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:3px 10px;border-radius:10px;color:#fff;margin-bottom:6px;width:fit-content}
   .ov-lane.oc-a .ov-lane-tag{background:linear-gradient(135deg,#0078d4,#005a9e);box-shadow:0 2px 6px rgba(0,90,158,.25)}.ov-lane.oc-b .ov-lane-tag{background:linear-gradient(135deg,#8661c5,#6a4da0)}
-  .ov-lane.oc-c .ov-lane-tag{background:linear-gradient(135deg,#3F6FAE,#2c5790)}.ov-lane.oc-d .ov-lane-tag{background:linear-gradient(135deg,#2B579A,#1e3d6e)}
+  .ov-lane.oc-c .ov-lane-tag{background:linear-gradient(135deg,#3F6FAE,#2c5790)}.ov-lane.oc-d .ov-lane-tag{background:linear-gradient(135deg,#107C10,#0b5e0b)}
   .ov-lane-left h3{font-size:16px;font-weight:800;margin:0 0 5px;color:#111;letter-spacing:-.3px}
   .ov-lane-model{font-size:10px;color:#6b7280;margin-bottom:6px;letter-spacing:.2px}
   .ov-lane-desc{font-size:11.5px;color:#5a6370;line-height:1.5;font-style:italic;margin:0}
@@ -267,7 +276,7 @@ Date: April 3, 2026
   .ov-lane.oc-a .ov-ln-flow::before{background:linear-gradient(90deg,#0078d4,#3a9eec)}
   .ov-lane.oc-b .ov-ln-flow::before{background:linear-gradient(90deg,#8661c5,#a98ad8)}
   .ov-lane.oc-c .ov-ln-flow::before{background:linear-gradient(90deg,#3F6FAE,#6b93c8)}
-  .ov-lane.oc-d .ov-ln-flow::before{background:linear-gradient(90deg,#2B579A,#4a7ab5)}
+  .ov-lane.oc-d .ov-ln-flow::before{background:linear-gradient(90deg,#107C10,#3da93d)}
   /* Nodes  fixed min-width to prevent squishing */
   .ov-ln-node{flex:1 1 0;text-align:center;position:relative;min-width:90px;padding:0 4px;display:flex;flex-direction:column;align-items:center}
   /* 3D Icon circles  protected from flex compression */
@@ -278,18 +287,19 @@ Date: April 3, 2026
   .ov-lane.oc-a .ov-ln-node.highlight .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#dceefb 0%,#b8d9f3 100%)}
   .ov-lane.oc-b .ov-ln-node.highlight .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#ece0f9 0%,#d6c4ef 100%)}
   .ov-lane.oc-c .ov-ln-node.highlight .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#dce6f5 0%,#bfd0ea 100%)}
-  .ov-lane.oc-d .ov-ln-node.highlight .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#dce4f2 0%,#b8c8e2 100%)}
+  .ov-lane.oc-d .ov-ln-node.highlight .ov-ln-icon{border-color:#107C10;background:linear-gradient(180deg,#ddf5dd 0%,#b8e4b8 100%)}
   /* Consent node */
   .ov-ln-node.consent .ov-ln-icon{border-style:dashed;border-width:2.5px;box-shadow:0 5px 16px rgba(0,0,0,.11),0 2px 4px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.9),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-lane.oc-a .ov-ln-node.consent .ov-ln-icon{border-color:#0062b1;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#2b88d8 0%,#0062b1 100%);box-shadow:0 4px 16px rgba(0,120,212,.25),0 0 0 4px rgba(0,120,212,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
   .ov-lane.oc-b .ov-ln-node.consent .ov-ln-icon{border-color:#6b3fa0;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#9b71d1 0%,#6b3fa0 100%);box-shadow:0 4px 16px rgba(134,97,197,.25),0 0 0 4px rgba(134,97,197,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
   .ov-lane.oc-c .ov-ln-node.consent .ov-ln-icon{border-color:#3F6FAE;background:linear-gradient(180deg,#e8edf7 0%,#c8d5ed 100%)}
-  .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#2B579A;background:linear-gradient(180deg,#e8edf5 0%,#c4d0e8 100%)}
+  .ov-lane.oc-d .ov-ln-node.consent .ov-ln-icon{border-color:#0b5e0b;border-style:solid;border-width:2.5px;background:linear-gradient(180deg,#3da93d 0%,#0b5e0b 100%);box-shadow:0 4px 16px rgba(16,124,16,.25),0 0 0 4px rgba(16,124,16,.08),inset 0 2px 4px rgba(255,255,255,.2),inset 0 -1px 2px rgba(0,0,0,.1)}
   .ov-ln-badge{display:block;font-size:8px;font-weight:700;background:#e8edf7;color:#2A4D80;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;border:1px solid #c4ccdd;width:fit-content}
   /* Notify step */
   .ov-ln-node.notice .ov-ln-icon{border-width:3px;box-shadow:0 6px 18px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.08),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.05)}
   .ov-lane.oc-a .ov-ln-node.notice .ov-ln-icon{border-color:#0078d4;background:linear-gradient(180deg,#d4e9fa 0%,#a8ccee 100%);box-shadow:0 5px 18px rgba(0,120,212,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-lane.oc-b .ov-ln-node.notice .ov-ln-icon{border-color:#8661c5;background:linear-gradient(180deg,#ece0f9 0%,#d6c4ef 100%);box-shadow:0 5px 18px rgba(134,97,197,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
+  .ov-lane.oc-d .ov-ln-node.notice .ov-ln-icon{border-color:#107C10;background:linear-gradient(180deg,#ddf5dd 0%,#b8e4b8 100%);box-shadow:0 5px 18px rgba(16,124,16,.15),0 2px 5px rgba(0,0,0,.06),inset 0 3px 6px rgba(255,255,255,.95),inset 0 -1px 3px rgba(0,0,0,.04)}
   .ov-ln-notice-tag{display:block;font-size:8px;font-weight:700;background:#dceefb;color:#0078d4;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;border:1px solid #a3cceb;white-space:nowrap;width:fit-content}
   .ov-ln-optin-tag{display:block;font-size:8px;font-weight:700;background:#ece0f9;color:#6b3fa0;padding:2px 8px;border-radius:5px;margin:3px auto 0;letter-spacing:.5px;text-transform:uppercase;border:1px solid #c9b3e4;white-space:nowrap;width:fit-content}
   /* Bypass skip */
@@ -299,10 +309,13 @@ Date: April 3, 2026
   .ov-ln-node.branch{padding-top:58px;position:relative}
   .ov-ln-node.branch::before{content:'';position:absolute;top:23px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:linear-gradient(180deg,#4da3e8,#0078d4);border:2px solid #fff;z-index:3;box-shadow:0 1px 5px rgba(0,120,212,.3)}
   .ov-lane.oc-b .ov-ln-node.branch::before{background:linear-gradient(180deg,#a98ad8,#6b3fa0);box-shadow:0 1px 5px rgba(134,97,197,.3)}
+  .ov-lane.oc-d .ov-ln-node.branch::before{background:linear-gradient(180deg,#3da93d,#107C10);box-shadow:0 1px 5px rgba(16,124,16,.3)}
   .ov-ln-node.branch::after{content:'';position:absolute;top:35px;left:50%;transform:translateX(-50%);width:0;height:18px;border-left:2px dashed rgba(0,120,212,.35);z-index:1}
   .ov-lane.oc-b .ov-ln-node.branch::after{border-left-color:rgba(134,97,197,.35)}
+  .ov-lane.oc-d .ov-ln-node.branch::after{border-left-color:rgba(16,124,16,.35)}
   .ov-ln-node.branch .ov-ln-icon::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid rgba(0,120,212,.4);z-index:4}
   .ov-lane.oc-b .ov-ln-node.branch .ov-ln-icon::before{border-top-color:rgba(134,97,197,.4)}
+  .ov-lane.oc-d .ov-ln-node.branch .ov-ln-icon::before{border-top-color:rgba(16,124,16,.4)}
   .ov-ln-node.branch .ov-ln-icon{width:46px;height:46px;min-width:46px;min-height:46px}
   .ov-ln-node.branch .ov-ln-icon svg{width:22px;height:22px}
   .ov-ln-node.branch .ov-ln-txt strong{font-size:12px}
@@ -377,7 +390,7 @@ Date: April 3, 2026
   .ov-summary th:nth-child(2){color:#0078d4}
   .ov-summary th:nth-child(3){color:#8661c5}
   .ov-summary th:nth-child(4){color:#3F6FAE}
-  .ov-summary th:nth-child(5){color:#2B579A}
+  .ov-summary th:nth-child(5){color:#107C10}
   .ov-summary td{padding:10px 14px;border-bottom:1px solid #f0f0f0;vertical-align:top}
   .ov-summary tr:nth-child(even) td{background:#fafbfc}
   .ov-summary tr:last-child td{border-bottom:none}
@@ -543,21 +556,42 @@ Date: April 3, 2026
     <div class="ov-lane oc-d" onclick="document.querySelector('[data-t=D]').click()">
       <div class="ov-lane-left">
         <span class="ov-lane-tag">Option D</span>
-        <h3>Always-On Passive Link</h3>
-        <div class="ov-lane-model">Persistent footer link &middot; Zero push</div>
-        <p class="ov-lane-desc">&ldquo;A link is always there. You tap it when you&rsquo;re ready.&rdquo;</p>
+        <h3>Always-On Passive</h3>
+        <div class="ov-lane-model">Passive footer button &middot; Zero push</div>
+        <p class="ov-lane-desc">&ldquo;A button is always there. You tap it when you&rsquo;re ready &#8212; or not at all.&rdquo;</p>
       </div>
-      <div class="ov-lane-right">
+      <div class="ov-lane-right" style="padding-bottom:112px">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
-          <div class="ov-ln-node highlight" data-tip="When the chat opens, a subtle &quot;Connect your email&quot; link is already visible in the footer. No banner, no prompt &mdash; just a quiet, always-available option."><span class="ov-tip">When the chat opens, a subtle &quot;Connect your email&quot; link is already visible in the footer. No banner, no prompt &mdash; just a quiet, always-available option.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#5B5FC7" stroke-width="2" fill="#E8EAFF"/><circle cx="9" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="12" cy="10.5" r="1" fill="#5B5FC7"/><circle cx="15" cy="10.5" r="1" fill="#5B5FC7"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div></div>
+          <div class="ov-ln-node notice" data-tip="Chat opens with a standard greeting. A subtle &quot;Save chat&quot; bookmark button sits in the footer &#8212; always visible, never called out. No consent notice, no mention of saving. Includes a &quot;Returning?&quot; link for returning customers."><span class="ov-tip">Chat opens with a standard greeting. A subtle &quot;Save chat&quot; bookmark button sits in the footer &#8212; always visible, never called out. No consent notice, no mention of saving. Includes a &quot;Returning?&quot; link for returning customers.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#107C10" stroke-width="2" fill="#e8f5e9"/><circle cx="9" cy="10.5" r="1" fill="#107C10"/><circle cx="12" cy="10.5" r="1" fill="#107C10"/><circle cx="15" cy="10.5" r="1" fill="#107C10"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-badge" style="background:#e8f5e9;color:#107C10;border-color:#a5d6a7">Save chat in footer</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#B4570A" stroke-width="2" fill="#E8EAF6"/><path d="M9 21h6M10 18h4" stroke="#B4570A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
-          <div class="ov-ln-node consent" data-tip="A small &quot;Connect your email&quot; link sits in the chat footer from the start &mdash; always visible, never pushed. The customer decides if and when to tap it. Zero prompts, zero nudges, 100% customer-initiated."><span class="ov-tip">A small &quot;Connect your email&quot; link sits in the chat footer from the start &mdash; always visible, never pushed. The customer decides if and when to tap it. Zero prompts, zero nudges, 100% customer-initiated.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M10 13a4.5 4.5 0 006.4.5l2-2a4.5 4.5 0 00-6.4-6.3l-1 1" stroke="#2B579A" stroke-width="2.2" stroke-linecap="round"/><path d="M14 11a4.5 4.5 0 00-6.4-.5l-2 2a4.5 4.5 0 006.4 6.3l1-1" stroke="#2B579A" stroke-width="2.2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Taps Link</strong></div><div class="ov-ln-badge">Customer-driven</div><div class="ov-ln-skip">always available</div></div>
+          <div class="ov-ln-node consent branch" data-tip="Customer taps the &quot;Save chat&quot; button in the footer whenever they want. Email capture appears inline in the chat. After connecting, the button updates to &quot;&#10003; Saved.&quot; Zero prompts &#8212; 100% customer-initiated."><span class="ov-tip">Customer taps the &quot;Save chat&quot; button in the footer whenever they want. Email capture appears inline in the chat. After connecting, the button updates to &quot;&#10003; Saved.&quot; Zero prompts &#8212; 100% customer-initiated.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.2)"/></svg></div><div class="ov-ln-txt"><strong>Saves chat</strong></div><div class="ov-ln-micro">Email capture inline</div><div class="ov-ln-skip">Or keep chatting</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
-          <div class="ov-ln-node return" data-tip="If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required."><span class="ov-tip">If the customer shared their email, they can return and enter it to pick up where they left off &mdash; or start a fresh conversation. No account required.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="#2B579A" stroke-width="2" fill="#E8EDF5"/><path d="M14 2v6h6" stroke="#2B579A" stroke-width="2" stroke-linejoin="round"/><path d="M8 13h8M8 17h5" stroke="#2B579A" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Returns</strong></div><div class="ov-ln-paths"><span class="ov-ln-path p-continue">&#9993; Continue</span><span class="ov-ln-path p-fresh">&#10024; Start fresh</span></div></div>
+          <div class="ov-ln-node wrapup" data-tip="If the customer tapped Save chat and connected their email, a summary is sent to their inbox. If they never tapped it, nothing happens &#8212; fully anonymous."><span class="ov-tip">If the customer tapped Save chat and connected their email, a summary is sent to their inbox. If they never tapped it, nothing happens &#8212; fully anonymous.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#B4570A" stroke-width="2" stroke-linecap="round" fill="#E8EAF6"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
+            <div class="ov-reentry" data-tip="container"><span class="ov-tip">Returning customers see the same welcome screen. They click the &quot;Returning?&quot; link, enter their email, and pick up where they left off.</span>
+              <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
+              <div class="ov-re-header" style="color:#107C10">Same welcome screen</div>
+              <div class="ov-re-choices">
+                <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Customer clicks &quot;Returning?&quot; link and enters their email to reconnect.</span>
+                  <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#107C10" stroke-width="1.8" fill="#e8f5e9"/><path d="M3 7l9 6 9-6" stroke="#107C10" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                  <span class="ov-re-choice-label">&#128279; Returning?</span>
+                  <span class="ov-re-choice-sub">link &#8594; enter email</span>
+                  <span class="ov-re-choice-or">or</span>
+                </div>
+                <div class="ov-re-choice">
+                  <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
+                  <span class="ov-re-choice-label">Start fresh</span>
+                  <span class="ov-re-choice-sub">just start chatting</span>
+                </div>
+              </div>
+              <div class="ov-re-merge">
+                <div class="ov-re-merge-line"></div>
+                <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
+                <div class="ov-re-merge-line"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="ov-d-zone"><span>&#8594; Link always visible &mdash; customer decides if &amp; when to connect</span></div>
       </div>
     </div>
 
@@ -569,11 +603,11 @@ Date: April 3, 2026
     <table>
       <thead><tr><th>Dimension</th><th>A: Notice + Opt-Out &#9733;</th><th>B: Notice + Opt-In</th><th>C: End-of-Chat</th><th>D: Always-On Passive</th></tr></thead>
       <tbody>
-        <tr><td>When asked</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>At exit only</td><td>Never &mdash; link always visible</td></tr>
+        <tr><td>When asked</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>At exit only</td><td>Never &#8212; button always visible</td></tr>
         <tr><td>Who initiates</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit)</td><td>Customer only</td></tr>
-        <tr><td>Email ends chat?</td><td style="color:#3F6FAE">No &mdash; continues</td><td style="color:#3F6FAE">No &mdash; continues</td><td>Yes &mdash; at exit</td><td style="color:#3F6FAE">No &mdash; continues</td></tr>
-        <tr><td>Friction level</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#3F6FAE">Lowest</td><td style="color:#3F6FAE">Zero push</td></tr>
-        <tr><td>Privacy / CELA risk</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Lowest</td><td style="color:#3F6FAE">Lowest</td></tr>
+        <tr><td>Email ends chat?</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td>Yes &#8212; at exit</td><td style="color:#107C10">No &#8212; continues</td></tr>
+        <tr><td>Friction level</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#3F6FAE">Lowest</td><td style="color:#107C10">Zero push</td></tr>
+        <tr><td>Privacy / CELA risk</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Lowest</td><td style="color:#107C10">Lowest</td></tr>
         <tr><td>Best for</td><td>Default experience</td><td>Banner countries, pilots</td><td>Sensitive markets</td><td>Privacy-first markets</td></tr>
       </tbody>
     </table>
@@ -690,32 +724,32 @@ Date: April 3, 2026
 <!-- ======== OPTION D ======== -->
 <div class="panel" id="pD">
   <div class="stitle">
-    <h2>Option D: Always-On Passive Link  Customer Controls the Moment</h2>
-    <p>A persistent, non-intrusive link lives in the chat footer throughout the conversation. The customer taps it when they are ready  no prompts, no banners, no interruptions.</p>
+    <h2>Option D: Always-On Passive &#8212; Customer Controls the Moment</h2>
+    <p>A subtle "Save chat" button sits in the chat footer throughout the conversation. No prompts, no banners, no nudges. The customer taps it when ready &#8212; or not at all.</p>
   </div>
   <div class="row">
     <div class="info">
-      <span class="tag tg">Zero Push &bull; Always Available</span>
+      <span class="tag tg">Zero Push &#8226; Always Available</span>
       <h3>How it works</h3>
-      <p class="lbl">Consent: Always-On Passive via Persistent Footer Link</p>
+      <p class="lbl">Consent: Always-On Passive via Footer Button</p>
       <ul>
-        <li><strong>Welcome:</strong> Standard welcome. A subtle "Connect your email" link appears in the chat footer and stays visible throughout.</li>
-        <li><strong>During conversation:</strong> No banners, no nudges, no prompts. The customer chats normally. The link is always there but never interrupts.</li>
-        <li><strong>When ready:</strong> Customer taps the link at any point. An inline email capture expands. After connecting, the link updates to show connected status.</li>
-        <li><strong>After connecting:</strong> Chat continues. Summary auto-sent when the customer leaves. Conversation is saved for continuity.</li>
-        <li><strong>Returning user:</strong> "Continue a previous conversation?"  email lookup reconnects to prior session.</li>
+        <li><strong>Welcome:</strong> Standard welcome. A subtle "Save chat" button appears in the footer and stays throughout. No consent notice, no mention of saving.</li>
+        <li><strong>During conversation:</strong> Zero prompts, zero nudges, zero banners. Customer chats normally. The button is there but never calls attention to itself.</li>
+        <li><strong>When ready:</strong> Customer taps the button. Email capture appears inline. After connecting, button updates to "&#10003; Saved."</li>
+        <li><strong>After connecting:</strong> Chat continues seamlessly. Summary auto-sent when customer leaves.</li>
+        <li><strong>If customer never taps:</strong> Nothing happens. Conversation proceeds fully anonymously. No data saved. No friction.</li>
+        <li><strong>Returning user:</strong> Same welcome screen with "Returning?" link &#8212; email lookup reconnects to prior session.</li>
       </ul>
-      <div class="note"><strong>Key difference from other options:</strong> No agent-initiated prompts at any point. The UI affordance is always visible but passive  like a settings icon. The customer decides if, when, and whether to engage.</div>
-      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If customer never taps:</strong> Conversation proceeds fully anonymously. No data saved. No friction added.</div>
-      <div class="note" style="border-left-color:#3F6FAE;margin-top:8px"><strong>Privacy:</strong> Strongest possible posture. No consent banner needed  the action <em>is</em> the consent. Pairs well with A, B, or C as a passive complement.</div>
+      <div class="note" style="border-left-color:#107C10"><strong>Key difference:</strong> No agent-initiated anything. The button is always there like a settings icon &#8212; passive, subtle, customer-driven. The action <em>is</em> the consent.</div>
+      <div class="note" style="border-left-color:#107C10;margin-top:8px"><strong>Privacy:</strong> Strongest possible posture. No consent banner needed. Pairs well with A, B, or C as a passive complement.</div>
     </div><div class="cw-wrap">
-      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="d-l">1 / 16</span></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="d-l">1 / 11</span></div>
       <div class="cw-nav">
         <button class="nav-btn" id="d-p" disabled title="Back">&#8249;</button>
         <div class="cw">
           <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">&#10005;</button></div>
           <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cD"></div></div>
-          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-bar visible" id="aD-link" style="display:flex"><span style="font-size:13px"></span> <a href="#" onclick="return false" style="font-size:11px">Connect your email</a></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="save-passive" id="aD-link"><svg class="sp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label">Save chat</span><span class="sp-tip">Save this conversation to your email and return later</span></div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
         </div>
         <button class="nav-btn" id="d-n" title="Next">&#8250;</button>
       </div>
@@ -767,12 +801,12 @@ Date: April 3, 2026
     </div>
     <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px">
       <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">D: Always-On Passive</div>
-      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Persistent Footer Link</div>
-      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">A "Connect your email" link is always visible in the chat footer. No prompts, no interruptions. Customer taps it whenever they choose. Highest trust with passive discoverability.</p>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Passive Footer Button</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">A "Save chat" bookmark button is always visible in the chat footer. No prompts, no nudges, no consent banner. The customer taps it when ready &#8212; or never. If they do, email capture appears inline and the button updates to "&#10003; Saved."</p>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">
-        <div style="font-size:10px;font-weight:700;color:#8a6914;text-transform:uppercase;margin-bottom:4px">Flow</div>
+        <div style="font-size:10px;font-weight:700;color:#107C10;text-transform:uppercase;margin-bottom:4px">Flow</div>
         <div style="font-size:11px;color:#444;line-height:1.7">
-          Welcome (link always visible) &#8594;<br>Customer chats freely &#8594;<br>Customer taps link anytime &#8594;<br>Email capture &#8594;<br><strong>Chat continues</strong> &#8594;<br>Return: email lookup &#8594; resume
+          Welcome (button always in footer) &#8594;<br>Customer chats freely &#8594;<br>Customer taps Save chat anytime &#8594;<br>Email capture inline &#8594;<br><strong>Chat continues</strong> &#8594;<br>Return: &#128279; Returning? &#8594; email lookup &#8594; resume
         </div>
       </div>
     </div>
@@ -788,11 +822,11 @@ Date: April 3, 2026
       <th>D: Always-On Passive</th>
     </tr></thead>
     <tbody>
-      <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Opt-In at Exit</td><td>Always-On Passive</td></tr>
-      <tr><td><strong>When email asked</strong></td><td>Mid-conversation</td><td>Banner + later</td><td>End of chat only</td><td>When customer types keyword</td></tr>
-      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No  chat continues</span></td><td><span class="con">Yes</span></td><td><span class="con">Yes</span></td></tr>
+      <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Opt-In at Exit</td><td>Always-On Passive Button</td></tr>
+      <tr><td><strong>When email asked</strong></td><td>Mid-conversation</td><td>Banner + later</td><td>End of chat only</td><td>When customer taps Save chat</td></tr>
+      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No  chat continues</span></td><td><span class="con">Yes</span></td><td><span class="pro">No &#8212; chat continues</span></td></tr>
       <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">&#9733; Low</span></td><td><span class="con">&#9733;&#9733; Medium</span></td><td><span class="pro">&#9733; Lowest</span></td><td><span class="pro">&#9733; Zero push</span></td></tr>
-      <tr><td><strong>Who initiates</strong></td><td>Agent (contextual)</td><td>System (banner)</td><td>Agent (at exit)</td><td>Customer (keyword)</td></tr>
+      <tr><td><strong>Who initiates</strong></td><td>Agent (contextual)</td><td>System (banner)</td><td>Agent (at exit)</td><td>Customer (button tap)</td></tr>
       <tr><td><strong>Email capture rate</strong></td><td><span class="pro">Higher</span></td><td>Moderate</td><td><span class="con">Lower</span></td><td><span class="con">Lowest</span> but highest intent</td></tr>
       <tr class="hl"><td><strong>Privacy/CELA risk</strong></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Lowest</span></td><td><span class="pro">Lowest</span></td></tr>
       <tr><td><strong>Regulatory fit</strong></td><td>Default for most eCommerce</td><td>Banner countries, pilots</td><td>All regions</td><td>All regions</td></tr>
@@ -953,56 +987,41 @@ const sC=[null,
 ];
 
 
-// === OPTION D: Always-On Passive Link ===
+// === OPTION D: Always-On Passive Button ===
 const sD=[null,
   // Step 2: Customer asks about Surface devices
-  ()=>{add('cD',usr("I'm looking at Surface laptops for my team. What are the differences between Surface Laptop and Surface Pro?"));add('cD','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cD',bot("Great question. Here's how they compare:<br><br><strong>Surface Laptop</strong><br>&#10003; Traditional clamshell laptop design<br>&#10003; 13.8\" or 15\" PixelSense display<br>&#10003; Full-size keyboard with haptic trackpad<br>&#10003; Best for everyday productivity and portability<br><br><strong>Surface Pro</strong><br>&#10003; 2-in-1 tablet with detachable keyboard<br>&#10003; 13\" PixelSense Flow display (120Hz)<br>&#10003; Supports Surface Slim Pen 2 for inking<br>&#10003; Best for flexibility &#8212; tablet, laptop, or studio mode<br><br>Both run Windows 11 and support Copilot. Are you leaning toward traditional laptops or the versatility of a 2-in-1?"));add('cD','<span class="ts">just now</span>')},300)},
-  // Step 3: Annotation -- link is always visible
-  ()=>{add('cD',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">&#128279; The "Connect your email" link is always visible in the footer below &#8212; no prompt, no interruption. The customer can tap it at any time.</div>`)},
-  // Step 4: Conversation continues naturally
+  ()=>{add('cD',usr("I&#39;m looking at Surface laptops for my team. What are the differences between Surface Laptop and Surface Pro?"));add('cD','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cD',bot("Great question. Here&#39;s how they compare:<br><br><strong>Surface Laptop</strong><br>&#10003; Traditional clamshell laptop design<br>&#10003; 13.8&#34; or 15&#34; PixelSense display<br>&#10003; Full-size keyboard with haptic trackpad<br>&#10003; Best for everyday productivity and portability<br><br><strong>Surface Pro</strong><br>&#10003; 2-in-1 tablet with detachable keyboard<br>&#10003; 13&#34; PixelSense Flow display (120Hz)<br>&#10003; Supports Surface Slim Pen 2 for inking<br>&#10003; Best for flexibility &#8212; tablet, laptop, or studio mode<br><br>Both run Windows 11 and support Copilot. Are you leaning toward traditional laptops or the versatility of a 2-in-1?"));add('cD','<span class="ts">just now</span>')},300)},
+  // Step 3: Conversation continues naturally
   ()=>{add('cD',usr("Laptop format works better for us. How much is the Surface Laptop for business?"));add('cD','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cD',bot("Surface Laptop for Business starts at:<br><br><strong>Surface Laptop 7 for Business</strong><br>&#8226; 13.8\" &#8212; from $1,399<br>&#8226; 15\" &#8212; from $1,699<br><br>Both come with:<br>&#10003; Snapdragon X Elite or Intel Core Ultra processors<br>&#10003; Up to 64 GB RAM, 1 TB SSD<br>&#10003; Windows 11 Pro with Copilot<br>&#10003; Enterprise-grade security (TPM 2.0, Secured-core)<br><br>Volume licensing and Surface Plus financing are also available for fleet purchases."));add('cD','<span class="ts">just now</span>')},300)},
-  // Step 5: Customer taps the footer link mid-chat
-  ()=>{add('cD',`<div style="background:#e8edf7;border:1px solid #a5d6a7;border-radius:6px;padding:8px 12px;font-size:11px;color:#2A4D80;text-align:center;margin-top:6px">&#128070; Customer taps the "Connect your email" link in the footer &#8212; email capture expands inline below.</div>`);
-    setTimeout(()=>add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Connect your email to save this conversation</div><div class="ec-sub">Pick up where you left off next time you visit.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Connect</button></div>`),300)},
-  // Step 6: Email connected -- footer updates
-  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">&#10003; Email connected. Your conversation will be saved.</div>`);
-    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">&#10003;</span> <span style="font-size:11px;color:#3F6FAE;font-weight:600">Connected</span>'}},
-  // Step 7: Chat continues seamlessly -- annotation
-  ()=>{add('cD',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">&#128204; No interruption &#8212; email was captured inline. Footer now shows "&#10003; Connected." Chat continues.</div>`)},
-  // Step 8: Follow-up proves continuity
+    setTimeout(()=>{add('cD',bot("Surface Laptop for Business starts at:<br><br><strong>Surface Laptop 7 for Business</strong><br>&#8226; 13.8&#34; &#8212; from $1,399<br>&#8226; 15&#34; &#8212; from $1,699<br><br>Both come with:<br>&#10003; Snapdragon X Elite or Intel Core Ultra processors<br>&#10003; Up to 64 GB RAM, 1 TB SSD<br>&#10003; Windows 11 Pro with Copilot<br>&#10003; Enterprise-grade security (TPM 2.0, Secured-core)<br><br>Volume licensing and Surface Plus financing are also available for fleet purchases."));add('cD','<span class="ts">just now</span>')},300)},
+  // Step 4: More conversation
   ()=>{add('cD',usr("Can you compare the warranty options for business orders?"));add('cD','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cD',bot("For business Surface devices, you have three warranty tiers:<br><br><strong>Standard Warranty</strong> (included)<br>&#10003; 1 year hardware warranty<br>&#10003; 90 days of technical support<br><br><strong>Microsoft Complete for Business</strong><br>&#10003; Extends coverage to 3 or 4 years<br>&#10003; Accidental damage protection (2 claims)<br>&#10003; Next business day replacement<br><br><strong>Microsoft Complete for Business Plus</strong><br>&#10003; Everything above, plus on-site service<br>&#10003; Battery replacement after 50% degradation<br><br>For a team order, I'd recommend Complete for Business &#8212; it covers the most common issues during a 3-year refresh cycle."));add('cD','<span class="ts">just now</span>')},300)},
-  // &#9733; VARIANT: NEVER-TAPPED PATH
-  // Step 9: Reset -- customer never taps the link
+    setTimeout(()=>{add('cD',bot("For business Surface devices, you have three warranty tiers:<br><br><strong>Standard Warranty</strong> (included)<br>&#10003; 1 year hardware warranty<br>&#10003; 90 days of technical support<br><br><strong>Microsoft Complete for Business</strong><br>&#10003; Extends coverage to 3 or 4 years<br>&#10003; Accidental damage protection (2 claims)<br>&#10003; Next business day replacement<br><br><strong>Microsoft Complete for Business Plus</strong><br>&#10003; Everything above, plus on-site service<br>&#10003; Battery replacement after 50% degradation<br><br>For a team order, I&#39;d recommend Complete for Business &#8212; it covers the most common issues during a 3-year refresh cycle."));add('cD','<span class="ts">just now</span>')},300)},
+  // Step 5: Customer clicks the Save chat button in footer -- email capture inline
+  ()=>{add('cD',`<div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:8px 12px;font-size:11px;color:#2e7d32;text-align:center;margin-top:6px">&#128278; Customer taps "Save chat" in the footer &#8212; email capture appears below.</div>`);
+    setTimeout(()=>add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Save this conversation</div><div class="ec-sub">Enter your email to get a summary and pick up where you left off next time.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Connect</button>${FP}</div>`),300)},
+  // Step 6: Email connected -- footer updates to Saved
+  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#107C10;font-weight:600;font-size:13px">&#10003; Connected. Your conversation will be saved.</div>`);
+    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<svg class="sp-icon" viewBox="0 0 24 24" fill="#107C10" stroke="#107C10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#107C10"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label" style="color:#107C10;font-weight:600">&#10003; Saved</span>'}},
+  // Step 7: Chat continues seamlessly
+  ()=>{add('cD',usr("What about bulk ordering? We need about 50 units."));add('cD','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cD',bot("For a 50-unit order, I&#39;d recommend going through a <strong>Microsoft Authorized Reseller</strong> or your Microsoft account team:<br><br>&#10003; Volume pricing with discounts<br>&#10003; Custom configuration options<br>&#10003; Centralized deployment with Autopilot<br>&#10003; Surface Plus financing &#8212; spread costs over 24 or 36 months<br><br>I can connect you with a Surface specialist who handles fleet orders. Would you like that?"));add('cD','<span class="ts">just now</span>')},300)},
+  // Step 8: Follow-up proves continuity
+  ()=>{add('cD',usr("Yes, that sounds great. Also, do they come with docking stations?"));add('cD','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cD',bot("Great question! The <strong>Surface Thunderbolt 4 Dock</strong> is the recommended option:<br><br>&#10003; Dual 4K monitor support<br>&#10003; USB-C, USB-A, Ethernet, and audio ports<br>&#10003; 96W power delivery &#8212; charges the laptop while docked<br>&#10003; $299 per dock<br><br>For a fleet of 50, your reseller can bundle docks with the laptops for a package deal. I&#39;ll include this in the summary I&#39;m saving for you."));add('cD','<span class="ts">just now</span>')},300)},
+  // === SESSION 2: RETURNING USER ===
+  // Step 9: Customer returns -- same welcome with Returning? link
   ()=>{const c=document.getElementById('cD');c.innerHTML='';
-    add('cD',`<div style="background:linear-gradient(135deg,#f0ebf8,#f8f5ff);border:1px solid #d4c5e9;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8661c5;font-weight:700">&#9733; Variant: Never-Tapped Path</div><div style="font-size:12px;color:#888;margin-top:2px">Customer chats without ever tapping the footer link &#8212; what happens?</div></div>`);
-    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">&#128279;</span> <a href="#" onclick="return false" style="font-size:11px">Connect your email</a>'}
-    add('cD',W);c.scrollTop=0},
-  // Step 10: Normal conversation -- link visible but untouched
-  ()=>{add('cD',usr("What Surface devices work best for conference rooms?"));add('cD','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cD',bot("For conference rooms, Microsoft offers the Surface Hub lineup:<br><br><strong>Surface Hub 3</strong><br>&#10003; 50\" or 85\" 4K touchscreen<br>&#10003; Built-in Teams Rooms experience<br>&#10003; Smart camera with AI-powered framing<br>&#10003; Digital whiteboard with inking<br><br>For smaller rooms, a <strong>Surface Pro on a dock</strong> with an external display also works well as a Teams Rooms controller.<br><br>How large are your meeting rooms?"));add('cD','<span class="ts">just now</span>')},300)},
-  // Step 11: Annotation -- link always there, never pushed
-  ()=>{add('cD',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">&#128279; Link always visible in footer but customer never tapped it. No nudge, no prompt &#8212; just available. Session data is not saved.</div>`)},
-  // Step 12: Customer explicitly asks for summary
-  ()=>{add('cD',usr("Actually, can you email me a summary of everything we discussed? I need to share it with my IT team."));add('cD','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cD',bot("Of course. I can send you a summary covering Surface Laptop vs Pro, pricing, and warranty options.<br><br>Please enter your email below and I'll send it right over."));
-      setTimeout(()=>add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter your email to receive the summary</div><div class="ec-sub">We'll also save this conversation so you can return to it.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Send</button></div>`),300)},300)},
-  // Step 13: Email captured + annotation
-  ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">&#10003; Summary sent to j.chen@contoso.com</div>`);
-    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">&#10003;</span> <span style="font-size:11px;color:#3F6FAE;font-weight:600">Connected</span>'}
-    setTimeout(()=>add('cD',`<div style="background:#e8eaf6;border:1px solid #ffe082;border-radius:6px;padding:8px 12px;font-size:11px;color:#8a6914;text-align:center;margin-top:6px">&#128204; Email captured via explicit customer request &#8212; not a system prompt. The link was always there but the customer chose their own moment.</div>`),300)},
-  // &#9733; SESSION 2: RETURNING USER
-  // Step 14: Returning user
-  ()=>{const c=document.getElementById('cD');c.innerHTML='';
-    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<span style="font-size:13px">&#128279;</span> <a href="#" onclick="return false" style="font-size:11px">Connect your email</a>'}
-    add('cD',`<div style="background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border:1px solid #c0d8f0;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#0078d4;font-weight:700">&#9733; Session 2 &#8212; Returning User</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session (same or different device)</div></div>`);add('cD',W);add('cD',`<div style="background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px 12px;font-size:12px;color:#888;text-align:center;margin-top:4px">&#128279; Continue a previous conversation? <strong style='color:#0078d4'>Enter your email</strong></div>`);c.scrollTop=0},
-  // Step 15: Email entry + match
-  ()=>{add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Enter the email from your previous session.</div><div class="ec-sub">This will load your conversation summary.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Continue</button></div>`);setTimeout(()=>add('cD',`<div style="padding:10px;text-align:center;color:#3F6FAE;font-weight:600;font-size:13px">&#10003; Summary found.</div>`),400)},
-  // Step 16: Context resume
-  ()=>{add('cD',`<div class="rv" style="margin-top:4px"><div class="rv-t">Continue a previous conversation?</div><div class="rv-topic"><span class="ri">&#128188;</span><div><strong>Surface Laptop for Business &#8212; pricing & warranty</strong><br><span style="font-size:11px;color:#888">Mar 28 &#8212; Surface Laptop vs Pro, fleet pricing, warranty tiers</span></div></div><div class="rv-acts"><button class="bp">Continue</button><button>Start new</button></div></div>`);
-    setTimeout(()=>add('cD',bot("Welcome back! Last time we discussed Surface Laptop 7 for Business starting at $1,399, and I recommended Microsoft Complete for Business warranty for your team's 3-year refresh cycle.<br><br>Would you like to continue from there, or do you have a new question?")),300)}
+    const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<svg class="sp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label">Save chat</span><span class="sp-tip">Save this conversation to your email and return later</span>'}
+    add('cD',`<div style="background:linear-gradient(135deg,#e8f5e9,#f0faf0);border:1px solid #a5d6a7;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#107C10;font-weight:700">&#128260; Session 2 &#8212; Returning Customer</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns on a new session. Same welcome screen &#8212; clicks &#34;Returning?&#34; link.</div></div>`);
+    const wd=`<div class="m mb">${W.match(/<div class="m mb">([\s\S]*?)<\/div><span/)[1]}<div style="margin-top:5px;font-size:11px"><a href="#" class="sp-return-link" onclick="if(window._jumpd)window._jumpd(9,10);return false">&#128279; Returning? Pick up where you left off</a></div>${T}</div><span class="ts">an hour ago</span>`;
+    add('cD',wd);c.scrollTop=0},
+  // Step 10: Email lookup card
+  ()=>{add('cD',`<div class="ec-lookup" style="margin-top:6px"><div class="ec-lk-head"><div class="ec-lk-icon">&#128278;</div><div class="ec-lk-title">Welcome back</div><div class="ec-lk-sub">Enter the email from your previous session and we&#39;ll reconnect you.</div></div><div class="ec-lk-body"><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-lk-btn" disabled style="opacity:.7">Look up my conversation</button></div></div>`);setTimeout(()=>{const el=document.querySelector('#cD .ec-lookup');if(el){el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{const f=document.createElement('div');f.className='ec-lk-found';f.innerHTML='<div class="ec-lk-check">&#10003;</div><div class="ec-lk-found-text">Previous conversation found &#8212; ready to continue</div>';el.appendChild(f)},400)}},150)},
+  // Step 11: Session card -- continue or start new
+  ()=>{add('cD',`<div class="rv" style="margin-top:6px"><div class="rv-head" style="background:linear-gradient(135deg,#107C10,#0b5e0b)"><div class="rv-head-t">Continue where you left off?</div><div class="rv-head-sub">We found your previous conversation</div></div><div class="rv-body"><div class="rv-topic"><div class="ri">&#128187;</div><div class="rv-topic-info"><div class="rv-topic-title">Surface Laptop for Business &#8212; pricing, warranty &amp; fleet</div><div class="rv-topic-meta"><span>&#128197; Mar 28</span><span>&#183;</span><span>Laptop vs Pro, warranty tiers, bulk ordering</span></div></div></div><div class="rv-acts"><button class="bp" style="background:#107C10!important;border-color:#107C10!important">Continue conversation</button><button>Start new</button></div></div></div>`);setTimeout(()=>{const rv=document.querySelector('#cD .rv');if(rv)rv.scrollIntoView({behavior:'smooth',block:'start'})},100);
+    setTimeout(()=>add('cD',bot("Welcome back! Last time we discussed Surface Laptop 7 for Business starting at $1,399, warranty options including Complete for Business, and a 50-unit fleet order with docking stations.<br><br>Would you like to continue from there, or do you have a new question?")),300)}
 ];
 
 

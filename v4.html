@@ -342,38 +342,33 @@ Date: April 3, 2026
   /* Two-path fork layout */
   .ov-lane-right.has-fork{flex-direction:column;flex-wrap:nowrap;gap:0;padding:10px 16px 16px}
   .has-fork .ov-ln-node.wrapup::after{display:none}
-  /* Top path label — positioned above Ask Microsoft column */
-  .ov-row-label{font-size:9px;font-weight:700;letter-spacing:.3px;padding:0 0 3px 0;margin-left:calc(100%/6);display:flex;align-items:center;gap:5px}
-  .ov-row-label::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%}
-  .oc-a .ov-row-label{color:#0078d4}.oc-a .ov-row-label::before{background:#0078d4}
-  .oc-b .ov-row-label{color:#8661c5}.oc-b .ov-row-label::before{background:#8661c5}
-  .oc-c .ov-row-label{color:#2B8C96}.oc-c .ov-row-label::before{background:#2B8C96}
-  .oc-d .ov-row-label{color:#107C10}.oc-d .ov-row-label::before{background:#107C10}
-  /* Fork branch — left border acts as tree-branch connector */
-  .ov-fork-branch{margin:10px 0 0 calc(25%);padding:6px 0 2px 16px;border-left:2.5px solid rgba(0,120,212,.3);display:flex;flex-direction:column;gap:5px}
-  .oc-b .ov-fork-branch{border-left-color:rgba(134,97,197,.3)}
-  .oc-c .ov-fork-branch{border-left-color:rgba(43,140,150,.3)}
-  .oc-d .ov-fork-branch{border-left-color:rgba(16,124,16,.3)}
-  .ov-branch-tag{font-size:9px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:5px}
-  .ov-branch-tag::before{content:'';display:inline-block;width:5px;height:5px;border:1.5px solid currentColor;border-radius:1px}
-  .oc-a .ov-branch-tag{color:#0078d4}
-  .oc-b .ov-branch-tag{color:#8661c5}
-  .oc-c .ov-branch-tag{color:#2B8C96}
-  .oc-d .ov-branch-tag{color:#107C10}
-  /* Alt flow — compact returning path */
-  .ov-alt-flow{display:flex;align-items:center;gap:8px;padding:6px 14px;border-radius:8px;font-size:11.5px;color:#555;background:linear-gradient(135deg,#f5f8fc,#edf2f9);border:1px solid rgba(0,120,212,.12)}
-  .oc-b .ov-alt-flow{background:linear-gradient(135deg,#f5f0fa,#ece0f9);border-color:rgba(134,97,197,.12)}
-  .oc-c .ov-alt-flow{background:linear-gradient(135deg,#edf7f8,#DFF0F2);border-color:rgba(43,140,150,.12)}
-  .oc-d .ov-alt-flow{background:linear-gradient(135deg,#f0f8f0,#e2f0e2);border-color:rgba(16,124,16,.12)}
-  .ov-alt-icon{width:24px;height:24px;min-width:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .oc-a .ov-alt-icon{background:#edf5fc;border:1.5px solid rgba(0,120,212,.2)}
-  .oc-b .ov-alt-icon{background:#f5f0fa;border:1.5px solid rgba(134,97,197,.2)}
-  .oc-c .ov-alt-icon{background:#edf7f8;border:1.5px solid rgba(43,140,150,.2)}
-  .oc-d .ov-alt-icon{background:#f0f8f0;border:1.5px solid rgba(16,124,16,.2)}
-  .ov-alt-icon svg{width:13px;height:13px}
-  .ov-alt-step{display:flex;align-items:center;gap:5px;white-space:nowrap;font-weight:600;color:#444}
-  .ov-alt-arrow{color:#aaa;font-size:11px}
-  .ov-alt-merge{font-size:10px;color:#888;font-weight:500;white-space:nowrap}
+  /* Full-width centered header text */
+  .ov-flow-header{width:100%;text-align:center;font-size:12px;font-weight:600;color:#444;padding:0 0 6px;letter-spacing:.2px}
+  /* Dashed vertical connector between flows — centered on Ask Microsoft (2nd of 6 = 25%) */
+  .ov-fork-connector{width:100%;position:relative;height:36px}
+  .ov-fork-connector::before{content:'';position:absolute;left:25%;top:0;height:100%;border-left:3px dashed rgba(0,120,212,.35);transform:translateX(-50%)}
+  .oc-b .ov-fork-connector::before{border-left-color:rgba(134,97,197,.35)}
+  .oc-c .ov-fork-connector::before{border-left-color:rgba(43,140,150,.35)}
+  .oc-d .ov-fork-connector::before{border-left-color:rgba(16,124,16,.35)}
+  /* Returning label — positioned at Ask Microsoft column */
+  .ov-ret-label{width:100%;padding:0 0 4px;font-size:10px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:6px;margin-left:calc(100%/6 + 8px)}
+  .oc-a .ov-ret-label{color:#0078d4}
+  .oc-b .ov-ret-label{color:#8661c5}
+  .oc-c .ov-ret-label{color:#2B8C96}
+  .oc-d .ov-ret-label{color:#107C10}
+  .ov-ret-label::before{content:'';display:inline-block;width:8px;height:8px;border-radius:2px}
+  .oc-a .ov-ret-label::before{background:#0078d4}
+  .oc-b .ov-ret-label::before{background:#8661c5}
+  .oc-c .ov-ret-label::before{background:#2B8C96}
+  .oc-d .ov-ret-label::before{background:#107C10}
+  /* Second flow row — starts at Ask Microsoft column, same node style */
+  .ov-ln-flow-alt{display:flex;align-items:flex-start;position:relative;width:calc(100% - 100%/6);margin-left:calc(100%/6)}
+  .ov-ln-flow-alt::before{content:'';position:absolute;top:27px;left:36px;right:36px;height:3px;border-radius:2px;z-index:1}
+  .oc-a .ov-ln-flow-alt::before{background:linear-gradient(90deg,#0078d4,#3a9eec)}
+  .oc-b .ov-ln-flow-alt::before{background:linear-gradient(90deg,#8661c5,#a98ad8)}
+  .oc-c .ov-ln-flow-alt::before{background:linear-gradient(90deg,#2B8C96,#5BBCC5)}
+  .oc-d .ov-ln-flow-alt::before{background:linear-gradient(90deg,#107C10,#3da93d)}
+  .ov-ln-flow-alt .ov-ln-node{flex:1 1 0;text-align:center;position:relative;min-width:70px;padding:0 4px;display:flex;flex-direction:column;align-items:center}
   .ov-lane.oc-b .ov-lane-right{padding-bottom:112px}
   .ov-lane.oc-c .ov-lane-right{padding-bottom:112px}
   .ov-re-tag{display:inline-block;font-size:7.5px;color:#7b7fc4;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:#fff;padding:1px 7px;border-radius:3px;border:1px solid rgba(91,95,199,.12);line-height:1.4;white-space:nowrap;margin-bottom:6px}
@@ -500,8 +495,9 @@ Date: April 3, 2026
         <p class="ov-lane-desc">&ldquo;Notified upfront, opt out anytime. Email offered later to get a summary and return anytime.&rdquo;</p>
       </div>
       <div class="ov-lane-right has-fork">
-        <!-- Path 1: Start Fresh -->
-        <div class="ov-row-label">Start Fresh</div>
+        <!-- Header -->
+        <div class="ov-flow-header">New or Returning Customers + Start Fresh (Unknown Customer Flow)</div>
+        <!-- Main flow -->
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
           <div class="ov-ln-node notice" data-tip="The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts."><span class="ov-tip">The welcome screen serves both new and returning customers. Everyone sees the same greeting with consent notice, [Opt out] link, and starter prompts.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><circle cx="9" cy="10.5" r="1" fill="#0078d4"/><circle cx="12" cy="10.5" r="1" fill="#0078d4"/><circle cx="15" cy="10.5" r="1" fill="#0078d4"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div></div>
@@ -510,16 +506,16 @@ Date: April 3, 2026
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
           <div class="ov-ln-node wrapup" data-tip="If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time."><span class="ov-tip">If the customer shared their email, a conversation summary is sent to their inbox. They can use it to pick up where they left off next time.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#0078d4" stroke-width="2" stroke-linecap="round" fill="#dceefb"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
         </div>
-        <!-- Path 2: Returning (tree-branch from Ask Microsoft column) -->
-        <div class="ov-fork-branch">
-          <div class="ov-branch-tag">Returning &middot; Email Connected</div>
-          <div class="ov-alt-flow">
-            <div class="ov-alt-step"><div class="ov-alt-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0078d4" stroke-width="1.8" fill="#dceefb"/><path d="M3 7l9 6 9-6" stroke="#0078d4" stroke-width="1.8" stroke-linecap="round"/></svg></div><span>Email lookup</span></div>
-            <div class="ov-alt-arrow">&#8594;</div>
-            <div class="ov-alt-step"><div class="ov-alt-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#0078d4" stroke-width="1.8" fill="#dceefb"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0078d4" stroke-width="1.8"/></svg></div><span>Context restored</span></div>
-            <div class="ov-alt-arrow">&#8594;</div>
-            <div class="ov-alt-merge">Continues &#8594; Wraps Up</div>
-          </div>
+        <!-- Dashed connector from Ask Microsoft down -->
+        <div class="ov-fork-connector"></div>
+        <!-- Returning label -->
+        <div class="ov-ret-label">Returning &middot; Email Connected</div>
+        <!-- Returning flow — full-size nodes, same style -->
+        <div class="ov-ln-flow-alt">
+          <div class="ov-ln-node" data-tip="Returning customer is recognized via their email address from a previous session."><span class="ov-tip">Returning customer is recognized via their email address from a previous session.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><path d="M3 7l9 6 9-6" stroke="#0078d4" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Email Lookup</strong></div></div>
+          <div class="ov-ln-node" data-tip="Previous conversation context is restored so the customer can pick up where they left off."><span class="ov-tip">Previous conversation context is restored so the customer can pick up where they left off.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#0078d4" stroke-width="2" fill="#dceefb"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#0078d4" stroke-width="2"/></svg></div><div class="ov-ln-txt"><strong>Context Restored</strong></div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
+          <div class="ov-ln-node wrapup" data-tip="Conversation summary is updated and emailed. Customer can return again anytime."><span class="ov-tip">Conversation summary is updated and emailed. Customer can return again anytime.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#0078d4" stroke-width="2" stroke-linecap="round" fill="#dceefb"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div></div>
         </div>
       </div>
     </div>

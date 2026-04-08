@@ -231,11 +231,12 @@ Date: April 3, 2026
   .save-bar a{color:#0078d4;text-decoration:none;cursor:pointer;font-weight:500}
   .save-bar a:hover{text-decoration:underline}
   /* Option D: passive save button */
-  .save-passive{display:flex;align-items:center;gap:4px;padding:3px 0;justify-content:center;border-top:1px solid #f0f0f0;cursor:pointer;position:relative}
-  .save-passive:hover .sp-label{color:#107C10}
-  .save-passive .sp-icon{width:14px;height:14px;color:#888;flex-shrink:0;transition:.15s}
-  .save-passive:hover .sp-icon{color:#107C10}
-  .save-passive .sp-label{font-size:10px;color:#999;font-weight:500;transition:.15s}
+  .save-passive{display:flex;align-items:center;gap:5px;padding:5px 0;justify-content:center;border-top:1px solid #e8e8e8;cursor:pointer;position:relative}
+  .save-passive:hover{background:#f0faf0}
+  .save-passive .sp-icon{width:16px;height:16px;color:#107C10;flex-shrink:0;transition:.15s}
+  .save-passive:hover .sp-icon{color:#0b5e0b}
+  .save-passive .sp-label{font-size:11px;color:#107C10;font-weight:600;transition:.15s}
+  .save-passive:hover .sp-label{color:#0b5e0b}
   .save-passive .sp-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(15,15,20,.92);color:#fff;font-size:11px;padding:6px 10px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;z-index:50}
   .save-passive .sp-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:rgba(15,15,20,.92)}
   .save-passive:hover .sp-tip{opacity:1}
@@ -999,8 +1000,7 @@ const sD=[null,
   ()=>{add('cD',usr("Can you compare the warranty options for business orders?"));add('cD','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cD',bot("For business Surface devices, you have three warranty tiers:<br><br><strong>Standard Warranty</strong> (included)<br>&#10003; 1 year hardware warranty<br>&#10003; 90 days of technical support<br><br><strong>Microsoft Complete for Business</strong><br>&#10003; Extends coverage to 3 or 4 years<br>&#10003; Accidental damage protection (2 claims)<br>&#10003; Next business day replacement<br><br><strong>Microsoft Complete for Business Plus</strong><br>&#10003; Everything above, plus on-site service<br>&#10003; Battery replacement after 50% degradation<br><br>For a team order, I&#39;d recommend Complete for Business &#8212; it covers the most common issues during a 3-year refresh cycle."));add('cD','<span class="ts">just now</span>')},300)},
   // Step 5: Customer clicks the Save chat button in footer -- email capture inline
-  ()=>{add('cD',`<div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;padding:8px 12px;font-size:11px;color:#2e7d32;text-align:center;margin-top:6px">&#128278; Customer taps "Save chat" in the footer &#8212; email capture appears below.</div>`);
-    setTimeout(()=>add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Save this conversation</div><div class="ec-sub">Enter your email to get a summary and pick up where you left off next time.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Connect</button>${FP}</div>`),300)},
+  ()=>{add('cD',`<div class="ec" style="margin-top:4px"><div class="ec-t">Save this conversation</div><div class="ec-sub">Enter your email to get a summary and pick up where you left off next time.</div><input type="email" placeholder="your.email@company.com" value="j.chen@contoso.com" disabled><button class="ec-btn" disabled style="opacity:.7">Connect</button>${FP}</div>`)},
   // Step 6: Email connected -- footer updates to Saved
   ()=>{add('cD',`<div style="padding:10px;text-align:center;color:#107C10;font-weight:600;font-size:13px">&#10003; Connected. Your conversation will be saved.</div>`);
     const lnk=document.getElementById('aD-link');if(lnk){lnk.innerHTML='<svg class="sp-icon" viewBox="0 0 24 24" fill="#107C10" stroke="#107C10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#107C10"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label" style="color:#107C10;font-weight:600">&#10003; Saved</span>'}},

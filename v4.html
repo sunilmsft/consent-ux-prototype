@@ -448,8 +448,8 @@ Date: April 3, 2026
 
 <div class="tabs">
   <div class="tab active" data-t="O">&#127968; Overview<span class="badge" style="background:#fff;color:#0078d4">Start Here</span></div>
-  <div class="tab" data-t="C">Option A: Notice + End Summary<span class="badge bg-green">&#10003; Updated</span></div>
-  <div class="tab" data-t="A">Option B: Notice + Opt-Out &#9733;<span class="badge bg-green">&#10003; Updated</span></div>
+  <div class="tab" data-t="C">Option A: Transcript Summary in Email<span class="badge bg-green">&#10003; Updated</span></div>
+  <div class="tab" data-t="A">Option B: Notice + Opt-Out<span class="badge bg-green">&#10003; Updated</span></div>
   <div class="tab" data-t="B">Option C: Notice + Opt-In<span class="badge bg-green">&#10003; Updated</span></div>
   <div class="tab" data-t="D">Option D: Always-On Passive<span class="badge bg-green">&#10003; Updated</span></div>
   
@@ -480,41 +480,18 @@ Date: April 3, 2026
     <div class="ov-lane oc-c" onclick="document.querySelector('[data-t=C]').click()">
       <div class="ov-lane-left">
         <span class="ov-lane-tag">Option A</span>
-        <h3>Notice + End Summary</h3>
-        <div class="ov-lane-model">Notice + Opt-Out &middot; Summary at Exit</div>
-        <p class="ov-lane-desc">&ldquo;Same notice as B. No mid-chat interruption. Email captured only when offering a summary at the end.&rdquo;</p>
+        <h3>Transcript Summary in Email</h3>
+        <div class="ov-lane-model">Notice + Opt-Out &middot; Transcript on Exit or Idle</div>
+        <p class="ov-lane-desc">&ldquo;After a few exchanges, we offer to email a transcript. Enter your email or just keep chatting.&rdquo;</p>
       </div>
       <div class="ov-lane-right">
         <div class="ov-ln-flow">
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
-          <div class="ov-ln-node notice" data-tip="Chat opens with the same greeting as Option B: consent notice, [Opt out] link, and a &quot;Returning?&quot; pill for returning customers."><span class="ov-tip">Chat opens with the same greeting as Option B: consent notice, [Opt out] link, and a &#34;Returning?&#34; pill for returning customers.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#2B8C96" stroke-width="2" fill="#DFF0F2"/><circle cx="9" cy="10.5" r="1" fill="#2B8C96"/><circle cx="12" cy="10.5" r="1" fill="#2B8C96"/><circle cx="15" cy="10.5" r="1" fill="#2B8C96"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-notice-tag">Notice &middot; Opt-Out</div></div>
+          <div class="ov-ln-node notice" data-tip="Chat opens with a standard greeting plus consent notice and [Opt out] link. No returning customer link &#8212; every session is a fresh start."><span class="ov-tip">Chat opens with a standard greeting plus consent notice and [Opt out] link. No returning customer link &#8212; every session is a fresh start.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#2B8C96" stroke-width="2" fill="#DFF0F2"/><circle cx="9" cy="10.5" r="1" fill="#2B8C96"/><circle cx="12" cy="10.5" r="1" fill="#2B8C96"/><circle cx="15" cy="10.5" r="1" fill="#2B8C96"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-notice-tag">Notice &middot; Opt-Out</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#1E6B73" stroke-width="2" fill="#DFF0F2"/><path d="M9 21h6M10 18h4" stroke="#1E6B73" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
+          <div class="ov-ln-node consent" data-tip="After ~3 turns, a subtle inline card appears: &#34;Want a copy of this conversation?&#34; Customer can enter email or just keep chatting &#8212; not gated. They can also type &#34;Email Summary&#34; anytime to bring it back."><span class="ov-tip">After ~3 turns, a subtle inline card appears: &#34;Want a copy of this conversation?&#34; Customer can enter email or just keep chatting &#8212; not gated. They can also type &#34;Email Summary&#34; anytime to bring it back.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Email Transcript?</strong></div><div class="ov-ln-micro">Enter email &middot; Or keep chatting</div></div>
           <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
-          <div class="ov-ln-node consent branch" data-tip="When the customer wraps up, the agent offers: &quot;Would you like me to email you a summary?&quot; If yes, email capture appears. If no or if opted out, conversation ends naturally."><span class="ov-tip">When the customer wraps up, the agent offers: &#34;Would you like me to email you a summary?&#34; If yes, email capture appears. If no or if opted out, conversation ends naturally.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Exit Summary</strong></div><div class="ov-ln-micro">Email summary &middot; Or just leave</div><div class="ov-ln-skip">Or skip and go</div></div>
-          <div class="ov-ln-node wrapup" data-tip="If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off."><span class="ov-tip">If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#1E6B73" stroke-width="2" stroke-linecap="round" fill="#DFF0F2"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
-            <div class="ov-reentry" data-tip="container"><span class="ov-tip">Returning customers see the same welcome screen. They click the &#34;Returning?&#34; pill, enter their email, and pick up where they left off.</span>
-              <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
-              <div class="ov-re-header">Same welcome screen</div>
-              <div class="ov-re-choices">
-                <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Customer clicks &#34;Returning?&#34; pill and enters their email to reconnect.</span>
-                  <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#1E6B73" stroke-width="1.8" fill="#DFF0F2"/><path d="M3 7l9 6 9-6" stroke="#1E6B73" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-                  <span class="ov-re-choice-label">&#128279; Returning?</span>
-                  <span class="ov-re-choice-sub">pill &#8594; enter email</span>
-                  <span class="ov-re-choice-or">or</span>
-                </div>
-                <div class="ov-re-choice">
-                  <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
-                  <span class="ov-re-choice-label">Start fresh</span>
-                  <span class="ov-re-choice-sub">use any other starter prompt</span>
-                </div>
-              </div>
-              <div class="ov-re-merge">
-                <div class="ov-re-merge-line"></div>
-                <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
-                <div class="ov-re-merge-line"></div>
-              </div>
-            </div>
-          </div>
+          <div class="ov-ln-node wrapup" data-tip="Transcript is emailed when the customer ends the chat or after an idle timeout. If no email was entered, nothing happens &#8212; no nudging."><span class="ov-tip">Transcript is emailed when the customer ends the chat or after an idle timeout. If no email was entered, nothing happens &#8212; no nudging.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#1E6B73" stroke-width="2" fill="#DFF0F2"/><path d="M3 7l9 6 9-6" stroke="#1E6B73" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Transcript Sent</strong></div><div class="ov-ln-micro">On exit or idle timeout</div></div>
         </div>
       </div>
     </div>
@@ -522,10 +499,9 @@ Date: April 3, 2026
     <!-- OPTION A -->
     <div class="ov-lane oc-a" onclick="document.querySelector('[data-t=A]').click()">
       <div class="ov-lane-left">
-        <span class="ov-lane-star">&#9733; Preferred</span>
         <span class="ov-lane-tag">Option B</span>
         <h3>Notice + Opt-Out</h3>
-        <div class="ov-lane-model">Preferred Consent Model &middot; Default eCommerce</div>
+        <div class="ov-lane-model">Consent Model &middot; Default eCommerce</div>
         <p class="ov-lane-desc">&ldquo;Notified upfront, opt out anytime. Email offered later to get a summary and return anytime.&rdquo;</p>
       </div>
       <div class="ov-lane-right has-fork">
@@ -646,14 +622,15 @@ Date: April 3, 2026
   <div class="ov-summary">
     <h3>Quick Comparison</h3>
     <table>
-      <thead><tr><th>Dimension</th><th>A: Notice + End Summary</th><th>B: Notice + Opt-Out &#9733;</th><th>C: Notice + Opt-In</th><th>D: Always-On Passive</th></tr></thead>
+      <thead><tr><th>Dimension</th><th>A: Transcript Summary</th><th>B: Notice + Opt-Out</th><th>C: Notice + Opt-In</th><th>D: Always-On Passive</th></tr></thead>
       <tbody>
-        <tr><td>When asked</td><td>Upfront notice + at exit</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>Never &#8212; button always visible</td></tr>
-        <tr><td>Who initiates</td><td>Agent (at exit, with opt-out)</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Customer only</td></tr>
-        <tr><td>Email ends chat?</td><td style="color:#2B8C96">Yes &#8212; at exit</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#107C10">No &#8212; continues</td></tr>
-        <tr><td>Friction level</td><td style="color:#2B8C96">Low (zero during chat)</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#107C10">Zero push</td></tr>
+        <tr><td>When asked</td><td>After ~3 turns (inline card)</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>Never &#8212; button always visible</td></tr>
+        <tr><td>Who initiates</td><td>System (inline card)</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Customer only</td></tr>
+        <tr><td>Email ends chat?</td><td style="color:#2B8C96">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#107C10">No &#8212; continues</td></tr>
+        <tr><td>Friction level</td><td style="color:#2B8C96">Low (non-gating card)</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#107C10">Zero push</td></tr>
         <tr><td>Privacy / CELA risk</td><td style="color:#2B8C96">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#107C10">Lowest</td></tr>
-        <tr><td>Best for</td><td>Uninterrupted conversations</td><td>Default experience</td><td>Banner countries, pilots</td><td>Privacy-first markets</td></tr>
+        <tr><td>Returning user</td><td style="color:#2B8C96">No &#8212; fresh start</td><td style="color:#3F6FAE">Email reconnect</td><td style="color:#3F6FAE">Email reconnect</td><td style="color:#107C10">Email reconnect</td></tr>
+        <tr><td>Best for</td><td>Transcript capture only</td><td>Default experience</td><td>Banner countries, pilots</td><td>Privacy-first markets</td></tr>
       </tbody>
     </table>
   </div>
@@ -662,28 +639,28 @@ Date: April 3, 2026
 <!-- ======== OPTION C ======== -->
 <div class="panel" id="pC">
   <div class="stitle">
-    <h2>Option A: Notice + End-of-Chat Summary &#8212; Summary at the Finish Line</h2>
-    <p>Conversation saved by default with upfront notice (same as B). The difference: email capture happens at the end when the agent offers to send a summary &#8212; not mid-conversation.</p>
+    <h2>Option A: Transcript Summary in Email &#8212; Get a Copy of Your Conversation</h2>
+    <p>After a few exchanges, a subtle inline card offers to email the conversation transcript. Customer enters their email or just keeps chatting &#8212; not gated. Transcript is sent when the session ends (graceful close or idle timeout). No returning flow &#8212; every session is a fresh start.</p>
   </div>
   <div class="row">
     <div class="info">
-      <span class="tag tg" style="background:#2B8C96">End-of-Chat</span>
+      <span class="tag tg" style="background:#2B8C96">Transcript Email</span>
       <h3>How it works</h3>
-      <p class="lbl">Consent: Notice + Opt-Out (Summary at Exit)</p>
+      <p class="lbl">Consent: Notice + Opt-Out (Transcript on Session End)</p>
       <ul>
         <li><strong>Welcome notice:</strong> Consent notice embedded in the welcome message &#8212; conversation saved by default. Customer can [Opt out] anytime.</li>
-        <li><strong>Returning customer link:</strong> A subtle &#8220;Returning?&#8221; pill below the greeting lets returning customers self-identify and enter their email to reconnect.</li>
-        <li><strong>Uninterrupted conversation:</strong> No mid-conversation nudge or email prompt. The entire chat flows naturally without any identity capture.</li>
-        <li><strong>End-of-chat summary:</strong> When the customer wraps up, the agent offers to email a summary of the conversation. Customer chooses &#8220;Yes, email me&#8221; or &#8220;No thanks.&#8221;</li>
-        <li><strong>Email = persistence toggle:</strong> If they opt for the summary, email capture connects their identity. Summary is sent and conversation is saved for future return.</li>
-        <li><strong>Returning user:</strong> Same welcome screen &#8212; customer clicks the &#8220;Returning?&#8221; pill to reconnect. No separate flow needed.</li>
+        <li><strong>After ~3 turns:</strong> A subtle, non-blocking inline card appears: &#8220;Want a copy of this conversation?&#8221; with an email field. Customer can enter their email or simply continue chatting &#8212; the card doesn&#39;t block anything.</li>
+        <li><strong>Dismiss note:</strong> If the customer doesn&#39;t enter their email, a small note says &#8220;You can type <em>Email Summary</em> anytime to bring this back.&#8221;</li>
+        <li><strong>Email entered:</strong> Confirmation shown. Transcript will be emailed when the session ends &#8212; either when the customer says goodbye or after an idle timeout.</li>
+        <li><strong>No email entered:</strong> Nothing happens. No further nudging. Standard flow continues.</li>
+        <li><strong>No returning flow:</strong> Every session is a fresh start. No context carried over, no &#8220;Returning?&#8221; link.</li>
       </ul>
-      <div class="note" style="border-left-color:#2B8C96"><strong>Key difference from B:</strong> Email is captured at the END when offering a summary, not mid-conversation. This means zero interruption during the active conversation &#8212; the customer gets full value first.</div>
-      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> No summary offer at the end. Conversation flows and ends naturally without any email prompt.</div>
-      <div class="note" style="border-left-color:#2B8C96;margin-top:8px"><strong>One welcome, all customers:</strong> The &#8220;Returning?&#8221; link handles both new and returning customers in a single unified experience &#8212; same as Option B.</div>
+      <div class="note" style="border-left-color:#2B8C96"><strong>Key concept:</strong> This is the &#8220;Enabling Transcript Summary in Email&#8221; capability. The customer gets value (a transcript copy) without any persistence or identity connection. Simplest path to email capture.</div>
+      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> No transcript offer appears. Conversation flows naturally without any email prompt.</div>
+      <div class="note" style="border-left-color:#2B8C96;margin-top:8px"><strong>Transcript delivery:</strong> Sent on graceful chat end (customer says thanks/goodbye) or after an idle timeout (customer closes tab or goes silent). Two triggers, same result.</div>
     </div>
     <div class="cw-wrap">
-      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="c-l">1 / 11</span></div>
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="c-l">1 / 8</span></div>
       <div class="cw-nav">
         <button class="nav-btn" id="c-p" disabled title="Back">&#8249;</button>
         <div class="cw">
@@ -700,14 +677,14 @@ Date: April 3, 2026
 <!-- ======== OPTION A ======== -->
 <div class="panel" id="pA">
   <div class="stitle">
-    <h2>Option B: Notice + Opt-Out &#8212; Preferred Consent Model &#9733;</h2>
+    <h2>Option B: Notice + Opt-Out &#8212; Consent Model</h2>
     <p>Conversation saved by default with upfront notice. Email capture mid-conversation enables identity connection &#8212; chat keeps going after. Summary auto-sent when customer leaves.</p>
   </div>
   <div class="row">
     <div class="info">
       <span class="tag tg">Low Friction</span>
       <h3>How it works</h3>
-      <p class="lbl">Consent: Notice + Opt-Out (Preferred)</p>
+      <p class="lbl">Consent: Notice + Opt-Out</p>
       <ul>
         <li><strong>Welcome notice:</strong> Consent notice embedded in the welcome message &#8212; conversation saved by default. Customer can [Opt out] anytime.</li>
         <li><strong>Returning customer link:</strong> A subtle &#8220;Returning?&#8221; link below the greeting lets returning customers self-identify and enter their email to reconnect. First-timers skip right past it.</li>
@@ -811,25 +788,25 @@ Date: April 3, 2026
 <div class="panel" id="pX">
   <div class="stitle">
     <h2>Side-by-Side Comparison</h2>
-    <p>All four options across key dimensions. All pair with the Returning User flows.</p>
+    <p>All four options across key dimensions. Option A provides transcript-only email. Options B, C, and D add returning customer flows.</p>
   </div>
 
   <!-- &#9472;&#9472; What each option IS &#9472;&#9472; -->
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
     <div style="background:#EDF7F8;border:1px solid #8CC8CE;border-radius:10px;padding:14px">
-      <div style="font-size:11px;font-weight:700;color:#2B8C96;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">A: Notice + End Summary</div>
-      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Summary at the Finish Line</div>
-      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Same upfront notice and opt-out as Option B. The difference: no mid-conversation nudge. Email captured only at the end when the agent offers to send a conversation summary.</p>
+      <div style="font-size:11px;font-weight:700;color:#2B8C96;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">A: Transcript Summary in Email</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Email Your Chat Transcript</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">After ~3 exchanges, a subtle inline card offers to email the transcript. Non-gating &#8212; customer can enter email or keep chatting. Transcript sent on session end or idle timeout. No returning flow.</p>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid #8CC8CE">
         <div style="font-size:10px;font-weight:700;color:#2B8C96;text-transform:uppercase;margin-bottom:4px">Flow</div>
         <div style="font-size:11px;color:#444;line-height:1.7">
-          Welcome + notice [Opt out] &#8594;<br>Customer chats freely &#8594;<br>No mid-chat interruption &#8594;<br>Customer wraps up &#8594;<br>Agent: "Email you a summary?" &#8594;<br>Email capture &#8594; <strong>summary sent</strong> &#8594;<br>Return: email lookup &#8594; resume
+          Welcome + notice [Opt out] &#8594;<br>Customer chats &#8594;<br>~3 turns: inline email card &#8594;<br>Enter email or keep chatting &#8594;<br><strong>Chat continues</strong> &#8594;<br>Session ends &#8594; <strong>transcript emailed</strong>
         </div>
       </div>
     </div>
     <div style="background:#e8f4fd;border:1px solid #b3d4fc;border-radius:10px;padding:14px;position:relative">
-      <div style="font-size:11px;font-weight:700;color:#0078d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">B: Notice + Opt-Out &#9733;</div>
-      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Preferred &#8212; Save by Default</div>
+      <div style="font-size:11px;font-weight:700;color:#0078d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">B: Notice + Opt-Out</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Save by Default</div>
       <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Conversation saved automatically with upfront notice + opt-out. Email asked <strong>mid-conversation</strong> to enable persistence &#8212; chat continues after. Summary auto-sent when customer leaves.</p>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid #c0d8f0">
         <div style="font-size:10px;font-weight:700;color:#0078d4;text-transform:uppercase;margin-bottom:4px">Flow</div>
@@ -866,27 +843,26 @@ Date: April 3, 2026
   <div class="ctbl"><table>
     <thead><tr>
       <th style="width:15%">Dimension</th>
-      <th>A: Notice + End Summary</th>
-      <th>B: Notice + Opt-Out &#9733;</th>
+      <th>A: Transcript Summary</th>
+      <th>B: Notice + Opt-Out</th>
       <th>C: Notice + Opt-In</th>
       <th>D: Always-On Passive</th>
     </tr></thead>
     <tbody>
       <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Always-On Passive Button</td></tr>
-      <tr><td><strong>When email asked</strong></td><td>End of chat (summary offer)</td><td>Mid-conversation</td><td>Banner + later</td><td>When customer taps Save chat</td></tr>
-      <tr><td><strong>Email ends chat?</strong></td><td>Yes &#8212; at exit</td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No  chat continues</span></td><td><span class="pro">No &#8212; chat continues</span></td></tr>
-      <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">&#9733; Low (zero during chat)</span></td><td><span class="pro">&#9733; Low</span></td><td><span class="con">&#9733;&#9733; Medium</span></td><td><span class="pro">&#9733; Zero push</span></td></tr>
-      <tr><td><strong>Who initiates</strong></td><td>Agent (at exit)</td><td>Agent (contextual)</td><td>System (banner)</td><td>Customer (button tap)</td></tr>
-      <tr><td><strong>Email capture rate</strong></td><td>Moderate (end of chat)</td><td><span class="pro">Higher</span></td><td>Moderate</td><td><span class="con">Lowest</span> but highest intent</td></tr>
+      <tr><td><strong>When email asked</strong></td><td>After ~3 turns (inline card)</td><td>Mid-conversation</td><td>Banner + later</td><td>When customer taps Save chat</td></tr>
+      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No &#8212; continues</span></td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No &#8212; chat continues</span></td></tr>
+      <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">&#9733; Low (non-gating card)</span></td><td><span class="pro">&#9733; Low</span></td><td><span class="con">&#9733;&#9733; Medium</span></td><td><span class="pro">&#9733; Zero push</span></td></tr>
+      <tr><td><strong>Who initiates</strong></td><td>System (inline card)</td><td>Agent (contextual)</td><td>System (banner)</td><td>Customer (button tap)</td></tr>
+      <tr><td><strong>Email capture rate</strong></td><td>Moderate (passive card)</td><td><span class="pro">Higher</span></td><td>Moderate</td><td><span class="con">Lowest</span> but highest intent</td></tr>
       <tr class="hl"><td><strong>Privacy/CELA risk</strong></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Lowest</span></td></tr>
-      <tr><td><strong>Regulatory fit</strong></td><td>Default + sensitive regions</td><td>Default for most eCommerce</td><td>Banner countries, pilots</td><td>All regions</td></tr>
-      <tr><td><strong>Best for</strong></td><td>Uninterrupted conversations</td><td>Default experience</td><td>Sensitive markets, pilots</td><td>Privacy-first markets</td></tr>
-      <tr><td><strong>Quotex</strong></td><td colspan="4" style="text-align:center">All options are independent of Quotex. Email here is for <strong>conversation continuity</strong> only.</td></tr>
-      <tr><td><strong>Returning user</strong></td><td colspan="4" style="text-align:center">All pair with the <strong>email-based reconnect</strong> flow. Only works when email was captured in a prior session.</td></tr>
+      <tr><td><strong>Regulatory fit</strong></td><td>All regions (no persistence)</td><td>Default for most eCommerce</td><td>Banner countries, pilots</td><td>All regions</td></tr>
+      <tr><td><strong>Best for</strong></td><td>Transcript capture only</td><td>Default experience</td><td>Sensitive markets, pilots</td><td>Privacy-first markets</td></tr>
+      <tr><td><strong>Returning user</strong></td><td>No &#8212; every session is fresh</td><td colspan="3" style="text-align:center">All pair with <strong>email-based reconnect</strong>. Only works when email was captured in a prior session.</td></tr>
     </tbody>
   </table></div>
   <div style="margin:16px 0 0">
-    <div class="note"><strong>Recommendation:</strong> <strong>Option B (Notice + Opt-Out)</strong> is the preferred model &#8212; strongest balance of trust, usability, and data capture. Default for most eCommerce scenarios. For Banner countries and privacy-sensitive markets, start with C (Opt-In) or A (End Summary). Option D works as a complement to any model.</div>
+    <div class="note"><strong>Recommendation:</strong> <strong>Option A</strong> enables <strong>Transcript Summary in Email</strong> &#8212; customers get a copy of their conversation, no persistence or returning flow. <strong>Options B, C, and D</strong> add <strong>Transcript + Context Restoring for Returning Customers</strong> &#8212; saved conversations, email-based reconnect, and session continuity. Default to Option B for most eCommerce scenarios.</div>
   </div>
 </div>
 
@@ -914,7 +890,7 @@ document.getElementById('cA').innerHTML=WA;
 const WB=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> &#8599;</div><div id="aB-cs" style="margin-top:8px;padding-top:6px;border-top:1px solid #eee;font-size:11px;color:#666;line-height:1.4">We can save this conversation to improve your experience. If you sign in or share your email, it may be connected to your profile.<div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap"><button onclick="document.getElementById('aB-cs').innerHTML='<div style=\\'display:flex;gap:8px;align-items:center\\'><span style=\\'color:#6b3fa0;font-weight:700\\'>&#9745;</span><span style=\\'font-size:11px;color:#6b3fa0;font-weight:600\\'>Saving enabled. You can connect your email anytime.</span></div>';window._bOptIn=true;return false" style="font-size:11px;padding:4px 10px;border-radius:5px;cursor:pointer;font-weight:600;border:1px solid #8661c5;background:#8661c5;color:#fff;font-family:inherit">Yes, save and personalize</button><button onclick="window._bOptIn=false;document.getElementById('aB-cs').innerHTML='<span style=\\'color:#888;font-size:11px\\'>No data will be saved from this session.</span>';return false" style="font-size:11px;padding:4px 10px;border-radius:5px;cursor:pointer;font-weight:600;border:1px solid #ccc;background:#fff;color:#555;font-family:inherit">No, continue without saving</button></div></div>${T}</div><span class="ts">an hour ago</span>`;
 document.getElementById('cB').innerHTML=WB;
 
-const WC=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> &#8599;</div><div id="aC-cs" style="margin-top:6px;padding-top:4px;border-top:1px solid #eee;font-size:11px;color:#999;line-height:1.35">We may save conversations to improve your experience. If you sign in or share your email, this conversation may be connected to your profile. <a href="#" style="color:#2B8C96;text-decoration:none" onclick="window._cOptOut=true;document.getElementById('aC-cs').innerHTML='<span style=\\'color:#a4262c;font-weight:600\\'>&#10003; Opted out &#8212; this conversation will not be saved.</span>';return false">[Opt out]</a></div><div style="margin-top:5px;font-size:11px"><a href="#" class="sp-return-link" onclick="window._cReturn=true;if(window._jumpc)window._jumpc(8,9);return false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Returning? Pick up where you left off</a></div>${T}</div><span class="ts">an hour ago</span>`;
+const WC=`<div class="m mb">Hi. I'm an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> &#8599;</div><div id="aC-cs" style="margin-top:6px;padding-top:4px;border-top:1px solid #eee;font-size:11px;color:#999;line-height:1.35">We may save conversations to improve your experience. If you sign in or share your email, this conversation may be connected to your profile. <a href="#" style="color:#2B8C96;text-decoration:none" onclick="window._cOptOut=true;document.getElementById('aC-cs').innerHTML='<span style=\\'color:#a4262c;font-weight:600\\'>&#10003; Opted out &#8212; this conversation will not be saved.</span>';return false">[Opt out]</a></div>${T}</div><span class="ts">an hour ago</span>`;
 document.getElementById('cC').innerHTML=WC;
 document.getElementById('cD').innerHTML=W;
 
@@ -930,7 +906,7 @@ function emailBlock(label,sub){
   </div>`;
 }
 
-// === OPTION A: Notice + Opt-Out -- Preferred Consent Model ===
+// === OPTION A: Notice + Opt-Out ===
 window._aOptOut=false;window._aEmail=true;window._aReturn=false;
 const sA=[null,
   // Step 2: Customer asks about plans
@@ -1021,42 +997,37 @@ const sB=[null,
 ];
 
 
-// === OPTION C: Notice + Opt-Out with End-of-Chat Summary ===
-window._cOptOut=false;window._cEmail=true;window._cReturn=false;
+// === OPTION C: Transcript Summary in Email ===
+window._cOptOut=false;window._cEmail=false;
 const sC=[null,
   // Step 2: Customer asks about freelancer plans
   ()=>{add('cC',usr("What&#39;s included with Microsoft 365 for a freelancer?"));add('cC','<span class="tsr">just now</span>')},
-  // Step 3: Agent responds with M365 Personal features
+  // Step 3: Agent responds with M365 Personal features (turn 1)
   ()=>{add('cC',bot("Microsoft 365 Personal is a great fit for freelancers:<br><br>&#10003; <strong>Desktop apps</strong> &#8212; Word, Excel, PowerPoint, Outlook<br>&#10003; <strong>1 TB OneDrive</strong> &#8212; share files with clients securely<br>&#10003; <strong>Microsoft Editor</strong> &#8212; AI-powered writing &amp; grammar<br>&#10003; <strong>Clipchamp</strong> &#8212; create &amp; edit videos<br>&#10003; <strong>Outlook calendar</strong> &#8212; schedule client meetings<br>&#10003; <strong>Microsoft Designer</strong> &#8212; create social media graphics<br><br>Would you like to know about any specific feature?"));add('cC','<span class="ts">just now</span>')},
-  // Step 4: Customer asks about free trial
+  // Step 4: Customer asks about free trial + agent responds (turn 2)
   ()=>{add('cC',usr("Can I try it first?"));add('cC','<span class="tsr">just now</span>');
     setTimeout(()=>{add('cC',bot("Yes &#8212; there&#39;s a 1-month free trial with full access to everything, including desktop apps, 1 TB OneDrive, and all the AI features. No commitment required.<br><br><a href=\'#\'>&#8594; Start your free trial</a>"));add('cC','<span class="ts">just now</span>')},300)},
-  // Step 5: Follow-up question about Clipchamp
-  ()=>{add('cC',usr("What can I do with Clipchamp exactly?"));add('cC','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cC',bot("<strong>Clipchamp</strong> is a video editor built into Microsoft 365:<br><br>&#10003; Trim, merge, and crop video clips<br>&#10003; Add text overlays, transitions, and music<br>&#10003; Screen recording with webcam overlay<br>&#10003; AI-powered auto-captions<br>&#10003; Export up to 1080p<br>&#10003; Social media templates (Instagram, TikTok, YouTube)<br><br>It&#39;s great for creating client presentations, social content, or training videos."));add('cC','<span class="ts">just now</span>')},300)},
-  // Step 6: Customer wraps up -- agent offers summary (skipped if opted out)
-  ()=>{if(window._cOptOut){add('cC',usr("Great, thanks for all the info!"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("You&#39;re welcome! Good luck with your freelancing. If you need anything else, just come back anytime.<br><br><a href=\'#\'>&#8594; Start your free trial</a>"));add('cC','<span class="ts">just now</span>')},300);return}
-    add('cC',usr("Great, thanks for all the info!"));add('cC','<span class="tsr">just now</span>');
-    setTimeout(()=>{add('cC',bot("Happy to help! Before you go &#8212; would you like me to put together a quick summary of what we covered? I can email it to you so you have it handy."));
-      setTimeout(()=>add('cC',`<div class="qr"><button class="bp" onclick="window._cEmail=true;this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>&#8594; Yes, email me a summary</span>';setTimeout(()=>document.getElementById('c-n').click(),600)">Yes, email me a summary</button><button onclick="window._cEmail=false;this.parentElement.innerHTML='<span style=\\'font-size:12px;color:#888\\'>&#8594; No thanks, I&#39;m good</span>';setTimeout(()=>document.getElementById('c-n').click(),600)">No thanks, I&#39;m good</button></div>`),300)},300)},
-  // Step 7: Email capture or skip (conditional)
-  ()=>{if(window._cOptOut||!window._cEmail){add('cC',bot("No problem! Good luck with your freelancing. If you need anything else, just come back anytime. &#128075;"));add('cC','<span class="ts">just now</span>');return}
-    add('cC',`<div class="sc"><div class="sh">&#128203; Conversation Summary</div><div class="sb"><ul><li><strong>Recommended:</strong> Microsoft 365 Personal ($9.99/month)</li><li><strong>Key features:</strong> Desktop apps, 1 TB OneDrive, Editor, Clipchamp, Designer</li><li><strong>Clipchamp:</strong> Video editor with AI captions and social templates</li><li><strong>Next step:</strong> Free 1-month trial available</li></ul></div></div>`);
-    setTimeout(()=>add('cC',emailBlock("&#128231; Where should I send the summary?","Includes your M365 Personal overview and free trial link.")),400)},
-  // Step 8: Confirmation
-  ()=>{if(window._cOptOut||!window._cEmail){setTimeout(()=>document.getElementById('c-n').click(),50);return}
-    add('cC',bot("Summary sent! &#128232; You can also return anytime and enter your email to continue where we left off. Have a great day!"));add('cC','<span class="ts">just now</span>')},
-  // === SESSION 2: RETURNING USER ===
-  // Step 9: Fresh session welcome
-  ()=>{const c=document.getElementById('cC');c.innerHTML='';window._cReturn=false;
-    add('cC',`<div style="background:linear-gradient(135deg,#EDF7F8,#faecd4);border:1px solid #8CC8CE;border-radius:8px;padding:12px 16px;text-align:center;margin-bottom:8px"><div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#2B8C96;font-weight:700">&#128260; Session 2 &#8212; New Session</div><div style="font-size:12px;color:#888;margin-top:2px">Customer returns. Click &#34;Returning?&#34; to see returning flow, or Next for a fresh conversation.</div></div>`);add('cC',WC);c.scrollTop=0},
-  // Step 10: Conditional -- if Returning?: email lookup. If not: fresh conversation.
-  ()=>{if(!window._cReturn){add('cC',usr("I want to set up Microsoft Designer for social media graphics. How do I start?"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("Getting started with Designer is easy:<br><br>1. Go to <a href=\'#\'>designer.microsoft.com</a><br>2. Sign in with your Microsoft 365 account<br>3. Choose a template or start from scratch<br>4. Use AI to generate images and layouts<br><br>It works in the browser and there&#39;s also a Windows app. All your designs save to OneDrive automatically."));add('cC','<span class="ts">just now</span>')},300);return}
-    add('cC',`<div class="ec-lookup" style="margin-top:6px"><div class="ec-lk-head"><div class="ec-lk-icon">&#128278;</div><div class="ec-lk-title">Welcome back</div><div class="ec-lk-sub">Enter the email from your previous session and we&#39;ll reconnect you.</div></div><div class="ec-lk-body"><input type="email" placeholder="your.email@company.com" value="freelancer@email.com" disabled><button class="ec-lk-btn" disabled style="opacity:.7">Look up my conversation</button></div></div>`);setTimeout(()=>{const el=document.querySelector('#cC .ec-lookup');if(el){el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{const f=document.createElement('div');f.className='ec-lk-found';f.innerHTML='<div class="ec-lk-check">&#10003;</div><div class="ec-lk-found-text">Previous conversation found &#8212; ready to continue</div>';el.appendChild(f)},400)}},150)},
-  // Step 11: Conditional -- if Returning?: session card. If not: continue fresh.
-  ()=>{if(!window._cReturn){add('cC',usr("Can I use it on my phone too?"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("Yes! Microsoft Designer has mobile apps for both iOS and Android. Create and edit on the go, and everything syncs with your OneDrive.<br><br><a href=\'#\'>&#8594; Download Microsoft Designer</a>"));add('cC','<span class="ts">just now</span>')},300);return}
-    add('cC',`<div class="rv" style="margin-top:6px"><div class="rv-head" style="background:linear-gradient(135deg,#2B8C96,#1E6B73)"><div class="rv-head-t">Continue where you left off?</div><div class="rv-head-sub">We found your previous conversation</div></div><div class="rv-body"><div class="rv-topic"><div class="ri">&#128172;</div><div class="rv-topic-info"><div class="rv-topic-title">Microsoft 365 Personal for freelancers</div><div class="rv-topic-meta"><span>&#128197; Yesterday</span><span>&#183;</span><span>Desktop apps, OneDrive, Clipchamp, free trial</span></div></div></div><div class="rv-acts"><button class="bp" style="background:#2B8C96!important;border-color:#2B8C96!important">Continue conversation</button><button>Start new</button></div></div></div>`);setTimeout(()=>{const rv=document.querySelector('#cC .rv');if(rv)rv.scrollIntoView({behavior:'smooth',block:'start'})},100);
-    setTimeout(()=>add('cC',bot("Welcome back! Last time we explored Microsoft 365 Personal for freelancing &#8212; desktop apps, 1 TB OneDrive, Editor, Clipchamp, and Designer. You were looking at the free trial.<br><br>Want to continue from there, or do you have a new question?")),300)}
+  // Step 5: Customer asks about Clipchamp (turn 3) + agent responds. After response, subtle non-gating email transcript card appears.
+  ()=>{if(window._cOptOut){add('cC',usr("What can I do with Clipchamp exactly?"));add('cC','<span class="tsr">just now</span>');setTimeout(()=>{add('cC',bot("<strong>Clipchamp</strong> is a video editor built into Microsoft 365:<br><br>&#10003; Trim, merge, and crop video clips<br>&#10003; Add text overlays, transitions, and music<br>&#10003; Screen recording with webcam overlay<br>&#10003; AI-powered auto-captions<br>&#10003; Export up to 1080p<br>&#10003; Social media templates (Instagram, TikTok, YouTube)<br><br>It&#39;s great for creating client presentations, social content, or training videos."));add('cC','<span class="ts">just now</span>')},300);return}
+    add('cC',usr("What can I do with Clipchamp exactly?"));add('cC','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cC',bot("<strong>Clipchamp</strong> is a video editor built into Microsoft 365:<br><br>&#10003; Trim, merge, and crop video clips<br>&#10003; Add text overlays, transitions, and music<br>&#10003; Screen recording with webcam overlay<br>&#10003; AI-powered auto-captions<br>&#10003; Export up to 1080p<br>&#10003; Social media templates (Instagram, TikTok, YouTube)<br><br>It&#39;s great for creating client presentations, social content, or training videos."));add('cC','<span class="ts">just now</span>');
+      setTimeout(()=>{add('cC',`<div id="cC-email-card" style="background:linear-gradient(135deg,#EDF7F8,#f5fafa);border:1px solid #8CC8CE;border-radius:8px;padding:14px 16px;margin:8px 0"><div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span style="font-size:16px">&#128233;</span><span style="font-size:13px;font-weight:600;color:#2B8C96">Want a copy of this conversation?</span></div><div style="font-size:12px;color:#555;margin-bottom:10px;line-height:1.4">Enter your email and we&#39;ll send you the full transcript when the session ends.</div><div style="display:flex;gap:6px;margin-bottom:6px"><input id="cC-email-input" type="email" placeholder="your.email@company.com" style="flex:1;padding:6px 10px;border:1px solid #ccc;border-radius:5px;font-size:12px;font-family:inherit"><button id="cC-email-send" onclick="window._cEmail=true;document.getElementById('cC-email-card').innerHTML='<div style=\\'display:flex;align-items:center;gap:6px;padding:4px 0\\'><span style=\\'color:#2B8C96;font-weight:600;font-size:13px\\'>&#10003; Got it!</span><span style=\\'font-size:12px;color:#666\\'>We&#39;ll email your transcript when the session ends.</span></div>';return false" style="padding:6px 14px;background:#2B8C96;color:#fff;border:none;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap">Send</button></div><div style="font-size:11px;color:#999">Not now? Type <strong>Email Summary</strong> anytime to bring this back.</div></div>`)},500)},300)},
+  // Step 6: Customer continues chatting (proves card is non-gating)
+  ()=>{add('cC',usr("What about Microsoft Designer? Can it make social media posts?"));add('cC','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cC',bot("Yes! <strong>Microsoft Designer</strong> is great for social media:<br><br>&#10003; AI-generated images and layouts<br>&#10003; Templates for Instagram, LinkedIn, Facebook<br>&#10003; Brand kit with your logos, fonts, and colors<br>&#10003; One-click resize for any platform<br>&#10003; Remove backgrounds and enhance photos<br><br>It&#39;s included with your M365 subscription &#8212; no extra cost."));add('cC','<span class="ts">just now</span>')},300)},
+  // Step 7: One more exchange + customer wraps up
+  ()=>{add('cC',usr("This sounds perfect. How much does M365 Personal cost?"));add('cC','<span class="tsr">just now</span>');
+    setTimeout(()=>{add('cC',bot("Microsoft 365 Personal is <strong>$9.99/month</strong> or <strong>$99.99/year</strong> (save ~$20 with annual).<br><br>Includes everything we discussed &#8212; desktop apps, 1 TB OneDrive, Editor, Clipchamp, Designer, and the AI features.<br><br><a href=\'#\'>&#8594; Start your free trial</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=\'#\'>&#8594; Buy now</a>"));add('cC','<span class="ts">just now</span>')},300)},
+  // Step 8: Session ends -- transcript sent if email was provided
+  ()=>{add('cC',usr("Thanks for all the info! I&#39;ll try the free trial."));add('cC','<span class="tsr">just now</span>');
+    setTimeout(()=>{
+      if(window._cEmail){
+        add('cC',bot("You&#39;re welcome! Enjoy the free trial. &#127881;"));add('cC','<span class="ts">just now</span>');
+        setTimeout(()=>{add('cC',`<div style="background:linear-gradient(135deg,#EDF7F8,#f0faf0);border:1px solid #8CC8CE;border-radius:8px;padding:12px 16px;text-align:center;margin:8px 0"><div style="font-size:13px;font-weight:600;color:#2B8C96">&#10003; Transcript sent to your email</div><div style="font-size:11px;color:#888;margin-top:4px">Includes your full conversation about M365 Personal, Clipchamp, Designer, and pricing.</div></div>`)},400)
+      } else {
+        add('cC',bot("You&#39;re welcome! Good luck with your freelancing. If you need anything else, just come back anytime. &#128075;<br><br><a href=\'#\'>&#8594; Start your free trial</a>"));add('cC','<span class="ts">just now</span>');
+      }
+    },300)}
 ];
 
 
@@ -1131,7 +1102,7 @@ function mkStep(p,steps,wHtml){
   window['_jump'+p]=function(from,to){document.getElementById('c'+p.toUpperCase()).innerHTML='';for(let i=from;i<=to;i++){s=i;if(steps[i])steps[i]()}u()};
   u();
 }
-mkStep('a',sA,WA);mkStep('b',sB,W);mkStep('c',sC,W);mkStep('d',sD,W);
+mkStep('a',sA,WA);mkStep('b',sB,W);mkStep('c',sC,WC);mkStep('d',sD,W);
 </script>
 </body>
 </html>

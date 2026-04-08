@@ -448,9 +448,9 @@ Date: April 3, 2026
 
 <div class="tabs">
   <div class="tab active" data-t="O">&#127968; Overview<span class="badge" style="background:#fff;color:#0078d4">Start Here</span></div>
-  <div class="tab" data-t="A">Option A: Notice + Opt-Out &#9733;<span class="badge bg-green">&#10003; Updated</span></div>
-  <div class="tab" data-t="B">Option B: Notice + Opt-In<span class="badge bg-green">&#10003; Updated</span></div>
-  <div class="tab" data-t="C">Option C: Notice + End Summary<span class="badge bg-green">&#10003; Updated</span></div>
+  <div class="tab" data-t="C">Option A: Notice + End Summary<span class="badge bg-green">&#10003; Updated</span></div>
+  <div class="tab" data-t="A">Option B: Notice + Opt-Out &#9733;<span class="badge bg-green">&#10003; Updated</span></div>
+  <div class="tab" data-t="B">Option C: Notice + Opt-In<span class="badge bg-green">&#10003; Updated</span></div>
   <div class="tab" data-t="D">Option D: Always-On Passive<span class="badge bg-green">&#10003; Updated</span></div>
   
   <div class="tab" data-t="X">Comparison<span class="badge bg-gray">After All</span></div>
@@ -476,11 +476,54 @@ Date: April 3, 2026
   <!-- Swim Lanes -->
   <div class="ov-lanes">
 
+    <!-- OPTION C -->
+    <div class="ov-lane oc-c" onclick="document.querySelector('[data-t=C]').click()">
+      <div class="ov-lane-left">
+        <span class="ov-lane-tag">Option A</span>
+        <h3>Notice + End Summary</h3>
+        <div class="ov-lane-model">Notice + Opt-Out &middot; Summary at Exit</div>
+        <p class="ov-lane-desc">&ldquo;Same notice as B. No mid-chat interruption. Email captured only when offering a summary at the end.&rdquo;</p>
+      </div>
+      <div class="ov-lane-right">
+        <div class="ov-ln-flow">
+          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
+          <div class="ov-ln-node notice" data-tip="Chat opens with the same greeting as Option B: consent notice, [Opt out] link, and a &quot;Returning?&quot; pill for returning customers."><span class="ov-tip">Chat opens with the same greeting as Option B: consent notice, [Opt out] link, and a &#34;Returning?&#34; pill for returning customers.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#2B8C96" stroke-width="2" fill="#DFF0F2"/><circle cx="9" cy="10.5" r="1" fill="#2B8C96"/><circle cx="12" cy="10.5" r="1" fill="#2B8C96"/><circle cx="15" cy="10.5" r="1" fill="#2B8C96"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-notice-tag">Notice &middot; Opt-Out</div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#1E6B73" stroke-width="2" fill="#DFF0F2"/><path d="M9 21h6M10 18h4" stroke="#1E6B73" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
+          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
+          <div class="ov-ln-node consent branch" data-tip="When the customer wraps up, the agent offers: &quot;Would you like me to email you a summary?&quot; If yes, email capture appears. If no or if opted out, conversation ends naturally."><span class="ov-tip">When the customer wraps up, the agent offers: &#34;Would you like me to email you a summary?&#34; If yes, email capture appears. If no or if opted out, conversation ends naturally.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Exit Summary</strong></div><div class="ov-ln-micro">Email summary &middot; Or just leave</div><div class="ov-ln-skip">Or skip and go</div></div>
+          <div class="ov-ln-node wrapup" data-tip="If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off."><span class="ov-tip">If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#1E6B73" stroke-width="2" stroke-linecap="round" fill="#DFF0F2"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
+            <div class="ov-reentry" data-tip="container"><span class="ov-tip">Returning customers see the same welcome screen. They click the &#34;Returning?&#34; pill, enter their email, and pick up where they left off.</span>
+              <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
+              <div class="ov-re-header">Same welcome screen</div>
+              <div class="ov-re-choices">
+                <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Customer clicks &#34;Returning?&#34; pill and enters their email to reconnect.</span>
+                  <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#1E6B73" stroke-width="1.8" fill="#DFF0F2"/><path d="M3 7l9 6 9-6" stroke="#1E6B73" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                  <span class="ov-re-choice-label">&#128279; Returning?</span>
+                  <span class="ov-re-choice-sub">pill &#8594; enter email</span>
+                  <span class="ov-re-choice-or">or</span>
+                </div>
+                <div class="ov-re-choice">
+                  <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
+                  <span class="ov-re-choice-label">Start fresh</span>
+                  <span class="ov-re-choice-sub">use any other starter prompt</span>
+                </div>
+              </div>
+              <div class="ov-re-merge">
+                <div class="ov-re-merge-line"></div>
+                <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
+                <div class="ov-re-merge-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- OPTION A -->
     <div class="ov-lane oc-a" onclick="document.querySelector('[data-t=A]').click()">
       <div class="ov-lane-left">
         <span class="ov-lane-star">&#9733; Preferred</span>
-        <span class="ov-lane-tag">Option A</span>
+        <span class="ov-lane-tag">Option B</span>
         <h3>Notice + Opt-Out</h3>
         <div class="ov-lane-model">Preferred Consent Model &middot; Default eCommerce</div>
         <p class="ov-lane-desc">&ldquo;Notified upfront, opt out anytime. Email offered later to get a summary and return anytime.&rdquo;</p>
@@ -514,7 +557,7 @@ Date: April 3, 2026
     <!-- OPTION B -->
     <div class="ov-lane oc-b" onclick="document.querySelector('[data-t=B]').click()">
       <div class="ov-lane-left">
-        <span class="ov-lane-tag">Option B</span>
+        <span class="ov-lane-tag">Option C</span>
         <h3>Notice + Opt-In</h3>
         <div class="ov-lane-model">Explicit Consent &middot; Banner countries</div>
         <p class="ov-lane-desc">&ldquo;Nothing saved unless you opt in. Consent is upfront, email is optional.&rdquo;</p>
@@ -541,49 +584,6 @@ Date: April 3, 2026
                   <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
                   <span class="ov-re-choice-label">Start fresh</span>
                   <span class="ov-re-choice-sub">always available</span>
-                </div>
-              </div>
-              <div class="ov-re-merge">
-                <div class="ov-re-merge-line"></div>
-                <span class="ov-re-merge-txt">&#8594; Conversation continues</span>
-                <div class="ov-re-merge-line"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- OPTION C -->
-    <div class="ov-lane oc-c" onclick="document.querySelector('[data-t=C]').click()">
-      <div class="ov-lane-left">
-        <span class="ov-lane-tag">Option C</span>
-        <h3>Notice + End Summary</h3>
-        <div class="ov-lane-model">Notice + Opt-Out &middot; Summary at Exit</div>
-        <p class="ov-lane-desc">&ldquo;Same notice as A. No mid-chat interruption. Email captured only when offering a summary at the end.&rdquo;</p>
-      </div>
-      <div class="ov-lane-right">
-        <div class="ov-ln-flow">
-          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0078d4" stroke-width="2"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#0078d4" stroke-width="1.5"/><path d="M3.5 9h17M3.5 15h17" stroke="#0078d4" stroke-width="1.5"/></svg></div><div class="ov-ln-txt"><strong>Visits M365</strong></div></div>
-          <div class="ov-ln-node notice" data-tip="Chat opens with the same greeting as Option A: consent notice, [Opt out] link, and a &quot;Returning?&quot; pill for returning customers."><span class="ov-tip">Chat opens with the same greeting as Option A: consent notice, [Opt out] link, and a &#34;Returning?&#34; pill for returning customers.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#2B8C96" stroke-width="2" fill="#DFF0F2"/><circle cx="9" cy="10.5" r="1" fill="#2B8C96"/><circle cx="12" cy="10.5" r="1" fill="#2B8C96"/><circle cx="15" cy="10.5" r="1" fill="#2B8C96"/></svg></div><div class="ov-ln-txt"><strong>Ask Microsoft</strong></div><div class="ov-ln-notice-tag">Notice &middot; Opt-Out</div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a6 6 0 014 10.5V16a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.5A6 6 0 0112 3z" stroke="#1E6B73" stroke-width="2" fill="#DFF0F2"/><path d="M9 21h6M10 18h4" stroke="#1E6B73" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ov-ln-txt"><strong>Explores</strong></div></div>
-          <div class="ov-ln-node"><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="#555" stroke-width="2.5" stroke-linecap="round"/><path d="M14 7l5 5-5 5" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Continues</strong></div></div>
-          <div class="ov-ln-node consent branch" data-tip="When the customer wraps up, the agent offers: &quot;Would you like me to email you a summary?&quot; If yes, email capture appears. If no or if opted out, conversation ends naturally."><span class="ov-tip">When the customer wraps up, the agent offers: &#34;Would you like me to email you a summary?&#34; If yes, email capture appears. If no or if opted out, conversation ends naturally.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="16" height="12" rx="2" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,.15)"/><path d="M2 6l8 5 8-5" stroke="#fff" stroke-width="2" stroke-linecap="round"/><circle cx="19" cy="17" r="4.5" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="1.5"/><path d="M17.5 17h3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M19 15.5l1.5 1.5-1.5 1.5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="ov-ln-txt"><strong>Exit Summary</strong></div><div class="ov-ln-micro">Email summary &middot; Or just leave</div><div class="ov-ln-skip">Or skip and go</div></div>
-          <div class="ov-ln-node wrapup" data-tip="If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off."><span class="ov-tip">If the customer shared their email via the summary offer, they can return and enter it to pick up where they left off.</span><div class="ov-ln-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 11V8a2 2 0 014 0v3M11 9V6a2 2 0 014 0v5M15 8V7a2 2 0 014 0v6c0 4-3 7.5-7.5 7.5H10a5.5 5.5 0 01-4.8-2.8L3.5 15" stroke="#1E6B73" stroke-width="2" stroke-linecap="round" fill="#DFF0F2"/></svg></div><div class="ov-ln-txt"><strong>Wraps Up</strong></div>
-            <div class="ov-reentry" data-tip="container"><span class="ov-tip">Returning customers see the same welcome screen. They click the &#34;Returning?&#34; pill, enter their email, and pick up where they left off.</span>
-              <div style="text-align:center"><span class="ov-re-tag">if they return</span></div>
-              <div class="ov-re-header">Same welcome screen</div>
-              <div class="ov-re-choices">
-                <div class="ov-re-choice" data-tip="resume"><span class="ov-tip">Customer clicks &#34;Returning?&#34; pill and enters their email to reconnect.</span>
-                  <div class="ov-re-choice-icon ci-resume"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#1E6B73" stroke-width="1.8" fill="#DFF0F2"/><path d="M3 7l9 6 9-6" stroke="#1E6B73" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-                  <span class="ov-re-choice-label">&#128279; Returning?</span>
-                  <span class="ov-re-choice-sub">pill &#8594; enter email</span>
-                  <span class="ov-re-choice-or">or</span>
-                </div>
-                <div class="ov-re-choice">
-                  <div class="ov-re-choice-icon ci-fresh"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14a2 2 0 012 2v9a2 2 0 01-2 2H9l-5 4V6a2 2 0 012-2z" stroke="#555" stroke-width="1.8" fill="#eef0f4"/><circle cx="9" cy="10.5" r="1" fill="#888"/><circle cx="12" cy="10.5" r="1" fill="#888"/><circle cx="15" cy="10.5" r="1" fill="#888"/></svg></div>
-                  <span class="ov-re-choice-label">Start fresh</span>
-                  <span class="ov-re-choice-sub">use any other starter prompt</span>
                 </div>
               </div>
               <div class="ov-re-merge">
@@ -646,23 +646,61 @@ Date: April 3, 2026
   <div class="ov-summary">
     <h3>Quick Comparison</h3>
     <table>
-      <thead><tr><th>Dimension</th><th>A: Notice + Opt-Out &#9733;</th><th>B: Notice + Opt-In</th><th>C: Notice + End Summary</th><th>D: Always-On Passive</th></tr></thead>
+      <thead><tr><th>Dimension</th><th>A: Notice + End Summary</th><th>B: Notice + Opt-Out &#9733;</th><th>C: Notice + Opt-In</th><th>D: Always-On Passive</th></tr></thead>
       <tbody>
-        <tr><td>When asked</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>Upfront notice + at exit</td><td>Never &#8212; button always visible</td></tr>
-        <tr><td>Who initiates</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Agent (at exit, with opt-out)</td><td>Customer only</td></tr>
-        <tr><td>Email ends chat?</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#2B8C96">Yes &#8212; at exit</td><td style="color:#107C10">No &#8212; continues</td></tr>
-        <tr><td>Friction level</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#2B8C96">Low (zero during chat)</td><td style="color:#107C10">Zero push</td></tr>
-        <tr><td>Privacy / CELA risk</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#2B8C96">Low</td><td style="color:#107C10">Lowest</td></tr>
-        <tr><td>Best for</td><td>Default experience</td><td>Banner countries, pilots</td><td>Uninterrupted conversations</td><td>Privacy-first markets</td></tr>
+        <tr><td>When asked</td><td>Upfront notice + at exit</td><td>Upfront notice + mid-chat</td><td>Mid-chat prompt</td><td>Never &#8212; button always visible</td></tr>
+        <tr><td>Who initiates</td><td>Agent (at exit, with opt-out)</td><td>Agent (with opt-out)</td><td>Agent (requires opt-in)</td><td>Customer only</td></tr>
+        <tr><td>Email ends chat?</td><td style="color:#2B8C96">Yes &#8212; at exit</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#3F6FAE">No &#8212; continues</td><td style="color:#107C10">No &#8212; continues</td></tr>
+        <tr><td>Friction level</td><td style="color:#2B8C96">Low (zero during chat)</td><td style="color:#3F6FAE">Low</td><td>Medium</td><td style="color:#107C10">Zero push</td></tr>
+        <tr><td>Privacy / CELA risk</td><td style="color:#2B8C96">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#3F6FAE">Low</td><td style="color:#107C10">Lowest</td></tr>
+        <tr><td>Best for</td><td>Uninterrupted conversations</td><td>Default experience</td><td>Banner countries, pilots</td><td>Privacy-first markets</td></tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- ======== OPTION C ======== -->
+<div class="panel" id="pC">
+  <div class="stitle">
+    <h2>Option A: Notice + End-of-Chat Summary &#8212; Summary at the Finish Line</h2>
+    <p>Conversation saved by default with upfront notice (same as B). The difference: email capture happens at the end when the agent offers to send a summary &#8212; not mid-conversation.</p>
+  </div>
+  <div class="row">
+    <div class="info">
+      <span class="tag tg" style="background:#2B8C96">End-of-Chat</span>
+      <h3>How it works</h3>
+      <p class="lbl">Consent: Notice + Opt-Out (Summary at Exit)</p>
+      <ul>
+        <li><strong>Welcome notice:</strong> Consent notice embedded in the welcome message &#8212; conversation saved by default. Customer can [Opt out] anytime.</li>
+        <li><strong>Returning customer link:</strong> A subtle &#8220;Returning?&#8221; pill below the greeting lets returning customers self-identify and enter their email to reconnect.</li>
+        <li><strong>Uninterrupted conversation:</strong> No mid-conversation nudge or email prompt. The entire chat flows naturally without any identity capture.</li>
+        <li><strong>End-of-chat summary:</strong> When the customer wraps up, the agent offers to email a summary of the conversation. Customer chooses &#8220;Yes, email me&#8221; or &#8220;No thanks.&#8221;</li>
+        <li><strong>Email = persistence toggle:</strong> If they opt for the summary, email capture connects their identity. Summary is sent and conversation is saved for future return.</li>
+        <li><strong>Returning user:</strong> Same welcome screen &#8212; customer clicks the &#8220;Returning?&#8221; pill to reconnect. No separate flow needed.</li>
+      </ul>
+      <div class="note" style="border-left-color:#2B8C96"><strong>Key difference from B:</strong> Email is captured at the END when offering a summary, not mid-conversation. This means zero interruption during the active conversation &#8212; the customer gets full value first.</div>
+      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> No summary offer at the end. Conversation flows and ends naturally without any email prompt.</div>
+      <div class="note" style="border-left-color:#2B8C96;margin-top:8px"><strong>One welcome, all customers:</strong> The &#8220;Returning?&#8221; link handles both new and returning customers in a single unified experience &#8212; same as Option B.</div>
+    </div>
+    <div class="cw-wrap">
+      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="c-l">1 / 11</span></div>
+      <div class="cw-nav">
+        <button class="nav-btn" id="c-p" disabled title="Back">&#8249;</button>
+        <div class="cw">
+          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">&#10005;</button></div>
+          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cC"></div></div>
+          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
+        </div>
+        <button class="nav-btn" id="c-n" title="Next">&#8250;</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ======== OPTION A ======== -->
 <div class="panel" id="pA">
   <div class="stitle">
-    <h2>Option A: Notice + Opt-Out &#8212; Preferred Consent Model &#9733;</h2>
+    <h2>Option B: Notice + Opt-Out &#8212; Preferred Consent Model &#9733;</h2>
     <p>Conversation saved by default with upfront notice. Email capture mid-conversation enables identity connection &#8212; chat keeps going after. Summary auto-sent when customer leaves.</p>
   </div>
   <div class="row">
@@ -700,7 +738,7 @@ Date: April 3, 2026
 <!-- ======== OPTION B ======== -->
 <div class="panel" id="pB">
   <div class="stitle">
-    <h2>Option B: Notice + Opt-In &mdash; Explicit Consent Model</h2>
+    <h2>Option C: Notice + Opt-In &mdash; Explicit Consent Model</h2>
     <p>Nothing saved unless you opt in. Email is optional. The customer decides what to save and whether to connect their email &mdash; both are independent choices.</p>
   </div>
   <div class="row">
@@ -715,7 +753,7 @@ Date: April 3, 2026
         <li><strong>If declined:</strong> Conversation continues normally. No data saved. Customer can still explicitly request a summary later.</li>
         <li><strong>Returning user:</strong> If email was provided, can resume previous conversation or start fresh.</li>
       </ul>
-      <div class="note"><strong>Key difference from Option A:</strong> No data is saved by default. The customer must actively choose to enable saving in the welcome message. Saving and email are independent &mdash; you can save without connecting email.</div>
+      <div class="note"><strong>Key difference from Option B:</strong> No data is saved by default. The customer must actively choose to enable saving in the welcome message. Saving and email are independent &mdash; you can save without connecting email.</div>
       <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If customer declines:</strong> No saving occurs. No email nudge is shown. But if the customer later explicitly asks (e.g., &ldquo;Can you email me a summary?&rdquo;), the request is honored.</div>
       <div class="note" style="border-left-color:#3F6FAE;margin-top:8px"><strong>Aligns with Opt-In consent model:</strong> Strongest privacy posture while still enabling data capture for willing customers. Default for Banner countries and sensitive markets.</div>
     </div><div class="cw-wrap">
@@ -728,44 +766,6 @@ Date: April 3, 2026
           <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
         </div>
         <button class="nav-btn" id="b-n" title="Next">&#8250;</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== OPTION C ======== -->
-<div class="panel" id="pC">
-  <div class="stitle">
-    <h2>Option C: Notice + End-of-Chat Summary &#8212; Summary at the Finish Line</h2>
-    <p>Conversation saved by default with upfront notice (same as A). The difference: email capture happens at the end when the agent offers to send a summary &#8212; not mid-conversation.</p>
-  </div>
-  <div class="row">
-    <div class="info">
-      <span class="tag tg" style="background:#2B8C96">End-of-Chat</span>
-      <h3>How it works</h3>
-      <p class="lbl">Consent: Notice + Opt-Out (Summary at Exit)</p>
-      <ul>
-        <li><strong>Welcome notice:</strong> Consent notice embedded in the welcome message &#8212; conversation saved by default. Customer can [Opt out] anytime.</li>
-        <li><strong>Returning customer link:</strong> A subtle &#8220;Returning?&#8221; pill below the greeting lets returning customers self-identify and enter their email to reconnect.</li>
-        <li><strong>Uninterrupted conversation:</strong> No mid-conversation nudge or email prompt. The entire chat flows naturally without any identity capture.</li>
-        <li><strong>End-of-chat summary:</strong> When the customer wraps up, the agent offers to email a summary of the conversation. Customer chooses &#8220;Yes, email me&#8221; or &#8220;No thanks.&#8221;</li>
-        <li><strong>Email = persistence toggle:</strong> If they opt for the summary, email capture connects their identity. Summary is sent and conversation is saved for future return.</li>
-        <li><strong>Returning user:</strong> Same welcome screen &#8212; customer clicks the &#8220;Returning?&#8221; pill to reconnect. No separate flow needed.</li>
-      </ul>
-      <div class="note" style="border-left-color:#2B8C96"><strong>Key difference from A:</strong> Email is captured at the END when offering a summary, not mid-conversation. This means zero interruption during the active conversation &#8212; the customer gets full value first.</div>
-      <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> No summary offer at the end. Conversation flows and ends naturally without any email prompt.</div>
-      <div class="note" style="border-left-color:#2B8C96;margin-top:8px"><strong>One welcome, all customers:</strong> The &#8220;Returning?&#8221; link handles both new and returning customers in a single unified experience &#8212; same as Option A.</div>
-    </div>
-    <div class="cw-wrap">
-      <div class="step-bar"><span class="steps-label">Walk-through</span><span class="sl" id="c-l">1 / 11</span></div>
-      <div class="cw-nav">
-        <button class="nav-btn" id="c-p" disabled title="Back">&#8249;</button>
-        <div class="cw">
-          <div class="cw-head"><div class="dot"><svg><use href="#ic-chat"/></svg></div><div class="ttl">Ask Microsoft</div><button class="x">&#10005;</button></div>
-          <div class="cw-main"><div class="cw-bar"></div><div class="cw-body" id="cC"></div></div>
-          <div class="cw-foot"><div class="disc">AI-generated content may be incorrect</div><div class="cw-input"><input placeholder="Ask a work question or make a request..." disabled><button class="snd"><svg><use href="#ic-send"/></svg></button></div></div>
-        </div>
-        <button class="nav-btn" id="c-n" title="Next">&#8250;</button>
       </div>
     </div>
   </div>
@@ -816,8 +816,19 @@ Date: April 3, 2026
 
   <!-- &#9472;&#9472; What each option IS &#9472;&#9472; -->
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+    <div style="background:#EDF7F8;border:1px solid #8CC8CE;border-radius:10px;padding:14px">
+      <div style="font-size:11px;font-weight:700;color:#2B8C96;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">A: Notice + End Summary</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Summary at the Finish Line</div>
+      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Same upfront notice and opt-out as Option B. The difference: no mid-conversation nudge. Email captured only at the end when the agent offers to send a conversation summary.</p>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #8CC8CE">
+        <div style="font-size:10px;font-weight:700;color:#2B8C96;text-transform:uppercase;margin-bottom:4px">Flow</div>
+        <div style="font-size:11px;color:#444;line-height:1.7">
+          Welcome + notice [Opt out] &#8594;<br>Customer chats freely &#8594;<br>No mid-chat interruption &#8594;<br>Customer wraps up &#8594;<br>Agent: "Email you a summary?" &#8594;<br>Email capture &#8594; <strong>summary sent</strong> &#8594;<br>Return: email lookup &#8594; resume
+        </div>
+      </div>
+    </div>
     <div style="background:#e8f4fd;border:1px solid #b3d4fc;border-radius:10px;padding:14px;position:relative">
-      <div style="font-size:11px;font-weight:700;color:#0078d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">A: Notice + Opt-Out &#9733;</div>
+      <div style="font-size:11px;font-weight:700;color:#0078d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">B: Notice + Opt-Out &#9733;</div>
       <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Preferred &#8212; Save by Default</div>
       <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Conversation saved automatically with upfront notice + opt-out. Email asked <strong>mid-conversation</strong> to enable persistence &#8212; chat continues after. Summary auto-sent when customer leaves.</p>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid #c0d8f0">
@@ -828,24 +839,13 @@ Date: April 3, 2026
       </div>
     </div>
     <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px">
-      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">B: Notice + Opt-In</div>
+      <div style="font-size:11px;font-weight:700;color:#8a6914;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">C: Notice + Opt-In</div>
       <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Opt-In Banner After Engagement</div>
       <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Nothing saved until customer explicitly opts in via a dismissible banner. Email asked later when contextually relevant. More friction but stronger consent.</p>
       <div style="margin-top:10px;padding-top:8px;border-top:1px solid #e8e8e8">
         <div style="font-size:10px;font-weight:700;color:#8a6914;text-transform:uppercase;margin-bottom:4px">Flow</div>
         <div style="font-size:11px;color:#444;line-height:1.7">
           Welcome (no notice) &#8594;<br>Customer chats &#8594;<br>Consent prompt: "Save this conversation?" &#8594;<br>Opt in / decline &#8594;<br>Email connect mid-conversation <br><strong>Chat continues</strong> <br>Return: email lookup  resume
-        </div>
-      </div>
-    </div>
-    <div style="background:#EDF7F8;border:1px solid #8CC8CE;border-radius:10px;padding:14px">
-      <div style="font-size:11px;font-weight:700;color:#2B8C96;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">C: Notice + End Summary</div>
-      <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:6px">Summary at the Finish Line</div>
-      <p style="font-size:12px;color:#555;line-height:1.5;margin:0">Same upfront notice and opt-out as Option A. The difference: no mid-conversation nudge. Email captured only at the end when the agent offers to send a conversation summary.</p>
-      <div style="margin-top:10px;padding-top:8px;border-top:1px solid #8CC8CE">
-        <div style="font-size:10px;font-weight:700;color:#2B8C96;text-transform:uppercase;margin-bottom:4px">Flow</div>
-        <div style="font-size:11px;color:#444;line-height:1.7">
-          Welcome + notice [Opt out] &#8594;<br>Customer chats freely &#8594;<br>No mid-chat interruption &#8594;<br>Customer wraps up &#8594;<br>Agent: "Email you a summary?" &#8594;<br>Email capture &#8594; <strong>summary sent</strong> &#8594;<br>Return: email lookup &#8594; resume
         </div>
       </div>
     </div>
@@ -866,27 +866,27 @@ Date: April 3, 2026
   <div class="ctbl"><table>
     <thead><tr>
       <th style="width:15%">Dimension</th>
-      <th>A: Notice + Opt-Out &#9733;</th>
-      <th>B: Notice + Opt-In</th>
-      <th>C: Notice + End Summary</th>
+      <th>A: Notice + End Summary</th>
+      <th>B: Notice + Opt-Out &#9733;</th>
+      <th>C: Notice + Opt-In</th>
       <th>D: Always-On Passive</th>
     </tr></thead>
     <tbody>
-      <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Notice + Opt-Out</td><td>Always-On Passive Button</td></tr>
-      <tr><td><strong>When email asked</strong></td><td>Mid-conversation</td><td>Banner + later</td><td>End of chat (summary offer)</td><td>When customer taps Save chat</td></tr>
-      <tr><td><strong>Email ends chat?</strong></td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No  chat continues</span></td><td>Yes &#8212; at exit</td><td><span class="pro">No &#8212; chat continues</span></td></tr>
-      <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">&#9733; Low</span></td><td><span class="con">&#9733;&#9733; Medium</span></td><td><span class="pro">&#9733; Low (zero during chat)</span></td><td><span class="pro">&#9733; Zero push</span></td></tr>
-      <tr><td><strong>Who initiates</strong></td><td>Agent (contextual)</td><td>System (banner)</td><td>Agent (at exit)</td><td>Customer (button tap)</td></tr>
-      <tr><td><strong>Email capture rate</strong></td><td><span class="pro">Higher</span></td><td>Moderate</td><td>Moderate (end of chat)</td><td><span class="con">Lowest</span> but highest intent</td></tr>
+      <tr><td><strong>Consent model</strong></td><td>Notice + Opt-Out</td><td>Notice + Opt-Out</td><td>Notice + Opt-In</td><td>Always-On Passive Button</td></tr>
+      <tr><td><strong>When email asked</strong></td><td>End of chat (summary offer)</td><td>Mid-conversation</td><td>Banner + later</td><td>When customer taps Save chat</td></tr>
+      <tr><td><strong>Email ends chat?</strong></td><td>Yes &#8212; at exit</td><td><span class="pro">No &#8212; chat continues</span></td><td><span class="pro">No  chat continues</span></td><td><span class="pro">No &#8212; chat continues</span></td></tr>
+      <tr class="hl"><td><strong>Customer friction</strong></td><td><span class="pro">&#9733; Low (zero during chat)</span></td><td><span class="pro">&#9733; Low</span></td><td><span class="con">&#9733;&#9733; Medium</span></td><td><span class="pro">&#9733; Zero push</span></td></tr>
+      <tr><td><strong>Who initiates</strong></td><td>Agent (at exit)</td><td>Agent (contextual)</td><td>System (banner)</td><td>Customer (button tap)</td></tr>
+      <tr><td><strong>Email capture rate</strong></td><td>Moderate (end of chat)</td><td><span class="pro">Higher</span></td><td>Moderate</td><td><span class="con">Lowest</span> but highest intent</td></tr>
       <tr class="hl"><td><strong>Privacy/CELA risk</strong></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Low</span></td><td><span class="pro">Lowest</span></td></tr>
-      <tr><td><strong>Regulatory fit</strong></td><td>Default for most eCommerce</td><td>Banner countries, pilots</td><td>Default + sensitive regions</td><td>All regions</td></tr>
-      <tr><td><strong>Best for</strong></td><td>Default experience</td><td>Sensitive markets, pilots</td><td>Uninterrupted conversations</td><td>Privacy-first markets</td></tr>
+      <tr><td><strong>Regulatory fit</strong></td><td>Default + sensitive regions</td><td>Default for most eCommerce</td><td>Banner countries, pilots</td><td>All regions</td></tr>
+      <tr><td><strong>Best for</strong></td><td>Uninterrupted conversations</td><td>Default experience</td><td>Sensitive markets, pilots</td><td>Privacy-first markets</td></tr>
       <tr><td><strong>Quotex</strong></td><td colspan="4" style="text-align:center">All options are independent of Quotex. Email here is for <strong>conversation continuity</strong> only.</td></tr>
       <tr><td><strong>Returning user</strong></td><td colspan="4" style="text-align:center">All pair with the <strong>email-based reconnect</strong> flow. Only works when email was captured in a prior session.</td></tr>
     </tbody>
   </table></div>
   <div style="margin:16px 0 0">
-    <div class="note"><strong>Recommendation:</strong> <strong>Option A (Notice + Opt-Out)</strong> is the preferred model &#8212; strongest balance of trust, usability, and data capture. Default for most eCommerce scenarios. For Banner countries and privacy-sensitive markets, start with B (Opt-In) or C. Option D works as a complement to any model.</div>
+    <div class="note"><strong>Recommendation:</strong> <strong>Option B (Notice + Opt-Out)</strong> is the preferred model &#8212; strongest balance of trust, usability, and data capture. Default for most eCommerce scenarios. For Banner countries and privacy-sensitive markets, start with C (Opt-In) or A (End Summary). Option D works as a complement to any model.</div>
   </div>
 </div>
 

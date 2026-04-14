@@ -1082,10 +1082,14 @@ window._dSave=function(){
   lnk.dataset.saved='1';
   var c=document.getElementById('cD');
   var card=document.createElement('div');card.className='ec';card.style.marginTop='4px';
-  card.innerHTML='<div class="ec-t">Save this conversation</div>'
+  card.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center"><div class="ec-t" style="margin:0">Save this conversation</div><button class="ec-dismiss" style="background:none;border:none;color:#999;cursor:pointer;font-size:16px;padding:2px 4px" title="Dismiss">&#10005;</button></div>'
     +'<div class="ec-sub">Enter your email to get a summary and pick up where you left off next time.</div>'
     +'<input type="email" placeholder="your.email@company.com">'
     +'<button class="ec-btn">Connect</button>';
+  card.querySelector('.ec-dismiss').addEventListener('click',function(){
+    card.innerHTML='<div style="padding:8px;font-size:12px;color:#888">Dismissed. Tap <strong>Save chat</strong> in the footer anytime to bring this back.</div>';
+    delete lnk.dataset.saved;
+  });
   card.querySelector('.ec-btn').addEventListener('click',function(){
     card.innerHTML='<div style="padding:12px;text-align:center"><div style="color:#107C10;font-weight:600;font-size:13px">&#10003; Connected. Your conversation will be saved.</div></div>';
     lnk.innerHTML='<svg class="sp-icon" viewBox="0 0 24 24" fill="#107C10" stroke="#107C10" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg><span class="sp-label" style="color:#107C10;font-weight:600">&#10003; Saved</span>';

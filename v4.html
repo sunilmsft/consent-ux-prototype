@@ -650,6 +650,12 @@ Date: April 3, 2026
         <li><strong>No email entered:</strong> Nothing happens. No further nudging. Standard flow continues.</li>
         <li><strong>No returning flow:</strong> Every session is a fresh start. No context carried over, no &#8220;Returning?&#8221; link.</li>
       </ul>
+      <p class="lbl" style="margin-top:14px">Triggers</p>
+      <ul>
+        <li><strong>Email card trigger:</strong> Appears automatically after <strong>~3 conversation turns</strong> &#8212; the customer&#39;s 3rd question triggers the inline email capture card.</li>
+        <li><strong>Re-invoke trigger:</strong> Customer can type <strong>&#8220;Email Summary&#8221;</strong> in the chat input at any time to bring back the email card (e.g., after dismissing it).</li>
+        <li><strong>Transcript send trigger:</strong> Email is sent on <strong>graceful chat end</strong> (customer says thanks/goodbye) <em>or</em> after an <strong>idle timeout</strong> (customer closes tab or goes silent). Two triggers, same result.</li>
+      </ul>
       <div class="note" style="border-left-color:#2B8C96"><strong>Key concept:</strong> This is the &#8220;Enabling Transcript Summary in Email&#8221; capability. The customer gets value (a transcript copy) without any persistence or identity connection. Simplest path to email capture.</div>
       <div class="note" style="border-left-color:#a4262c;margin-top:8px"><strong>If user opts out:</strong> No transcript offer appears. Conversation flows naturally without any email prompt.</div>
       <div class="note" style="border-left-color:#2B8C96;margin-top:8px"><strong>Transcript delivery:</strong> Sent on graceful chat end (customer says thanks/goodbye) or after an idle timeout (customer closes tab or goes silent). Two triggers, same result.</div>

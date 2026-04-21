@@ -86,22 +86,22 @@ Created: April 20, 2026
   .ts{font-size:11px;color:#aaa;margin-top:3px;align-self:flex-start}
   .tsr{font-size:11px;color:#aaa;margin-top:3px;align-self:flex-end}
 
-  /* Collection card — quoting-card style */
-  .collect-card{background:#fff;border:1px solid #d0dff0;border-radius:10px;overflow:hidden;animation:fu .35s ease;box-shadow:0 2px 8px rgba(0,60,130,.08);margin:6px 0}
-  .collect-card .cc-head{background:linear-gradient(135deg,#2B8C96,#1E6B73);padding:12px 16px;color:#fff}
-  .collect-card .cc-head-t{font-size:13px;font-weight:700;letter-spacing:.2px}
-  .collect-card .cc-head-sub{font-size:11px;opacity:.85;margin-top:2px}
-  .collect-card .cc-body{padding:14px 16px}
-  .collect-card .cc-notice{font-size:11px;color:#666;line-height:1.5;margin-bottom:12px;padding:8px 10px;background:#f8f9fa;border-radius:6px;border-left:3px solid #2B8C96}
-  .collect-card .cc-field{margin-bottom:10px}
-  .collect-card .cc-field label{display:block;font-size:11px;font-weight:600;color:#333;margin-bottom:3px}
-  .collect-card .cc-field input{width:100%;padding:9px 12px;border:1.5px solid #c0d0e0;border-radius:6px;font-size:13px;font-family:inherit;outline:none;transition:.2s}
-  .collect-card .cc-field input:focus{border-color:#2B8C96;box-shadow:0 0 0 3px rgba(43,140,150,.12)}
-  .collect-card .cc-field input::placeholder{color:#bbb}
-  .collect-card .cc-submit{display:block;width:100%;padding:10px;background:#2B8C96;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;text-align:center;transition:.15s}
-  .collect-card .cc-submit:hover{background:#1E6B73}
-  .collect-card .cc-privacy{margin-top:8px;font-size:10px;color:#aaa;line-height:1.4}
-  .collect-card .cc-privacy a{color:#0078d4}
+  /* Collection card — matches real Ask Microsoft quote flow */
+  .collect-card{animation:fu .35s ease}
+  .collect-card .cc-intro{font-size:14px;color:#1a1a1a;line-height:1.55;margin-bottom:12px}
+  .collect-card .cc-notice{font-size:14px;color:#1a1a1a;line-height:1.55;margin-bottom:16px}
+  .collect-card .cc-notice a{color:#0078d4;text-decoration:none}
+  .collect-card .cc-notice a:hover{text-decoration:underline}
+  .collect-card .cc-field{margin-bottom:14px;border:1.5px solid #0078d4;border-radius:6px;padding:10px 14px}
+  .collect-card .cc-field label{display:block;font-size:12px;font-weight:600;color:#0078d4;margin-bottom:4px}
+  .collect-card .cc-field label .req{color:#d13438;font-weight:400}
+  .collect-card .cc-field input{width:100%;padding:0;border:none;font-size:14px;font-family:inherit;outline:none;color:#1a1a1a;background:none}
+  .collect-card .cc-field input::placeholder{color:#999}
+  .collect-card .cc-actions{display:flex;gap:10px;align-items:center;margin-top:16px}
+  .collect-card .cc-submit{padding:9px 24px;background:#d13438;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+  .collect-card .cc-submit:hover{background:#b52e31}
+  .collect-card .cc-secondary{padding:9px 18px;background:#fff;color:#1a1a1a;border:1.5px solid #d0d0d0;border-radius:6px;font-size:13px;font-weight:400;cursor:pointer;font-family:inherit;transition:.15s}
+  .collect-card .cc-secondary:hover{background:#f5f5f5;border-color:#999}
 
   /* Confirmation */
   .confirm-card{background:linear-gradient(135deg,#EDF7F8,#f0faf0);border:1px solid #8CC8CE;border-radius:8px;padding:14px 18px;text-align:center;margin:8px 0;animation:fu .35s ease}
@@ -197,7 +197,7 @@ var S4Q = usr('How many users do I need to start?')+'<span class="tsr">just now<
 
 var OFFER = '<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:8px;padding:12px 16px;margin:8px 0;text-align:center"><div style="font-size:13px;color:#1E6B73;font-weight:600;margin-bottom:6px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:11px;color:#888;margin-bottom:8px">We can email you a transcript for your records.</div><button style="padding:8px 20px;background:#2B8C96;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Get a transcript</button></div>';
 
-var COLLECT = '<div class="collect-card"><div class="cc-head"><div class="cc-head-t">Get Your Conversation Transcript</div><div class="cc-head-sub">We\u2019ll email you a copy of this conversation for your records.</div></div><div class="cc-body"><div class="cc-notice">We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email this conversation may be connected to your profile to provide more seamless and personalized experiences.</div><div class="cc-field"><label>First Name</label><input type="text" placeholder="e.g. Sarah" value="Sarah" disabled></div><div class="cc-field"><label>Email Address</label><input type="email" placeholder="your.email@company.com" value="sarah@contoso.com" disabled></div><button class="cc-submit" disabled style="opacity:.85">Send me the transcript</button><div class="cc-privacy"><a href="#">Privacy Statement</a> \u00b7 <a href="#">Terms of Use</a></div></div></div>';
+var COLLECT = '<div class="m mb collect-card"><div class="cc-intro">I will need your first name and email address in order to send the email with your conversation transcript.</div><div class="cc-notice">The name and email provided here will be used to provide you the transcript. Also, a Microsoft Sales representative may contact you to discuss the quote, and a copy of chat transcript will be provided to them. This quote capability only applies to US Market. <a href="#">Microsoft Privacy Statement</a></div><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" placeholder="John" value="Sarah" disabled></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" placeholder="john.doe@example.com" value="sarah@contoso.com" disabled></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Change previous info</button></div></div><span class="ts">just now</span>';
 
 var CONFIRM = '<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript sent to sarah@contoso.com</div><div class="cc-detail">You\u2019ll receive an email with the full transcript of this conversation, including your questions about M365 Business plans, Teams, and pricing.</div></div>';
 

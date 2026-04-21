@@ -181,65 +181,57 @@ Created: April 20, 2026
 </div>
 
 <script>
-// === Helpers ===
-const T='<div class="fb"><button class="tb"><svg><use href="#ic-up"/></svg></button><button class="tb"><svg><use href="#ic-dn"/></svg></button></div>';
-function add(h){const c=document.getElementById('chat'),d=document.createElement('div');d.innerHTML=h;while(d.firstChild)c.appendChild(d.firstChild);c.scrollTop=c.scrollHeight}
-function bot(t){return'<div class="m mb">'+t+T+'</div>'}
-function usr(t){return'<div class="m mu">'+t+'</div>'}
+// === Reusable HTML fragments ===
+var T='<div class="fb"><button class="tb"><svg><use href="#ic-up"/></svg></button><button class="tb"><svg><use href="#ic-dn"/></svg></button></div>';
+function bot(t){return '<div class="m mb">'+t+T+'</div>';}
+function usr(t){return '<div class="m mu">'+t+'</div>';}
 
-// === Welcome ===
-const WELCOME='<div class="m mb">Hi. I\u2019m an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> \u2197 or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> \u2197</div>'+T+'</div><span class="ts">just now</span>';
+// === Build each step as COMPLETE chat HTML (no incremental DOM manipulation) ===
+var W = bot('Hi. I\u2019m an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> \u2197 or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> \u2197</div>')+'<span class="ts">just now</span>';
 
-// === Steps ===
-const steps=[
-  // Step 1: Welcome
-  function(){document.getElementById('chat').innerHTML=WELCOME},
-  // Step 2: Customer asks about M365 Business plans
-  function(){
-    add(usr("Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?"));
-    add('<span class="tsr">just now</span>');
-    add(bot("Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong> \u2014 $6.00/user/month<br>\u2713 Web &amp; mobile versions of Word, Excel, PowerPoint<br>\u2713 1 TB cloud storage per user<br>\u2713 Microsoft Teams for chat &amp; meetings<br><br><strong>Business Standard</strong> \u2014 $12.50/user/month<br>\u2713 Everything in Basic, plus full desktop apps<br>\u2713 Webinar hosting &amp; attendee registration<br><br><strong>Business Premium</strong> \u2014 $22.00/user/month<br>\u2713 Everything in Standard, plus advanced security<br>\u2713 Intune device management<br><br>What matters most to your team \u2014 collaboration, desktop apps, or security?"));
-    add('<span class="ts">just now</span>');
-  },
-  // Step 3: Follow-up about Teams
-  function(){
-    add(usr("I\u2019m interested in Business Basic with Teams. Can I add Teams later if I start without it?"));
-    add('<span class="tsr">just now</span>');
-    add(bot("Business Basic already includes Microsoft Teams at no extra cost \u2014 it\u2019s part of the plan. You\u2019ll get:<br><br>\u2713 Unlimited chat and group messaging<br>\u2713 Online meetings up to 300 participants<br>\u2713 Meeting recordings and transcription<br>\u2713 Shared calendars and scheduling<br><br>If you ever need the full desktop apps, you can upgrade to Business Standard anytime.<br><br><a href='#'>\u2192 Compare all plans side by side</a>"));
-    add('<span class="ts">just now</span>');
-  },
-  // Step 4: Another question + transcript offer
-  function(){
-    add(usr("How many users do I need to start?"));
-    add('<span class="tsr">just now</span>');
-    add(bot("There\u2019s no minimum \u2014 you can start with just 1 user and add more anytime. Billing is per user, per month.<br><br>For a small team, I\u2019d suggest starting with the number of people who need email and Teams access right away. You can always add users later."));
-    add('<span class="ts">just now</span>');
-    add('<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:8px;padding:12px 16px;margin:8px 0;text-align:center;animation:fu .35s ease"><div style="font-size:13px;color:#1E6B73;font-weight:600;margin-bottom:6px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:11px;color:#888;margin-bottom:8px">We can email you a transcript for your records.</div><button style="padding:8px 20px;background:#2B8C96;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s">Get a transcript</button></div>');
-  },
-  // Step 5: Collection card
-  function(){
-    add('<div class="collect-card"><div class="cc-head"><div class="cc-head-t">Get Your Conversation Transcript</div><div class="cc-head-sub">We\u2019ll email you a copy of this conversation for your records.</div></div><div class="cc-body"><div class="cc-notice">We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email this conversation may be connected to your profile to provide more seamless and personalized experiences.</div><div class="cc-field"><label>First Name</label><input type="text" placeholder="e.g. Sarah" value="Sarah" disabled></div><div class="cc-field"><label>Email Address</label><input type="email" placeholder="your.email@company.com" value="sarah@contoso.com" disabled></div><button class="cc-submit" disabled style="opacity:.85">Send me the transcript</button><div class="cc-privacy"><a href="#">Privacy Statement</a> \u00b7 <a href="#">Terms of Use</a></div></div></div>');
-  },
-  // Step 6: Confirmation
-  function(){
-    add('<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript sent to sarah@contoso.com</div><div class="cc-detail">You\u2019ll receive an email with the full transcript of this conversation, including your questions about M365 Business plans, Teams, and pricing.</div></div>');
-  },
-  // Step 7: Chat continues
-  function(){
-    add(usr("Great, thanks! One more question \u2014 is there a free trial I can try first?"));
-    add('<span class="tsr">just now</span>');
-    add(bot("Yes! There\u2019s a <strong>1-month free trial</strong> of Microsoft 365 Business Basic with full access to Teams, OneDrive, and all web apps. No credit card required to start.<br><br><a href='#'>\u2192 Start your free trial</a><br><br>Is there anything else I can help with?"));
-    add('<span class="ts">just now</span>');
-  }
+var S2 = usr('Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?')+'<span class="tsr">just now</span>'+bot('Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong> \u2014 $6.00/user/month<br>\u2713 Web &amp; mobile versions of Word, Excel, PowerPoint<br>\u2713 1 TB cloud storage per user<br>\u2713 Microsoft Teams for chat &amp; meetings<br><br><strong>Business Standard</strong> \u2014 $12.50/user/month<br>\u2713 Everything in Basic, plus full desktop apps<br>\u2713 Webinar hosting &amp; attendee registration<br><br><strong>Business Premium</strong> \u2014 $22.00/user/month<br>\u2713 Everything in Standard, plus advanced security<br>\u2713 Intune device management<br><br>What matters most to your team \u2014 collaboration, desktop apps, or security?')+'<span class="ts">just now</span>';
+
+var S3 = usr('I\u2019m interested in Business Basic with Teams. Can I add Teams later if I start without it?')+'<span class="tsr">just now</span>'+bot('Business Basic already includes Microsoft Teams at no extra cost \u2014 it\u2019s part of the plan. You\u2019ll get:<br><br>\u2713 Unlimited chat and group messaging<br>\u2713 Online meetings up to 300 participants<br>\u2713 Meeting recordings and transcription<br>\u2713 Shared calendars and scheduling<br><br>If you ever need the full desktop apps, you can upgrade to Business Standard anytime.<br><br><a href="#">\u2192 Compare all plans side by side</a>')+'<span class="ts">just now</span>';
+
+var S4Q = usr('How many users do I need to start?')+'<span class="tsr">just now</span>'+bot('There\u2019s no minimum \u2014 you can start with just 1 user and add more anytime. Billing is per user, per month.<br><br>For a small team, I\u2019d suggest starting with the number of people who need email and Teams access right away. You can always add users later.')+'<span class="ts">just now</span>';
+
+var OFFER = '<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:8px;padding:12px 16px;margin:8px 0;text-align:center"><div style="font-size:13px;color:#1E6B73;font-weight:600;margin-bottom:6px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:11px;color:#888;margin-bottom:8px">We can email you a transcript for your records.</div><button style="padding:8px 20px;background:#2B8C96;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Get a transcript</button></div>';
+
+var COLLECT = '<div class="collect-card"><div class="cc-head"><div class="cc-head-t">Get Your Conversation Transcript</div><div class="cc-head-sub">We\u2019ll email you a copy of this conversation for your records.</div></div><div class="cc-body"><div class="cc-notice">We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email this conversation may be connected to your profile to provide more seamless and personalized experiences.</div><div class="cc-field"><label>First Name</label><input type="text" placeholder="e.g. Sarah" value="Sarah" disabled></div><div class="cc-field"><label>Email Address</label><input type="email" placeholder="your.email@company.com" value="sarah@contoso.com" disabled></div><button class="cc-submit" disabled style="opacity:.85">Send me the transcript</button><div class="cc-privacy"><a href="#">Privacy Statement</a> \u00b7 <a href="#">Terms of Use</a></div></div></div>';
+
+var CONFIRM = '<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript sent to sarah@contoso.com</div><div class="cc-detail">You\u2019ll receive an email with the full transcript of this conversation, including your questions about M365 Business plans, Teams, and pricing.</div></div>';
+
+var S7 = usr('Great, thanks! One more question \u2014 is there a free trial I can try first?')+'<span class="tsr">just now</span>'+bot('Yes! There\u2019s a <strong>1-month free trial</strong> of Microsoft 365 Business Basic with full access to Teams, OneDrive, and all web apps. No credit card required to start.<br><br><a href="#">\u2192 Start your free trial</a><br><br>Is there anything else I can help with?')+'<span class="ts">just now</span>';
+
+// Each step = complete chat innerHTML (cumulative)
+var pages = [
+  /* 1 */ W,
+  /* 2 */ W + S2,
+  /* 3 */ W + S2 + S3,
+  /* 4 */ W + S2 + S3 + S4Q + OFFER,
+  /* 5 */ W + S2 + S3 + S4Q + OFFER + COLLECT,
+  /* 6 */ W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM,
+  /* 7 */ W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM + S7
 ];
 
 // === Stepper ===
-let s=0;const n=steps.length;
-const pb=document.getElementById('btn-prev'),nb=document.getElementById('btn-next'),lb=document.getElementById('step-label');
-function u(){lb.textContent=(s+1)+' / '+n;pb.disabled=s<=0;nb.disabled=s>=n-1}
-steps[0]();u();
-nb.addEventListener('click',function(){if(s<n-1){s++;steps[s]();u()}});
-pb.addEventListener('click',function(){if(s>0){s--;document.getElementById('chat').innerHTML='';for(var i=0;i<=s;i++)steps[i]();u()}});
+var s = 0, n = pages.length;
+var chat = document.getElementById('chat');
+var pb = document.getElementById('btn-prev');
+var nb = document.getElementById('btn-next');
+var lb = document.getElementById('step-label');
+
+function show() {
+  chat.innerHTML = pages[s];
+  lb.textContent = (s+1) + ' / ' + n;
+  pb.disabled = (s <= 0);
+  nb.disabled = (s >= n-1);
+  chat.scrollTop = chat.scrollHeight;
+}
+show();
+
+nb.addEventListener('click', function(){ if(s < n-1){ s++; show(); } });
+pb.addEventListener('click', function(){ if(s > 0){ s--; show(); } });
 </script>
 </body>
 </html>

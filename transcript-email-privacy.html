@@ -198,31 +198,23 @@ const steps=[
   function(){
     add(usr("Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?"));
     add('<span class="tsr">just now</span>');
-    setTimeout(function(){
-      add(bot("Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong> \u2014 $6.00/user/month<br>\u2713 Web &amp; mobile versions of Word, Excel, PowerPoint<br>\u2713 1 TB cloud storage per user<br>\u2713 Microsoft Teams for chat &amp; meetings<br><br><strong>Business Standard</strong> \u2014 $12.50/user/month<br>\u2713 Everything in Basic, plus full desktop apps<br>\u2713 Webinar hosting &amp; attendee registration<br><br><strong>Business Premium</strong> \u2014 $22.00/user/month<br>\u2713 Everything in Standard, plus advanced security<br>\u2713 Intune device management<br><br>What matters most to your team \u2014 collaboration, desktop apps, or security?"));
-      add('<span class="ts">just now</span>');
-    },200);
+    add(bot("Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong> \u2014 $6.00/user/month<br>\u2713 Web &amp; mobile versions of Word, Excel, PowerPoint<br>\u2713 1 TB cloud storage per user<br>\u2713 Microsoft Teams for chat &amp; meetings<br><br><strong>Business Standard</strong> \u2014 $12.50/user/month<br>\u2713 Everything in Basic, plus full desktop apps<br>\u2713 Webinar hosting &amp; attendee registration<br><br><strong>Business Premium</strong> \u2014 $22.00/user/month<br>\u2713 Everything in Standard, plus advanced security<br>\u2713 Intune device management<br><br>What matters most to your team \u2014 collaboration, desktop apps, or security?"));
+    add('<span class="ts">just now</span>');
   },
   // Step 3: Follow-up about Teams
   function(){
     add(usr("I\u2019m interested in Business Basic with Teams. Can I add Teams later if I start without it?"));
     add('<span class="tsr">just now</span>');
-    setTimeout(function(){
-      add(bot("Business Basic already includes Microsoft Teams at no extra cost \u2014 it\u2019s part of the plan. You\u2019ll get:<br><br>\u2713 Unlimited chat and group messaging<br>\u2713 Online meetings up to 300 participants<br>\u2713 Meeting recordings and transcription<br>\u2713 Shared calendars and scheduling<br><br>If you ever need the full desktop apps, you can upgrade to Business Standard anytime.<br><br><a href='#'>\u2192 Compare all plans side by side</a>"));
-      add('<span class="ts">just now</span>');
-    },200);
+    add(bot("Business Basic already includes Microsoft Teams at no extra cost \u2014 it\u2019s part of the plan. You\u2019ll get:<br><br>\u2713 Unlimited chat and group messaging<br>\u2713 Online meetings up to 300 participants<br>\u2713 Meeting recordings and transcription<br>\u2713 Shared calendars and scheduling<br><br>If you ever need the full desktop apps, you can upgrade to Business Standard anytime.<br><br><a href='#'>\u2192 Compare all plans side by side</a>"));
+    add('<span class="ts">just now</span>');
   },
   // Step 4: Another question + transcript offer
   function(){
     add(usr("How many users do I need to start?"));
     add('<span class="tsr">just now</span>');
-    setTimeout(function(){
-      add(bot("There\u2019s no minimum \u2014 you can start with just 1 user and add more anytime. Billing is per user, per month.<br><br>For a small team, I\u2019d suggest starting with the number of people who need email and Teams access right away. You can always add users later."));
-      add('<span class="ts">just now</span>');
-      setTimeout(function(){
-        add('<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:8px;padding:12px 16px;margin:8px 0;text-align:center;animation:fu .35s ease"><div style="font-size:13px;color:#1E6B73;font-weight:600;margin-bottom:6px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:11px;color:#888;margin-bottom:8px">We can email you a transcript for your records.</div><button style="padding:8px 20px;background:#2B8C96;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s" onmouseover="this.style.background=\'#1E6B73\'" onmouseout="this.style.background=\'#2B8C96\'">Get a transcript</button></div>');
-      },400);
-    },200);
+    add(bot("There\u2019s no minimum \u2014 you can start with just 1 user and add more anytime. Billing is per user, per month.<br><br>For a small team, I\u2019d suggest starting with the number of people who need email and Teams access right away. You can always add users later."));
+    add('<span class="ts">just now</span>');
+    add('<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:8px;padding:12px 16px;margin:8px 0;text-align:center;animation:fu .35s ease"><div style="font-size:13px;color:#1E6B73;font-weight:600;margin-bottom:6px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:11px;color:#888;margin-bottom:8px">We can email you a transcript for your records.</div><button style="padding:8px 20px;background:#2B8C96;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s">Get a transcript</button></div>');
   },
   // Step 5: Collection card
   function(){
@@ -236,10 +228,8 @@ const steps=[
   function(){
     add(usr("Great, thanks! One more question \u2014 is there a free trial I can try first?"));
     add('<span class="tsr">just now</span>');
-    setTimeout(function(){
-      add(bot("Yes! There\u2019s a <strong>1-month free trial</strong> of Microsoft 365 Business Basic with full access to Teams, OneDrive, and all web apps. No credit card required to start.<br><br><a href='#'>\u2192 Start your free trial</a><br><br>Is there anything else I can help with?"));
-      add('<span class="ts">just now</span>');
-    },200);
+    add(bot("Yes! There\u2019s a <strong>1-month free trial</strong> of Microsoft 365 Business Basic with full access to Teams, OneDrive, and all web apps. No credit card required to start.<br><br><a href='#'>\u2192 Start your free trial</a><br><br>Is there anything else I can help with?"));
+    add('<span class="ts">just now</span>');
   }
 ];
 

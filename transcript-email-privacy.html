@@ -158,6 +158,7 @@ Created: April 20, 2026
     <span class="steps-label">Walk-through</span>
     <span class="sl" id="step-label">1 / 7</span>
     <button id="btn-next" title="Next">&#8250;</button>
+    <button id="btn-reset" title="Reset" style="font-size:13px;width:auto;padding:0 8px;color:#888;font-weight:400">&#8635;</button>
   </div>
 
   <!-- Header -->
@@ -232,6 +233,7 @@ show();
 
 nb.addEventListener('click', function(){ if(s < n-1){ s++; show(); } });
 pb.addEventListener('click', function(){ if(s > 0){ s--; show(); } });
+document.getElementById('btn-reset').addEventListener('click', function(){ s=0; show(); });
 </script>
 </body>
 </html>

@@ -58,7 +58,7 @@ Created: April 20, 2026
   .cw-head .x:hover{background:#f0f0f0}
 
   /* Chat body */
-  .cw-body{flex:1;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:6px;scroll-behavior:smooth;background:#fff}
+  .cw-body{flex:1;overflow-y:auto;padding:8px 10px;display:flex;flex-direction:column;gap:3px;scroll-behavior:smooth;background:#fff}
   .cw-body::before{content:'';flex:1 1 0px}
 
   /* Chat footer — matches real Ask Microsoft */
@@ -73,41 +73,41 @@ Created: April 20, 2026
   .cw-input .snd svg{width:22px;height:22px}
 
   /* Messages — matching real Ask Microsoft style */
-  .m{max-width:100%;font-size:14px;line-height:1.55;animation:fu .3s ease}
+  .m{max-width:100%;font-size:13px;line-height:1.45;animation:fu .3s ease}
   @keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-  .mb{background:#fff;padding:10px 12px;border-radius:4px 14px 14px 14px;align-self:flex-start;border:1.5px dashed #d0d0d0;color:#1a1a1a}
-  .mu{background:#e8f0fe;padding:8px 12px;border-radius:14px 4px 14px 14px;align-self:flex-end;border:1px solid #c8d8ee;color:#1a1a1a}
+  .mb{background:#fff;padding:8px 10px;border-radius:4px 14px 14px 14px;align-self:flex-start;border:1.5px dashed #d0d0d0;color:#1a1a1a}
+  .mu{background:#e8f0fe;padding:6px 10px;border-radius:14px 4px 14px 14px;align-self:flex-end;border:1px solid #c8d8ee;color:#1a1a1a}
   .mb a{color:#0078d4;text-decoration:underline}
-  .mb .tr-note{font-size:12px;color:#888;margin-top:6px}
-  .fb{margin-top:5px;display:flex;gap:8px}
-  .tb{background:none;border:none;cursor:pointer;padding:2px;color:#bbb;display:flex;align-items:center;transition:all .15s}
+  .mb .tr-note{font-size:11px;color:#888;margin-top:4px}
+  .fb{margin-top:3px;display:flex;gap:6px}
+  .tb{background:none;border:none;cursor:pointer;padding:1px;color:#bbb;display:flex;align-items:center;transition:all .15s}
   .tb:hover{color:#0078d4;transform:scale(1.15)}
-  .tb svg{width:20px;height:20px}
-  .ts{font-size:11px;color:#aaa;margin-top:2px;align-self:flex-start}
-  .tsr{font-size:11px;color:#aaa;margin-top:2px;align-self:flex-end}
+  .tb svg{width:18px;height:18px}
+  .ts{font-size:10px;color:#aaa;margin-top:1px;align-self:flex-start}
+  .tsr{font-size:10px;color:#aaa;margin-top:1px;align-self:flex-end}
 
   /* Collection card — matches real Ask Microsoft quote flow */
   .collect-card{animation:fu .35s ease}
-  .collect-card .cc-notice{font-size:13px;color:#1a1a1a;line-height:1.5;margin-bottom:10px}
+  .collect-card .cc-notice{font-size:12px;color:#1a1a1a;line-height:1.4;margin-bottom:6px}
   .collect-card .cc-notice a{color:#0078d4;text-decoration:none}
   .collect-card .cc-notice a:hover{text-decoration:underline}
-  .collect-card .cc-field{margin-bottom:10px;border:1.5px solid #0078d4;border-radius:5px;padding:7px 10px}
-  .collect-card .cc-field label{display:block;font-size:11px;font-weight:600;color:#0078d4;margin-bottom:2px}
+  .collect-card .cc-field{margin-bottom:6px;border:1.5px solid #0078d4;border-radius:4px;padding:5px 8px}
+  .collect-card .cc-field label{display:block;font-size:10px;font-weight:600;color:#0078d4;margin-bottom:1px}
   .collect-card .cc-field label .req{color:#d13438;font-weight:400}
-  .collect-card .cc-field input{width:100%;padding:0;border:none;font-size:13px;font-family:inherit;outline:none;color:#1a1a1a;background:none}
+  .collect-card .cc-field input{width:100%;padding:0;border:none;font-size:12px;font-family:inherit;outline:none;color:#1a1a1a;background:none}
   .collect-card .cc-field input::placeholder{color:#999}
-  .collect-card .cc-actions{display:flex;gap:8px;align-items:center;margin-top:10px}
-  .collect-card .cc-submit{padding:7px 20px;background:#0078d4;color:#fff;border:none;border-radius:5px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+  .collect-card .cc-actions{display:flex;gap:6px;align-items:center;margin-top:6px}
+  .collect-card .cc-submit{padding:5px 16px;background:#0078d4;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
   .collect-card .cc-submit:hover{background:#005fa3}
-  .collect-card .cc-secondary{padding:7px 14px;background:#fff;color:#1a1a1a;border:1.5px solid #d0d0d0;border-radius:5px;font-size:12px;font-weight:400;cursor:pointer;font-family:inherit;transition:.15s}
+  .collect-card .cc-secondary{padding:5px 12px;background:#fff;color:#1a1a1a;border:1.5px solid #d0d0d0;border-radius:4px;font-size:11px;font-weight:400;cursor:pointer;font-family:inherit;transition:.15s}
   .collect-card .cc-secondary:hover{background:#f5f5f5;border-color:#999}
-  .collect-card .cc-footer{margin-top:10px;font-size:11px;color:#888;font-style:italic}
+  .collect-card .cc-footer{margin-top:6px;font-size:10px;color:#888;font-style:italic}
 
   /* Confirmation */
-  .confirm-card{background:linear-gradient(135deg,#EDF7F8,#f0faf0);border:1px solid #8CC8CE;border-radius:6px;padding:10px 14px;text-align:center;margin:4px 0;animation:fu .35s ease}
-  .confirm-card .cc-check{font-size:20px;color:#2B8C96;margin-bottom:2px}
+  .confirm-card{background:linear-gradient(135deg,#EDF7F8,#f0faf0);border:1px solid #8CC8CE;border-radius:5px;padding:8px 10px;text-align:left;margin:2px 0;animation:fu .35s ease}
+  .confirm-card .cc-check{font-size:16px;color:#2B8C96;margin-bottom:1px}
   .confirm-card .cc-title{font-size:12px;font-weight:700;color:#1E6B73}
-  .confirm-card .cc-detail{font-size:11px;color:#888;margin-top:3px;line-height:1.4}
+  .confirm-card .cc-detail{font-size:10px;color:#888;margin-top:2px;line-height:1.3}
 
   @media(max-width:900px){.panel{padding-right:24px}.cw-wrap{position:static;width:100%;max-width:420px;margin:16px auto;height:700px;box-shadow:0 2px 12px rgba(0,0,0,.12);border-radius:8px;overflow:hidden}}
 </style>
@@ -195,11 +195,11 @@ var S3 = usr('I\u2019m interested in Business Basic with Teams. Can I add Teams 
 
 var S4Q = usr('How many users do I need to start?')+'<span class="tsr">just now</span>'+bot('There\u2019s no minimum \u2014 you can start with just 1 user and add more anytime. Billing is per user, per month.<br><br>For a small team, I\u2019d suggest starting with the number of people who need email and Teams access right away. You can always add users later.')+'<span class="ts">just now</span>';
 
-var OFFER = '<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:6px;padding:8px 12px;margin:4px 0;text-align:center"><div style="font-size:12px;color:#1E6B73;font-weight:600;margin-bottom:4px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:11px;color:#888;margin-bottom:6px">We can email you a transcript for your records.</div><button style="padding:6px 16px;background:#2B8C96;color:#fff;border:none;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">Get a transcript</button></div>';
+var OFFER = '<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:5px;padding:6px 10px;margin:2px 0;text-align:left"><div style="font-size:12px;color:#1E6B73;font-weight:600;margin-bottom:3px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:10px;color:#888;margin-bottom:4px">We can email you a transcript for your records.</div><button style="padding:5px 16px;background:#0078d4;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">Get a transcript</button></div>';
 
 var COLLECT = '<div class="m mb collect-card"><div class="cc-notice">We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email this conversation may be connected to your profile to provide more seamless and personalized experiences.</div><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" placeholder="John" value="Sarah" disabled></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" placeholder="john.doe@example.com" value="sarah@contoso.com" disabled></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div><div class="cc-footer">Or type Email Summary anytime during the chat.</div></div><span class="ts">just now</span>';
 
-var CONFIRM = '<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript sent to sarah@contoso.com</div><div class="cc-detail">You\u2019ll receive an email with the full transcript of this conversation, including your questions about M365 Business plans, Teams, and pricing.</div></div>';
+var CONFIRM = '<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript sent to sarah@contoso.com</div><div class="cc-detail">You\u2019ll receive the full transcript when the session ends.</div></div>';
 
 var S7 = usr('Great, thanks! One more question \u2014 is there a free trial I can try first?')+'<span class="tsr">just now</span>'+bot('Yes! There\u2019s a <strong>1-month free trial</strong> of Microsoft 365 Business Basic with full access to Teams, OneDrive, and all web apps. No credit card required to start.<br><br><a href="#">\u2192 Start your free trial</a><br><br>Is there anything else I can help with?')+'<span class="ts">just now</span>';
 

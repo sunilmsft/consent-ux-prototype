@@ -938,10 +938,10 @@
       <div class="stage-body">
         <article class="scene active" id="scene-0">
           <p class="kicker">Step 1</p>
-          <h2>Customer is chatting with Ask Microsoft</h2>
-          <p class="lead">Multi-turn discovery covers plans, features, and rollout priorities. The flow stays focused on requesting a transcript only.</p>
+          <h2>Customer is chatting about Microsoft 365 Business plans</h2>
+          <p class="lead">The conversation stays grounded in real Microsoft 365 Business plan questions: Basic vs Premium, frontline vs manager needs, and pilot rollout planning.</p>
           <div class="status">
-            <span><b>Live:</b> Plan and feature guidance</span>
+            <span><b>Live:</b> M365 Business plan and feature guidance</span>
             <span><b>Trigger:</b> Transcript request appears after meaningful exchange</span>
           </div>
         </article>
@@ -1001,13 +1001,13 @@
                   <div class="transcript-shell">
                     <div class="transcript-head">Detailed transcript (full conversation)</div>
                     <div class="transcript-body mono">
-                      Ask Microsoft: Hi. I am an AI agent. I can help compare plans and features. What can I do for you?<br>
-                      Customer: We are a 40-person retail team across 6 stores. We need better scheduling and secure communication.<br>
-                      Ask Microsoft: Helpful context. Do frontline staff mostly need mobile/web access while managers need desktop apps and stronger security?<br>
-                      Customer: Yes. That split sounds right.<br>
-                      Ask Microsoft: Great. A common setup is Business Basic for frontline staff and Business Premium for managers and HQ.<br>
-                      Customer: Can we pilot first and then expand by store?<br>
-                      Ask Microsoft: Yes. Start with a small pilot, validate adoption and policies, then scale to additional stores.<br>
+                      Ask Microsoft: Hi. I am an AI agent. I can help compare Microsoft 365 Business plans and features. What can I do for you?<br>
+                      Customer: Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?<br>
+                      Ask Microsoft: Microsoft 365 Business plans usually start with Business Basic, Business Standard, and Business Premium. For retail, the key decision is whether managers need desktop apps, device management, and stronger security.<br>
+                      Customer: We are leaning toward Business Basic for store associates. What would managers miss if they stayed on Basic too?<br>
+                      Ask Microsoft: Business Basic includes Teams, Exchange email, 1 TB OneDrive, and web/mobile Office apps. Managers usually move to Business Premium when they need desktop Office apps, Intune device management, and advanced protection controls.<br>
+                      Customer: That helps. Could we start with Basic for associates and Premium for store managers, then pilot in one location first?<br>
+                      Ask Microsoft: Yes. Mixed licensing by role is common. Start with one pilot store, validate Teams usage, device policies, and admin setup, then expand location by location.<br>
                       Customer: Please email this conversation so I can share with IT and finance.<br>
                       Ask Microsoft: Done. I will send your transcript and summary when this chat session ends.
                     </div>
@@ -1032,7 +1032,7 @@
             </div>
             <div class="email-content">
               <div class="mail-card">
-                <p>Thanks, this is helpful. Can you clarify which features are available in Basic vs Premium for our frontline and manager groups?</p>
+                <p>Thanks, this is helpful. Can you clarify which Microsoft 365 Business features are included in Basic for store associates versus Premium for store managers?</p>
               </div>
             </div>
           </div>
@@ -1046,12 +1046,12 @@
           <div class="route-grid">
             <div class="route live">
               <h3>🔍 Intent Analysis</h3>
-              <p><strong>Detected:</strong> Plan and feature clarification<br>Confidence: 92%<br>Customer asks for Basic vs Premium feature guidance by role.</p>
+              <p><strong>Detected:</strong> M365 Business plan comparison<br>Confidence: 92%<br>Customer asks which features stay in Business Basic for associates and which require Business Premium for store managers.</p>
               <div class="prog"><span></span></div>
             </div>
             <div class="route">
               <h3>📋 Context Extraction</h3>
-              <p><strong>Entities:</strong> 40 users | 6 stores | frontline vs manager roles | plan comparison | pilot rollout<br>All conversation details captured and structured.</p>
+              <p><strong>Entities:</strong> 40 users | 6 stores | Business Basic | Business Premium | associates vs managers | pilot rollout<br>All M365-specific conversation details captured and structured.</p>
             </div>
             <div class="route">
               <h3>✓ Validation Checks</h3>
@@ -1315,38 +1315,38 @@
     const steps = [
       {
         role: "bot",
-        text: "Hi. I am an AI agent. I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. What can I do for you?",
+        text: "Hi. I am an AI agent. I can help you compare Microsoft 365 Business plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. What can I do for you?",
         note: "To learn more about this AI web feature, read the Transparency FAQ (PDF)",
         delay: 1100
       },
       {
         role: "user",
-        text: "We are a 40-person retail team across 6 stores. We need better scheduling, communication, and secure access for frontline staff.",
+        text: "Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?",
         delay: 950
       },
       {
         role: "bot",
-        text: "Helpful context. For your setup, a common model is Business Basic for frontline users and Business Premium for managers and HQ. Do your managers need desktop apps and stronger security controls?",
-        delay: 1050
+        text: "Microsoft 365 Business plans usually start with Business Basic, Business Standard, and Business Premium. For retail teams, the key decision is whether store managers need desktop apps, device management, and stronger security while associates stay mobile-first. What matters most to your team: collaboration, desktop apps, or security?",
+        delay: 1150
       },
       {
         role: "user",
-        text: "Yes. Managers need desktop apps and admin controls. Frontline employees can use mobile and web.",
-        delay: 900
-      },
-      {
-        role: "bot",
-        text: "Perfect. Here's what Business Basic and Business Premium deliver for retail:\n\nBusiness Basic (frontline staff): Teams chat, video calls, 1TB cloud storage, web versions of Word/Excel, Outlook web, shared calendar scheduling, mobile-optimized.\n\nBusiness Premium (managers): All of Basic + desktop Office apps, device management, advanced threat protection, data loss prevention, admin controls.\n\nFor 6 stores: Frontline gets what they need without overwhelming them; managers have enterprise-grade tools for compliance and security. When do you want to start the pilot?",
-        delay: 1000
-      },
-      {
-        role: "user",
-        text: "Can we start with one pilot location and then roll out store by store?",
+        text: "We are leaning toward Business Basic for store associates. What would managers miss if they stayed on Basic too?",
         delay: 950
       },
       {
         role: "bot",
-        text: "Yes. Start with a pilot group, validate adoption and policies, then expand store-by-store. I can summarize all of this for your team.",
+        text: "Business Basic includes Teams, Exchange email, 1 TB of OneDrive, and web/mobile versions of Word, Excel, PowerPoint, and Outlook. Managers usually move to Business Premium when they need desktop Office apps, Intune device management, advanced threat protection, and stronger admin controls across stores.",
+        delay: 1150
+      },
+      {
+        role: "user",
+        text: "That helps. Could we start with Basic for associates and Premium for store managers, then pilot in one location first?",
+        delay: 980
+      },
+      {
+        role: "bot",
+        text: "Yes. Mixed licensing by role is common for Microsoft 365 Business. Start with one pilot store, validate Teams usage, device policies, and admin setup, then expand location by location. I can summarize this for your IT and finance team.",
         delay: 1000
       }
     ];

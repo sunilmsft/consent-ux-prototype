@@ -941,6 +941,7 @@
 
       <div class="flow-nav">
         <span id="stepMeta" class="meta">Step 1 of 6</span>
+        <button id="resetFlowTop" class="btn" type="button">Reset flow</button>
         <button id="prevStep" class="btn" type="button">Back step</button>
         <button id="nextStep" class="btn primary" type="button">Next step</button>
       </div>
@@ -1433,6 +1434,7 @@
     runChatDemo();
   }
 
+  document.getElementById("resetFlowTop").addEventListener("click", replayFlow);
   document.getElementById("replayChat").addEventListener("click", replayFlow);
   document.getElementById("replayFlow").addEventListener("click", replayFlow);
   prevStep.addEventListener("click", goPrevStep);

@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transcript Email - Summary + Reply Flow Prototype v2</title>
+<style>
+  :root {
+    --brand: #0078d4;
+    --brand-dark: #005fa3;
+    --ink: #1a1a1a;
+    --muted: #6c6c6c;
+    --line: #e3e3e3;
+    --bg: #efefef;
+    --ok: #2e7d32;
+    --warn: #8a5a00;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+  }
+
+  .topbar {
+    height: 14px;
+    background: #1f5e98;
+  }
+
+  .layout {
+    min-height: calc(100vh - 14px);
+    display: grid;
+    grid-template-columns: 1fr 430px;
+  }
+
+  .stage {
+    padding: 30px 30px 40px;
+  }
+
+  .panel {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .06);
+    overflow: hidden;
+  }
+
+  .panel-head {
+    background: linear-gradient(135deg, #1c3d61, #1e5a94);
+    color: #fff;
+    padding: 16px 18px;
+  }
+
+  .panel-head h1 {
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: .1px;
+  }
+
+  .panel-head p {
+    margin: 6px 0 0;
+    font-size: 12px;
+    opacity: .92;
+  }
+
+  .timeline {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    background: #fafafa;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .flow-nav {
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .flow-nav .meta {
+    margin-right: auto;
+    font-size: 12px;
+    color: #6a6a6a;
+    font-weight: 600;
+  }
+
+  .chip {
+    border: 1px solid #d7d7d7;
+    background: #fff;
+    color: #646464;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .chip.done {
+    border-color: #8bc28e;
+    background: #e8f5e9;
+    color: #236628;
+  }
+
+  .chip.live {
+    border-color: #6aa9de;
+    background: #e8f2fc;
+    color: #0b4f85;
+  }
+
+  .stage-body {
+    padding: 18px;
+  }
+
+  .scene {
+    display: none;
+    animation: fade .35s ease;
+  }
+
+  .scene.active { display: block; }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .kicker {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .45px;
+    color: #25649b;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+  }
+
+  .scene h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .scene p.lead {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .email {
+    border: 1px solid #d4d4d4;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .email-meta {
+    border-bottom: 1px solid #dedede;
+    background: #f8f8f8;
+    padding: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .email-meta b { color: #606060; }
+
+  .email-content {
+    padding: 16px;
+    background: #fcfcfc;
+  }
+
+  .mail-card {
+    border: 1px solid #e4e4e4;
+    border-radius: 8px;
+    background: #fff;
+    padding: 14px;
+  }
+
+  .summary {
+    background: #e8f2fc;
+    border-left: 4px solid var(--brand);
+    border-radius: 6px;
+    padding: 10px;
+    margin: 10px 0 12px;
+    font-size: 12px;
+  }
+
+  .pill-row {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin: 8px 0 12px;
+  }
+
+  .pill {
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 4px 10px;
+  }
+
+  .pill.take { background: #e4f1ff; color: #0f4f88; }
+  .pill.action { background: #e8f5e9; color: #236628; }
+  .pill.topic { background: #fff1df; color: #8a4f00; }
+
+  .cta-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 6px 0 10px;
+  }
+
+  .cta {
+    border: 1px solid #c7c7c7;
+    background: #fff;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .reply-note {
+    background: #fff7d9;
+    border-left: 4px solid #e0a519;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  details {
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #f4f4f4;
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  .transcript {
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .mono {
+    font-family: Consolas, "Courier New", monospace;
+    color: #404040;
+  }
+
+  .email-shot {
+    border: 1px solid #d4d4d4;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .email-headlines {
+    padding: 8px 10px 10px;
+    border-bottom: 1px solid #e4e4e4;
+    background: #fff;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .email-headlines b {
+    color: #222;
+    font-weight: 700;
+  }
+
+  .email-headlines a {
+    color: #0a54a3;
+    text-decoration: underline;
+  }
+
+  .email-canvas {
+    background: #efefef;
+    padding: 18px;
+  }
+
+  .email-card {
+    width: min(690px, 100%);
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #d7d7d7;
+  }
+
+  .email-block {
+    padding: 20px 24px;
+    border-top: 1px solid #cfcfcf;
+  }
+
+  .email-block:first-child {
+    border-top: none;
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: #666;
+    font-weight: 600;
+  }
+
+  .ms-logo {
+    width: 18px;
+    height: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .ms-logo span:nth-child(1) { background: #f25022; }
+  .ms-logo span:nth-child(2) { background: #7fba00; }
+  .ms-logo span:nth-child(3) { background: #00a4ef; }
+  .ms-logo span:nth-child(4) { background: #ffb900; }
+
+  .email-card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: #2b2b2b;
+  }
+
+  .email-card p {
+    margin: 0 0 11px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #2f2f2f;
+  }
+
+  .email-card .muted {
+    color: #5d5d5d;
+  }
+
+  .key-list {
+    margin: 8px 0 11px 18px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .key-list li { margin-bottom: 5px; }
+
+  .blue-link-list {
+    margin-top: 7px;
+  }
+
+  .blue-link-list a {
+    display: block;
+    color: #0057b8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .blue-link-list a:hover { text-decoration: underline; }
+
+  .cta-link-row {
+    margin-top: 8px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .link-btn {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    background: #1b4f9c;
+    padding: 7px 10px;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+
+  .link-btn:hover { background: #123d7b; }
+
+  .transcript-shell {
+    margin-top: 12px;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+    background: #fff;
+  }
+
+  .transcript-head {
+    padding: 8px 10px;
+    border-bottom: 1px solid #e1e1e1;
+    background: #f6f6f6;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .transcript-body {
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .route-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .route {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 11px;
+    background: #fff;
+  }
+
+  .route.live {
+    border: 2px solid #6eaadb;
+    background: #ecf5ff;
+  }
+
+  .route.good {
+    background: #e9f6ea;
+    border-color: #8ac58d;
+  }
+
+  .route.escalate {
+    background: #fff2f2;
+    border-color: #ebb0b0;
+  }
+
+  .route h3 {
+    margin: 0 0 5px;
+    font-size: 13px;
+  }
+
+  .route p {
+    margin: 0;
+    font-size: 12px;
+    color: #585858;
+  }
+
+  .prog {
+    margin-top: 8px;
+    height: 6px;
+    border-radius: 4px;
+    background: #d8d8d8;
+    overflow: hidden;
+  }
+
+  .prog > span {
+    display: block;
+    height: 100%;
+    width: 92%;
+    background: #4caf50;
+  }
+
+  .status {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #646464;
+    border-top: 1px solid #ececec;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .status b { color: #222; }
+
+  .actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn {
+    border-radius: 6px;
+    border: 1px solid #c8c8c8;
+    background: #fff;
+    color: #1f1f1f;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .btn.primary {
+    border-color: var(--brand);
+    background: var(--brand);
+    color: #fff;
+  }
+
+  .btn:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+  }
+
+  .btn.primary:hover { background: var(--brand-dark); }
+
+  .chat-shell {
+    background: #fff;
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 14px);
+  }
+
+  .auto {
+    height: 36px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 0 10px;
+    font-size: 11px;
+    color: #2d7f58;
+    font-weight: 700;
+    letter-spacing: .25px;
+  }
+
+  .auto-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #d4d4d4;
+    border-radius: 6px;
+    background: #fff;
+    color: #555;
+    cursor: pointer;
+  }
+
+  .chat-head {
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .chat-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--brand);
+    color: #fff;
+    display: grid;
+    place-items: center;
+  }
+
+  .chat-title {
+    font-size: 33px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -.5px;
+  }
+
+  .close {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    color: #666;
+  }
+
+  .chat-body {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto;
+  }
+
+  .chat-body::before { content: ""; flex: 1; }
+
+  .msg {
+    max-width: 96%;
+    font-size: 13px;
+    line-height: 1.45;
+    animation: rise .22s ease;
+  }
+
+  .msg.bot {
+    align-self: flex-start;
+    background: #fff;
+    border: 1.5px dashed #d2d2d2;
+    border-radius: 5px 14px 14px 14px;
+    padding: 8px 10px;
+  }
+
+  .msg.user {
+    align-self: flex-end;
+    background: #e8f0fe;
+    border: 1px solid #c8d8ee;
+    border-radius: 14px 5px 14px 14px;
+    padding: 7px 10px;
+  }
+
+  .stamp {
+    font-size: 10px;
+    color: #ababab;
+    margin-top: 2px;
+  }
+
+  .stamp.bot { align-self: flex-start; }
+  .stamp.user { align-self: flex-end; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .typing {
+    align-self: flex-start;
+    display: inline-flex;
+    gap: 4px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    background: #fafafa;
+  }
+
+  .typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #a0a0a0;
+    animation: blink 1s infinite;
+  }
+
+  .typing span:nth-child(2) { animation-delay: .18s; }
+  .typing span:nth-child(3) { animation-delay: .36s; }
+
+  @keyframes blink {
+    0%, 80%, 100% { opacity: .25; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-2px); }
+  }
+
+  .prompt {
+    align-self: flex-start;
+    width: 100%;
+    background: #f0f8ff;
+    border: 1px solid #c8e1fb;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .prompt h4 {
+    margin: 0 0 5px;
+    font-size: 14px;
+    color: #0a4f86;
+  }
+
+  .prompt p {
+    margin: 0;
+    font-size: 12px;
+    color: #656565;
+  }
+
+  .prompt .prompt-actions {
+    margin-top: 9px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .collect-card {
+    align-self: flex-start;
+    width: 100%;
+    border: 1px dashed #d6d6d6;
+    border-radius: 10px;
+    background: #fff;
+    padding: 10px;
+    font-size: 12px;
+    color: #4f4f4f;
+    line-height: 1.45;
+  }
+
+  .collect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .collect-field {
+    border-bottom: 1.5px solid #0078d4;
+    padding-bottom: 2px;
+  }
+
+  .collect-field.full {
+    grid-column: 1 / -1;
+  }
+
+  .collect-field label {
+    display: block;
+    font-size: 11px;
+    color: #0958a8;
+    margin-bottom: 2px;
+  }
+
+  .collect-field span {
+    font-size: 13px;
+    color: #222;
+  }
+
+  .collect-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 9px;
+  }
+
+  .confirm {
+    align-self: flex-start;
+    width: 100%;
+    border: 1px solid #9fd3b2;
+    background: #eef8f1;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .confirm h4 {
+    margin: 0 0 3px;
+    font-size: 22px;
+    line-height: 1;
+    color: #12743d;
+    font-weight: 400;
+  }
+
+  .confirm p {
+    margin: 0;
+    font-size: 12px;
+    color: #25633f;
+  }
+
+  .chat-foot {
+    border-top: 1px solid #f0f0f0;
+    padding: 8px 12px 12px;
+  }
+
+  .foot-note {
+    text-align: center;
+    font-size: 11px;
+    color: #9a9a9a;
+    margin-bottom: 8px;
+  }
+
+  .composer {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: 1.5px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 5px 10px;
+    position: relative;
+  }
+
+  .composer::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    border-radius: 0 0 6px 6px;
+    background: linear-gradient(90deg, #0078d4, #52d5ff, #0078d4);
+  }
+
+  .composer input {
+    border: none;
+    width: 100%;
+    outline: none;
+    background: transparent;
+    color: #808080;
+    font-size: 14px;
+  }
+
+  .composer button {
+    border: none;
+    background: transparent;
+    color: var(--brand);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  @media (max-width: 980px) {
+    .layout { grid-template-columns: 1fr; }
+    .chat-shell { border-left: none; }
+    .stage { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="layout">
+  <main class="stage">
+    <section class="panel">
+      <header class="panel-head">
+        <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage.</p>
+      </header>
+
+      <div class="timeline" id="timeline"></div>
+
+      <div class="flow-nav">
+        <span id="stepMeta" class="meta">Step 1 of 6</span>
+        <button id="prevStep" class="btn" type="button">Back step</button>
+        <button id="nextStep" class="btn primary" type="button">Next step</button>
+      </div>
+
+      <div class="stage-body">
+        <article class="scene active" id="scene-0">
+          <p class="kicker">Step 1</p>
+          <h2>Customer is chatting with Ask Microsoft</h2>
+          <p class="lead">Multi-turn discovery covers plans, features, and rollout priorities. The flow stays focused on requesting a transcript only.</p>
+          <div class="status">
+            <span><b>Live:</b> Plan and feature guidance</span>
+            <span><b>Trigger:</b> Transcript request appears after meaningful exchange</span>
+          </div>
+        </article>
+
+        <article class="scene" id="scene-1">
+          <p class="kicker">Step 2</p>
+          <h2>Enhanced email arrives with summary and full transcript</h2>
+          <p class="lead">This structure mirrors the current customer email format: lightweight header lines, centered Microsoft card, section dividers, and clear action links.</p>
+
+          <div class="email-shot">
+            <div class="email-headlines">
+              <div><b>From:</b> Ask Microsoft (M365 Assistant) &lt;<a href="#">AskMicrosoft@e-mails.microsoft.com</a>&gt;</div>
+              <div><b>Sent:</b> Friday, April 24, 2026 9:40 AM</div>
+              <div><b>To:</b> Alex Rivera &lt;<a href="#">alex.rivera@contoso.com</a>&gt;</div>
+              <div><b>Subject:</b> Your Microsoft 365 summary + full transcript</div>
+            </div>
+
+            <div class="email-canvas">
+              <div class="email-card">
+                <section class="email-block">
+                  <div class="brand-row">
+                    <div class="ms-logo" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                    <span>Microsoft</span>
+                  </div>
+                  <h3>Ask Microsoft</h3>
+                  <p>Hi Alex,</p>
+                  <p>I am <b>Ask Microsoft</b>, an AI agent here to help your business. Based on your chat, I prepared a concise summary and your full transcript so you can review options with your team.</p>
+                  <p class="muted">You can keep this thread and ask follow-up questions by replying directly to this email.</p>
+                </section>
+
+                <section class="email-block">
+                  <h3>Conversation Summary for Your 40-Person Retail Team</h3>
+                  <p><b>AI summary:</b> You are evaluating Microsoft 365 for a 40-person retail team across 6 stores. Your priorities are stronger collaboration for frontline employees, secure access for managers, and a phased rollout with minimal disruption.</p>
+                  <ul class="key-list">
+                    <li>Plan guidance: Business Basic for frontline users, Premium for managers and HQ.</li>
+                    <li>Feature focus: Teams collaboration, shared scheduling, and secure mobile access.</li>
+                    <li>Rollout approach: start with a pilot group, then expand store-by-store.</li>
+                    <li>Support needs: onboarding checklist, admin setup guidance, and follow-up Q&amp;A.</li>
+                  </ul>
+                </section>
+
+                <section class="email-block">
+                  <h3>Common Next Questions from Teams Like Yours</h3>
+                  <p class="muted">I can help answer questions like:</p>
+                  <div class="blue-link-list">
+                    <a href="#">01 - Which Microsoft 365 plan is best for each employee role?</a>
+                    <a href="#">02 - What security controls should we enable first?</a>
+                    <a href="#">03 - How should we stage rollout by store location?</a>
+                  </div>
+                  <p class="muted">You can ask any of these by replying directly to this email, or use the actions below.</p>
+                  <div class="cta-link-row">
+                    <a class="link-btn" href="#">Chat with Ask Microsoft</a>
+                    <a class="link-btn" href="#">Request Pricing Email</a>
+                    <a class="link-btn" href="#">Start Pilot Planning</a>
+                  </div>
+
+                  <div class="transcript-shell">
+                    <div class="transcript-head">Detailed transcript (full conversation)</div>
+                    <div class="transcript-body mono">
+                      Ask Microsoft: Hi. I am an AI agent. I can help compare plans and features. What can I do for you?<br>
+                      Customer: We are a 40-person retail team across 6 stores. We need better scheduling and secure communication.<br>
+                      Ask Microsoft: Helpful context. Do frontline staff mostly need mobile/web access while managers need desktop apps and stronger security?<br>
+                      Customer: Yes. That split sounds right.<br>
+                      Ask Microsoft: Great. A common setup is Business Basic for frontline staff and Business Premium for managers and HQ.<br>
+                      Customer: Can we pilot first and then expand by store?<br>
+                      Ask Microsoft: Yes. Start with a small pilot, validate adoption and policies, then scale to additional stores.<br>
+                      Customer: Please email this conversation so I can share with IT and finance.<br>
+                      Ask Microsoft: Done. I will send your transcript and summary when this chat session ends.
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene" id="scene-2">
+          <p class="kicker">Step 3</p>
+          <h2>Customer replies to the email with a follow-up question</h2>
+          <p class="lead">No new form, no restart. The customer simply replies in the same thread.</p>
+
+          <div class="email">
+            <div class="email-meta">
+              <div><b>From:</b> alex@contoso.com</div>
+              <div><b>To:</b> Ask Microsoft</div>
+              <div><b>Subject:</b> RE: Your chat transcript + recommended next steps</div>
+              <div><b>Date:</b> Mon, Apr 27, 2026 9:12 AM UTC</div>
+            </div>
+            <div class="email-content">
+              <div class="mail-card">
+                <p>Thanks, this is helpful. Can you clarify which features are available in Basic vs Premium for our frontline and manager groups?</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene" id="scene-3">
+          <p class="kicker">Step 4</p>
+          <h2>URA classifies intent and prepares response path</h2>
+          <p class="lead">URA extracts entities, checks policy, and decides auto-answer vs escalation.</p>
+
+          <div class="route-grid">
+            <div class="route live">
+              <h3>Intent detected: Plan and feature clarification</h3>
+              <p>Confidence 92%. Customer asks for Basic vs Premium feature guidance by role.</p>
+              <div class="prog"><span></span></div>
+            </div>
+            <div class="route">
+              <h3>Entities extracted</h3>
+              <p>40 users | 6 stores | frontline vs manager roles | plan comparison request | pilot rollout context</p>
+            </div>
+            <div class="route">
+              <h3>Policy and routing checks</h3>
+              <p>Consent honored, campaign route matched, answerable from approved plan feature knowledge base.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene" id="scene-4">
+          <p class="kicker">Step 5A</p>
+          <h2>Outcome A: URA auto-answers immediately</h2>
+          <p class="lead">For straightforward questions, customer gets a quick accurate response.</p>
+
+          <div class="email">
+            <div class="email-meta">
+              <div><b>From:</b> Ask Microsoft</div>
+              <div><b>To:</b> alex@contoso.com</div>
+              <div><b>Subject:</b> RE: pricing estimate [URA response]</div>
+              <div><b>Sent:</b> Mon, Apr 27, 2026 9:15 AM UTC</div>
+            </div>
+            <div class="email-content">
+              <div class="mail-card">
+                <p>Hi Alex,</p>
+                <p>Great question. Here is a simplified role-based recommendation:</p>
+                <p style="background:#f4f4f4;border-radius:6px;padding:10px;font-weight:700;">Business Basic: frontline messaging, meetings, and web/mobile productivity apps</p>
+                <p style="background:#f4f4f4;border-radius:6px;padding:10px;font-weight:700;">Business Premium: desktop apps, advanced security controls, and device management for managers/HQ</p>
+                <p>If helpful, I can also send a separate pricing estimate by email.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="status">
+            <span><b>SLA:</b> 3 minutes</span>
+            <span style="color:var(--ok);"><b>Result:</b> Fast customer resolution</span>
+          </div>
+        </article>
+
+        <article class="scene" id="scene-5">
+          <p class="kicker">Step 5B</p>
+          <h2>Outcome B: URA escalates to sales with full context</h2>
+          <p class="lead">Complex scenarios go to seller teams pre-qualified, with transcript and intent attached.</p>
+
+          <div class="route-grid">
+            <div class="route escalate">
+              <h3>Escalation package sent</h3>
+              <p>Lead: alex@contoso.com | Intent: role-based plan guidance | Confidence: 92%</p>
+            </div>
+            <div class="route">
+              <h3>Context attached</h3>
+              <p>Original transcript, summary highlights, role segmentation, feature questions, and rollout priorities.</p>
+            </div>
+            <div class="route good">
+              <h3>Seller-ready handoff</h3>
+              <p>Assigned to M365 SMB queue with plan-comparison context and target response under 4 hours.</p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="replayFlow" class="btn primary" type="button">Replay full flow</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <aside class="chat-shell" aria-label="Ask Microsoft chat simulation">
+    <div class="auto">
+      AUTO PLAY
+      <button id="replayChat" class="auto-btn" title="Replay chat">↻</button>
+    </div>
+
+    <div class="chat-head">
+      <div class="chat-dot" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 14H6l-2 2V4h16v12z"></path>
+        </svg>
+      </div>
+      <div class="chat-title">Ask Microsoft</div>
+      <button class="close" aria-label="Close">×</button>
+    </div>
+
+    <div id="chatBody" class="chat-body"></div>
+
+    <div class="chat-foot">
+      <div class="foot-note">AI-generated content may be incorrect</div>
+      <div class="composer">
+        <input type="text" value="Ask a work question or make a request..." disabled>
+        <button aria-hidden="true">➤</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script>
+  const timelineSteps = [
+    "Chat starts",
+    "Enhanced email delivered",
+    "Customer replies",
+    "URA classifies",
+    "Outcome A: auto-answer",
+    "Outcome B: escalate"
+  ];
+
+  const timelineContainer = document.getElementById("timeline");
+  const scenes = timelineSteps.map((_, i) => document.getElementById("scene-" + i));
+  const stepMeta = document.getElementById("stepMeta");
+  const prevStep = document.getElementById("prevStep");
+  const nextStep = document.getElementById("nextStep");
+  const totalScenes = scenes.length;
+  let currentSceneIndex = 0;
+  let chatReadyForNext = false;
+
+  function paintTimeline(activeIndex) {
+    timelineContainer.innerHTML = "";
+    timelineSteps.forEach((label, i) => {
+      const chip = document.createElement("span");
+      chip.className = "chip";
+      if (i < activeIndex) chip.classList.add("done");
+      if (i === activeIndex) chip.classList.add("live");
+      chip.textContent = (i + 1) + ". " + label;
+      timelineContainer.appendChild(chip);
+    });
+  }
+
+  function updateStepNav() {
+    stepMeta.textContent = "Step " + (currentSceneIndex + 1) + " of " + totalScenes;
+    prevStep.disabled = currentSceneIndex === 0;
+    nextStep.disabled = currentSceneIndex === totalScenes - 1 || (currentSceneIndex === 0 && !chatReadyForNext);
+  }
+
+  function showScene(index) {
+    scenes.forEach(scene => scene.classList.remove("active"));
+    scenes[index].classList.add("active");
+    currentSceneIndex = index;
+    paintTimeline(index);
+    updateStepNav();
+  }
+
+  const chatBody = document.getElementById("chatBody");
+
+  function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  function addStamp(role) {
+    const stamp = document.createElement("div");
+    stamp.className = "stamp " + role;
+    stamp.textContent = "just now";
+    chatBody.appendChild(stamp);
+  }
+
+  function addMessage(role, text, note) {
+    const msg = document.createElement("div");
+    msg.className = "msg " + role;
+    const line = document.createElement("div");
+    line.textContent = text;
+    msg.appendChild(line);
+
+    if (note) {
+      const small = document.createElement("small");
+      small.textContent = note;
+      msg.appendChild(document.createElement("br"));
+      msg.appendChild(small);
+    }
+
+    chatBody.appendChild(msg);
+    addStamp(role);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function addTyping() {
+    const typing = document.createElement("div");
+    typing.className = "typing";
+    typing.innerHTML = "<span></span><span></span><span></span>";
+    chatBody.appendChild(typing);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return typing;
+  }
+
+  function addTranscriptPrompt() {
+    const prompt = document.createElement("div");
+    prompt.className = "prompt";
+    prompt.innerHTML = [
+      "<h4>Would you like a copy of this conversation?</h4>",
+      "<p>We can email you a transcript for your records.</p>",
+      "<div class='prompt-actions'>",
+      "  <button class='btn primary' type='button'>Get transcript</button>",
+      "</div>"
+    ].join("");
+    chatBody.appendChild(prompt);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function addCollectionCard() {
+    const card = document.createElement("div");
+    card.className = "collect-card";
+    card.innerHTML = [
+      "We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email this conversation may be connected to your profile to provide more seamless and personalized experiences.",
+      "<div class='collect-grid'>",
+      "  <div class='collect-field'><label>First Name *</label><span>Alex</span></div>",
+      "  <div class='collect-field'><label>Last Name *</label><span>Rivera</span></div>",
+      "  <div class='collect-field full'><label>Email *</label><span>alex@contoso.com</span></div>",
+      "  <div class='collect-field full'><label>Company *</label><span>Contoso Ltd</span></div>",
+      "</div>",
+      "<div class='collect-actions'>",
+      "  <button class='btn primary' type='button'>Submit</button>",
+      "  <button class='btn' type='button'>Dismiss</button>",
+      "</div>"
+    ].join("");
+    chatBody.appendChild(card);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function addConfirmationCard() {
+    const card = document.createElement("div");
+    card.className = "confirm";
+    card.innerHTML = [
+      "<h4>✓</h4>",
+      "<p><b>Transcript sent to alex@contoso.com</b></p>",
+      "<p>You'll receive the full transcript when the session ends.</p>"
+    ].join("");
+    chatBody.appendChild(card);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  let runToken = 0;
+
+  async function runChatDemo() {
+    runToken += 1;
+    const token = runToken;
+
+    chatBody.innerHTML = "";
+    chatReadyForNext = false;
+    showScene(0);
+
+    const steps = [
+      {
+        role: "bot",
+        text: "Hi. I am an AI agent. I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. What can I do for you?",
+        note: "To learn more about this AI web feature, read the Transparency FAQ (PDF)",
+        delay: 1100
+      },
+      {
+        role: "user",
+        text: "We are a 40-person retail team across 6 stores. We need better scheduling, communication, and secure access for frontline staff.",
+        delay: 950
+      },
+      {
+        role: "bot",
+        text: "Helpful context. For your setup, a common model is Business Basic for frontline users and Business Premium for managers and HQ. Do your managers need desktop apps and stronger security controls?",
+        delay: 1050
+      },
+      {
+        role: "user",
+        text: "Yes. Managers need desktop apps and admin controls. Frontline employees can use mobile and web.",
+        delay: 900
+      },
+      {
+        role: "bot",
+        text: "Great. That split supports Teams scheduling, secure access, and controlled device enrollment.",
+        delay: 1000
+      },
+      {
+        role: "user",
+        text: "Can we start with one pilot location and then roll out store by store?",
+        delay: 950
+      },
+      {
+        role: "bot",
+        text: "Yes. Start with a pilot group, validate adoption and policies, then expand store-by-store. I can summarize all of this for your team.",
+        delay: 1000
+      },
+      {
+        role: "user",
+        text: "Perfect. Please send the transcript to alex@contoso.com.",
+        delay: 850
+      },
+      {
+        role: "bot",
+        text: "Absolutely. I can send a transcript when this session ends.",
+        delay: 900
+      }
+    ];
+
+    for (const step of steps) {
+      if (token !== runToken) return;
+
+      if (step.role === "bot") {
+        const typing = addTyping();
+        await wait(800);
+        if (token !== runToken) return;
+        typing.remove();
+      } else {
+        await wait(320);
+      }
+
+      addMessage(step.role, step.text, step.note);
+      await wait(step.delay);
+    }
+
+    if (token !== runToken) return;
+    const typing = addTyping();
+    await wait(700);
+    if (token !== runToken) return;
+    typing.remove();
+
+    await wait(900);
+    if (token !== runToken) return;
+    addCollectionCard();
+
+    await wait(900);
+    if (token !== runToken) return;
+    addConfirmationCard();
+
+    chatReadyForNext = true;
+    updateStepNav();
+  }
+
+  function goNextStep() {
+    if (currentSceneIndex < totalScenes - 1) {
+      showScene(currentSceneIndex + 1);
+    }
+  }
+
+  function goPrevStep() {
+    if (currentSceneIndex > 0) {
+      showScene(currentSceneIndex - 1);
+    }
+  }
+
+  function replayFlow() {
+    runChatDemo();
+  }
+
+  document.getElementById("replayChat").addEventListener("click", replayFlow);
+  document.getElementById("replayFlow").addEventListener("click", replayFlow);
+  prevStep.addEventListener("click", goPrevStep);
+  nextStep.addEventListener("click", goNextStep);
+
+  runChatDemo();
+</script>
+</body>
+</html>

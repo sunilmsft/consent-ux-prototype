@@ -1217,6 +1217,20 @@
 
   const chatBody = document.getElementById("chatBody");
 
+  function stickChatToBottom(immediate) {
+    const anchor = chatBody.lastElementChild;
+    const behavior = immediate ? "auto" : "smooth";
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        chatBody.scrollTop = chatBody.scrollHeight;
+        if (anchor && typeof anchor.scrollIntoView === "function") {
+          anchor.scrollIntoView({ block: "end", behavior });
+        }
+      });
+    });
+  }
+
   function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
@@ -1244,7 +1258,7 @@
 
     chatBody.appendChild(msg);
     addStamp(role);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    stickChatToBottom();
   }
 
   function addTyping() {
@@ -1252,7 +1266,7 @@
     typing.className = "typing";
     typing.innerHTML = "<span></span><span></span><span></span>";
     chatBody.appendChild(typing);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    stickChatToBottom();
     return typing;
   }
 
@@ -1267,7 +1281,7 @@
       "</div>"
     ].join("");
     chatBody.appendChild(prompt);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    stickChatToBottom();
   }
 
   function addCollectionCard() {
@@ -1287,7 +1301,7 @@
       "</div>"
     ].join("");
     chatBody.appendChild(card);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    stickChatToBottom();
   }
 
   function addConfirmationCard() {
@@ -1299,7 +1313,7 @@
       "<p>You'll receive the full transcript when the session ends.</p>"
     ].join("");
     chatBody.appendChild(card);
-    chatBody.scrollTop = chatBody.scrollHeight;
+    stickChatToBottom(true);
   }
 
   let runToken = 0;
@@ -1384,6 +1398,10 @@
     await wait(900);
     if (token !== runToken) return;
     addConfirmationCard();
+
+    await wait(180);
+    if (token !== runToken) return;
+    stickChatToBottom(true);
 
     chatReadyForNext = true;
     updateStepNav();

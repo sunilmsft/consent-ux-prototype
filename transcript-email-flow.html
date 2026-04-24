@@ -383,43 +383,14 @@
     color: #5d5d5d;
   }
 
-  .reply-callout {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin: 12px 0 14px;
-    padding: 12px 14px;
-    border: 1px solid #b9d4f3;
-    border-left: 4px solid #0078d4;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #eef6ff 0%, #f8fbff 100%);
-    box-shadow: 0 4px 12px rgba(0, 120, 212, .08);
+  .reply-inline {
+    margin: 0 0 12px;
+    color: #2f2f2f;
   }
 
-  .reply-callout::before {
-    content: "↩";
-    color: #0078d4;
-    font-size: 18px;
+  .reply-inline strong {
     font-weight: 700;
-    line-height: 1;
-    margin-top: 1px;
-  }
-
-  .reply-callout strong {
-    display: block;
-    margin-bottom: 2px;
-    color: #0b4f85;
-    font-size: 12px;
-    letter-spacing: .2px;
-    text-transform: uppercase;
-  }
-
-  .reply-callout span {
-    display: block;
-    color: #174067;
-    font-size: 13px;
-    line-height: 1.45;
-    font-weight: 600;
+    color: #1f1f1f;
   }
 
   .key-list {
@@ -1008,12 +979,7 @@
                   <h3>Ask Microsoft</h3>
                   <p>Hi Alex,</p>
                   <p>I am <b>Ask Microsoft</b>, an AI agent here to help your business. Based on your chat, I prepared a concise summary and your full transcript so you can review options with your team.</p>
-                  <div class="reply-callout">
-                    <div>
-                      <strong>Reply In This Email Thread</strong>
-                      <span>You can ask follow-up questions by replying directly to this email. There is no new form and no need to restart the conversation.</span>
-                    </div>
-                  </div>
+                  <p class="reply-inline">You can keep this thread and ask follow-up questions by <strong>replying directly to this email</strong>. There is no new form and no need to restart the conversation.</p>
                 </section>
 
                 <section class="email-block">
@@ -1035,12 +1001,7 @@
                     <a href="#">02 - What security controls should we enable first?</a>
                     <a href="#">03 - How should we stage rollout by store location?</a>
                   </div>
-                  <div class="reply-callout">
-                    <div>
-                      <strong>Best Next Step</strong>
-                      <span>Reply directly to this email to continue the same Microsoft 365 Business conversation, or use the actions below.</span>
-                    </div>
-                  </div>
+                  <p class="reply-inline">You can ask any of these by <strong>replying directly to this email</strong>, or use the actions below.</p>
                   <div class="cta-link-row">
                     <a class="link-btn" href="#">Chat with Ask Microsoft</a>
                     <a class="link-btn" href="#">Request Pricing Email</a>

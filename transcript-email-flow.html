@@ -454,6 +454,43 @@
     padding: 10px;
     font-size: 12px;
     line-height: 1.55;
+    display: grid;
+    gap: 8px;
+  }
+
+  .transcript-line {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 10px;
+    align-items: start;
+    padding: 7px 8px;
+    border-radius: 6px;
+  }
+
+  .transcript-line:nth-child(odd) {
+    background: #fafafa;
+  }
+
+  .transcript-speaker {
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: .25px;
+  }
+
+  .transcript-text {
+    font-size: 12px;
+    line-height: 1.55;
+    color: #2f2f2f;
+  }
+
+  .transcript-line.customer .transcript-speaker {
+    color: #1b4f9c;
+  }
+
+  .transcript-line.agent .transcript-speaker {
+    color: #444;
   }
 
   .route-grid {
@@ -1011,16 +1048,16 @@
 
                   <div class="transcript-shell">
                     <div class="transcript-head">Detailed transcript (full conversation)</div>
-                    <div class="transcript-body mono">
-                      Ask Microsoft: Hi. I am an AI agent. I can help compare Microsoft 365 Business plans and features. What can I do for you?<br>
-                      Customer: Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?<br>
-                      Ask Microsoft: Microsoft 365 Business plans usually start with Business Basic, Business Standard, and Business Premium. For retail, the key decision is whether managers need desktop apps, device management, and stronger security.<br>
-                      Customer: We are leaning toward Business Basic for store associates. What would managers miss if they stayed on Basic too?<br>
-                      Ask Microsoft: Business Basic includes Teams, Exchange email, 1 TB OneDrive, and web/mobile Office apps. Managers usually move to Business Premium when they need desktop Office apps, Intune device management, and advanced protection controls.<br>
-                      Customer: That helps. Could we start with Basic for associates and Premium for store managers, then pilot in one location first?<br>
-                      Ask Microsoft: Yes. Mixed licensing by role is common. Start with one pilot store, validate Teams usage, device policies, and admin setup, then expand location by location.<br>
-                      Customer: Please email this conversation so I can share with IT and finance.<br>
-                      Ask Microsoft: Done. I will send your transcript and summary when this chat session ends.
+                    <div class="transcript-body">
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Hi. I am an AI agent. I can help compare Microsoft 365 Business plans and features. What can I do for you?</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Microsoft 365 Business plans usually start with Business Basic, Business Standard, and Business Premium. For retail, the key decision is whether managers need desktop apps, device management, and stronger security.</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">We are leaning toward Business Basic for store associates. What would managers miss if they stayed on Basic too?</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Business Basic includes Teams, Exchange email, 1 TB OneDrive, and web/mobile Office apps. Managers usually move to Business Premium when they need desktop Office apps, Intune device management, and advanced protection controls.</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">That helps. Could we start with Basic for associates and Premium for store managers, then pilot in one location first?</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Yes. Mixed licensing by role is common. Start with one pilot store, validate Teams usage, device policies, and admin setup, then expand location by location.</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">Please email this conversation so I can share with IT and finance.</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Done. I will send your transcript and summary when this chat session ends.</div></div>
                     </div>
                   </div>
                 </section>

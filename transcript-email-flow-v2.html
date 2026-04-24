@@ -1210,16 +1210,6 @@
         role: "bot",
         text: "Yes. Start with a pilot group, validate adoption and policies, then expand store-by-store. I can summarize all of this for your team.",
         delay: 1000
-      },
-      {
-        role: "user",
-        text: "Perfect. Please send the transcript to alex@contoso.com.",
-        delay: 850
-      },
-      {
-        role: "bot",
-        text: "Absolutely. I can send a transcript when this session ends.",
-        delay: 900
       }
     ];
 
@@ -1244,6 +1234,10 @@
     await wait(700);
     if (token !== runToken) return;
     typing.remove();
+
+    await wait(900);
+    if (token !== runToken) return;
+    addTranscriptPrompt();
 
     await wait(900);
     if (token !== runToken) return;

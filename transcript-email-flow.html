@@ -880,6 +880,7 @@
     flex-direction: column;
     gap: 4px;
     overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .chat-body::before { content: ""; flex: 1; }
@@ -1502,15 +1503,11 @@
   const chatBody = document.getElementById("chatBody");
 
   function stickChatToBottom(immediate) {
-    const anchor = chatBody.lastElementChild;
     const behavior = immediate ? "auto" : "smooth";
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        chatBody.scrollTop = chatBody.scrollHeight;
-        if (anchor && typeof anchor.scrollIntoView === "function") {
-          anchor.scrollIntoView({ block: "end", behavior });
-        }
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior });
       });
     });
   }

@@ -866,17 +866,7 @@
   }
 
   .auto {
-    height: 36px;
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    padding: 0 10px;
-    font-size: 11px;
-    color: #2d7f58;
-    font-weight: 700;
-    letter-spacing: .25px;
+    display: none;
   }
 
   .auto-btn {
@@ -890,36 +880,55 @@
   }
 
   .chat-head {
-    padding: 12px 14px;
+    min-height: 108px;
+    padding: 20px 24px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #f0f0f0;
+    gap: 18px;
+    background: #f6f9fc;
+    border-bottom: 1px solid #c9d9e8;
   }
 
   .chat-dot {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: var(--brand);
-    color: #fff;
+    width: 58px;
+    height: 58px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid #bdd6eb;
+    color: #0078d4;
     display: grid;
     place-items: center;
+    flex-shrink: 0;
   }
 
   .chat-title {
-    font-size: 33px;
+    font-size: 46px;
     line-height: 1;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -.5px;
+    color: #111;
   }
 
   .close {
     margin-left: auto;
     border: none;
     background: transparent;
-    font-size: 24px;
-    color: #666;
+    color: #0078d4;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .close svg {
+    width: 30px;
+    height: 30px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
   }
 
   .chat-body {
@@ -1413,7 +1422,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.14</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.15</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1663,7 +1672,11 @@
         </svg>
       </div>
       <div class="chat-title">Ask Microsoft</div>
-      <button class="close" aria-label="Close">×</button>
+      <button class="close" aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6L18 18M18 6L6 18"></path>
+        </svg>
+      </button>
     </div>
 
     <div id="chatBody" class="chat-body"></div>

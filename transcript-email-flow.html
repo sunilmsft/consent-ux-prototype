@@ -18,6 +18,11 @@
 
   *, *::before, *::after { box-sizing: border-box; }
 
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
   body {
     margin: 0;
     font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -41,7 +46,7 @@
   }
 
   .panel {
-    width: min(900px, 100%);
+    width: min(1240px, 100%);
     margin: 0 auto;
     background: #fff;
     border: 1px solid #e6e6e6;
@@ -247,7 +252,7 @@
   .stage-body {
     padding: 18px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 330px;
+    grid-template-columns: minmax(760px, 1fr) 340px;
     gap: 16px;
     align-items: start;
   }

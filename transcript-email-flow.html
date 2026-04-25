@@ -94,6 +94,69 @@
     font-weight: 600;
   }
 
+  .backend-panel {
+    margin-top: 18px;
+    border: 1px solid #d9e4f1;
+    border-radius: 10px;
+    background: #fbfdff;
+    box-shadow: 0 2px 8px rgba(16, 64, 128, .06);
+    overflow: hidden;
+  }
+
+  .backend-panel[hidden] {
+    display: none;
+  }
+
+  .backend-head {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e4edf7;
+    background: #f2f7fd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .backend-head h3 {
+    margin: 0;
+    font-size: 13px;
+    color: #1f4f86;
+  }
+
+  .backend-head .tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: #1f4f86;
+    border: 1px solid #b9d4f3;
+    border-radius: 999px;
+    background: #fff;
+    padding: 2px 8px;
+    letter-spacing: .2px;
+  }
+
+  .backend-body {
+    padding: 12px;
+  }
+
+  .backend-step-title {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #18487b;
+  }
+
+  .backend-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 12px;
+    color: #2d2d2d;
+    line-height: 1.5;
+  }
+
+  .backend-list li {
+    margin-bottom: 5px;
+  }
+
   .chip {
     border: 1px solid #d7d7d7;
     background: #fff;
@@ -978,6 +1041,7 @@
 
       <div class="flow-nav">
         <span id="stepMeta" class="meta">Step 1 of 6</span>
+        <button id="toggleBackend" class="btn" type="button">Hide backend view</button>
         <button id="resetFlowTop" class="btn" type="button">Reset flow</button>
         <button id="prevStep" class="btn" type="button">Back step</button>
         <button id="nextStep" class="btn primary" type="button">Next step</button>
@@ -1186,6 +1250,17 @@
             <button id="replayFlow" class="btn primary" type="button">↻ Replay full flow</button>
           </div>
         </article>
+
+        <section id="backendPanel" class="backend-panel" aria-live="polite">
+          <div class="backend-head">
+            <h3>Backend System View</h3>
+            <span class="tag">Internal only - not customer visible</span>
+          </div>
+          <div class="backend-body">
+            <p id="backendStepTitle" class="backend-step-title"></p>
+            <ul id="backendList" class="backend-list"></ul>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -1231,11 +1306,78 @@
   const timelineContainer = document.getElementById("timeline");
   const scenes = timelineSteps.map((_, i) => document.getElementById("scene-" + i));
   const stepMeta = document.getElementById("stepMeta");
+  const toggleBackend = document.getElementById("toggleBackend");
+  const backendPanel = document.getElementById("backendPanel");
+  const backendStepTitle = document.getElementById("backendStepTitle");
+  const backendList = document.getElementById("backendList");
   const prevStep = document.getElementById("prevStep");
   const nextStep = document.getElementById("nextStep");
   const totalScenes = scenes.length;
   let currentSceneIndex = 0;
   let chatReadyForNext = false;
+
+  const backendDetails = [
+    {
+      title: "Step 1 backend events (chat + capture)",
+      items: [
+        "Chat transcript and insight summary are captured per turn and persisted to conversation storage (final destination TBD).",
+        "When contact data is submitted, a UCMP contact profile is created or matched (email as primary key).",
+        "Conversation session ID is linked to the UCMP contact profile for continuity.",
+        "Email agent receives transcript + insights + profile context and queues the outbound transcript email job."
+      ]
+    },
+    {
+      title: "Step 2 backend events (outbound email)",
+      items: [
+        "Email agent composes the customer email using transcript content and AI-generated actionable insights.",
+        "Template personalization is applied from UCMP profile attributes.",
+        "Outbound send service dispatches the email and logs delivery metadata + message ID for traceability."
+      ]
+    },
+    {
+      title: "Step 3 backend events (inbound reply)",
+      items: [
+        "Inbound reply is matched to the original thread using message headers and contact identity.",
+        "Reply content is appended to the same conversation record.",
+        "Follow-up question is queued for URA classification with prior context attached."
+      ]
+    },
+    {
+      title: "Step 4 backend events (URA processing)",
+      items: [
+        "URA performs intent classification and entity extraction (plan type, role mapping, rollout scope).",
+        "Policy and grounding checks validate that response can use approved Microsoft 365 business knowledge.",
+        "Decision engine selects path: immediate auto-answer or seller escalation."
+      ]
+    },
+    {
+      title: "Step 5 backend events (auto-answer path)",
+      items: [
+        "URA drafts an answer grounded in approved M365 Business feature knowledge.",
+        "Response is formatted for thread continuity and sent as a same-thread email response.",
+        "Outcome and SLA metrics are logged for model and workflow performance reporting."
+      ]
+    },
+    {
+      title: "Step 6 backend events (escalation path)",
+      items: [
+        "Escalation package is created with transcript, summary insights, extracted entities, and confidence signals.",
+        "UCMP contact context and campaign metadata are attached to the seller handoff payload.",
+        "Ticket is routed to the M365 SMB seller queue with response-time target tracking."
+      ]
+    }
+  ];
+
+  function renderBackend(index) {
+    const detail = backendDetails[index] || backendDetails[0];
+    backendStepTitle.textContent = detail.title;
+    backendList.innerHTML = "";
+    detail.items.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      backendList.appendChild(li);
+    });
+  }
 
   function paintTimeline(activeIndex) {
     timelineContainer.innerHTML = "";
@@ -1260,6 +1402,7 @@
     scenes[index].classList.add("active");
     currentSceneIndex = index;
     paintTimeline(index);
+    renderBackend(index);
     updateStepNav();
   }
 
@@ -1471,12 +1614,20 @@
     runChatDemo();
   }
 
+  function toggleBackendView() {
+    const willHide = !backendPanel.hidden;
+    backendPanel.hidden = willHide;
+    toggleBackend.textContent = willHide ? "Show backend view" : "Hide backend view";
+  }
+
+  toggleBackend.addEventListener("click", toggleBackendView);
   document.getElementById("resetFlowTop").addEventListener("click", replayFlow);
   document.getElementById("replayChat").addEventListener("click", replayFlow);
   document.getElementById("replayFlow").addEventListener("click", replayFlow);
   prevStep.addEventListener("click", goPrevStep);
   nextStep.addEventListener("click", goNextStep);
 
+  renderBackend(0);
   runChatDemo();
 </script>
 </body>

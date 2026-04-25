@@ -827,7 +827,10 @@
     border-left: 1px solid var(--line);
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 14px);
     min-height: calc(100vh - 14px);
+    overflow: hidden;
+    min-width: 0;
   }
 
   .auto {
@@ -889,6 +892,7 @@
 
   .chat-body {
     flex: 1;
+    min-height: 0;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -896,8 +900,6 @@
     overflow-y: auto;
     overscroll-behavior: contain;
   }
-
-  .chat-body::before { content: ""; flex: 1; }
 
   .msg {
     max-width: 96%;

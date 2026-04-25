@@ -1516,8 +1516,18 @@
   }
 
   const chatBody = document.getElementById("chatBody");
+  let isAutoPlayingChat = false;
 
-  function stickChatToBottom(immediate) {
+  function isChatNearBottom() {
+    const distance = chatBody.scrollHeight - chatBody.scrollTop - chatBody.clientHeight;
+    return distance <= 20;
+  }
+
+  function stickChatToBottom(immediate, force) {
+    if (!force && !isAutoPlayingChat && !isChatNearBottom()) {
+      return;
+    }
+
     const stick = () => {
       chatBody.scrollTop = chatBody.scrollHeight;
     };
@@ -1526,6 +1536,7 @@
     requestAnimationFrame(stick);
     requestAnimationFrame(() => requestAnimationFrame(stick));
     setTimeout(stick, immediate ? 0 : 30);
+    setTimeout(stick, immediate ? 10 : 90);
   }
 
   function wait(ms) {
@@ -1618,6 +1629,8 @@
   async function runChatDemo() {
     runToken += 1;
     const token = runToken;
+    isAutoPlayingChat = true;
+    const forceFollowTimer = setInterval(() => stickChatToBottom(true, true), 120);
 
     chatBody.innerHTML = "";
     chatReadyForNext = false;
@@ -1663,13 +1676,22 @@
     ];
 
     for (const step of steps) {
-      if (token !== runToken) return;
+      if (token !== runToken) {
+        clearInterval(forceFollowTimer);
+        isAutoPlayingChat = false;
+        return;
+      }
 
       if (step.role === "bot") {
         const typing = addTyping();
         await wait(800);
-        if (token !== runToken) return;
+        if (token !== runToken) {
+          clearInterval(forceFollowTimer);
+          isAutoPlayingChat = false;
+          return;
+        }
         typing.remove();
+        stickChatToBottom(true, true);
       } else {
         await wait(320);
       }
@@ -1678,27 +1700,54 @@
       await wait(step.delay);
     }
 
-    if (token !== runToken) return;
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      return;
+    }
     const typing = addTyping();
     await wait(700);
-    if (token !== runToken) return;
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      return;
+    }
     typing.remove();
+    stickChatToBottom(true, true);
 
     await wait(900);
-    if (token !== runToken) return;
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      return;
+    }
     addTranscriptPrompt();
 
     await wait(900);
-    if (token !== runToken) return;
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      return;
+    }
     addCollectionCard();
 
     await wait(900);
-    if (token !== runToken) return;
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      return;
+    }
     addConfirmationCard();
 
     await wait(180);
-    if (token !== runToken) return;
-    stickChatToBottom(true);
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      return;
+    }
+    stickChatToBottom(true, true);
+    clearInterval(forceFollowTimer);
+    isAutoPlayingChat = false;
 
     chatReadyForNext = true;
     updateStepNav();

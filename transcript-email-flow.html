@@ -948,7 +948,7 @@
 
   .msg-rich {
     display: grid;
-    gap: 10px;
+    gap: 12px;
   }
 
   .msg-rich p,
@@ -958,15 +958,16 @@
   }
 
   .msg-rich h4 {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.35;
-    color: #1f1f1f;
+    color: #171717;
+    font-weight: 800;
   }
 
   .msg-rich p {
-    font-size: 13px;
-    line-height: 1.55;
-    color: #2c2c2c;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #242424;
   }
 
   .msg-rich ul {
@@ -1008,17 +1009,18 @@
   }
 
   .msg-rich .rich-callout {
-    background: #f5f9ff;
+    background: linear-gradient(180deg, #f5faff 0%, #edf6ff 100%);
     border-left: 3px solid #0078d4;
-    border-radius: 6px;
-    padding: 10px 12px;
+    border-radius: 8px;
+    padding: 11px 13px;
   }
 
   .msg-rich .rich-compare-table {
-    border: 1px solid #d8e7f6;
-    border-radius: 10px;
+    border: 1px solid #cfe2f7;
+    border-radius: 12px;
     overflow: hidden;
     background: #fff;
+    box-shadow: 0 4px 14px rgba(0, 120, 212, .08);
   }
 
   .msg-rich .rich-compare-row {
@@ -1037,7 +1039,7 @@
   }
 
   .msg-rich .rich-compare-head {
-    background: #f6faff;
+    background: #f3f8fe;
     font-size: 12px;
     font-weight: 700;
     color: #13538a;
@@ -1055,15 +1057,16 @@
   }
 
   .msg-rich .rich-plan-card {
-    border: 1px solid #d8e7f6;
-    border-radius: 10px;
-    padding: 10px 12px;
-    background: linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
+    border: 1px solid #cfe2f7;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    box-shadow: 0 4px 14px rgba(0, 120, 212, .06);
   }
 
   .msg-rich .rich-plan-card h5 {
     margin: 0 0 5px;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.4;
     color: #13538a;
   }
@@ -1080,10 +1083,10 @@
   }
 
   .msg-rich .rich-kpi-item {
-    border: 1px solid #dfe8ef;
-    border-radius: 8px;
-    padding: 9px 10px;
-    background: #fbfdff;
+    border: 1px solid #d7e5f1;
+    border-radius: 10px;
+    padding: 10px 11px;
+    background: #fcfdff;
   }
 
   .msg-rich .rich-kpi-label {
@@ -1103,33 +1106,39 @@
   }
 
   .msg-ref {
-    margin-top: 10px;
-    border: 1px solid #e4e4e4;
-    border-radius: 10px;
-    background: #fbfbfb;
-    color: #5f5f5f;
-    font-size: 12px;
-    padding: 10px 12px;
+    margin-top: 8px;
+    border: 1px solid #ececec;
+    border-radius: 999px;
+    background: #fafafa;
+    color: #7a7a7a;
+    font-size: 11px;
+    padding: 7px 11px;
+    display: inline-block;
+    width: auto;
+    max-width: 180px;
+    box-shadow: none;
   }
 
   .msg-ref summary {
     padding: 0;
     background: transparent;
     border: none;
-    font-size: 12px;
-    color: #5b5b5b;
+    font-size: 11px;
+    color: #777;
+    font-weight: 600;
   }
 
   .msg-ref-body {
-    margin-top: 8px;
+    margin-top: 6px;
     display: grid;
-    gap: 6px;
+    gap: 4px;
   }
 
   .msg-ref-body a {
-    color: #005fb8;
+    color: #5d7ea6;
     text-decoration: none;
     font-weight: 600;
+    font-size: 11px;
   }
 
   .msg-ref-body a:hover {
@@ -1137,17 +1146,18 @@
   }
 
   .msg-feedback {
-    margin-top: 10px;
+    margin-top: 8px;
     display: flex;
-    gap: 12px;
+    gap: 10px;
     align-items: center;
+    opacity: .72;
   }
 
   .msg-feedback-btn {
     border: none;
     background: transparent;
     padding: 0;
-    color: #0078d4;
+    color: #5d88b3;
     cursor: default;
     display: inline-flex;
     align-items: center;
@@ -1155,11 +1165,11 @@
   }
 
   .msg-feedback-btn svg {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     stroke: currentColor;
     fill: none;
-    stroke-width: 1.8;
+    stroke-width: 1.7;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
@@ -1167,9 +1177,10 @@
   .msg.bot {
     align-self: flex-start;
     background: #fff;
-    border: 1.5px dashed #d2d2d2;
+    border: 1.5px dashed #d6d6d6;
     border-radius: 5px 14px 14px 14px;
-    padding: 8px 10px;
+    padding: 12px 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .03);
   }
 
   .msg.user {

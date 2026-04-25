@@ -1332,8 +1332,8 @@
   .confirm {
     align-self: flex-start;
     width: 100%;
-    border: 1px solid #9fd3b2;
-    background: #eef8f1;
+    border: 1px solid #c8e1fb;
+    background: #f0f8ff;
     border-radius: 8px;
     padding: 10px;
   }
@@ -1342,14 +1342,14 @@
     margin: 0 0 3px;
     font-size: 22px;
     line-height: 1;
-    color: #12743d;
+    color: #0078d4;
     font-weight: 400;
   }
 
   .confirm p {
     margin: 0;
     font-size: 12px;
-    color: #25633f;
+    color: #0a4f86;
   }
 
   .chat-foot {
@@ -1426,7 +1426,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.19</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.20</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -2040,8 +2040,8 @@
     card.className = "confirm";
     card.innerHTML = [
       "<h4>✓</h4>",
-      "<p><b>Transcript sent to alex@contoso.com</b></p>",
-      "<p>You'll receive the full transcript when the session ends.</p>"
+      "<p><b>Transcript will be sent to alex@contoso.com</b></p>",
+      "<p>We'll send you the full transcript when the session ends.</p>"
     ].join("");
     chatBody.appendChild(card);
     stickChatToBottom(true);

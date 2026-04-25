@@ -99,10 +99,10 @@
 
   .backend-panel {
     margin-top: 0;
-    border: 1px solid #d9e4f1;
-    border-radius: 10px;
-    background: #fbfdff;
-    box-shadow: 0 2px 8px rgba(16, 64, 128, .06);
+    border: 1px solid #e6d9bd;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fffefb 0%, #fffaf0 100%);
+    box-shadow: 0 6px 16px rgba(83, 57, 13, .08);
     overflow: auto;
     position: sticky;
     top: 12px;
@@ -116,8 +116,8 @@
 
   .backend-head {
     padding: 10px 12px;
-    border-bottom: 1px solid #e4edf7;
-    background: #f2f7fd;
+    border-bottom: 1px solid #ebdfc6;
+    background: linear-gradient(135deg, #3f4652 0%, #4e5867 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -126,17 +126,17 @@
 
   .backend-head h3 {
     margin: 0;
-    font-size: 13px;
-    color: #1f4f86;
+    font-size: 14px;
+    color: #fff;
   }
 
   .backend-head .tag {
     font-size: 10px;
     font-weight: 700;
-    color: #1f4f86;
-    border: 1px solid #b9d4f3;
+    color: #2f333a;
+    border: 1px solid #dfc78f;
     border-radius: 999px;
-    background: #fff;
+    background: #fff2d1;
     padding: 2px 8px;
     letter-spacing: .2px;
   }
@@ -146,10 +146,17 @@
   }
 
   .backend-step-title {
-    margin: 0 0 8px;
+    margin: 0 0 6px;
     font-size: 13px;
     font-weight: 700;
-    color: #18487b;
+    color: #5a3c09;
+  }
+
+  .backend-hint {
+    margin: 0 0 10px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #735117;
   }
 
   .backend-list {
@@ -166,11 +173,15 @@
     display: flex;
     align-items: flex-start;
     gap: 8px;
+    background: #fff;
+    border: 1px solid #efe3cb;
+    border-radius: 8px;
+    padding: 8px;
   }
 
   .backend-op {
     display: inline-block;
-    min-width: 38px;
+    min-width: 46px;
     padding: 1px 6px;
     border-radius: 999px;
     font-size: 10px;
@@ -183,33 +194,33 @@
   }
 
   .backend-op.op-write {
-    background: #e7f3ff;
-    color: #0b5fa5;
-    border: 1px solid #b9d4f3;
+    background: #ffe9cf;
+    color: #9b5f00;
+    border: 1px solid #f2c38b;
   }
 
   .backend-op.op-read {
-    background: #e9f6ea;
-    color: #266d2c;
-    border: 1px solid #b8dcb9;
+    background: #e8f7ea;
+    color: #2f7d36;
+    border: 1px solid #bfe3c3;
   }
 
   .backend-op.op-rw {
-    background: #fff4e5;
-    color: #8a5a00;
-    border: 1px solid #edd2a5;
+    background: #f5eefc;
+    color: #6f3ba8;
+    border: 1px solid #d9c1f3;
   }
 
   .backend-op.op-route {
-    background: #f4edff;
-    color: #6741a3;
-    border: 1px solid #d4c3f5;
+    background: #fff0f3;
+    color: #ad2c53;
+    border: 1px solid #f3c2d0;
   }
 
   .backend-op.op-orch {
-    background: #edf6ff;
-    color: #245b8f;
-    border: 1px solid #c3daf1;
+    background: #eaf6ff;
+    color: #19608a;
+    border: 1px solid #c1dff1;
   }
 
   .backend-op.op-log {
@@ -219,7 +230,7 @@
   }
 
   .backend-item-text {
-    color: #2d2d2d;
+    color: #2f2f2f;
   }
 
   .chip {
@@ -1340,11 +1351,12 @@
 
         <section id="backendPanel" class="backend-panel" aria-live="polite">
           <div class="backend-head">
-            <h3>Backend System View</h3>
-            <span class="tag">Internal only - not customer visible</span>
+            <h3>Behind The Scenes</h3>
+            <span class="tag">Internal process only</span>
           </div>
           <div class="backend-body">
             <p id="backendStepTitle" class="backend-step-title"></p>
+            <p class="backend-hint">This lane explains what systems are reading, writing, orchestrating, and routing in parallel to the customer experience.</p>
             <ul id="backendList" class="backend-list"></ul>
           </div>
         </section>
@@ -1405,7 +1417,7 @@
 
   const backendDetails = [
     {
-      title: "Step 1 backend events (chat + capture)",
+      title: "Step 1: Capture conversation and create identity context",
       items: [
         "[WRITE] Chat transcript and insight summary are captured per turn and persisted to conversation storage (final destination TBD).",
         "[WRITE] When contact data is submitted, a UCMP contact profile is created or matched (email as primary key).",
@@ -1414,7 +1426,7 @@
       ]
     },
     {
-      title: "Step 2 backend events (outbound email)",
+      title: "Step 2: Build and send transcript email",
       items: [
         "[READ] Email agent composes the customer email using transcript content and AI-generated actionable insights.",
         "[READ] Template personalization is applied from UCMP profile attributes.",
@@ -1422,7 +1434,7 @@
       ]
     },
     {
-      title: "Step 3 backend events (inbound reply)",
+      title: "Step 3: Attach customer reply to the same thread",
       items: [
         "[READ] Inbound reply is matched to the original thread using message headers and contact identity.",
         "[WRITE] Reply content is appended to the same conversation record.",
@@ -1430,7 +1442,7 @@
       ]
     },
     {
-      title: "Step 4 backend events (URA processing)",
+      title: "Step 4: Classify intent and decide next path",
       items: [
         "[READ] URA performs intent classification and entity extraction (plan type, role mapping, rollout scope).",
         "[READ] Policy and grounding checks validate that response can use approved Microsoft 365 business knowledge.",
@@ -1438,7 +1450,7 @@
       ]
     },
     {
-      title: "Step 5 backend events (auto-answer path)",
+      title: "Step 5: Generate and send auto-answer",
       items: [
         "[READ] URA drafts an answer grounded in approved M365 Business feature knowledge.",
         "[WRITE] Response is formatted for thread continuity and sent as a same-thread email response.",
@@ -1446,7 +1458,7 @@
       ]
     },
     {
-      title: "Step 6 backend events (escalation path)",
+      title: "Step 6: Package context and escalate to seller",
       items: [
         "[RW] Escalation package is created with transcript, summary insights, extracted entities, and confidence signals.",
         "[READ] UCMP contact context and campaign metadata are attached to the seller handoff payload.",

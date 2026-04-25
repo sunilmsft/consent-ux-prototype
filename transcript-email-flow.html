@@ -975,6 +975,30 @@
     color: #111;
   }
 
+  .msg-rich a {
+    color: #0a63c7;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .msg-rich a:hover {
+    color: #084f9e;
+  }
+
+  .msg-rich .welcome-card {
+    display: grid;
+    gap: 8px;
+  }
+
+  .msg-rich .welcome-card p {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .msg-rich .welcome-card .welcome-links {
+    color: #4d4d4d;
+  }
+
   .msg-rich .rich-callout {
     background: #f5f9ff;
     border-left: 3px solid #0078d4;
@@ -1305,7 +1329,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.9</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.10</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1932,8 +1956,7 @@
       {
         role: "bot",
         text: "Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. You can also request a sales call here or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?",
-        note: "To learn more about this AI web feature, read the Transparency FAQ (PDF)",
-        html: "<p>Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative.</p><p>You can also request a sales call here or call us at <strong>(800) 642-7676</strong> M-F 6 AM to 6 PM PT.</p><p><strong>What can I do for you?</strong></p>",
+        html: "<div class='welcome-card'><p>Hi. I’m an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative.</p><p class='welcome-links'>You can also request a sales call <a href='#'>here</a> or call us at <strong>(800) 642-7676</strong> M-F 6 AM to 6 PM PT.</p><p><strong>What can I do for you?</strong></p><p class='welcome-links'>To learn more about this AI web feature, read the <a href='#'>Transparency FAQ (PDF)</a>.</p></div>",
         think: 760,
         delay: 980
       },

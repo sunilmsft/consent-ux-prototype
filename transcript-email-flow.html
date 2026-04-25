@@ -1006,6 +1006,41 @@
     padding: 10px 12px;
   }
 
+  .msg-rich .rich-compare-table {
+    border: 1px solid #d8e7f6;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .msg-rich .rich-compare-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 150px) 1fr;
+    border-top: 1px solid #e5eef8;
+  }
+
+  .msg-rich .rich-compare-row:first-child {
+    border-top: none;
+  }
+
+  .msg-rich .rich-compare-head,
+  .msg-rich .rich-compare-body {
+    padding: 10px 12px;
+  }
+
+  .msg-rich .rich-compare-head {
+    background: #f6faff;
+    font-size: 12px;
+    font-weight: 700;
+    color: #13538a;
+  }
+
+  .msg-rich .rich-compare-body {
+    font-size: 12px;
+    line-height: 1.55;
+    color: #333;
+  }
+
   .msg-rich .rich-card-grid {
     display: grid;
     gap: 8px;
@@ -1091,6 +1126,34 @@
 
   .msg-ref-body a:hover {
     text-decoration: underline;
+  }
+
+  .msg-feedback {
+    margin-top: 10px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .msg-feedback-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: #0078d4;
+    cursor: default;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .msg-feedback-btn svg {
+    width: 26px;
+    height: 26px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .msg.bot {
@@ -1329,7 +1392,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.10</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.11</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1820,6 +1883,20 @@
       msg.appendChild(ref);
     }
 
+    if (role === "bot") {
+      const feedback = document.createElement("div");
+      feedback.className = "msg-feedback";
+      feedback.innerHTML = [
+        "<button class='msg-feedback-btn' type='button' aria-label='Thumbs up'>",
+        "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M14 10V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 1.97-1.64l1.38-7A2 2 0 0 0 19.66 11H14z'></path><path d='M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3'></path></svg>",
+        "</button>",
+        "<button class='msg-feedback-btn' type='button' aria-label='Thumbs down'>",
+        "<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M10 14v5a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-1.97 1.64l-1.38 7A2 2 0 0 0 4.34 13H10z'></path><path d='M17 2h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3'></path></svg>",
+        "</button>"
+      ].join("");
+      msg.appendChild(feedback);
+    }
+
     if (note) {
       const small = document.createElement("small");
       small.textContent = note;
@@ -1979,7 +2056,7 @@
       },
       {
         role: "bot",
-        html: "<p><strong>Great choice.</strong> For retail teams using Teams, most customers evaluate:</p><div class='rich-card-grid'><div class='rich-plan-card'><h5>Microsoft 365 Business Basic ($6/user/month)</h5><p>Best for frontline communication, Teams collaboration, and web/mobile apps.</p></div><div class='rich-plan-card'><h5>Microsoft 365 Business Standard ($12.50/user/month)</h5><p>Best when managers need desktop apps and broader productivity tools.</p></div><div class='rich-plan-card'><h5>Microsoft 365 Business Premium ($22/user/month)</h5><p>Best when you also need Intune, Defender, and stronger device/security management.</p></div></div><div class='rich-callout'><strong>Would you like a quick recommendation for a 40-user mix?</strong></div>",
+        html: "<p><strong>Great choice.</strong> For retail teams using Teams, most customers evaluate:</p><div class='rich-compare-table'><div class='rich-compare-row'><div class='rich-compare-head'>Business Basic</div><div class='rich-compare-body'>$6/user/month. Best for frontline communication, Teams collaboration, and web/mobile apps.</div></div><div class='rich-compare-row'><div class='rich-compare-head'>Business Standard</div><div class='rich-compare-body'>$12.50/user/month. Best when managers need desktop apps and broader productivity tools.</div></div><div class='rich-compare-row'><div class='rich-compare-head'>Business Premium</div><div class='rich-compare-body'>$22/user/month. Best when you also need Intune, Defender, and stronger device/security management.</div></div></div><div class='rich-callout'><strong>Would you like a quick recommendation for a 40-user mix?</strong></div>",
         referenceHtml: "<a href='#'>Microsoft 365 Business plan comparison</a>",
         text: "Great choice. For retail teams using Teams, most customers evaluate: \u2022 Microsoft 365 Business Basic ($6/user/month) for frontline communication and web/mobile apps. \u2022 Microsoft 365 Business Standard ($12.50/user/month) when managers need desktop apps and richer productivity. \u2022 Microsoft 365 Business Premium ($22/user/month) when you need Intune + Defender security and device management.\n\nWould you like a quick recommendation for a 40-user mix?",
         think: 1220,

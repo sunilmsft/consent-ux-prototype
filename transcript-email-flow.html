@@ -1553,7 +1553,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.27</p>
+          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.29</p>
         </div>
         <button id="resetFlowTop" type="button" title="Reset flow">↺</button>
       </header>
@@ -1633,7 +1633,7 @@
                   <div class="transcript-shell">
                     <div class="transcript-head">Detailed transcript (full conversation)</div>
                     <div class="transcript-body">
-                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative.</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft seller.</div></div>
                       <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?</div></div>
                       <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Microsoft 365 Business plans are available with or without Microsoft Teams. Do you want plans that include Teams or plans without Teams?</div></div>
                       <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">with teams</div></div>
@@ -1706,7 +1706,7 @@
             </div>
           </div>
 
-          <div class="ura-outcome">→ System routes to auto-answer or escalates to sales →</div>
+          <div class="ura-outcome">→ System routes only the right conversations to the right seller →</div>
         </article>
 
         <article class="scene" id="scene-4">
@@ -1762,16 +1762,16 @@
 
         <article class="scene" id="scene-5">
           <p class="kicker">Step 6</p>
-          <h2>Outcome B: URA escalates to sales with full context</h2>
-          <p class="lead">For complex scenarios, the system packages everything for seller teams—no manual note-taking required. Here's what happens:</p>
+          <h2>Outcome B: URA hands off to seller with full context</h2>
+          <p class="lead">High-value, pre-qualified signals with context are handed off to sellers so they can act fast without manual triage. Here's what happens:</p>
 
           <div class="ura-pipeline">
             <div class="ura-step">
               <div class="ura-connector"></div>
               <div class="ura-num">1</div>
               <div class="ura-body">
-                <h4>Escalation Triggered</h4>
-                <p><strong>Lead Info:</strong> alex@contoso.com &nbsp;|&nbsp; <strong>Intent:</strong> Licensing + AI upsell guidance &nbsp;|&nbsp; Confidence: 94%<br>Automatically routed to seller queue.</p>
+                <h4>Seller Handoff Triggered</h4>
+                <p><strong>Lead Info:</strong> alex@contoso.com &nbsp;|&nbsp; <strong>Intent:</strong> Licensing + AI upsell guidance &nbsp;|&nbsp; Confidence: 94%<br>Classified as high-value and pre-qualified for seller handoff.</p>
               </div>
             </div>
             <div class="ura-step">
@@ -1786,12 +1786,12 @@
               <div class="ura-num done">✓</div>
               <div class="ura-body">
                 <h4>Seller Handoff Complete</h4>
-                <p><strong>Assignment:</strong> M365 SMB Sales Queue &nbsp;|&nbsp; <strong>Priority:</strong> Licensing + Copilot specialist<br><strong>Target Response:</strong> Under 4 hours &nbsp;|&nbsp; Seller has all context, ready to close.</p>
+                <p><strong>Assignment:</strong> M365 SMB Seller Queue &nbsp;|&nbsp; <strong>Priority:</strong> Licensing + Copilot specialist<br><strong>Target Response:</strong> Under 4 hours &nbsp;|&nbsp; Seller has all context, ready to close.</p>
               </div>
             </div>
           </div>
 
-          <div class="ura-outcome" style="background:#e9f6ea;border-left-color:#2e7d32;color:#2e7d32;">✓ Transcript, intent, and full conversation context delivered to right seller at right time</div>
+          <div class="ura-outcome" style="background:#e9f6ea;border-left-color:#2e7d32;color:#2e7d32;">✓ High-value, pre-qualified signals with full context are handed off to the right seller at the right time</div>
 
           <div class="actions">
             <button id="replayFlow" class="btn primary" type="button">↻ Replay full flow</button>
@@ -1851,7 +1851,7 @@
     "Customer replies",
     "URA classifies",
     "Outcome A: auto-answer",
-    "Outcome B: escalate"
+    "Outcome B: handoff to seller"
   ];
 
   const timelineContainer = document.getElementById("timeline");
@@ -1899,7 +1899,7 @@
       items: [
         "[READ] URA performs intent classification and entity extraction (plan type, role mapping, rollout scope).",
         "[READ] Policy and grounding checks validate that response can use approved Microsoft 365 business knowledge.",
-        "[ROUTE] Decision engine selects path: immediate auto-answer or seller escalation."
+        "[ROUTE] Decision engine selects path: immediate auto-answer or seller handoff."
       ]
     },
     {
@@ -1911,11 +1911,11 @@
       ]
     },
     {
-      title: "Step 6: Package context and escalate to seller",
+      title: "Step 6: Package context and hand off to seller",
       items: [
-        "[RW] Escalation package is created with transcript, summary insights, extracted entities, and confidence signals.",
+        "[RW] Seller handoff package is created with transcript, summary insights, extracted entities, and confidence signals.",
         "[READ] UCMP contact context and campaign metadata are attached to the seller handoff payload.",
-        "[ROUTE] Ticket is routed to the M365 SMB seller queue with response-time target tracking."
+        "[ROUTE] High-value, pre-qualified ticket is routed to the M365 SMB seller queue with response-time target tracking."
       ]
     }
   ];
@@ -2221,8 +2221,8 @@
     const steps = [
       {
         role: "bot",
-        text: "Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. You can also request a sales call here or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?",
-        html: "<div class='welcome-card'><p>Hi. I’m an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative.</p><p class='welcome-links'>You can also request a sales call <a href='#'>here</a> or call us at <strong>(800) 642-7676</strong> M-F 6 AM to 6 PM PT.</p><p><strong>What can I do for you?</strong></p><p class='welcome-links'>To learn more about this AI web feature, read the <a href='#'>Transparency FAQ (PDF)</a>.</p></div>",
+        text: "Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft seller. You can also request a seller call here or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?",
+        html: "<div class='welcome-card'><p>Hi. I’m an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft seller.</p><p class='welcome-links'>You can also request a seller call <a href='#'>here</a> or call us at <strong>(800) 642-7676</strong> M-F 6 AM to 6 PM PT.</p><p><strong>What can I do for you?</strong></p><p class='welcome-links'>To learn more about this AI web feature, read the <a href='#'>Transparency FAQ (PDF)</a>.</p></div>",
         think: 760,
         delay: 980
       },

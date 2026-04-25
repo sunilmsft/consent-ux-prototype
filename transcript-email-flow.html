@@ -1139,7 +1139,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.4</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.6</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1525,6 +1525,13 @@
   const chatBody = document.getElementById("chatBody");
   let isAutoPlayingChat = false;
   let followRafId = 0;
+  let transcriptPromptShown = false;
+  let collectionShown = false;
+  let confirmationShown = false;
+  let transcriptRequestInFlight = false;
+  let submitInFlight = false;
+  let getTranscriptBtnRef = null;
+  let submitBtnRef = null;
 
   function forceBottomNow() {
     const targetTop = Math.max(0, chatBody.scrollHeight - chatBody.clientHeight);
@@ -1618,20 +1625,41 @@
   }
 
   function addTranscriptPrompt() {
+    if (transcriptPromptShown) return;
+    transcriptPromptShown = true;
+
     const prompt = document.createElement("div");
     prompt.className = "prompt";
     prompt.innerHTML = [
       "<h4>Would you like a copy of this conversation?</h4>",
       "<p>We can email you a transcript for your records.</p>",
       "<div class='prompt-actions'>",
-      "  <button class='btn primary' type='button'>Get transcript</button>",
+      "  <button class='btn primary js-get-transcript' type='button'>Get transcript</button>",
       "</div>"
     ].join("");
+
+    const getTranscriptBtn = prompt.querySelector(".js-get-transcript");
+    getTranscriptBtnRef = getTranscriptBtn;
+    getTranscriptBtn.addEventListener("click", async () => {
+      if (transcriptRequestInFlight || collectionShown) return;
+      transcriptRequestInFlight = true;
+      getTranscriptBtn.disabled = true;
+      getTranscriptBtn.textContent = "Requesting...";
+      await wait(260);
+      getTranscriptBtn.textContent = "Transcript requested";
+      addCollectionCard();
+      stickChatToBottom(true, true);
+      transcriptRequestInFlight = false;
+    });
+
     chatBody.appendChild(prompt);
     stickChatToBottom();
   }
 
   function addCollectionCard() {
+    if (collectionShown) return;
+    collectionShown = true;
+
     const card = document.createElement("div");
     card.className = "collect-card";
     card.innerHTML = [
@@ -1643,15 +1671,33 @@
       "  <div class='collect-field full'><label>Company *</label><span>Contoso Ltd</span></div>",
       "</div>",
       "<div class='collect-actions'>",
-      "  <button class='btn primary' type='button'>Submit</button>",
+      "  <button class='btn primary js-submit-transcript' type='button'>Submit</button>",
       "  <button class='btn' type='button'>Dismiss</button>",
       "</div>"
     ].join("");
+
+    const submitBtn = card.querySelector(".js-submit-transcript");
+    submitBtnRef = submitBtn;
+    submitBtn.addEventListener("click", async () => {
+      if (confirmationShown || submitInFlight) return;
+      submitInFlight = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+      await wait(420);
+      addConfirmationCard();
+      submitBtn.textContent = "Submitted";
+      stickChatToBottom(true, true);
+      submitInFlight = false;
+    });
+
     chatBody.appendChild(card);
     stickChatToBottom();
   }
 
   function addConfirmationCard() {
+    if (confirmationShown) return;
+    confirmationShown = true;
+
     const card = document.createElement("div");
     card.className = "confirm";
     card.innerHTML = [
@@ -1673,6 +1719,13 @@
     const forceFollowTimer = setInterval(() => stickChatToBottom(true, true), 120);
 
     chatBody.innerHTML = "";
+    transcriptPromptShown = false;
+    collectionShown = false;
+    confirmationShown = false;
+    transcriptRequestInFlight = false;
+    submitInFlight = false;
+    getTranscriptBtnRef = null;
+    submitBtnRef = null;
     chatReadyForNext = false;
     showScene(0);
 
@@ -1768,14 +1821,16 @@
     }
     addTranscriptPrompt();
 
-    await wait(900);
+    await wait(700);
     if (token !== runToken) {
       clearInterval(forceFollowTimer);
       isAutoPlayingChat = false;
       stopAutoFollowLoop();
       return;
     }
-    addCollectionCard();
+    if (!collectionShown && getTranscriptBtnRef && !getTranscriptBtnRef.disabled) {
+      getTranscriptBtnRef.click();
+    }
 
     await wait(900);
     if (token !== runToken) {
@@ -1784,7 +1839,28 @@
       stopAutoFollowLoop();
       return;
     }
-    addConfirmationCard();
+    if (!collectionShown) addCollectionCard();
+
+    await wait(900);
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      stopAutoFollowLoop();
+      return;
+    }
+
+    if (!confirmationShown && submitBtnRef && !submitBtnRef.disabled) {
+      submitBtnRef.click();
+      await wait(500);
+    }
+
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      stopAutoFollowLoop();
+      return;
+    }
+    if (!confirmationShown) addConfirmationCard();
 
     await wait(180);
     if (token !== runToken) {

@@ -818,12 +818,84 @@
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
   }
 
-  .prog > span {
-    display: block;
-    height: 100%;
-    width: 92%;
-    background: linear-gradient(90deg, #4caf50 0%, #66bb6a 100%);
-    box-shadow: 0 1px 3px rgba(76, 175, 80, .4);
+  .ura-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 14px;
+  }
+
+  .ura-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .ura-step:not(:last-child) .ura-connector {
+    position: absolute;
+    left: 17px;
+    top: 36px;
+    bottom: -14px;
+    width: 2px;
+    background: #c8dff6;
+  }
+
+  .ura-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #0078d4;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ura-num.done {
+    background: #107c10;
+  }
+
+  .ura-body {
+    border: 1px solid #d9e8f8;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #f5f9ff;
+    flex: 1;
+    margin-bottom: 14px;
+  }
+
+  .ura-body h4 {
+    margin: 0 0 4px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0078d4;
+  }
+
+  .ura-body p {
+    margin: 0;
+    font-size: 12px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .ura-body .prog {
+    margin-top: 8px;
+  }
+
+  .ura-outcome {
+    margin-top: 4px;
+    padding: 10px 14px;
+    background: #ecf5ff;
+    border-left: 4px solid #0078d4;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0078d4;
   }
 
   .status {
@@ -1481,7 +1553,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.25</p>
+          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.26</p>
         </div>
         <button id="resetFlowTop" type="button" title="Reset flow">↺</button>
       </header>
@@ -1607,25 +1679,34 @@
           <h2>URA classifies intent and prepares response path</h2>
           <p class="lead">Behind the scenes, URA performs real-time classification to understand customer intent and route to the best outcome. Here's the process:</p>
 
-          <div class="route-grid">
-            <div class="route live">
-              <h3>🔍 Intent Analysis</h3>
-              <p><strong>Detected:</strong> M365 plan recommendation + feature bundling<br>Confidence: 94%<br>Customer wants the best-fit plan that includes Teams, scheduling, and optional AI capabilities.</p>
-              <div class="prog"><span></span></div>
+          <div class="ura-pipeline">
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">1</div>
+              <div class="ura-body">
+                <h4>Intent Analysis</h4>
+                <p><strong>Detected:</strong> M365 plan recommendation + feature bundling &nbsp;|&nbsp; Confidence: 94%<br>Customer wants the best-fit plan that includes Teams, scheduling, and optional AI capabilities.</p>
+                <div class="prog"><span></span></div>
+              </div>
             </div>
-            <div class="route">
-              <h3>📋 Context Extraction</h3>
-              <p><strong>Entities:</strong> 40 users | 6 stores | Teams included | Business Standard | Business Premium | Bookings | Copilot | role-based mix<br>All relevant conversation details captured and structured.</p>
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">2</div>
+              <div class="ura-body">
+                <h4>Context Extraction</h4>
+                <p><strong>Entities:</strong> 40 users | 6 stores | Teams included | Business Standard | Business Premium | Bookings | Copilot | role-based mix<br>All relevant conversation details captured and structured.</p>
+              </div>
             </div>
-            <div class="route">
-              <h3>✓ Validation Checks</h3>
-              <p><strong>Status:</strong> Consent honored | Route matched | Knowledge answerable<br>All policy checks pass. Ready for routing decision.</p>
+            <div class="ura-step">
+              <div class="ura-num done">✓</div>
+              <div class="ura-body">
+                <h4>Validation Checks</h4>
+                <p><strong>Status:</strong> Consent honored | Route matched | Knowledge answerable<br>All policy checks pass. Ready for routing decision.</p>
+              </div>
             </div>
           </div>
-          
-          <div style="margin-top: 16px; padding: 10px; background: #ecf5ff; border-left: 4px solid #0078d4; border-radius: 4px; font-size: 12px; font-weight: 600; color: #0078d4;">
-            → Next step: System routes to auto-answer or escalates to sales →
-          </div>
+
+          <div class="ura-outcome">→ System routes to auto-answer or escalates to sales →</div>
         </article>
 
         <article class="scene" id="scene-4">

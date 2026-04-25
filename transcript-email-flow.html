@@ -1553,7 +1553,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.26</p>
+          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.27</p>
         </div>
         <button id="resetFlowTop" type="button" title="Reset flow">↺</button>
       </header>
@@ -1765,24 +1765,33 @@
           <h2>Outcome B: URA escalates to sales with full context</h2>
           <p class="lead">For complex scenarios, the system packages everything for seller teams—no manual note-taking required. Here's what happens:</p>
 
-          <div class="route-grid">
-            <div class="route escalate">
-              <h3>📧 Escalation Triggered</h3>
-              <p><strong>Lead Info:</strong> alex@contoso.com<br><strong>Intent:</strong> Licensing + AI upsell guidance<br>Confidence: 94%<br>Automatically routed to seller queue.</p>
+          <div class="ura-pipeline">
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">1</div>
+              <div class="ura-body">
+                <h4>Escalation Triggered</h4>
+                <p><strong>Lead Info:</strong> alex@contoso.com &nbsp;|&nbsp; <strong>Intent:</strong> Licensing + AI upsell guidance &nbsp;|&nbsp; Confidence: 94%<br>Automatically routed to seller queue.</p>
+              </div>
             </div>
-            <div class="route">
-              <h3>📎 Context Package Built</h3>
-              <p><strong>Attached to ticket:</strong><br>• Full transcript • Summary highlights • Entity extraction (40 users, 6 stores, roles) • Teams/scheduling requirements • Copilot interest • Cost comparison context</p>
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">2</div>
+              <div class="ura-body">
+                <h4>Context Package Built</h4>
+                <p><strong>Attached to ticket:</strong><br>• Full transcript • Summary highlights • Entity extraction (40 users, 6 stores, roles) • Teams/scheduling requirements • Copilot interest • Cost comparison context</p>
+              </div>
             </div>
-            <div class="route good">
-              <h3>✓ Seller Handoff Complete</h3>
-              <p><strong>Assignment:</strong> M365 SMB Sales Queue<br><strong>Priority:</strong> Licensing + Copilot specialist<br><strong>Target Response:</strong> Under 4 hours<br>Seller has all context, ready to close.</p>
+            <div class="ura-step">
+              <div class="ura-num done">✓</div>
+              <div class="ura-body">
+                <h4>Seller Handoff Complete</h4>
+                <p><strong>Assignment:</strong> M365 SMB Sales Queue &nbsp;|&nbsp; <strong>Priority:</strong> Licensing + Copilot specialist<br><strong>Target Response:</strong> Under 4 hours &nbsp;|&nbsp; Seller has all context, ready to close.</p>
+              </div>
             </div>
           </div>
-          
-          <div style="margin-top: 16px; padding: 10px; background: #e9f6ea; border-left: 4px solid #2e7d32; border-radius: 4px; font-size: 12px; font-weight: 600; color: #2e7d32;">
-            ✓ Transcript, intent, and full conversation context delivered to right seller at right time
-          </div>
+
+          <div class="ura-outcome" style="background:#e9f6ea;border-left-color:#2e7d32;color:#2e7d32;">✓ Transcript, intent, and full conversation context delivered to right seller at right time</div>
 
           <div class="actions">
             <button id="replayFlow" class="btn primary" type="button">↻ Replay full flow</button>

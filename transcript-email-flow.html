@@ -934,6 +934,54 @@
     overflow-anchor: none;
   }
 
+  .msg-line {
+    white-space: pre-line;
+  }
+
+  .msg-rich {
+    display: grid;
+    gap: 10px;
+  }
+
+  .msg-rich p,
+  .msg-rich ul,
+  .msg-rich h4 {
+    margin: 0;
+  }
+
+  .msg-rich h4 {
+    font-size: 15px;
+    line-height: 1.35;
+    color: #1f1f1f;
+  }
+
+  .msg-rich p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #2c2c2c;
+  }
+
+  .msg-rich ul {
+    padding-left: 20px;
+    display: grid;
+    gap: 6px;
+  }
+
+  .msg-rich li {
+    line-height: 1.55;
+  }
+
+  .msg-rich strong {
+    color: #111;
+  }
+
+  .msg-rich .rich-callout {
+    background: #f5f9ff;
+    border-left: 3px solid #0078d4;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+
   .msg.bot {
     align-self: flex-start;
     background: #fff;
@@ -1170,7 +1218,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.8</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.9</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1187,7 +1235,7 @@
         <article class="scene active" id="scene-0">
           <p class="kicker">Step 1</p>
           <h2>Customer is chatting about Microsoft 365 Business plans</h2>
-          <p class="lead">The conversation stays grounded in real Microsoft 365 Business plan questions: Basic vs Premium, frontline vs manager needs, and pilot rollout planning.</p>
+          <p class="lead">The conversation now mirrors Ask Microsoft more closely: Teams clarification, role-based licensing guidance, a practical 40-user recommendation, and a Copilot follow-up.</p>
           <div class="status">
             <span><b>Live:</b> M365 Business plan and feature guidance</span>
             <span><b>Trigger:</b> Transcript request appears after meaningful exchange</span>
@@ -1197,14 +1245,14 @@
         <article class="scene" id="scene-1">
           <p class="kicker">Step 2</p>
           <h2>Enhanced email arrives with summary and full transcript</h2>
-          <p class="lead">This structure mirrors the current customer email format: lightweight header lines, centered Microsoft card, section dividers, and clear action links.</p>
+          <p class="lead">The outbound email now reflects the newer conversation: Teams-inclusive plans, recommended role mix, and AI/Copilot follow-up context.</p>
 
           <div class="email-shot">
             <div class="email-headlines">
               <div><b>From:</b> Ask Microsoft (M365 Assistant) &lt;<a href="#">AskMicrosoft@e-mails.microsoft.com</a>&gt;</div>
               <div><b>Sent:</b> Friday, April 24, 2026 9:40 AM</div>
               <div><b>To:</b> Alex Rivera &lt;<a href="#">alex.rivera@contoso.com</a>&gt;</div>
-              <div><b>Subject:</b> Your Microsoft 365 summary + full transcript</div>
+              <div><b>Subject:</b> Your Microsoft 365 plan recommendations + full transcript</div>
             </div>
 
             <div class="email-canvas">
@@ -1216,18 +1264,18 @@
                   </div>
                   <h3>Ask Microsoft</h3>
                   <p>Hi Alex,</p>
-                  <p>I am <b>Ask Microsoft</b>, an AI agent here to help your business. Based on your chat, I prepared a concise summary and your full transcript so you can review options with your team.</p>
+                  <p>I am <b>Ask Microsoft</b>, an AI agent here to help your business. Based on your chat, I prepared a concise summary and your full transcript so you can review plan options, pricing direction, and AI add-ons with your team.</p>
                   <p class="reply-inline">You can keep this thread and ask follow-up questions by <strong>replying directly to this email</strong>. There is no new form and no need to restart the conversation.</p>
                 </section>
 
                 <section class="email-block">
                   <h3>Conversation Summary for Your 40-Person Retail Team</h3>
-                  <p><b>AI summary:</b> You are evaluating Microsoft 365 for a 40-person retail team across 6 stores. Your priorities are stronger collaboration for frontline employees, secure access for managers, and a phased rollout with minimal disruption.</p>
+                  <p><b>AI summary:</b> You are evaluating Microsoft 365 plans with Teams for a 40-person retail team across 6 stores. The conversation focused on which licenses fit frontline associates, store managers, and IT owners, plus where Copilot could add value.</p>
                   <ul class="key-list">
-                    <li>Plan guidance: Business Basic for frontline users, Premium for managers and HQ.</li>
-                    <li>Feature focus: Teams collaboration, shared scheduling, and secure mobile access.</li>
-                    <li>Rollout approach: start with a pilot group, then expand store-by-store.</li>
-                    <li>Support needs: onboarding checklist, admin setup guidance, and follow-up Q&amp;A.</li>
+                    <li>Plan guidance: Business Basic for frontline staff, Business Standard for managers, Business Premium for owner or IT leads.</li>
+                    <li>Cost direction: estimated mixed-plan monthly total of about $324 for all 40 users.</li>
+                    <li>Feature focus: Teams collaboration, desktop apps for managers, device/security controls, and built-in scheduling options like Bookings.</li>
+                    <li>AI follow-up: start with Copilot Chat, then evaluate Microsoft 365 Copilot for select manager and analyst roles.</li>
                   </ul>
                 </section>
 
@@ -1235,27 +1283,29 @@
                   <h3>Common Next Questions from Teams Like Yours</h3>
                   <p class="muted">I can help answer questions like:</p>
                   <div class="blue-link-list">
-                    <a href="#">01 - Which Microsoft 365 plan is best for each employee role?</a>
-                    <a href="#">02 - What security controls should we enable first?</a>
-                    <a href="#">03 - How should we stage rollout by store location?</a>
+                    <a href="#">01 - Which users should be on Basic, Standard, or Premium?</a>
+                    <a href="#">02 - Which plan includes scheduling plus AI features?</a>
+                    <a href="#">03 - What is the right starting point for Microsoft 365 Copilot?</a>
                   </div>
                   <p class="reply-inline">You can ask any of these by <strong>replying directly to this email</strong>, or use the actions below.</p>
                   <div class="cta-link-row">
                     <a class="link-btn" href="#">Chat with Ask Microsoft</a>
-                    <a class="link-btn" href="#">Request Pricing Email</a>
-                    <a class="link-btn" href="#">Start Pilot Planning</a>
+                    <a class="link-btn" href="#">Request 40-User Quote</a>
+                    <a class="link-btn" href="#">Compare Copilot Options</a>
                   </div>
 
                   <div class="transcript-shell">
                     <div class="transcript-head">Detailed transcript (full conversation)</div>
                     <div class="transcript-body">
-                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Hi. I am an AI agent. I can help compare Microsoft 365 Business plans and features. What can I do for you?</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative.</div></div>
                       <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?</div></div>
-                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Microsoft 365 Business plans usually start with Business Basic, Business Standard, and Business Premium. For retail, the key decision is whether managers need desktop apps, device management, and stronger security.</div></div>
-                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">We are leaning toward Business Basic for store associates. What would managers miss if they stayed on Basic too?</div></div>
-                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Business Basic includes Teams, Exchange email, 1 TB OneDrive, and web/mobile Office apps. Managers usually move to Business Premium when they need desktop Office apps, Intune device management, and advanced protection controls.</div></div>
-                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">That helps. Could we start with Basic for associates and Premium for store managers, then pilot in one location first?</div></div>
-                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Yes. Mixed licensing by role is common. Start with one pilot store, validate Teams usage, device policies, and admin setup, then expand location by location.</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Microsoft 365 Business plans are available with or without Microsoft Teams. Do you want plans that include Teams or plans without Teams?</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">with teams</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">For retail teams using Teams, most customers evaluate Business Basic, Business Standard, and Business Premium. Would you like a quick recommendation for a 40-user mix?</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">We still haven't decided. What would be your recommendation?</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">A practical setup is 30 users on Basic, 8 on Standard, and 2 on Premium, for about $324/month total.</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">What AI features do you recommend?</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Start with Copilot Chat, then add Microsoft 365 Copilot for selected manager and analyst roles if you need AI in Word, Excel, Outlook, PowerPoint, and Teams.</div></div>
                       <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">Please email this conversation so I can share with IT and finance.</div></div>
                       <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Done. I will send your transcript and summary when this chat session ends.</div></div>
                     </div>
@@ -1275,12 +1325,12 @@
             <div class="email-meta">
               <div><b>From:</b> alex@contoso.com</div>
               <div><b>To:</b> Ask Microsoft</div>
-              <div><b>Subject:</b> RE: Your chat transcript + recommended next steps</div>
+              <div><b>Subject:</b> RE: Your Microsoft 365 plan recommendations + full transcript</div>
               <div><b>Date:</b> Mon, Apr 27, 2026 9:12 AM UTC</div>
             </div>
             <div class="email-content">
               <div class="mail-card">
-                <p>Thanks, this is helpful. Can you clarify which Microsoft 365 Business features are included in Basic for store associates versus Premium for store managers?</p>
+                <p>Thanks, this is helpful. Which plan includes all of this and also scheduling?</p>
               </div>
             </div>
           </div>
@@ -1294,12 +1344,12 @@
           <div class="route-grid">
             <div class="route live">
               <h3>🔍 Intent Analysis</h3>
-              <p><strong>Detected:</strong> M365 Business plan comparison<br>Confidence: 92%<br>Customer asks which features stay in Business Basic for associates and which require Business Premium for store managers.</p>
+              <p><strong>Detected:</strong> M365 plan recommendation + feature bundling<br>Confidence: 94%<br>Customer wants the best-fit plan that includes Teams, scheduling, and optional AI capabilities.</p>
               <div class="prog"><span></span></div>
             </div>
             <div class="route">
               <h3>📋 Context Extraction</h3>
-              <p><strong>Entities:</strong> 40 users | 6 stores | Business Basic | Business Premium | associates vs managers | pilot rollout<br>All M365-specific conversation details captured and structured.</p>
+              <p><strong>Entities:</strong> 40 users | 6 stores | Teams included | Business Standard | Business Premium | Bookings | Copilot | role-based mix<br>All relevant conversation details captured and structured.</p>
             </div>
             <div class="route">
               <h3>✓ Validation Checks</h3>
@@ -1321,33 +1371,36 @@
             <div class="email-meta">
               <div><b>From:</b> Ask Microsoft</div>
               <div><b>To:</b> alex@contoso.com</div>
-              <div><b>Subject:</b> RE: Feature breakdown - Business Basic vs Premium for retail teams</div>
+              <div><b>Subject:</b> RE: Which plan includes Teams, scheduling, and AI features?</div>
               <div><b>Sent:</b> Mon, Apr 27, 2026 9:15 AM UTC</div>
             </div>
             <div class="email-content">
               <div class="mail-card">
                 <p>Hi Alex,</p>
-                <p>You asked about feature differences for your retail teams. Here's a breakdown for each role:</p>
-                <div style="background:#ecf5ff;border-left:3px solid #0078d4;border-radius:4px;padding:12px;margin:12px 0;"><b>Business Basic — Frontline Staff</b>
+                <p>To get desktop apps, Teams, scheduling tools, and optional premium AI features, the best fit is usually <b>Microsoft 365 Business Standard or Business Premium with Microsoft 365 Copilot added for selected users</b>.</p>
+                <div style="background:#ecf5ff;border-left:3px solid #0078d4;border-radius:4px;padding:12px;margin:12px 0;"><b>Business Standard — Best core fit for managers</b>
                   <ul style="margin:8px 0 0 16px;font-size:12px;line-height:1.6;">
-                    <li><b>Teams:</b> Unlimited chat, calls, meetings (up to 300 people)</li>
-                    <li><b>Cloud storage:</b> 1 TB OneDrive per employee</li>
-                    <li><b>Productivity:</b> Web versions of Word, Excel, PowerPoint, Outlook</li>
-                    <li><b>Mobile:</b> Full access from phones/tablets—perfect for multi-store coverage</li>
-                    <li><b>Scheduling:</b> Shared calendars, shift scheduling in Teams</li>
+                    <li><b>Includes:</b> desktop, web, and mobile Office apps plus Teams</li>
+                    <li><b>Scheduling:</b> Microsoft Bookings for appointments and simple scheduling workflows</li>
+                    <li><b>Collaboration:</b> Outlook, OneDrive, Teams meetings, shared files, and day-to-day productivity</li>
+                    <li><b>Good for:</b> store managers and back-office roles that need full apps without advanced security requirements</li>
                   </ul>
                 </div>
-                <div style="background:#e9f6ea;border-left:3px solid #2e7d32;border-radius:4px;padding:12px;margin:12px 0;"><b>Business Premium — Managers & HQ</b>
+                <div style="background:#e9f6ea;border-left:3px solid #2e7d32;border-radius:4px;padding:12px;margin:12px 0;"><b>Business Premium — Best when you also need stronger security</b>
                   <ul style="margin:8px 0 0 16px;font-size:12px;line-height:1.6;">
-                    <li><b>All of Basic +</b> desktop Office apps (Word, Excel, PowerPoint)</li>
-                    <li><b>Device management:</b> Intune—control which apps work on company phones</li>
-                    <li><b>Advanced security:</b> Email threat protection, data loss prevention</li>
-                    <li><b>Admin controls:</b> Manage users, policies, compliance across all 6 stores</li>
-                    <li><b>Advanced analytics:</b> Monitor adoption and usage patterns</li>
+                    <li><b>Everything in Standard +</b> Intune device management and Microsoft Defender for Business</li>
+                    <li><b>Security:</b> Conditional Access, MFA enforcement, and stronger protection for shared/store devices</li>
+                    <li><b>Good for:</b> owner, IT, operations, finance, or any role handling sensitive information</li>
                   </ul>
                 </div>
-                <p><b>For your rollout:</b> Business Basic keeps frontline staff connected and productive. Business Premium for managers ensures you control security and compliance as you scale from 1 pilot store to all 6. You get peace of mind knowing devices and data are protected.</p>
-                <p>Next: Would you like us to send pricing info, or should we schedule a pilot setup call?</p>
+                <div style="background:#fff7ea;border-left:3px solid #d88900;border-radius:4px;padding:12px;margin:12px 0;"><b>AI add-on option — Microsoft 365 Copilot</b>
+                  <ul style="margin:8px 0 0 16px;font-size:12px;line-height:1.6;">
+                    <li>Add Copilot for users who need help with reports, email drafting, meeting recaps, and content creation</li>
+                    <li>Typical starting point: manager, analyst, or owner seats rather than every frontline user</li>
+                  </ul>
+                </div>
+                <p><b>Recommended path:</b> Use Business Standard for manager productivity, Business Premium where you need stronger protection, and add Copilot selectively. For frontline associates, many teams still keep Business Basic to control cost.</p>
+                <p>Next: Would you like a quote that compares Standard + Copilot versus Premium + Copilot for your 40-user setup?</p>
               </div>
             </div>
           </div>
@@ -1366,15 +1419,15 @@
           <div class="route-grid">
             <div class="route escalate">
               <h3>📧 Escalation Triggered</h3>
-              <p><strong>Lead Info:</strong> alex@contoso.com<br><strong>Intent:</strong> Role-based plan guidance<br>Confidence: 92%<br>Automatically routed to seller queue.</p>
+              <p><strong>Lead Info:</strong> alex@contoso.com<br><strong>Intent:</strong> Licensing + AI upsell guidance<br>Confidence: 94%<br>Automatically routed to seller queue.</p>
             </div>
             <div class="route">
               <h3>📎 Context Package Built</h3>
-              <p><strong>Attached to ticket:</strong><br>• Full transcript • Summary highlights • Entity extraction (40 users, 6 stores, roles) • Feature questions • Rollout timeline • Campaign context</p>
+              <p><strong>Attached to ticket:</strong><br>• Full transcript • Summary highlights • Entity extraction (40 users, 6 stores, roles) • Teams/scheduling requirements • Copilot interest • Cost comparison context</p>
             </div>
             <div class="route good">
               <h3>✓ Seller Handoff Complete</h3>
-              <p><strong>Assignment:</strong> M365 SMB Sales Queue<br><strong>Priority:</strong> Plan comparison specialist<br><strong>Target Response:</strong> Under 4 hours<br>Seller has all context, ready to close.</p>
+              <p><strong>Assignment:</strong> M365 SMB Sales Queue<br><strong>Priority:</strong> Licensing + Copilot specialist<br><strong>Target Response:</strong> Under 4 hours<br>Seller has all context, ready to close.</p>
             </div>
           </div>
           
@@ -1636,11 +1689,17 @@
     chatBody.appendChild(stamp);
   }
 
-  function addMessage(role, text, note) {
+  function addMessage(role, text, note, html) {
     const msg = document.createElement("div");
     msg.className = "msg " + role;
     const line = document.createElement("div");
-    line.textContent = text;
+    line.className = "msg-line";
+    if (html) {
+      line.className = "msg-rich";
+      line.innerHTML = html;
+    } else {
+      line.textContent = text;
+    }
     msg.appendChild(line);
 
     if (note) {
@@ -1780,6 +1839,7 @@
         role: "bot",
         text: "Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. You can also request a sales call here or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?",
         note: "To learn more about this AI web feature, read the Transparency FAQ (PDF)",
+        html: "<p>Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative.</p><p>You can also request a sales call here or call us at <strong>(800) 642-7676</strong> M-F 6 AM to 6 PM PT.</p><p><strong>What can I do for you?</strong></p>",
         think: 760,
         delay: 980
       },
@@ -1791,6 +1851,7 @@
       {
         role: "bot",
         text: "Microsoft 365 Business plans are available with or without Microsoft Teams. For your 40-person retail team, do you want plans that include Teams or plans without Teams?",
+        html: "<p>Microsoft 365 Business plans are available <strong>with or without Microsoft Teams</strong>.</p><p>For your 40-person retail team, do you want plans that <strong>include Teams</strong> or plans <strong>without Teams</strong>?</p>",
         think: 980,
         delay: 1020
       },
@@ -1801,6 +1862,7 @@
       },
       {
         role: "bot",
+        html: "<p><strong>Great choice.</strong> For retail teams using Teams, most customers evaluate:</p><ul><li><strong>Microsoft 365 Business Basic ($6/user/month)</strong> for frontline communication and web/mobile apps</li><li><strong>Microsoft 365 Business Standard ($12.50/user/month)</strong> when managers need desktop apps and richer productivity</li><li><strong>Microsoft 365 Business Premium ($22/user/month)</strong> when you need Intune + Defender security and device management</li></ul><div class='rich-callout'><strong>Would you like a quick recommendation for a 40-user mix?</strong></div>",
         text: "Great choice. For retail teams using Teams, most customers evaluate: \u2022 Microsoft 365 Business Basic ($6/user/month) for frontline communication and web/mobile apps. \u2022 Microsoft 365 Business Standard ($12.50/user/month) when managers need desktop apps and richer productivity. \u2022 Microsoft 365 Business Premium ($22/user/month) when you need Intune + Defender security and device management.\n\nWould you like a quick recommendation for a 40-user mix?",
         think: 1220,
         delay: 1180
@@ -1813,6 +1875,7 @@
       {
         role: "bot",
         text: "For a practical and cost-effective setup: 30 users on Business Basic (frontline), 8 users on Business Standard (store managers), and 2 users on Business Premium (owner/IT lead). Estimated total is about $324/month versus ~$880/month for Premium for all 40 users.\n\nThis mix controls cost while covering collaboration, desktop productivity, and security governance.",
+        html: "<h4>Recommended plan mix</h4><ul><li><strong>30 users</strong> on Business Basic for frontline staff</li><li><strong>8 users</strong> on Business Standard for store managers</li><li><strong>2 users</strong> on Business Premium for owner or IT lead</li></ul><div class='rich-callout'><p><strong>Estimated total:</strong> about $324/month</p><p>Compared with <strong>~$880/month</strong> for Premium for all 40 users.</p></div><p>This mix controls cost while covering collaboration, desktop productivity, and security governance.</p>",
         think: 1300,
         delay: 1150
       },
@@ -1824,6 +1887,7 @@
       {
         role: "bot",
         text: "Start with Copilot Chat included in Microsoft 365 Business plans for secure, web-grounded assistance. Then add Microsoft 365 Copilot for select manager and analyst roles if you need AI in Word, Excel, Outlook, PowerPoint, and Teams.\n\nFor retail, this usually helps with faster reporting, campaign drafts, and meeting/action summaries.",
+        html: "<h4>Recommended AI starting point</h4><ul><li><strong>Start with Copilot Chat</strong> included in Microsoft 365 Business plans for secure, web-grounded assistance</li><li><strong>Add Microsoft 365 Copilot</strong> for select manager and analyst roles if you need AI in Word, Excel, Outlook, PowerPoint, and Teams</li></ul><p>For retail, this usually helps with <strong>faster reporting</strong>, <strong>campaign drafts</strong>, and <strong>meeting/action summaries</strong>.</p>",
         think: 1160,
         delay: 1120
       }
@@ -1852,7 +1916,7 @@
         await wait(320);
       }
 
-      addMessage(step.role, step.text, step.note);
+      addMessage(step.role, step.text, step.note, step.html);
       await wait(step.delay);
     }
 

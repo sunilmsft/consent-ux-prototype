@@ -95,12 +95,16 @@
   }
 
   .backend-panel {
-    margin-top: 18px;
+    margin-top: 0;
     border: 1px solid #d9e4f1;
     border-radius: 10px;
     background: #fbfdff;
     box-shadow: 0 2px 8px rgba(16, 64, 128, .06);
-    overflow: hidden;
+    overflow: auto;
+    position: sticky;
+    top: 12px;
+    max-height: calc(100vh - 160px);
+    grid-column: 2;
   }
 
   .backend-panel[hidden] {
@@ -147,14 +151,72 @@
 
   .backend-list {
     margin: 0;
-    padding-left: 18px;
+    padding: 0;
     font-size: 12px;
     color: #2d2d2d;
     line-height: 1.5;
+    list-style: none;
   }
 
   .backend-list li {
-    margin-bottom: 5px;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .backend-op {
+    display: inline-block;
+    min-width: 38px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    text-align: center;
+    line-height: 1.4;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .backend-op.op-write {
+    background: #e7f3ff;
+    color: #0b5fa5;
+    border: 1px solid #b9d4f3;
+  }
+
+  .backend-op.op-read {
+    background: #e9f6ea;
+    color: #266d2c;
+    border: 1px solid #b8dcb9;
+  }
+
+  .backend-op.op-rw {
+    background: #fff4e5;
+    color: #8a5a00;
+    border: 1px solid #edd2a5;
+  }
+
+  .backend-op.op-route {
+    background: #f4edff;
+    color: #6741a3;
+    border: 1px solid #d4c3f5;
+  }
+
+  .backend-op.op-orch {
+    background: #edf6ff;
+    color: #245b8f;
+    border: 1px solid #c3daf1;
+  }
+
+  .backend-op.op-log {
+    background: #f4f4f4;
+    color: #555;
+    border: 1px solid #ddd;
+  }
+
+  .backend-item-text {
+    color: #2d2d2d;
   }
 
   .chip {
@@ -184,11 +246,16 @@
 
   .stage-body {
     padding: 18px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 16px;
+    align-items: start;
   }
 
   .scene {
     display: none;
     animation: fade .35s ease;
+    grid-column: 1;
   }
 
   .scene.active { 
@@ -199,7 +266,7 @@
     border-left: 4px solid #0078d4;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8),
                 0 2px 6px rgba(0, 120, 212, .06);
-    margin: -18px;
+    margin: 0;
     padding: 20px 20px 18px;
   }
 
@@ -1020,6 +1087,16 @@
     line-height: 1;
   }
 
+  @media (max-width: 1200px) {
+    .stage-body { grid-template-columns: 1fr; }
+    .backend-panel {
+      grid-column: 1;
+      position: static;
+      max-height: none;
+      margin-top: 14px;
+    }
+  }
+
   @media (max-width: 980px) {
     .layout { grid-template-columns: 1fr; }
     .chat-shell { border-left: none; }
@@ -1320,50 +1397,50 @@
     {
       title: "Step 1 backend events (chat + capture)",
       items: [
-        "Chat transcript and insight summary are captured per turn and persisted to conversation storage (final destination TBD).",
-        "When contact data is submitted, a UCMP contact profile is created or matched (email as primary key).",
-        "Conversation session ID is linked to the UCMP contact profile for continuity.",
-        "Email agent receives transcript + insights + profile context and queues the outbound transcript email job."
+        "[WRITE] Chat transcript and insight summary are captured per turn and persisted to conversation storage (final destination TBD).",
+        "[WRITE] When contact data is submitted, a UCMP contact profile is created or matched (email as primary key).",
+        "[RW] Conversation session ID is linked to the UCMP contact profile for continuity.",
+        "[ORCH] Email agent receives transcript + insights + profile context and queues the outbound transcript email job."
       ]
     },
     {
       title: "Step 2 backend events (outbound email)",
       items: [
-        "Email agent composes the customer email using transcript content and AI-generated actionable insights.",
-        "Template personalization is applied from UCMP profile attributes.",
-        "Outbound send service dispatches the email and logs delivery metadata + message ID for traceability."
+        "[READ] Email agent composes the customer email using transcript content and AI-generated actionable insights.",
+        "[READ] Template personalization is applied from UCMP profile attributes.",
+        "[WRITE] Outbound send service dispatches the email and logs delivery metadata + message ID for traceability."
       ]
     },
     {
       title: "Step 3 backend events (inbound reply)",
       items: [
-        "Inbound reply is matched to the original thread using message headers and contact identity.",
-        "Reply content is appended to the same conversation record.",
-        "Follow-up question is queued for URA classification with prior context attached."
+        "[READ] Inbound reply is matched to the original thread using message headers and contact identity.",
+        "[WRITE] Reply content is appended to the same conversation record.",
+        "[ORCH] Follow-up question is queued for URA classification with prior context attached."
       ]
     },
     {
       title: "Step 4 backend events (URA processing)",
       items: [
-        "URA performs intent classification and entity extraction (plan type, role mapping, rollout scope).",
-        "Policy and grounding checks validate that response can use approved Microsoft 365 business knowledge.",
-        "Decision engine selects path: immediate auto-answer or seller escalation."
+        "[READ] URA performs intent classification and entity extraction (plan type, role mapping, rollout scope).",
+        "[READ] Policy and grounding checks validate that response can use approved Microsoft 365 business knowledge.",
+        "[ROUTE] Decision engine selects path: immediate auto-answer or seller escalation."
       ]
     },
     {
       title: "Step 5 backend events (auto-answer path)",
       items: [
-        "URA drafts an answer grounded in approved M365 Business feature knowledge.",
-        "Response is formatted for thread continuity and sent as a same-thread email response.",
-        "Outcome and SLA metrics are logged for model and workflow performance reporting."
+        "[READ] URA drafts an answer grounded in approved M365 Business feature knowledge.",
+        "[WRITE] Response is formatted for thread continuity and sent as a same-thread email response.",
+        "[LOG] Outcome and SLA metrics are logged for model and workflow performance reporting."
       ]
     },
     {
       title: "Step 6 backend events (escalation path)",
       items: [
-        "Escalation package is created with transcript, summary insights, extracted entities, and confidence signals.",
-        "UCMP contact context and campaign metadata are attached to the seller handoff payload.",
-        "Ticket is routed to the M365 SMB seller queue with response-time target tracking."
+        "[RW] Escalation package is created with transcript, summary insights, extracted entities, and confidence signals.",
+        "[READ] UCMP contact context and campaign metadata are attached to the seller handoff payload.",
+        "[ROUTE] Ticket is routed to the M365 SMB seller queue with response-time target tracking."
       ]
     }
   ];
@@ -1374,7 +1451,11 @@
     backendList.innerHTML = "";
     detail.items.forEach(item => {
       const li = document.createElement("li");
-      li.textContent = item;
+      const match = item.match(/^\[([^\]]+)\]\s*(.*)$/);
+      const op = match ? match[1] : "INFO";
+      const text = match ? match[2] : item;
+      const opClass = op.toLowerCase().replace(/[^a-z]/g, "") || "log";
+      li.innerHTML = "<span class='backend-op op-" + opClass + "'>" + op + "</span><span class='backend-item-text'>" + text + "</span>";
       backendList.appendChild(li);
     });
   }

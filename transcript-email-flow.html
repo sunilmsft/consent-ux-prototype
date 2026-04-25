@@ -982,6 +982,93 @@
     padding: 10px 12px;
   }
 
+  .msg-rich .rich-card-grid {
+    display: grid;
+    gap: 8px;
+  }
+
+  .msg-rich .rich-plan-card {
+    border: 1px solid #d8e7f6;
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, #ffffff 0%, #f9fcff 100%);
+  }
+
+  .msg-rich .rich-plan-card h5 {
+    margin: 0 0 5px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #13538a;
+  }
+
+  .msg-rich .rich-plan-card p {
+    font-size: 12px;
+    color: #3a3a3a;
+  }
+
+  .msg-rich .rich-kpi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .msg-rich .rich-kpi-item {
+    border: 1px solid #dfe8ef;
+    border-radius: 8px;
+    padding: 9px 10px;
+    background: #fbfdff;
+  }
+
+  .msg-rich .rich-kpi-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+    color: #6a6a6a;
+    margin-bottom: 3px;
+  }
+
+  .msg-rich .rich-kpi-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e1e1e;
+  }
+
+  .msg-ref {
+    margin-top: 10px;
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    background: #fbfbfb;
+    color: #5f5f5f;
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  .msg-ref summary {
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 12px;
+    color: #5b5b5b;
+  }
+
+  .msg-ref-body {
+    margin-top: 8px;
+    display: grid;
+    gap: 6px;
+  }
+
+  .msg-ref-body a {
+    color: #005fb8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .msg-ref-body a:hover {
+    text-decoration: underline;
+  }
+
   .msg.bot {
     align-self: flex-start;
     background: #fff;
@@ -1689,7 +1776,7 @@
     chatBody.appendChild(stamp);
   }
 
-  function addMessage(role, text, note, html) {
+  function addMessage(role, text, note, html, referenceHtml) {
     const msg = document.createElement("div");
     msg.className = "msg " + role;
     const line = document.createElement("div");
@@ -1701,6 +1788,13 @@
       line.textContent = text;
     }
     msg.appendChild(line);
+
+    if (referenceHtml) {
+      const ref = document.createElement("details");
+      ref.className = "msg-ref";
+      ref.innerHTML = "<summary>1 reference</summary><div class='msg-ref-body'>" + referenceHtml + "</div>";
+      msg.appendChild(ref);
+    }
 
     if (note) {
       const small = document.createElement("small");
@@ -1862,7 +1956,8 @@
       },
       {
         role: "bot",
-        html: "<p><strong>Great choice.</strong> For retail teams using Teams, most customers evaluate:</p><ul><li><strong>Microsoft 365 Business Basic ($6/user/month)</strong> for frontline communication and web/mobile apps</li><li><strong>Microsoft 365 Business Standard ($12.50/user/month)</strong> when managers need desktop apps and richer productivity</li><li><strong>Microsoft 365 Business Premium ($22/user/month)</strong> when you need Intune + Defender security and device management</li></ul><div class='rich-callout'><strong>Would you like a quick recommendation for a 40-user mix?</strong></div>",
+        html: "<p><strong>Great choice.</strong> For retail teams using Teams, most customers evaluate:</p><div class='rich-card-grid'><div class='rich-plan-card'><h5>Microsoft 365 Business Basic ($6/user/month)</h5><p>Best for frontline communication, Teams collaboration, and web/mobile apps.</p></div><div class='rich-plan-card'><h5>Microsoft 365 Business Standard ($12.50/user/month)</h5><p>Best when managers need desktop apps and broader productivity tools.</p></div><div class='rich-plan-card'><h5>Microsoft 365 Business Premium ($22/user/month)</h5><p>Best when you also need Intune, Defender, and stronger device/security management.</p></div></div><div class='rich-callout'><strong>Would you like a quick recommendation for a 40-user mix?</strong></div>",
+        referenceHtml: "<a href='#'>Microsoft 365 Business plan comparison</a>",
         text: "Great choice. For retail teams using Teams, most customers evaluate: \u2022 Microsoft 365 Business Basic ($6/user/month) for frontline communication and web/mobile apps. \u2022 Microsoft 365 Business Standard ($12.50/user/month) when managers need desktop apps and richer productivity. \u2022 Microsoft 365 Business Premium ($22/user/month) when you need Intune + Defender security and device management.\n\nWould you like a quick recommendation for a 40-user mix?",
         think: 1220,
         delay: 1180
@@ -1875,7 +1970,8 @@
       {
         role: "bot",
         text: "For a practical and cost-effective setup: 30 users on Business Basic (frontline), 8 users on Business Standard (store managers), and 2 users on Business Premium (owner/IT lead). Estimated total is about $324/month versus ~$880/month for Premium for all 40 users.\n\nThis mix controls cost while covering collaboration, desktop productivity, and security governance.",
-        html: "<h4>Recommended plan mix</h4><ul><li><strong>30 users</strong> on Business Basic for frontline staff</li><li><strong>8 users</strong> on Business Standard for store managers</li><li><strong>2 users</strong> on Business Premium for owner or IT lead</li></ul><div class='rich-callout'><p><strong>Estimated total:</strong> about $324/month</p><p>Compared with <strong>~$880/month</strong> for Premium for all 40 users.</p></div><p>This mix controls cost while covering collaboration, desktop productivity, and security governance.</p>",
+        html: "<h4>Recommended plan mix</h4><div class='rich-card-grid'><div class='rich-plan-card'><h5>30 users on Business Basic</h5><p>Frontline associates who need email, Teams, and web/mobile Office apps.</p></div><div class='rich-plan-card'><h5>8 users on Business Standard</h5><p>Store managers who need desktop apps, reporting, and stronger day-to-day productivity.</p></div><div class='rich-plan-card'><h5>2 users on Business Premium</h5><p>Owner or IT lead who need advanced security and device management.</p></div></div><div class='rich-kpi'><div class='rich-kpi-item'><span class='rich-kpi-label'>Estimated total</span><span class='rich-kpi-value'>$324/mo</span></div><div class='rich-kpi-item'><span class='rich-kpi-label'>Premium for all</span><span class='rich-kpi-value'>~$880/mo</span></div></div><p>This mix controls cost while covering collaboration, desktop productivity, and security governance.</p>",
+        referenceHtml: "<a href='#'>Microsoft 365 Business pricing and licensing guidance</a>",
         think: 1300,
         delay: 1150
       },
@@ -1887,7 +1983,8 @@
       {
         role: "bot",
         text: "Start with Copilot Chat included in Microsoft 365 Business plans for secure, web-grounded assistance. Then add Microsoft 365 Copilot for select manager and analyst roles if you need AI in Word, Excel, Outlook, PowerPoint, and Teams.\n\nFor retail, this usually helps with faster reporting, campaign drafts, and meeting/action summaries.",
-        html: "<h4>Recommended AI starting point</h4><ul><li><strong>Start with Copilot Chat</strong> included in Microsoft 365 Business plans for secure, web-grounded assistance</li><li><strong>Add Microsoft 365 Copilot</strong> for select manager and analyst roles if you need AI in Word, Excel, Outlook, PowerPoint, and Teams</li></ul><p>For retail, this usually helps with <strong>faster reporting</strong>, <strong>campaign drafts</strong>, and <strong>meeting/action summaries</strong>.</p>",
+        html: "<h4>Recommended AI starting point</h4><div class='rich-card-grid'><div class='rich-plan-card'><h5>Copilot Chat</h5><p>Included in Microsoft 365 Business plans for secure, web-grounded assistance.</p></div><div class='rich-plan-card'><h5>Microsoft 365 Copilot</h5><p>Add for selected manager and analyst roles that need AI in Word, Excel, Outlook, PowerPoint, and Teams.</p></div></div><div class='rich-callout'><p><strong>Retail use cases:</strong> faster reporting, campaign drafts, and meeting/action summaries.</p></div>",
+        referenceHtml: "<a href='#'>Microsoft 365 Copilot for Business overview</a>",
         think: 1160,
         delay: 1120
       }
@@ -1916,7 +2013,7 @@
         await wait(320);
       }
 
-      addMessage(step.role, step.text, step.note, step.html);
+      addMessage(step.role, step.text, step.note, step.html, step.referenceHtml);
       await wait(step.delay);
     }
 

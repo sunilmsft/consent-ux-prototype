@@ -1481,7 +1481,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.24</p>
+          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.25</p>
         </div>
         <button id="resetFlowTop" type="button" title="Reset flow">↺</button>
       </header>
@@ -1585,16 +1585,18 @@
           <h2>Customer replies to the email with a follow-up question</h2>
           <p class="lead">No new form, no restart. The customer simply replies in the same thread.</p>
 
-          <div class="email">
-            <div class="email-meta">
-              <div><b>From:</b> alex@contoso.com</div>
-              <div><b>To:</b> Ask Microsoft</div>
+          <div class="email-shot">
+            <div class="email-headlines">
+              <div><b>From:</b> Alex Rivera &lt;<a href="#">alex.rivera@contoso.com</a>&gt;</div>
+              <div><b>Sent:</b> Monday, April 27, 2026 9:12 AM</div>
+              <div><b>To:</b> Ask Microsoft &lt;<a href="#">AskMicrosoft@e-mails.microsoft.com</a>&gt;</div>
               <div><b>Subject:</b> RE: Your Microsoft 365 plan recommendations + full transcript</div>
-              <div><b>Date:</b> Mon, Apr 27, 2026 9:12 AM UTC</div>
             </div>
-            <div class="email-content">
-              <div class="mail-card">
-                <p>Thanks, this is helpful. Which plan includes all of this and also scheduling?</p>
+            <div class="email-canvas">
+              <div class="email-card">
+                <section class="email-block">
+                  <p>Thanks, this is helpful. Which plan includes all of this and also scheduling?</p>
+                </section>
               </div>
             </div>
           </div>
@@ -1631,15 +1633,16 @@
           <h2>Outcome A: URA auto-answers immediately</h2>
           <p class="lead">For straightforward questions, customer gets a quick accurate response.</p>
 
-          <div class="email">
-            <div class="email-meta">
-              <div><b>From:</b> Ask Microsoft</div>
-              <div><b>To:</b> alex@contoso.com</div>
+          <div class="email-shot">
+            <div class="email-headlines">
+              <div><b>From:</b> Ask Microsoft (M365 Assistant) &lt;<a href="#">AskMicrosoft@e-mails.microsoft.com</a>&gt;</div>
+              <div><b>Sent:</b> Monday, April 27, 2026 9:15 AM</div>
+              <div><b>To:</b> Alex Rivera &lt;<a href="#">alex.rivera@contoso.com</a>&gt;</div>
               <div><b>Subject:</b> RE: Which plan includes Teams, scheduling, and AI features?</div>
-              <div><b>Sent:</b> Mon, Apr 27, 2026 9:15 AM UTC</div>
             </div>
-            <div class="email-content">
-              <div class="mail-card">
+            <div class="email-canvas">
+              <div class="email-card">
+                <section class="email-block">
                 <p>Hi Alex,</p>
                 <p>To get desktop apps, Teams, scheduling tools, and optional premium AI features, the best fit is usually <b>Microsoft 365 Business Standard or Business Premium with Microsoft 365 Copilot added for selected users</b>.</p>
                 <div style="background:#ecf5ff;border-left:3px solid #0078d4;border-radius:4px;padding:12px;margin:12px 0;"><b>Business Standard — Best core fit for managers</b>
@@ -1665,6 +1668,7 @@
                 </div>
                 <p><b>Recommended path:</b> Use Business Standard for manager productivity, Business Premium where you need stronger protection, and add Copilot selectively. For frontline associates, many teams still keep Business Basic to control cost.</p>
                 <p>Next: Would you like a quote that compares Standard + Copilot versus Premium + Copilot for your 40-user setup?</p>
+              </section>
               </div>
             </div>
           </div>

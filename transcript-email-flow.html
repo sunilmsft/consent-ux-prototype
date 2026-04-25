@@ -893,12 +893,16 @@
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    background: #fff;
-    border: 1px solid #bdd6eb;
-    color: #0078d4;
-    display: grid;
-    place-items: center;
+    overflow: hidden;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chat-dot img {
+    width: 36px;
+    height: 36px;
+    display: block;
   }
 
   .chat-title {
@@ -1422,7 +1426,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.16</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.17</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1667,9 +1671,7 @@
 
     <div class="chat-head">
       <div class="chat-dot" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 14H6l-2 2V4h16v12z"></path>
-        </svg>
+        <img src="data:image/jpeg;base64,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" alt="Ask Microsoft" style="width:36px;height:36px;display:block;">
       </div>
       <div class="chat-title">Ask Microsoft</div>
       <button class="close" aria-label="Close">

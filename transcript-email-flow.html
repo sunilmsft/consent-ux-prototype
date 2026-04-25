@@ -822,6 +822,28 @@
     cursor: not-allowed;
   }
 
+  .btn.auto-click {
+    animation: autoClickPulse .28s ease;
+    transform: translateY(1px) scale(.98);
+    box-shadow: 0 0 0 3px rgba(0, 120, 212, .22), 0 2px 6px rgba(0, 120, 212, .35);
+  }
+
+  .btn.primary.progress-state:disabled,
+  .btn.primary.done-state:disabled {
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 120, 212, .28);
+  }
+
+  .btn.primary.done-state:disabled {
+    background: linear-gradient(135deg, #0a67b6 0%, #0b5e9e 100%);
+  }
+
+  @keyframes autoClickPulse {
+    0% { transform: translateY(0) scale(1); }
+    45% { transform: translateY(2px) scale(.97); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
   .btn.primary:hover { background: var(--brand-dark); }
 
   .chat-shell {
@@ -1139,7 +1161,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.6</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.7</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1589,6 +1611,15 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+  async function animateAutoClick(button) {
+    if (!button) return;
+    button.classList.remove("auto-click");
+    void button.offsetWidth;
+    button.classList.add("auto-click");
+    await wait(260);
+    button.classList.remove("auto-click");
+  }
+
   function addStamp(role) {
     const stamp = document.createElement("div");
     stamp.className = "stamp " + role;
@@ -1643,9 +1674,12 @@
     getTranscriptBtn.addEventListener("click", async () => {
       if (transcriptRequestInFlight || collectionShown) return;
       transcriptRequestInFlight = true;
+      getTranscriptBtn.classList.add("progress-state");
       getTranscriptBtn.disabled = true;
       getTranscriptBtn.textContent = "Requesting...";
       await wait(260);
+      getTranscriptBtn.classList.remove("progress-state");
+      getTranscriptBtn.classList.add("done-state");
       getTranscriptBtn.textContent = "Transcript requested";
       addCollectionCard();
       stickChatToBottom(true, true);
@@ -1681,9 +1715,12 @@
     submitBtn.addEventListener("click", async () => {
       if (confirmationShown || submitInFlight) return;
       submitInFlight = true;
+      submitBtn.classList.add("progress-state");
       submitBtn.disabled = true;
       submitBtn.textContent = "Submitting...";
       await wait(420);
+      submitBtn.classList.remove("progress-state");
+      submitBtn.classList.add("done-state");
       addConfirmationCard();
       submitBtn.textContent = "Submitted";
       stickChatToBottom(true, true);
@@ -1829,6 +1866,7 @@
       return;
     }
     if (!collectionShown && getTranscriptBtnRef && !getTranscriptBtnRef.disabled) {
+      await animateAutoClick(getTranscriptBtnRef);
       getTranscriptBtnRef.click();
     }
 
@@ -1850,6 +1888,7 @@
     }
 
     if (!confirmationShown && submitBtnRef && !submitBtnRef.disabled) {
+      await animateAutoClick(submitBtnRef);
       submitBtnRef.click();
       await wait(500);
     }

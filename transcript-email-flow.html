@@ -107,6 +107,60 @@
     font-weight: 600;
   }
 
+  .panel-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .panel-head-text { flex: 1; }
+
+  #resetFlowTop {
+    flex-shrink: 0;
+    border: 1px solid #d0d0d0;
+    background: #fff;
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #555;
+    display: grid;
+    place-items: center;
+    margin-top: 2px;
+  }
+  #resetFlowTop:hover { background: #f4f4f4; }
+
+  #toggleBackend {
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,.75);
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 2px;
+  }
+  #toggleBackend:hover { color: #fff; }
+
+  #showBackendBtn {
+    position: sticky;
+    top: 12px;
+    align-self: flex-start;
+    border: 1px solid #c9cdd6;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+    white-space: nowrap;
+    display: none;
+  }
+  #showBackendBtn.visible { display: block; }
+
   .backend-panel {
     margin-top: 0;
     border: 1px solid #e6d9bd;
@@ -1425,16 +1479,18 @@
   <main class="stage">
     <section class="panel">
       <header class="panel-head">
-        <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.23</p>
+        <div class="panel-head-text">
+          <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
+          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.24</p>
+        </div>
+        <button id="resetFlowTop" type="button" title="Reset flow">↺</button>
       </header>
 
       <div class="timeline" id="timeline"></div>
 
       <div class="flow-nav">
         <span id="stepMeta" class="meta">Step 1 of 6</span>
-        <button id="toggleBackend" class="btn" type="button">Hide backend view</button>
-        <button id="resetFlowTop" class="btn" type="button">Reset flow</button>
+        <button id="showBackendBtn" type="button">Show process view</button>
         <button id="prevStep" class="btn" type="button">Back step</button>
         <button id="nextStep" class="btn primary" type="button">Next step</button>
       </div>
@@ -1652,6 +1708,7 @@
           <div class="backend-head">
             <h3>Behind The Scenes</h3>
             <span class="tag">Internal process only</span>
+            <button id="toggleBackend" type="button" title="Hide process view" aria-label="Hide process view">✕</button>
           </div>
           <div class="backend-body">
             <p id="backendStepTitle" class="backend-step-title"></p>
@@ -2259,10 +2316,13 @@
   function toggleBackendView() {
     const willHide = !backendPanel.hidden;
     backendPanel.hidden = willHide;
-    toggleBackend.textContent = willHide ? "Show backend view" : "Hide backend view";
+    const showBtn = document.getElementById("showBackendBtn");
+    if (showBtn) showBtn.classList.toggle("visible", willHide);
   }
 
   toggleBackend.addEventListener("click", toggleBackendView);
+  const showBackendBtn = document.getElementById("showBackendBtn");
+  if (showBackendBtn) showBackendBtn.addEventListener("click", toggleBackendView);
   document.getElementById("resetFlowTop").addEventListener("click", replayFlow);
   document.getElementById("replayChat").addEventListener("click", replayFlow);
   document.getElementById("replayFlow").addEventListener("click", replayFlow);

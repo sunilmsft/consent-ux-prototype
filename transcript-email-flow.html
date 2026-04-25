@@ -1233,27 +1233,27 @@
   }
 
   .typing span {
-    width: 24px;
-    height: 10px;
+    width: 20px;
+    height: 8px;
     border-radius: 999px;
-    animation: thinkPulse 1.2s infinite ease-in-out;
-    opacity: .8;
+    animation: thinkPulse 2s infinite ease-in-out;
+    opacity: .5;
   }
 
-  .typing span:nth-child(1) { background: linear-gradient(90deg, #1f7fb9, #2fc6ab); }
-  .typing span:nth-child(2) { background: linear-gradient(90deg, #2bb673, #f5c14c); }
-  .typing span:nth-child(3) { background: linear-gradient(90deg, #9e6bd6, #f07ca8); }
-  .typing span:nth-child(4) { background: linear-gradient(90deg, #f5c14c, #f07ca8); }
-  .typing span:nth-child(5) { background: linear-gradient(90deg, #2fc6ab, #5ea8e5); }
+  .typing span:nth-child(1) { background: #9cc4e4; }
+  .typing span:nth-child(2) { background: #d4a8d4; }
+  .typing span:nth-child(3) { background: #f0b5b8; }
+  .typing span:nth-child(4) { background: #f5d9a8; }
+  .typing span:nth-child(5) { background: #a8d4c4; }
 
-  .typing span:nth-child(2) { animation-delay: .12s; }
-  .typing span:nth-child(3) { animation-delay: .24s; }
-  .typing span:nth-child(4) { animation-delay: .36s; }
-  .typing span:nth-child(5) { animation-delay: .48s; }
+  .typing span:nth-child(2) { animation-delay: .16s; }
+  .typing span:nth-child(3) { animation-delay: .32s; }
+  .typing span:nth-child(4) { animation-delay: .48s; }
+  .typing span:nth-child(5) { animation-delay: .64s; }
 
   @keyframes thinkPulse {
-    0%, 100% { transform: translateY(0) scaleX(1); opacity: .55; }
-    50% { transform: translateY(-1px) scaleX(1.05); opacity: 1; }
+    0%, 100% { opacity: .35; transform: scaleY(0.8); }
+    50% { opacity: .7; transform: scaleY(1); }
   }
 
   .prompt {
@@ -1426,7 +1426,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.18</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.19</p>
       </header>
 
       <div class="timeline" id="timeline"></div>

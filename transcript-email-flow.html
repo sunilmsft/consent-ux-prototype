@@ -1503,13 +1503,14 @@
   const chatBody = document.getElementById("chatBody");
 
   function stickChatToBottom(immediate) {
-    const behavior = immediate ? "auto" : "smooth";
+    const stick = () => {
+      chatBody.scrollTop = chatBody.scrollHeight;
+    };
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior });
-      });
-    });
+    // Keep chat reliably pinned to newest content during autoplay.
+    requestAnimationFrame(stick);
+    requestAnimationFrame(() => requestAnimationFrame(stick));
+    setTimeout(stick, immediate ? 0 : 30);
   }
 
   function wait(ms) {

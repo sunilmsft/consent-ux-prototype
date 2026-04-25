@@ -967,28 +967,37 @@
   .typing {
     align-self: flex-start;
     display: inline-flex;
-    gap: 4px;
-    padding: 7px 10px;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 2px 8px;
     border-radius: 10px;
-    border: 1px solid #e2e2e2;
-    background: #fafafa;
+    border: none;
+    background: transparent;
     overflow-anchor: none;
   }
 
   .typing span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #a0a0a0;
-    animation: blink 1s infinite;
+    width: 24px;
+    height: 10px;
+    border-radius: 999px;
+    animation: thinkPulse 1.2s infinite ease-in-out;
+    opacity: .8;
   }
 
-  .typing span:nth-child(2) { animation-delay: .18s; }
-  .typing span:nth-child(3) { animation-delay: .36s; }
+  .typing span:nth-child(1) { background: linear-gradient(90deg, #1f7fb9, #2fc6ab); }
+  .typing span:nth-child(2) { background: linear-gradient(90deg, #2bb673, #f5c14c); }
+  .typing span:nth-child(3) { background: linear-gradient(90deg, #9e6bd6, #f07ca8); }
+  .typing span:nth-child(4) { background: linear-gradient(90deg, #f5c14c, #f07ca8); }
+  .typing span:nth-child(5) { background: linear-gradient(90deg, #2fc6ab, #5ea8e5); }
 
-  @keyframes blink {
-    0%, 80%, 100% { opacity: .25; transform: translateY(0); }
-    40% { opacity: 1; transform: translateY(-2px); }
+  .typing span:nth-child(2) { animation-delay: .12s; }
+  .typing span:nth-child(3) { animation-delay: .24s; }
+  .typing span:nth-child(4) { animation-delay: .36s; }
+  .typing span:nth-child(5) { animation-delay: .48s; }
+
+  @keyframes thinkPulse {
+    0%, 100% { transform: translateY(0) scaleX(1); opacity: .55; }
+    50% { transform: translateY(-1px) scaleX(1.05); opacity: 1; }
   }
 
   .prompt {
@@ -1161,7 +1170,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.7</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.8</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1649,7 +1658,7 @@
   function addTyping() {
     const typing = document.createElement("div");
     typing.className = "typing";
-    typing.innerHTML = "<span></span><span></span><span></span>";
+    typing.innerHTML = "<span></span><span></span><span></span><span></span><span></span>";
     chatBody.appendChild(typing);
     stickChatToBottom();
     return typing;
@@ -1769,39 +1778,54 @@
     const steps = [
       {
         role: "bot",
-        text: "Hi. I am an AI agent. I can help you compare Microsoft 365 Business plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. What can I do for you?",
+        text: "Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft Sales Representative. You can also request a sales call here or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?",
         note: "To learn more about this AI web feature, read the Transparency FAQ (PDF)",
-        delay: 1100
+        think: 760,
+        delay: 980
       },
       {
         role: "user",
         text: "Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?",
-        delay: 950
+        delay: 760
       },
       {
         role: "bot",
-        text: "Microsoft 365 Business plans usually start with Business Basic, Business Standard, and Business Premium. For retail teams, the key decision is whether store managers need desktop apps, device management, and stronger security while associates stay mobile-first. What matters most to your team: collaboration, desktop apps, or security?",
+        text: "Microsoft 365 Business plans are available with or without Microsoft Teams. For your 40-person retail team, do you want plans that include Teams or plans without Teams?",
+        think: 980,
+        delay: 1020
+      },
+      {
+        role: "user",
+        text: "with teams",
+        delay: 680
+      },
+      {
+        role: "bot",
+        text: "Great choice. For retail teams using Teams, most customers evaluate: \u2022 Microsoft 365 Business Basic ($6/user/month) for frontline communication and web/mobile apps. \u2022 Microsoft 365 Business Standard ($12.50/user/month) when managers need desktop apps and richer productivity. \u2022 Microsoft 365 Business Premium ($22/user/month) when you need Intune + Defender security and device management.\n\nWould you like a quick recommendation for a 40-user mix?",
+        think: 1220,
+        delay: 1180
+      },
+      {
+        role: "user",
+        text: "We still haven't decided. What would be your recommendation?",
+        delay: 780
+      },
+      {
+        role: "bot",
+        text: "For a practical and cost-effective setup: 30 users on Business Basic (frontline), 8 users on Business Standard (store managers), and 2 users on Business Premium (owner/IT lead). Estimated total is about $324/month versus ~$880/month for Premium for all 40 users.\n\nThis mix controls cost while covering collaboration, desktop productivity, and security governance.",
+        think: 1300,
         delay: 1150
       },
       {
         role: "user",
-        text: "We are leaning toward Business Basic for store associates. What would managers miss if they stayed on Basic too?",
-        delay: 950
+        text: "What AI features do you recommend?",
+        delay: 780
       },
       {
         role: "bot",
-        text: "Business Basic includes Teams, Exchange email, 1 TB of OneDrive, and web/mobile versions of Word, Excel, PowerPoint, and Outlook. Managers usually move to Business Premium when they need desktop Office apps, Intune device management, advanced threat protection, and stronger admin controls across stores.",
-        delay: 1150
-      },
-      {
-        role: "user",
-        text: "That helps. Could we start with Basic for associates and Premium for store managers, then pilot in one location first?",
-        delay: 980
-      },
-      {
-        role: "bot",
-        text: "Yes. Mixed licensing by role is common for Microsoft 365 Business. Start with one pilot store, validate Teams usage, device policies, and admin setup, then expand location by location. I can summarize this for your IT and finance team.",
-        delay: 1000
+        text: "Start with Copilot Chat included in Microsoft 365 Business plans for secure, web-grounded assistance. Then add Microsoft 365 Copilot for select manager and analyst roles if you need AI in Word, Excel, Outlook, PowerPoint, and Teams.\n\nFor retail, this usually helps with faster reporting, campaign drafts, and meeting/action summaries.",
+        think: 1160,
+        delay: 1120
       }
     ];
 
@@ -1815,7 +1839,7 @@
 
       if (step.role === "bot") {
         const typing = addTyping();
-        await wait(800);
+        await wait(step.think || 820);
         if (token !== runToken) {
           clearInterval(forceFollowTimer);
           isAutoPlayingChat = false;

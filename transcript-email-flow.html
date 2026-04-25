@@ -899,6 +899,7 @@
     gap: 4px;
     overflow-y: auto;
     overscroll-behavior: contain;
+    overflow-anchor: none;
   }
 
   .msg {
@@ -906,6 +907,7 @@
     font-size: 13px;
     line-height: 1.45;
     animation: rise .22s ease;
+    overflow-anchor: none;
   }
 
   .msg.bot {
@@ -946,6 +948,7 @@
     border-radius: 10px;
     border: 1px solid #e2e2e2;
     background: #fafafa;
+    overflow-anchor: none;
   }
 
   .typing span {
@@ -1134,7 +1137,7 @@
     <section class="panel">
       <header class="panel-head">
         <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.1</p>
+        <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-24.2</p>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1531,7 +1534,7 @@
     }
 
     const stick = () => {
-      chatBody.scrollTop = chatBody.scrollHeight;
+      chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "auto" });
     };
 
     // Keep chat reliably pinned to newest content during autoplay.
@@ -1540,6 +1543,17 @@
     setTimeout(stick, immediate ? 0 : 30);
     setTimeout(stick, immediate ? 10 : 90);
   }
+
+  const chatMutationObserver = new MutationObserver(() => {
+    if (!isAutoPlayingChat) return;
+    // Force pin-to-bottom whenever autoplay appends or removes nodes.
+    stickChatToBottom(true, true);
+  });
+
+  chatMutationObserver.observe(chatBody, {
+    childList: true,
+    subtree: true
+  });
 
   function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

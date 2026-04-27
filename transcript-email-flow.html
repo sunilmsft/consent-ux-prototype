@@ -1568,7 +1568,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: chat starts naturally, then each step pauses until you move to the next stage. | Build: 2026-04-25.31</p>
+          <p>Guided walkthrough: click Start walkthrough to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.32</p>
         </div>
         <button id="resetFlowTop" type="button" title="Reset flow">↺</button>
       </header>
@@ -1578,6 +1578,7 @@
       <div class="flow-nav">
         <span id="stepMeta" class="meta">Step 1 of 6</span>
         <button id="showBackendBtn" type="button">Show process view</button>
+        <button id="startFlow" class="btn primary" type="button">Start walkthrough</button>
         <button id="prevStep" class="btn" type="button">Back step</button>
         <button id="nextStep" class="btn primary" type="button">Next step</button>
       </div>
@@ -1831,7 +1832,7 @@
 
   <aside class="chat-shell" aria-label="Ask Microsoft chat simulation">
     <div class="auto">
-      AUTO PLAY
+      MANUAL DEMO
       <button id="replayChat" class="auto-btn" title="Replay chat">↻</button>
     </div>
 
@@ -1860,18 +1861,21 @@
 </div>
 
 <script>
-  const timelineSteps = [
-    "Chat starts",
-    "Enhanced email delivered",
-    "Customer replies",
-    "URA classifies",
-    "Outcome A: auto-answer",
-    "Outcome B: handoff to seller"
+  const timelineStages = [
+    { label: "Chat initiated + summary requested", scenes: [0] },
+    { label: "Summary email delivered", scenes: [1] },
+    { label: "Customer email follow-up", scenes: [2] },
+    { label: "URA classifies + response path", scenes: [3, 4] },
+    { label: "Seller handoff", scenes: [5] }
   ];
+
+  function getStageIndexForScene(sceneIndex) {
+    return timelineStages.findIndex(stage => stage.scenes.includes(sceneIndex));
+  }
 
   const timelineContainer = document.getElementById("timeline");
   const layout = document.querySelector(".layout");
-  const scenes = timelineSteps.map((_, i) => document.getElementById("scene-" + i));
+  const scenes = Array.from(document.querySelectorAll(".scene"));
   const stepMeta = document.getElementById("stepMeta");
   const toggleBackend = document.getElementById("toggleBackend");
   const backendPanel = document.getElementById("backendPanel");
@@ -1879,9 +1883,11 @@
   const backendList = document.getElementById("backendList");
   const prevStep = document.getElementById("prevStep");
   const nextStep = document.getElementById("nextStep");
+  const startFlow = document.getElementById("startFlow");
   const totalScenes = scenes.length;
   let currentSceneIndex = 0;
   let chatReadyForNext = false;
+  let hasStartedFlow = false;
 
   const backendDetails = [
     {
@@ -1952,18 +1958,19 @@
   }
 
   function paintTimeline(activeIndex) {
+    const activeStageIndex = getStageIndexForScene(activeIndex);
     timelineContainer.innerHTML = "";
-    timelineSteps.forEach((label, i) => {
+    timelineStages.forEach((stage, i) => {
       const chip = document.createElement("span");
       chip.className = "chip";
-      if (i < activeIndex) chip.classList.add("done");
-      if (i === activeIndex) chip.classList.add("live");
-      chip.textContent = (i + 1) + ". " + label;
+      if (i < activeStageIndex) chip.classList.add("done");
+      if (i === activeStageIndex) chip.classList.add("live");
+      chip.textContent = (i + 1) + ". " + stage.label;
       const locked = !chatReadyForNext && i > 0;
       chip.setAttribute("aria-disabled", locked ? "true" : "false");
       chip.addEventListener("click", () => {
         if (locked) return;
-        showScene(i);
+        showScene(stage.scenes[0]);
       });
       timelineContainer.appendChild(chip);
     });
@@ -1973,6 +1980,9 @@
     stepMeta.textContent = "Step " + (currentSceneIndex + 1) + " of " + totalScenes;
     prevStep.disabled = currentSceneIndex === 0;
     nextStep.disabled = currentSceneIndex === totalScenes - 1 || (currentSceneIndex === 0 && !chatReadyForNext);
+    if (startFlow) {
+      startFlow.textContent = hasStartedFlow ? "Restart walkthrough" : "Start walkthrough";
+    }
   }
 
   function showScene(index) {
@@ -2217,6 +2227,7 @@
   let runToken = 0;
 
   async function runChatDemo() {
+    hasStartedFlow = true;
     runToken += 1;
     const token = runToken;
     isAutoPlayingChat = true;
@@ -2433,14 +2444,14 @@
   toggleBackend.addEventListener("click", toggleBackendView);
   const showBackendBtn = document.getElementById("showBackendBtn");
   if (showBackendBtn) showBackendBtn.addEventListener("click", toggleBackendView);
+  if (startFlow) startFlow.addEventListener("click", replayFlow);
   document.getElementById("resetFlowTop").addEventListener("click", replayFlow);
   document.getElementById("replayChat").addEventListener("click", replayFlow);
   document.getElementById("replayFlow").addEventListener("click", replayFlow);
   prevStep.addEventListener("click", goPrevStep);
   nextStep.addEventListener("click", goNextStep);
 
-  renderBackend(0);
-  runChatDemo();
+  showScene(0);
 </script>
 </body>
 </html>

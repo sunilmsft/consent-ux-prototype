@@ -1508,43 +1508,64 @@
   }
 
   .foot-tools {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 1px auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    column-gap: 10px;
     margin-bottom: 8px;
-    flex-wrap: wrap;
   }
 
   .foot-note {
     text-align: left;
-    font-size: 11px;
+    font-size: 10.5px;
     color: #9a9a9a;
     margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .foot-divider {
+    width: 1px;
+    height: 14px;
+    background: #d9d9d9;
   }
 
   .foot-action {
-    margin-left: auto;
-    border: 1px solid #d8dde6;
-    background: #f8fafc;
-    color: #3f4f65;
-    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: #455f7f;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     font-size: 11px;
     line-height: 1;
     font-weight: 600;
-    padding: 6px 10px;
+    padding: 0;
     cursor: pointer;
     white-space: nowrap;
+    justify-self: end;
   }
 
   .foot-action:hover {
-    background: #f1f5fa;
-    border-color: #c8d3e2;
+    color: #2e4f77;
+    text-decoration: underline;
+  }
+
+  .foot-action svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .foot-action:disabled {
     opacity: .7;
     cursor: default;
+    text-decoration: none;
   }
 
   .composer {
@@ -1610,7 +1631,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.34</p>
+          <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.35</p>
         </div>
         <div class="panel-head-actions">
           <button id="startFlowTop" type="button" title="Start walkthrough" aria-label="Start walkthrough">▶</button>
@@ -1897,7 +1918,11 @@
     <div class="chat-foot">
       <div class="foot-tools">
         <div class="foot-note">AI-generated content may be incorrect</div>
-        <button id="emailSummaryBtn" class="foot-action" type="button">Email summary</button>
+        <span class="foot-divider" aria-hidden="true"></span>
+        <button id="emailSummaryBtn" class="foot-action" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z"></path><path d="M3 7l9 7 9-7"></path></svg>
+          <span class="email-summary-label">Email chat summary</span>
+        </button>
       </div>
       <div class="composer">
         <input type="text" value="Ask a work question or make a request..." disabled>
@@ -2058,24 +2083,34 @@
   let collectionCardRef = null;
   let emailSummaryRequested = false;
 
+  function setEmailSummaryLabel(text) {
+    if (!emailSummaryBtn) return;
+    const label = emailSummaryBtn.querySelector(".email-summary-label");
+    if (label) {
+      label.textContent = text;
+      return;
+    }
+    emailSummaryBtn.textContent = text;
+  }
+
   function updateEmailSummaryAction() {
     if (!emailSummaryBtn) return;
     if (confirmationShown) {
-      emailSummaryBtn.textContent = "Summary emailed";
+      setEmailSummaryLabel("Summary emailed");
       emailSummaryBtn.disabled = true;
       return;
     }
     if (transcriptRequestInFlight) {
-      emailSummaryBtn.textContent = "Requesting...";
+      setEmailSummaryLabel("Requesting...");
       emailSummaryBtn.disabled = true;
       return;
     }
     if (emailSummaryRequested || collectionShown) {
-      emailSummaryBtn.textContent = "Summary requested";
+      setEmailSummaryLabel("Summary requested");
       emailSummaryBtn.disabled = false;
       return;
     }
-    emailSummaryBtn.textContent = "Email summary";
+    setEmailSummaryLabel("Email chat summary");
     emailSummaryBtn.disabled = false;
   }
 

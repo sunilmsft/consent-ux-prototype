@@ -116,6 +116,14 @@
 
   .panel-head-text { flex: 1; }
 
+  .panel-head-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  #startFlowTop,
   #resetFlowTop {
     flex-shrink: 0;
     border: 1px solid #d0d0d0;
@@ -128,8 +136,8 @@
     color: #555;
     display: grid;
     place-items: center;
-    margin-top: 2px;
   }
+  #startFlowTop:hover,
   #resetFlowTop:hover { background: #f4f4f4; }
 
   #toggleBackend {
@@ -1568,9 +1576,12 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: click Start walkthrough to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.32</p>
+          <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.33</p>
         </div>
-        <button id="resetFlowTop" type="button" title="Reset flow">↺</button>
+        <div class="panel-head-actions">
+          <button id="startFlowTop" type="button" title="Start walkthrough" aria-label="Start walkthrough">▶</button>
+          <button id="resetFlowTop" type="button" title="Reset flow" aria-label="Reset flow">↺</button>
+        </div>
       </header>
 
       <div class="timeline" id="timeline"></div>
@@ -1578,7 +1589,6 @@
       <div class="flow-nav">
         <span id="stepMeta" class="meta">Step 1 of 6</span>
         <button id="showBackendBtn" type="button">Show process view</button>
-        <button id="startFlow" class="btn primary" type="button">Start walkthrough</button>
         <button id="prevStep" class="btn" type="button">Back step</button>
         <button id="nextStep" class="btn primary" type="button">Next step</button>
       </div>
@@ -1883,7 +1893,7 @@
   const backendList = document.getElementById("backendList");
   const prevStep = document.getElementById("prevStep");
   const nextStep = document.getElementById("nextStep");
-  const startFlow = document.getElementById("startFlow");
+  const startFlowTop = document.getElementById("startFlowTop");
   const totalScenes = scenes.length;
   let currentSceneIndex = 0;
   let chatReadyForNext = false;
@@ -1980,8 +1990,10 @@
     stepMeta.textContent = "Step " + (currentSceneIndex + 1) + " of " + totalScenes;
     prevStep.disabled = currentSceneIndex === 0;
     nextStep.disabled = currentSceneIndex === totalScenes - 1 || (currentSceneIndex === 0 && !chatReadyForNext);
-    if (startFlow) {
-      startFlow.textContent = hasStartedFlow ? "Restart walkthrough" : "Start walkthrough";
+    if (startFlowTop) {
+      const startTitle = hasStartedFlow ? "Restart walkthrough" : "Start walkthrough";
+      startFlowTop.title = startTitle;
+      startFlowTop.setAttribute("aria-label", startTitle);
     }
   }
 
@@ -2444,7 +2456,7 @@
   toggleBackend.addEventListener("click", toggleBackendView);
   const showBackendBtn = document.getElementById("showBackendBtn");
   if (showBackendBtn) showBackendBtn.addEventListener("click", toggleBackendView);
-  if (startFlow) startFlow.addEventListener("click", replayFlow);
+  if (startFlowTop) startFlowTop.addEventListener("click", replayFlow);
   document.getElementById("resetFlowTop").addEventListener("click", replayFlow);
   document.getElementById("replayChat").addEventListener("click", replayFlow);
   document.getElementById("replayFlow").addEventListener("click", replayFlow);

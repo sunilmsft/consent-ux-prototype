@@ -137,6 +137,7 @@
     display: grid;
     place-items: center;
   }
+
   #startFlowTop:hover,
   #resetFlowTop:hover { background: #f4f4f4; }
 
@@ -1506,11 +1507,44 @@
     padding: 8px 12px 12px;
   }
 
+  .foot-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
   .foot-note {
-    text-align: center;
+    text-align: left;
     font-size: 11px;
     color: #9a9a9a;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+  }
+
+  .foot-action {
+    margin-left: auto;
+    border: 1px solid #d8dde6;
+    background: #f8fafc;
+    color: #3f4f65;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 600;
+    padding: 6px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .foot-action:hover {
+    background: #f1f5fa;
+    border-color: #c8d3e2;
+  }
+
+  .foot-action:disabled {
+    opacity: .7;
+    cursor: default;
   }
 
   .composer {
@@ -1576,7 +1610,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.33</p>
+          <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.34</p>
         </div>
         <div class="panel-head-actions">
           <button id="startFlowTop" type="button" title="Start walkthrough" aria-label="Start walkthrough">▶</button>
@@ -1861,7 +1895,10 @@
     <div id="chatBody" class="chat-body"></div>
 
     <div class="chat-foot">
-      <div class="foot-note">AI-generated content may be incorrect</div>
+      <div class="foot-tools">
+        <div class="foot-note">AI-generated content may be incorrect</div>
+        <button id="emailSummaryBtn" class="foot-action" type="button">Email summary</button>
+      </div>
       <div class="composer">
         <input type="text" value="Ask a work question or make a request..." disabled>
         <button aria-hidden="true">➤</button>
@@ -1894,6 +1931,7 @@
   const prevStep = document.getElementById("prevStep");
   const nextStep = document.getElementById("nextStep");
   const startFlowTop = document.getElementById("startFlowTop");
+  const emailSummaryBtn = document.getElementById("emailSummaryBtn");
   const totalScenes = scenes.length;
   let currentSceneIndex = 0;
   let chatReadyForNext = false;
@@ -2017,6 +2055,68 @@
   let submitInFlight = false;
   let getTranscriptBtnRef = null;
   let submitBtnRef = null;
+  let collectionCardRef = null;
+  let emailSummaryRequested = false;
+
+  function updateEmailSummaryAction() {
+    if (!emailSummaryBtn) return;
+    if (confirmationShown) {
+      emailSummaryBtn.textContent = "Summary emailed";
+      emailSummaryBtn.disabled = true;
+      return;
+    }
+    if (transcriptRequestInFlight) {
+      emailSummaryBtn.textContent = "Requesting...";
+      emailSummaryBtn.disabled = true;
+      return;
+    }
+    if (emailSummaryRequested || collectionShown) {
+      emailSummaryBtn.textContent = "Summary requested";
+      emailSummaryBtn.disabled = false;
+      return;
+    }
+    emailSummaryBtn.textContent = "Email summary";
+    emailSummaryBtn.disabled = false;
+  }
+
+  function focusCollectionCard() {
+    if (!collectionCardRef) return;
+    collectionCardRef.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    stickChatToBottom(true, true);
+  }
+
+  async function requestTranscript(triggerButton) {
+    if (transcriptRequestInFlight) return;
+    if (collectionShown) {
+      emailSummaryRequested = true;
+      updateEmailSummaryAction();
+      focusCollectionCard();
+      return;
+    }
+
+    transcriptRequestInFlight = true;
+    updateEmailSummaryAction();
+
+    if (triggerButton && triggerButton !== emailSummaryBtn) {
+      triggerButton.classList.add("progress-state");
+      triggerButton.disabled = true;
+      triggerButton.textContent = "Requesting...";
+    }
+
+    await wait(260);
+
+    if (triggerButton && triggerButton !== emailSummaryBtn) {
+      triggerButton.classList.remove("progress-state");
+      triggerButton.classList.add("done-state");
+      triggerButton.textContent = "Transcript requested";
+    }
+
+    emailSummaryRequested = true;
+    addCollectionCard();
+    stickChatToBottom(true, true);
+    transcriptRequestInFlight = false;
+    updateEmailSummaryAction();
+  }
 
   function forceBottomNow() {
     const targetTop = Math.max(0, chatBody.scrollHeight - chatBody.clientHeight);
@@ -2146,7 +2246,7 @@
   }
 
   function addTranscriptPrompt() {
-    if (transcriptPromptShown) return;
+    if (transcriptPromptShown || collectionShown || confirmationShown) return;
     transcriptPromptShown = true;
 
     const prompt = document.createElement("div");
@@ -2162,18 +2262,7 @@
     const getTranscriptBtn = prompt.querySelector(".js-get-transcript");
     getTranscriptBtnRef = getTranscriptBtn;
     getTranscriptBtn.addEventListener("click", async () => {
-      if (transcriptRequestInFlight || collectionShown) return;
-      transcriptRequestInFlight = true;
-      getTranscriptBtn.classList.add("progress-state");
-      getTranscriptBtn.disabled = true;
-      getTranscriptBtn.textContent = "Requesting...";
-      await wait(260);
-      getTranscriptBtn.classList.remove("progress-state");
-      getTranscriptBtn.classList.add("done-state");
-      getTranscriptBtn.textContent = "Transcript requested";
-      addCollectionCard();
-      stickChatToBottom(true, true);
-      transcriptRequestInFlight = false;
+      await requestTranscript(getTranscriptBtn);
     });
 
     chatBody.appendChild(prompt);
@@ -2218,7 +2307,9 @@
     });
 
     chatBody.appendChild(card);
+    collectionCardRef = card;
     stickChatToBottom();
+    updateEmailSummaryAction();
   }
 
   function addConfirmationCard() {
@@ -2234,6 +2325,7 @@
     ].join("");
     chatBody.appendChild(card);
     stickChatToBottom(true);
+    updateEmailSummaryAction();
   }
 
   let runToken = 0;
@@ -2254,8 +2346,11 @@
     submitInFlight = false;
     getTranscriptBtnRef = null;
     submitBtnRef = null;
+    collectionCardRef = null;
+    emailSummaryRequested = false;
     chatReadyForNext = false;
     showScene(0);
+    updateEmailSummaryAction();
 
     const steps = [
       {
@@ -2456,6 +2551,7 @@
   toggleBackend.addEventListener("click", toggleBackendView);
   const showBackendBtn = document.getElementById("showBackendBtn");
   if (showBackendBtn) showBackendBtn.addEventListener("click", toggleBackendView);
+  if (emailSummaryBtn) emailSummaryBtn.addEventListener("click", () => requestTranscript(emailSummaryBtn));
   if (startFlowTop) startFlowTop.addEventListener("click", replayFlow);
   document.getElementById("resetFlowTop").addEventListener("click", replayFlow);
   document.getElementById("replayChat").addEventListener("click", replayFlow);
@@ -2464,6 +2560,7 @@
   nextStep.addEventListener("click", goNextStep);
 
   showScene(0);
+  updateEmailSummaryAction();
 </script>
 </body>
 </html>

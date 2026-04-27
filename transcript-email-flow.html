@@ -1631,7 +1631,7 @@
       <header class="panel-head">
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
-          <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.37</p>
+          <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.38</p>
         </div>
         <div class="panel-head-actions">
           <button id="startFlowTop" type="button" title="Start walkthrough" aria-label="Start walkthrough">▶</button>
@@ -2583,11 +2583,9 @@
     if (showBtn) showBtn.classList.toggle("visible", willHide);
   }
 
-  // URL param: ?backend=off hides the panel on load (for sharing with business)
-  // ?backend=on (or no param) shows it by default
-  const urlParams = new URLSearchParams(window.location.search);
-  const backendParam = urlParams.get("backend");
-  const startBackendHidden = backendParam === "off";
+  // URL param: ?b hides the backend panel on load (share this with business)
+  // No param = panel visible by default (for engineering/internal use)
+  const startBackendHidden = new URLSearchParams(window.location.search).has("b");
   if (startBackendHidden) {
     backendPanel.hidden = true;
     const showBtn = document.getElementById("showBackendBtn");

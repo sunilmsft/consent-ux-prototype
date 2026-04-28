@@ -89,6 +89,7 @@ Created: April 20, 2026
 
   /* Collection card — sleek inline style */
   .collect-card{animation:fu .35s ease}
+  .collect-card .cc-header{font-size:12px;font-weight:600;color:#1a1a1a;margin-bottom:8px}
   .collect-card .cc-notice{font-size:11px;color:#555;line-height:1.35;margin-bottom:5px}
   .collect-card .cc-notice a{color:#0078d4;text-decoration:none}
   .collect-card .cc-notice a:hover{text-decoration:underline}
@@ -211,11 +212,9 @@ var COLLECT = '<div class="m mb collect-card"><div class="cc-notice">We may save
 
 var SNAPSHOT_CONTEXT = '<div class="m mb"><strong>Placement preview:</strong> This appears right after a customer clicks <strong>Get a transcript</strong>.</div><span class="ts">just now</span>';
 
-var MSG_TRANSCRIPT = bot('We\'ll email your transcript to:')+'<span class="ts">just now</span>';
+var COLLECT_CONSENT_OPT_OUT = '<div class="m mb collect-card"><div class="cc-header">We\'ll email your transcript to:</div><div class="cc-row"><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" value="Sarah" disabled></div><div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" value="Chen" disabled></div></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" value="sarah.chen@contoso.com" disabled></div><div class="cc-field"><label>Company</label><input type="text" value="Contoso Ltd" disabled></div><div class="cc-notice" style="margin-top:8px">Microsoft may also use your information to send tailored recommendations. By default, we\'ll use it for this purpose.</div><div class="cc-consent"><label class="cc-choice"><input type="checkbox" disabled><span>Opt out of tailored recommendations</span></label></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div></div><span class="ts">just now</span>';
 
-var COLLECT_CONSENT_OPT_OUT = '<div class="m mb collect-card"><div class="cc-notice">Microsoft may also use your information to send tailored recommendations. By default, we\'ll use it for this purpose.</div><div class="cc-row"><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" value="Sarah" disabled></div><div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" value="Chen" disabled></div></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" value="sarah.chen@contoso.com" disabled></div><div class="cc-field"><label>Company</label><input type="text" value="Contoso Ltd" disabled></div><div class="cc-consent"><label class="cc-choice"><input type="checkbox" disabled><span>Opt out of tailored recommendations</span></label></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div></div><span class="ts">just now</span>';
-
-var COLLECT_CONSENT_OPT_IN = '<div class="m mb collect-card"><div class="cc-notice">Microsoft can also send you tailored recommendations based on this conversation.</div><div class="cc-row"><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" value="Sarah" disabled></div><div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" value="Chen" disabled></div></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" value="sarah.chen@contoso.com" disabled></div><div class="cc-field"><label>Company</label><input type="text" value="Contoso Ltd" disabled></div><div class="cc-consent"><label class="cc-choice"><input type="checkbox" disabled><span>Yes, send me tailored recommendations</span></label></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div></div><span class="ts">just now</span>';
+var COLLECT_CONSENT_OPT_IN = '<div class="m mb collect-card"><div class="cc-header">We\'ll email your transcript to:</div><div class="cc-row"><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" value="Sarah" disabled></div><div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" value="Chen" disabled></div></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" value="sarah.chen@contoso.com" disabled></div><div class="cc-field"><label>Company</label><input type="text" value="Contoso Ltd" disabled></div><div class="cc-notice" style="margin-top:8px">Microsoft can also send you tailored recommendations based on this conversation.</div><div class="cc-consent"><label class="cc-choice"><input type="checkbox" disabled><span>Yes, send me tailored recommendations</span></label></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div></div><span class="ts">just now</span>';
 
 var CONFIRM = '<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript sent to sarah@contoso.com</div><div class="cc-detail">You\u2019ll receive the full transcript when the session ends.</div></div>';
 
@@ -230,8 +229,8 @@ var pages = [
   /* 5 */ W + S2 + S3 + S4Q + OFFER + COLLECT,
   /* 6 */ W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM,
   /* 7 */ W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM + S7,
-  /* 8 */ SNAPSHOT_CONTEXT + OFFER + MSG_TRANSCRIPT + COLLECT_CONSENT_OPT_OUT,
-  /* 9 */ SNAPSHOT_CONTEXT + OFFER + MSG_TRANSCRIPT + COLLECT_CONSENT_OPT_IN
+  /* 8 */ SNAPSHOT_CONTEXT + OFFER + COLLECT_CONSENT_OPT_OUT,
+  /* 9 */ SNAPSHOT_CONTEXT + OFFER + COLLECT_CONSENT_OPT_IN
 ];
 
 var stepNames = [

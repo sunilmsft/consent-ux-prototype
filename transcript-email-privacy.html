@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--
 ==============================================================
-Transcript Email — Ask Microsoft UX Prototype
+Transcript Email - Ask Microsoft UX Prototype
 ==============================================================
 Standalone prototype: "Get a Transcript by Email"
 Created: April 20, 2026
@@ -48,6 +48,7 @@ Created: April 20, 2026
   .step-nav button:disabled{opacity:.25;cursor:default;background:#fafafa;color:#aaa;border-color:#e0e0e0}
   .step-nav .sl{font-size:11px;color:#555;font-weight:600}
   .step-nav .steps-label{font-size:9px;color:#2B8C96;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .step-nav .step-name{min-width:170px;text-align:left;color:#2B8C96}
 
   /* Chat header — matches real Ask Microsoft */
   .cw-head{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;flex-shrink:0;border-bottom:1px solid #f0f0f0}
@@ -103,6 +104,11 @@ Created: April 20, 2026
   .collect-card .cc-submit:hover{background:#005fa3}
   .collect-card .cc-secondary{padding:4px 10px;background:#fff;color:#1a1a1a;border:1px solid #d0d0d0;border-radius:3px;font-size:10px;font-weight:400;cursor:pointer;font-family:inherit;transition:.15s}
   .collect-card .cc-secondary:hover{background:#f5f5f5;border-color:#999}
+  .collect-card .cc-consent{margin-top:6px;padding:6px 8px;background:#f8fbfd;border:1px solid #dcebf0;border-radius:5px}
+  .collect-card .cc-consent h5{font-size:10px;color:#1E6B73;margin-bottom:3px}
+  .collect-card .cc-choice{display:flex;align-items:flex-start;gap:5px;margin:2px 0;font-size:10px;color:#4a4a4a;line-height:1.3}
+  .collect-card .cc-choice input{margin-top:1px}
+  .collect-card .cc-helper{font-size:9px;color:#777;margin-top:4px}
   .collect-card .cc-footer{margin-top:4px;font-size:9px;color:#999;font-style:italic}
 
   /* Confirmation */
@@ -152,13 +158,14 @@ Created: April 20, 2026
   </div>
 </div>
 
-<!-- Chat widget (fixed right, full height — matches real Ask Microsoft) -->
+<!-- Chat widget (fixed right, full height - matches real Ask Microsoft) -->
 <div class="cw-wrap">
   <!-- Step navigation -->
   <div class="step-nav">
     <button id="btn-prev" disabled title="Back">&#8249;</button>
     <span class="steps-label">Walk-through</span>
     <span class="sl" id="step-label">1 / 7</span>
+    <span class="sl step-name" id="step-name">Welcome</span>
     <button id="btn-next" title="Next">&#8250;</button>
     <button id="btn-reset" title="Reset" style="font-size:13px;width:auto;padding:0 8px;color:#888;font-weight:400">&#8635;</button>
   </div>
@@ -202,6 +209,8 @@ var OFFER = '<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radi
 
 var COLLECT = '<div class="m mb collect-card"><div class="cc-notice">We may save conversations to improve your experience and personalize future interactions with Microsoft.</div><div class="cc-row"><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" placeholder="Jane" value="Sarah" disabled></div><div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" placeholder="Doe" value="Chen" disabled></div></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" placeholder="jane.doe@example.com" value="sarah.chen@contoso.com" disabled></div><div class="cc-field"><label>Company <span class="req">*</span></label><input type="text" placeholder="Contoso Inc." value="Contoso Ltd" disabled></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div></div><span class="ts">just now</span>';
 
+var COLLECT_CONSENT_PREVIEW = '<div class="m mb collect-card"><div class="cc-notice">We may use your details to deliver this transcript and keep this conversation linked to your request.</div><div class="cc-row"><div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" value="Sarah" disabled></div><div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" value="Chen" disabled></div></div><div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" value="sarah.chen@contoso.com" disabled></div><div class="cc-field"><label>Company</label><input type="text" value="Contoso Ltd" disabled></div><div class="cc-consent"><h5>Transcript delivery consent (required)</h5><label class="cc-choice"><input type="checkbox" checked disabled><span>I agree to receive this chat transcript by email for this request.</span></label></div><div class="cc-consent"><h5>Product suggestions and helpful follow-up (optional)</h5><label class="cc-choice"><input type="radio" name="followup" disabled><span>Yes, Microsoft can use this conversation to send tailored recommendations and follow-up.</span></label><label class="cc-choice"><input type="radio" name="followup" checked disabled><span>No thanks - do not use this conversation for tailored recommendations or follow-up.</span></label><div class="cc-helper">You can change this preference anytime from future emails.</div></div><div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div><div class="cc-footer">Consent options preview tab: required transcript consent + separate optional follow-up consent.</div></div><span class="ts">just now</span>';
+
 var CONFIRM = '<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript sent to sarah@contoso.com</div><div class="cc-detail">You\u2019ll receive the full transcript when the session ends.</div></div>';
 
 var S7 = usr('Great, thanks! One more question \u2014 is there a free trial I can try first?')+'<span class="tsr">just now</span>'+bot('Yes! There\u2019s a <strong>1-month free trial</strong> of Microsoft 365 Business Basic with full access to Teams, OneDrive, and all web apps. No credit card required to start.<br><br><a href="#">\u2192 Start your free trial</a><br><br>Is there anything else I can help with?')+'<span class="ts">just now</span>';
@@ -214,7 +223,19 @@ var pages = [
   /* 4 */ W + S2 + S3 + S4Q + OFFER,
   /* 5 */ W + S2 + S3 + S4Q + OFFER + COLLECT,
   /* 6 */ W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM,
-  /* 7 */ W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM + S7
+  /* 7 */ W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM + S7,
+  /* 8 */ W + S2 + S3 + S4Q + OFFER + COLLECT_CONSENT_PREVIEW
+];
+
+var stepNames = [
+  'Welcome',
+  'Plan guidance',
+  'Teams clarification',
+  'Transcript nudge',
+  'Current collection card',
+  'Confirmation',
+  'Chat continues',
+  'Consent options preview'
 ];
 
 // === Stepper ===
@@ -223,10 +244,12 @@ var chat = document.getElementById('chat');
 var pb = document.getElementById('btn-prev');
 var nb = document.getElementById('btn-next');
 var lb = document.getElementById('step-label');
+var sn = document.getElementById('step-name');
 
 function show() {
   chat.innerHTML = pages[s];
   lb.textContent = (s+1) + ' / ' + n;
+  if (sn) sn.textContent = stepNames[s] || 'Walk-through';
   pb.disabled = (s <= 0);
   nb.disabled = (s >= n-1);
   chat.scrollTop = chat.scrollHeight;

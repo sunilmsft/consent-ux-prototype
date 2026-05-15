@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<!--
+==============================================================
+Transcript Email - Ask Microsoft UX Prototype
+==============================================================
+Standalone prototype: "Get a Transcript by Email"
+Created: April 20, 2026
+Updated: May 15, 2026 — Srikar sync updates: Transparency FAQ link, CPM callout, MVP scope narrowed
+==============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ask Microsoft — Transcript Email UX Prototype</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:#f0f0f0;color:#1a1a1a;line-height:1.5}
+
+  /* Top bar */
+  .top-bar{background:linear-gradient(135deg,#1b3a5c 0%,#1a4a7a 50%,#1b5a9e 100%);color:#fff;padding:16px 32px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:300;box-shadow:0 3px 12px rgba(0,0,0,.25)}
+  .top-bar h1{font-size:17px;font-weight:700;letter-spacing:.2px}
+  .top-bar .sub{font-size:11px;opacity:.6;margin-left:auto;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+
+  /* Content panel */
+  .panel{padding:20px 440px 20px 28px}
+  .stitle{margin:0 0 12px}
+  .stitle h2{font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:2px}
+  .stitle p{font-size:12px;color:#888}
+  .row{display:flex;gap:24px;flex-wrap:nowrap;max-width:100%;margin:0;align-items:flex-start}
+  .info{flex:1 1 100%;background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+  .info h3{font-size:15px;font-weight:700;color:#2B8C96;margin-bottom:5px}
+  .info p{font-size:13px;color:#666;margin-bottom:10px}
+  .info ul{font-size:13px;color:#666;padding-left:16px}
+  .info li{margin-bottom:5px}
+  .tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:600;margin-bottom:8px;background:#2B8C96;color:#fff}
+  .note{background:#fafafa;border-left:3px solid #2B8C96;padding:9px 12px;font-size:12px;color:#555;border-radius:0 6px 6px 0;margin-top:10px}
+
+  /* === Chat widget === */
+  .cw-wrap{position:fixed;right:0;top:56px;bottom:0;width:420px;z-index:200;display:flex;flex-direction:column;background:#fff;box-shadow:-2px 0 16px rgba(0,0,0,.12)}
+
+  /* Chat header */
+  .cw-head{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;flex-shrink:0;border-bottom:1px solid #f0f0f0}
+  .cw-head .dot{width:36px;height:36px;background:#0078d4;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .cw-head .dot svg{width:18px;height:18px;fill:#fff}
+  .cw-head .ttl{font-size:20px;font-weight:700;flex:1;color:#1a1a1a;letter-spacing:-.3px}
+  .cw-head .x{width:32px;height:32px;border:none;background:none;cursor:pointer;font-size:22px;color:#666;display:flex;align-items:center;justify-content:center;border-radius:4px;transition:.15s}
+  .cw-head .x:hover{background:#f0f0f0}
+
+  /* Chat body */
+  .cw-body{flex:1;overflow-y:auto;padding:8px 10px;display:flex;flex-direction:column;gap:3px;scroll-behavior:smooth;background:#fff}
+  .cw-body::before{content:'';flex:1 1 0px}
+
+  /* Chat footer */
+  .cw-foot{padding:8px 14px 14px;background:#fff;flex-shrink:0;border-top:1px solid #f0f0f0}
+  .cw-foot .disc{font-size:11px;color:#999;text-align:center;margin-bottom:8px;font-weight:400}
+  .cw-input{display:flex;gap:6px;align-items:center;background:#fff;border:1.5px solid #d0d0d0;border-radius:8px;padding:4px 10px;position:relative;overflow:hidden;transition:.2s}
+  .cw-input::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0078d4,#50e6ff,#0078d4);border-radius:0 0 6px 6px}
+  .cw-input input{flex:1;border:none;background:none;padding:10px 4px;font-size:14px;font-family:inherit;outline:none;color:#1a1a1a}
+  .cw-input input::placeholder{color:#999;font-size:13px}
+  .cw-input .snd{background:none;border:none;cursor:pointer;color:#0078d4;padding:4px;display:flex;align-items:center}
+  .cw-input .snd svg{width:22px;height:22px}
+
+  /* Messages */
+  .m{max-width:100%;font-size:13px;line-height:1.45;animation:fu .3s ease}
+  @keyframes fu{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .mb{background:#fff;padding:8px 10px;border-radius:4px 14px 14px 14px;align-self:flex-start;border:1.5px dashed #d0d0d0;color:#1a1a1a}
+  .mu{background:#e8f0fe;padding:6px 10px;border-radius:14px 4px 14px 14px;align-self:flex-end;border:1px solid #c8d8ee;color:#1a1a1a}
+  .mb a{color:#0078d4;text-decoration:underline}
+  .mb .tr-note{font-size:11px;color:#888;margin-top:4px}
+  .fb{margin-top:3px;display:flex;gap:6px}
+  .tb{background:none;border:none;cursor:pointer;padding:1px;color:#bbb;display:flex;align-items:center;transition:all .15s}
+  .tb:hover{color:#0078d4;transform:scale(1.15)}
+  .tb svg{width:18px;height:18px}
+  .ts{font-size:10px;color:#aaa;margin-top:1px;align-self:flex-start}
+  .tsr{font-size:10px;color:#aaa;margin-top:1px;align-self:flex-end}
+
+  /* Collection card — Quoting Agent reuse style */
+  .collect-card{animation:fu .35s ease}
+  .collect-card .cc-notice{font-size:11px;color:#555;line-height:1.4;margin-bottom:10px}
+  .collect-card .cc-notice a{color:#0078d4;text-decoration:underline}
+  .collect-card .cc-notice a:hover{color:#005fa3}
+  .collect-card .cc-opt-label{font-size:9px;color:#888;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:10px 0 4px}
+  .collect-card .cc-field{margin-bottom:8px;border:1.5px solid #c8c8c8;border-left:3px solid #0078d4;border-radius:4px;padding:8px 12px}
+  .collect-card .cc-field label{display:block;font-size:10px;font-weight:600;color:#0078d4;margin-bottom:2px;letter-spacing:.2px}
+  .collect-card .cc-field label .req{color:#d13438;font-weight:400}
+  .collect-card .cc-field input,.collect-card .cc-field select{width:100%;padding:2px 0;border:none;font-size:12px;font-family:inherit;outline:none;color:#1a1a1a;background:none;-webkit-appearance:none}
+  .collect-card .cc-field input::placeholder{color:#bbb;font-size:11px}
+  .collect-card .cc-actions{display:flex;gap:8px;align-items:center;margin-top:12px}
+  .collect-card .cc-submit{padding:6px 18px;background:#0078d4;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
+  .collect-card .cc-submit:hover{background:#005fa3}
+  .collect-card .cc-secondary{padding:6px 14px;background:#fff;color:#1a1a1a;border:1px solid #d0d0d0;border-radius:4px;font-size:11px;font-weight:400;cursor:pointer;font-family:inherit;transition:.15s}
+  .collect-card .cc-secondary:hover{background:#f5f5f5;border-color:#999}
+  .collect-card .cc-consent{margin-top:8px}
+  .collect-card .cc-choice{display:flex;align-items:flex-start;gap:6px;margin:4px 0;font-size:11px;color:#4a4a4a;line-height:1.3}
+  .collect-card .cc-choice input{margin-top:2px}
+
+  /* Confirmation */
+  .confirm-card{background:linear-gradient(135deg,#EDF7F8,#f0faf0);border:1px solid #8CC8CE;border-radius:5px;padding:8px 10px;text-align:left;margin:2px 0;animation:fu .35s ease}
+  .confirm-card .cc-check{font-size:16px;color:#2B8C96;margin-bottom:1px}
+  .confirm-card .cc-title{font-size:12px;font-weight:700;color:#1E6B73}
+  .confirm-card .cc-detail{font-size:10px;color:#888;margin-top:2px;line-height:1.3}
+
+  /* === Playback card — floating beside chat === */
+  .dock{position:fixed;bottom:20px;right:432px;width:390px;z-index:250;background:#1b3a5c;box-shadow:0 4px 20px rgba(0,0,0,.3);border-radius:10px;overflow:hidden}
+  .dock-progress{height:3px;background:rgba(255,255,255,.12)}
+  .dock-progress-fill{height:100%;background:linear-gradient(90deg,#50e6ff,#0078d4);transition:width .4s ease;border-radius:0 2px 0 0}
+  .dock-inner{padding:14px 16px}
+  .dock-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .play-btn{width:38px;height:38px;border:none;background:#0078d4;color:#fff;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0}
+  .play-btn:hover{background:#005fa3;transform:scale(1.05)}
+  .play-btn.playing{background:#d13438}
+  .play-btn.playing:hover{background:#a4262c}
+  .dock-info{flex:1;min-width:0}
+  .dock-step{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+  .dock-count{font-size:11px;color:rgba(255,255,255,.5)}
+  .dock-nav{display:flex;gap:5px;flex-shrink:0}
+  .nav-btn{width:30px;height:30px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;border-radius:4px;cursor:pointer;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:.15s}
+  .nav-btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.5)}
+  .nav-btn:disabled{opacity:.2;cursor:default;background:transparent}
+  .dock-ann{font-size:13px;color:rgba(255,255,255,.8);line-height:1.45;border-top:1px solid rgba(255,255,255,.1);padding-top:10px}
+
+  @media(max-width:900px){.panel{padding-right:24px}.cw-wrap{position:static;width:100%;max-width:420px;margin:16px auto;height:700px;box-shadow:0 2px 12px rgba(0,0,0,.12);border-radius:8px;overflow:hidden}.dock{position:static;width:100%;max-width:420px;margin:12px auto;right:auto;bottom:auto;border-radius:10px}}
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></symbol>
+  <symbol id="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 22V11M2 13V20a2 2 0 002 2h13.4a2 2 0 002-1.7l1.4-9a2 2 0 00-2-2.3H15V4a2 2 0 00-2-2h0a2 2 0 00-2 1.6L9 11H4a2 2 0 00-2 2z"/></symbol>
+  <symbol id="ic-dn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2V13M22 11V4a2 2 0 00-2-2H6.6a2 2 0 00-2 1.7L3.2 12.7A2 2 0 005.2 15H9v3a2 2 0 002 2h0a2 2 0 002-1.6L15 13h5a2 2 0 002-2z"/></symbol>
+  <symbol id="ic-send" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></symbol>
+</svg>
+
+<div class="top-bar">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><use href="#ic-chat"/></svg>
+  <h1>Ask Microsoft — Transcript Email UX Prototype</h1>
+  <span class="sub">eCommerce &nbsp;|&nbsp; May 2026</span>
+</div>
+
+<!-- Info panel (left) -->
+<div class="panel">
+  <div class="stitle">
+    <h2>Transcript Summary in Email — Get a Copy of Your Conversation</h2>
+    <p>During a chat with Ask Microsoft, customers can request a copy of their conversation transcript via email. The customer enters their details, and the transcript is emailed when the session ends. Chat continues normally after the request.</p>
+  </div>
+  <div class="row">
+    <div class="info">
+      <span class="tag">Transcript Email</span>
+      <h3>How it works</h3>
+      <ul>
+        <li><strong>Natural conversation:</strong> Customer chats with Ask Microsoft about Microsoft 365 plans, features, pricing, or any product question.</li>
+        <li><strong>Transcript offer:</strong> At a configurable trigger point (N conversation turns, explicit intent, or session end), the customer is presented with an option to get a copy of the transcript via email.</li>
+        <li><strong>Collection card:</strong> A card appears (reusing the Quoting Agent component) asking for name, email, country, company name, and optional fields (job title, company size), along with a privacy notice and dynamic consent choice.</li>
+        <li><strong>Dynamic consent:</strong> Based on the selected country, the consent model defaults to opt-out (non-GDPR markets like US) or opt-in (GDPR markets like EU).</li>
+        <li><strong>Confirmation &amp; delivery:</strong> Customer submits, gets a confirmation, and the full conversation transcript (with PII scrubbed) is emailed as an attachment with a summary in the email body when the session ends.</li>
+        <li><strong>Chat continues:</strong> The conversation keeps going normally after the transcript request — this is not a conversation-ending action.</li>
+      </ul>
+      <div class="note"><strong>Key concept:</strong> The transcript email is always sent regardless of cookie/ads consent. The consent choice on the form applies only to whether Microsoft may send tailored recommendations. Consent preference is stored in CPM (separate API call from UCMP contact write).</div>
+      <div class="note" style="margin-top:8px"><strong>Privacy &amp; PII:</strong> PII is scrubbed from the transcript before email delivery. Contact data stored in UCMP follows standard Microsoft deletion/purge processes. Contact creation/update in UCMP does not require cookie or MSRs consent (confirmed by privacy).</div>
+      <div class="note" style="margin-top:8px"><strong>MVP scope (confirmed 5/15):</strong> Outbound email only (ACS). No insights/marketing activity writes to UCMP for MVP. No inbound reply handling. Contact + consent capture only.</div>
+      <div class="note" style="margin-top:8px"><strong>Component reuse:</strong> The collection card reuses the existing Quoting Agent form component, adapted with additional fields, dynamic consent, and Transparency FAQ link for this scenario.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Chat widget (clean — no controls) -->
+<div class="cw-wrap">
+  <div class="cw-head">
+    <div class="dot"><svg><use href="#ic-chat"/></svg></div>
+    <div class="ttl">Ask Microsoft</div>
+    <button class="x">&times;</button>
+  </div>
+  <div class="cw-body" id="chat"></div>
+  <div class="cw-foot">
+    <div class="disc">AI-generated content may be incorrect</div>
+    <div class="cw-input">
+      <input placeholder="Ask a work question or make a request..." disabled>
+      <button class="snd"><svg><use href="#ic-send"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- Playback card — beside chat -->
+<div class="dock">
+  <div class="dock-progress"><div class="dock-progress-fill" id="progress" style="width:12.5%"></div></div>
+  <div class="dock-inner">
+    <div class="dock-top">
+      <button class="play-btn" id="btn-play" title="Play / Pause">&#9654;</button>
+      <div class="dock-info">
+        <div class="dock-step" id="step-name">Welcome</div>
+        <div class="dock-count" id="step-label">Step 1 of 8</div>
+      </div>
+      <div class="dock-nav">
+        <button class="nav-btn" id="btn-prev" disabled title="Previous">&#8249;</button>
+        <button class="nav-btn" id="btn-next" title="Next">&#8250;</button>
+        <button class="nav-btn" id="btn-reset" title="Restart" style="font-size:11px">&#8635;</button>
+      </div>
+    </div>
+    <div class="dock-ann" id="ann-text">The customer opens a chat with Ask Microsoft and sees the welcome message.</div>
+  </div>
+</div>
+
+<script>
+var T='<div class="fb"><button class="tb"><svg><use href="#ic-up"/></svg></button><button class="tb"><svg><use href="#ic-dn"/></svg></button></div>';
+function bot(t){return '<div class="m mb">'+t+T+'</div>';}
+function usr(t){return '<div class="m mu">'+t+'</div>';}
+
+var W = bot('Hi. I\u2019m an AI agent, I can help you compare plans and features, start a free trial, answer support questions or connect you with a Microsoft Sales Representative. You can also request a sales call <a href="#">here</a> \u2197 or call us at (800) 642-7676 M-F 6 AM to 6 PM PT. What can I do for you?<div class="tr-note">To learn more about this AI web feature, read the <a href="#">Transparency FAQ (PDF)</a> \u2197</div>')+'<span class="ts">just now</span>';
+
+var S2 = usr('Hi, can you help me understand what Microsoft 365 Business plans offer for a small team?')+'<span class="tsr">just now</span>'+bot('Microsoft 365 Business plans come in three tiers:<br><br><strong>Business Basic</strong> \u2014 $6.00/user/month<br>\u2713 Web &amp; mobile versions of Word, Excel, PowerPoint<br>\u2713 1 TB cloud storage per user<br>\u2713 Microsoft Teams for chat &amp; meetings<br><br><strong>Business Standard</strong> \u2014 $12.50/user/month<br>\u2713 Everything in Basic, plus full desktop apps<br>\u2713 Webinar hosting &amp; attendee registration<br><br><strong>Business Premium</strong> \u2014 $22.00/user/month<br>\u2713 Everything in Standard, plus advanced security<br>\u2713 Intune device management<br><br>What matters most to your team \u2014 collaboration, desktop apps, or security?')+'<span class="ts">just now</span>';
+
+var S3 = usr('I\u2019m interested in Business Basic with Teams. Can I add Teams later if I start without it?')+'<span class="tsr">just now</span>'+bot('Business Basic already includes Microsoft Teams at no extra cost \u2014 it\u2019s part of the plan. You\u2019ll get:<br><br>\u2713 Unlimited chat and group messaging<br>\u2713 Online meetings up to 300 participants<br>\u2713 Meeting recordings and transcription<br>\u2713 Shared calendars and scheduling<br><br>If you ever need the full desktop apps, you can upgrade to Business Standard anytime.<br><br><a href="#">\u2192 Compare all plans side by side</a>')+'<span class="ts">just now</span>';
+
+var S4Q = usr('How many users do I need to start?')+'<span class="tsr">just now</span>'+bot('There\u2019s no minimum \u2014 you can start with just 1 user and add more anytime. Billing is per user, per month.<br><br>For a small team, I\u2019d suggest starting with the number of people who need email and Teams access right away. You can always add users later.')+'<span class="ts">just now</span>';
+
+var OFFER = '<div style="background:#f0f9fa;border:1px solid #b8dde2;border-radius:5px;padding:6px 10px;margin:2px 0;text-align:left"><div style="font-size:12px;color:#1E6B73;font-weight:600;margin-bottom:3px">\u2709 Would you like a copy of this conversation?</div><div style="font-size:10px;color:#888;margin-bottom:4px">We can email you a transcript for your records.</div><button style="padding:5px 16px;background:#0078d4;color:#fff;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit">Get a transcript</button></div>';
+
+var COLLECT = '<div class="m mb collect-card">'
++'<div class="cc-notice">I will need some information in order to email you a copy of this conversation transcript.</div>'
++'<div class="cc-notice">The information provided here will be used to send you the transcript. Also, a Microsoft Sales representative may contact you to discuss your needs, and a copy of chat transcript will be provided to them. <a href="#">Microsoft Privacy Statement</a> | <a href="#">Transparency FAQ (PDF)</a></div>'
++'<div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" value="Sarah" disabled></div>'
++'<div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" value="Chen" disabled></div>'
++'<div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" value="sarah.chen@contoso.com" disabled></div>'
++'<div class="cc-field"><label>Country <span class="req">*</span></label><select disabled><option>United States</option></select></div>'
++'<div class="cc-field"><label>Company Name <span class="req">*</span></label><input type="text" value="Contoso Ltd" disabled></div>'
++'<div class="cc-opt-label">Optional</div>'
++'<div class="cc-field"><label>Job Title</label><input type="text" value="IT Manager" disabled></div>'
++'<div class="cc-field"><label>Company Size</label><select disabled><option>10\u201349 employees</option></select></div>'
++'<div class="cc-consent"><label class="cc-choice"><input type="checkbox" disabled><span>Opt out of tailored recommendations from Microsoft</span></label></div>'
++'<div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div>'
++'</div><span class="ts">just now</span>';
+
+var COLLECT_GDPR = '<div class="m mb collect-card">'
++'<div class="cc-notice">I will need some information in order to email you a copy of this conversation transcript.</div>'
++'<div class="cc-notice">The information provided here will be used to send you the transcript. Also, a Microsoft Sales representative may contact you to discuss your needs, and a copy of chat transcript will be provided to them. <a href="#">Microsoft Privacy Statement</a> | <a href="#">Transparency FAQ (PDF)</a></div>'
++'<div class="cc-field"><label>First Name <span class="req">*</span></label><input type="text" value="Sarah" disabled></div>'
++'<div class="cc-field"><label>Last Name <span class="req">*</span></label><input type="text" value="Chen" disabled></div>'
++'<div class="cc-field"><label>Email <span class="req">*</span></label><input type="email" value="sarah.chen@contoso.com" disabled></div>'
++'<div class="cc-field"><label>Country <span class="req">*</span></label><select disabled><option>Germany</option></select></div>'
++'<div class="cc-field"><label>Company Name <span class="req">*</span></label><input type="text" value="Contoso GmbH" disabled></div>'
++'<div class="cc-opt-label">Optional</div>'
++'<div class="cc-field"><label>Job Title</label><input type="text" value="IT-Leiter" disabled></div>'
++'<div class="cc-field"><label>Company Size</label><select disabled><option>10\u201349 employees</option></select></div>'
++'<div class="cc-consent"><label class="cc-choice"><input type="checkbox" disabled><span>Yes, I would like to receive tailored recommendations from Microsoft</span></label></div>'
++'<div class="cc-actions"><button class="cc-submit" disabled>Submit</button><button class="cc-secondary" disabled>Dismiss</button></div>'
++'</div><span class="ts">just now</span>';
+
+var CONFIRM = '<div class="confirm-card"><div class="cc-check">\u2713</div><div class="cc-title">Transcript request confirmed</div><div class="cc-detail">A transcript of this conversation will be emailed to sarah.chen@contoso.com when the session ends.<br>PII will be scrubbed from the transcript before delivery.</div></div>';
+
+var S7 = usr('Great, thanks! One more question \u2014 is there a free trial I can try first?')+'<span class="tsr">just now</span>'+bot('Yes! There\u2019s a <strong>1-month free trial</strong> of Microsoft 365 Business Basic with full access to Teams, OneDrive, and all web apps. No credit card required to start.<br><br><a href="#">\u2192 Start your free trial</a><br><br>Is there anything else I can help with?')+'<span class="ts">just now</span>';
+
+var pages = [
+  W,
+  W + S2,
+  W + S2 + S3,
+  W + S2 + S3 + S4Q + OFFER,
+  W + S2 + S3 + S4Q + OFFER + COLLECT,
+  W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM,
+  W + S2 + S3 + S4Q + OFFER + COLLECT + CONFIRM + S7,
+  COLLECT_GDPR
+];
+
+var stepNames = [
+  'Welcome',
+  'Customer asks about plans',
+  'Follow-up on Teams',
+  'Transcript offer appears',
+  'Collection card (US \u2014 opt-out)',
+  'Confirmation',
+  'Chat continues normally',
+  'GDPR variant (opt-in)'
+];
+
+var annotations = [
+  'The customer opens a chat with Ask Microsoft and sees the welcome message with options.',
+  'The customer asks a product question. The agent responds with plan comparison details.',
+  'Conversation continues naturally \u2014 the customer asks a follow-up about Teams.',
+  'After several turns, the agent offers a transcript via email. This is a configurable trigger point (N turns, explicit intent, or session end).',
+  'The customer clicks \u201cGet a transcript\u201d and sees the collection card. This reuses the Quoting Agent form component. Consent notice and Transparency FAQ link are displayed within the form (P0 requirement). Country is set to United States, so consent defaults to opt-out \u2014 the unchecked box means the customer IS opted in to recommendations. They check it to opt OUT.',
+  'After submitting, the customer sees a confirmation. The transcript (with PII scrubbed) will be emailed when the session ends. Contact data is written to UCMP. Consent preference is sent to CPM as a separate API call.',
+  'The chat continues normally \u2014 the transcript request does not interrupt or end the conversation.',
+  'Same form, but with Country set to Germany (GDPR market). The consent switches to opt-in: checkbox is unchecked by default, meaning the customer is NOT opted in \u2014 they must actively check it. This is driven dynamically by the Country field via CPM.'
+];
+
+var INTERVAL = 5000;
+var s = 0, n = pages.length, timer = null, playing = false;
+var chat = document.getElementById('chat');
+var pb = document.getElementById('btn-prev');
+var nb = document.getElementById('btn-next');
+var lb = document.getElementById('step-label');
+var sn = document.getElementById('step-name');
+var prog = document.getElementById('progress');
+var annEl = document.getElementById('ann-text');
+var playBtn = document.getElementById('btn-play');
+
+function show() {
+  chat.innerHTML = pages[s];
+  lb.textContent = 'Step ' + (s+1) + ' of ' + n;
+  sn.textContent = stepNames[s] || '';
+  annEl.textContent = annotations[s] || '';
+  prog.style.width = ((s+1)/n*100) + '%';
+  pb.disabled = (s <= 0);
+  nb.disabled = (s >= n-1);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function advance() {
+  if (s < n-1) { s++; show(); }
+  else { pause(); }
+}
+
+function play() {
+  if (s >= n-1) { s = 0; show(); }
+  playing = true;
+  playBtn.innerHTML = '\u275A\u275A';
+  playBtn.classList.add('playing');
+  playBtn.title = 'Pause';
+  timer = setInterval(advance, INTERVAL);
+}
+
+function pause() {
+  playing = false;
+  playBtn.innerHTML = '\u25B6';
+  playBtn.classList.remove('playing');
+  playBtn.title = 'Play';
+  if (timer) { clearInterval(timer); timer = null; }
+}
+
+show();
+
+playBtn.addEventListener('click', function(){ playing ? pause() : play(); });
+nb.addEventListener('click', function(){ pause(); if(s < n-1){ s++; show(); } });
+pb.addEventListener('click', function(){ pause(); if(s > 0){ s--; show(); } });
+document.getElementById('btn-reset').addEventListener('click', function(){ pause(); s=0; show(); });
+</script>
+</body>
+</html>

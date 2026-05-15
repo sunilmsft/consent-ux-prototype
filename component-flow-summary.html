@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transcript Email — Component Flow Summary | May 15, 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',-apple-system,sans-serif;background:#f5f5f5;color:#1a1a1a;line-height:1.55;padding:0}
+.header{background:linear-gradient(135deg,#1b3a5c,#1b5a9e);color:#fff;padding:28px 40px 22px}
+.header h1{font-size:20px;font-weight:700;margin-bottom:4px}
+.header .sub{font-size:12px;opacity:.7}
+.header .pills{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.header .pill{font-size:10px;background:rgba(255,255,255,.15);padding:3px 10px;border-radius:12px;font-weight:600}
+.container{max-width:960px;margin:24px auto;padding:0 24px 60px}
+
+/* Component cards */
+.comp{background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:20px;overflow:hidden}
+.comp-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid #f0f0f0}
+.comp-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
+.comp-head h2{font-size:16px;font-weight:700;flex:1}
+.comp-head .phase{font-size:10px;background:#e8f0fe;color:#0078d4;padding:3px 10px;border-radius:4px;font-weight:600}
+.comp-body{padding:16px 20px}
+.comp-body p{font-size:13px;color:#555;margin-bottom:10px}
+.comp-body ul{font-size:13px;color:#555;padding-left:18px;margin-bottom:10px}
+.comp-body li{margin-bottom:5px}
+.comp-body li strong{color:#1a1a1a}
+
+/* Decision box */
+.decision{background:#fafafa;border-left:3px solid #0078d4;padding:10px 14px;border-radius:0 6px 6px 0;margin:10px 0;font-size:12px;color:#444}
+.decision strong{color:#0078d4}
+.decision.rec{border-left-color:#2B8C96}
+.decision.rec strong{color:#1E6B73}
+.decision.warn{border-left-color:#d83b01}
+.decision.warn strong{color:#d83b01}
+
+/* Flow diagram */
+.flow{display:flex;align-items:center;gap:0;margin:16px 0;flex-wrap:wrap}
+.flow-box{background:#e8f0fe;border:1.5px solid #b8d4f0;border-radius:6px;padding:8px 14px;font-size:11px;font-weight:600;color:#1b3a5c;text-align:center;min-width:100px}
+.flow-box.highlight{background:#2B8C96;color:#fff;border-color:#2B8C96}
+.flow-box.phase2{background:#fff3e0;border-color:#f0c060;color:#8a6d3b}
+.flow-arrow{font-size:18px;color:#999;padding:0 6px;flex-shrink:0}
+
+/* Table */
+.opt-table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+.opt-table th{text-align:left;padding:6px 10px;background:#f5f5f5;color:#555;font-weight:600;border-bottom:2px solid #e0e0e0}
+.opt-table td{padding:6px 10px;border-bottom:1px solid #f0f0f0;vertical-align:top}
+.opt-table .rec-tag{font-size:9px;background:#2B8C96;color:#fff;padding:2px 6px;border-radius:3px;font-weight:600}
+.opt-table .p2-tag{font-size:9px;background:#f0c060;color:#6d5a2c;padding:2px 6px;border-radius:3px;font-weight:600}
+
+/* Section divider */
+.divider{text-align:center;color:#bbb;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:28px 0 16px;position:relative}
+.divider::before,.divider::after{content:'';position:absolute;top:50%;width:35%;height:1px;background:#e0e0e0}
+.divider::before{left:0}
+.divider::after{right:0}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Transcript Email — Component Flow &amp; Integration Summary</h1>
+  <div class="sub">Prepared for business stakeholder review &bull; May 15, 2026</div>
+  <div class="pills">
+    <span class="pill">W107 — Web Agent Contact Capture</span>
+    <span class="pill">5 Components</span>
+    <span class="pill">MVP → Phase 2 Path</span>
+    <span class="pill">Updated post Srikar sync 5/15</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ===== END-TO-END FLOW ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <div class="comp-num" style="background:#1b3a5c">⟩</div>
+    <h2>End-to-End Flow</h2>
+  </div>
+  <div class="comp-body">
+    <div class="flow">
+      <div class="flow-box">Ask Microsoft Chat<br><span style="font-weight:400;font-size:10px">Trigger + Capture</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Transcript Store<br><span style="font-weight:400;font-size:10px">Save + PII Scrub</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box highlight">Email Agent (ACS)<br><span style="font-weight:400;font-size:10px">Outbound Delivery</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">UCMP<br><span style="font-weight:400;font-size:10px">Contact Create/Update</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box" style="background:#f3e8ff;border-color:#c4a8e0;color:#5c2d91">CPM<br><span style="font-weight:400;font-size:10px">Consent Preference</span></div>
+    </div>
+    <div class="flow" style="margin-top:8px">
+      <div class="flow-box phase2" style="margin-left:auto">Phase 2: URA<br><span style="font-weight:400;font-size:10px">Inbound Reply Routing</span></div>
+      <div class="flow-arrow">←</div>
+      <div class="flow-box phase2">Customer Replies<br><span style="font-weight:400;font-size:10px">to Transcript Email</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COMPONENT 1: ASK MICROSOFT CHAT ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <div class="comp-num" style="background:#0078d4">1</div>
+    <h2>Ask Microsoft Chat — Trigger &amp; Contact Capture</h2>
+    <span class="phase">MVP</span>
+  </div>
+  <div class="comp-body">
+    <p><strong>What changes:</strong> The Ask Microsoft chat widget needs a trigger mechanism to present the transcript email offer, plus a collection card (reusing the Quoting Agent form component) for contact capture.</p>
+
+    <p><strong>Important concept — two separate triggers per option:</strong></p>
+    <div class="decision">
+      <strong>Trigger 1 (Show the offer):</strong> When the customer is prompted to provide their email — this varies by option.<br>
+      <strong>Trigger 2 (Send the email):</strong> When the transcript email is actually delivered — this is <strong>always session end</strong> (goodbye or idle timeout). The email captures the <strong>full conversation</strong> regardless of how many turns happen after the customer submits their info.
+    </div>
+
+    <p style="margin-top:12px"><strong>Trigger options:</strong></p>
+    <table class="opt-table">
+      <thead><tr><th>Trigger</th><th>Trigger 1: Show Offer</th><th>Trigger 2: Send Email</th><th>Pros</th><th>Cons</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Turn-based</strong><br>(after N turns)</td>
+          <td>After ~3 customer messages, a non-blocking inline card appears</td>
+          <td>Session end (goodbye or idle timeout) — full transcript</td>
+          <td>Simple to implement; proven in prototype; non-intrusive</td>
+          <td>Arbitrary timing — may miss short sessions or annoy on quick lookups</td>
+        </tr>
+        <tr>
+          <td><strong>Intent-based</strong><br>(customer asks)</td>
+          <td>Customer says "email this", "send me a recap", or types "Email Summary"</td>
+          <td>Session end (goodbye or idle timeout) — full transcript</td>
+          <td>Customer-initiated = highest engagement; zero friction for those who don't want it</td>
+          <td>Requires NLU/intent classification; most customers won't know the option exists</td>
+        </tr>
+        <tr>
+          <td><strong>Always-on</strong><br>(persistent CTA)</td>
+          <td>Persistent "📧 Get transcript" button visible in chat header/footer at all times</td>
+          <td>Session end (goodbye or idle timeout) — full transcript</td>
+          <td>Always discoverable; no timing logic needed</td>
+          <td>Uses screen real estate permanently; may feel "salesy"</td>
+        </tr>
+        <tr>
+          <td><strong>Always-on: Footer</strong><br>(placement variant)</td>
+          <td>"Receive transcript" link in the footer area next to "AI generated content" disclaimer — currently unused white space</td>
+          <td>Session end (goodbye or idle timeout) — full transcript</td>
+          <td>Uses existing empty space; doesn't clutter the chat; unobtrusive</td>
+          <td>Low visibility — customers may not notice it</td>
+        </tr>
+        <tr>
+          <td><strong>Always-on: Kebab menu</strong><br>(placement variant)</td>
+          <td>"Receive transcript" option inside a ⋮ three-dot menu in the chat header</td>
+          <td>Session end (goodbye or idle timeout) — full transcript</td>
+          <td>Clean UI; scales as more features are added to the menu</td>
+          <td>Lowest discoverability — hidden behind a menu tap; not ideal for MVP alone</td>
+        </tr>
+        <tr>
+          <td><strong>Session-end</strong><br>(on goodbye/idle)</td>
+          <td>Offer appears when customer says goodbye or after idle timeout</td>
+          <td>Same moment as Trigger 1 — both fire together</td>
+          <td>Natural moment; customer already has full context</td>
+          <td>Customer may have already closed the tab; both triggers collapse into one moment = lowest capture rate</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="decision rec">
+      <strong>MVP Recommendation:</strong> Turn-based (~3 turns) as the primary trigger + intent-based ("Email Summary") as a re-invoke mechanism. This is what the current prototype implements and balances discoverability with non-intrusiveness. The offer card is dismissible and chat always continues normally.
+    </div>
+
+    <p><strong>Collection card captures:</strong></p>
+    <ul>
+      <li><strong>Required:</strong> First name, Last name, Email, Country, Company name</li>
+      <li><strong>Optional:</strong> Job title, Company size</li>
+      <li><strong>Dynamic consent:</strong> Country selection drives opt-out (US/non-GDPR) vs. opt-in (EU/GDPR) consent model via CPM</li>
+      <li><strong>Component reuse:</strong> Reuses existing Quoting Agent form component — not a net-new build</li>
+    </ul>
+
+    <p style="margin-top:12px"><strong>Email validation &amp; abuse prevention:</strong></p>
+    <ul>
+      <li><strong>Format validation:</strong> Client-side + server-side regex check to ensure the email address is a valid format before submission</li>
+      <li><strong>Disposable/temporary email blocking:</strong> Reject known throwaway email domains (mailinator, guerrillamail, etc.)</li>
+    </ul>
+
+    <div class="decision warn">
+      <strong>CELA / Privacy concern — email spoofing / abuse vector:</strong> What stops someone from entering another person's email address (e.g., a CEO, a competitor, or a random person) to spam them with unsolicited transcripts?<br><br>
+      <strong>Mitigation options to evaluate:</strong>
+      <ul style="margin:6px 0 0 16px;font-size:12px">
+        <li><strong>Rate limiting:</strong> Cap the number of transcript emails that can be sent to the same email address within a time window (e.g., max 2 per 24 hours). Limits spam volume but doesn't prevent the first unwanted email.</li>
+        <li><strong>One-click unsubscribe / block:</strong> Include an unsubscribe link in the transcript email so recipients can block future transcript sends to their address. Reactive rather than preventive.</li>
+        <li><strong>Domain/VIP blocklist:</strong> Maintain a blocklist of high-profile domains or specific email addresses that cannot be targeted. Hard to maintain and doesn't scale.</li>
+        <li><strong>Session-email correlation:</strong> Cross-reference session behavior patterns (e.g., if the same IP sends transcripts to 50 different emails, flag it).</li>
+      </ul>
+      <br><strong>MVP recommendation:</strong> Implement <strong>rate limiting</strong> + <strong>one-click unsubscribe</strong> at minimum. Long-term, authentication (user sign-in) will solve email ownership verification — OTP was considered and rejected due to the net-new capability build, security review overhead, and complexity.
+    </div>
+
+    <div class="decision">
+      <strong>Key UX principle:</strong> The transcript email is always sent regardless of marketing consent choice. The consent checkbox only governs whether Microsoft may send tailored recommendations (marketing activities via CPM/UCMP).
+    </div>
+  </div>
+</div>
+
+<!-- ===== COMPONENT 2: TRANSCRIPT SAVE ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <div class="comp-num" style="background:#5c2d91">2</div>
+    <h2>Transcript Save &amp; Processing</h2>
+    <span class="phase">MVP</span>
+  </div>
+  <div class="comp-body">
+    <p><strong>What's built:</strong> When the customer submits the collection card, the system needs to persist the conversation and process it for email delivery.</p>
+    <ul>
+      <li><strong>Session tracking:</strong> Conversation turns are already captured in the chat backend — the transcript save hooks into this existing data</li>
+      <li><strong>Email validation (server-side):</strong> Re-validate email format server-side before sending. Apply rate limiting (max sends per email per time window) and check against blocklists to prevent abuse</li>
+      <li><strong>PII scrubbing:</strong> Before email delivery, PII that the customer may have typed in-chat (phone numbers, addresses, etc.) must be scrubbed from the transcript body</li>
+      <li><strong>LLM summary generation:</strong> An AI-generated summary of the conversation is produced for the email body (key topics discussed, recommendations given, links shared)</li>
+      <li><strong>Trigger for email send:</strong> Transcript email fires on session end — either graceful (customer says goodbye) or idle timeout (customer closes tab / goes silent)</li>
+    </ul>
+
+    <div class="decision rec">
+      <strong>Resolved (Srikar sync 5/15):</strong> Email will contain <strong>both</strong> — an LLM-generated summary at the top of the email body followed by the full raw transcript (PII scrubbed). Summary-first format sets up the inbound reply flow in Phase 2 (actionable items, next steps).
+    </div>
+  </div>
+</div>
+
+<!-- ===== COMPONENT 3: EMAIL AGENT (ACS) ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <div class="comp-num" style="background:#2B8C96">3</div>
+    <h2>Email Agent — ACS (Outbound) → URA (Inbound)</h2>
+    <span class="phase">MVP → Phase 2</span>
+  </div>
+  <div class="comp-body">
+    <p><strong>What's built:</strong> The email delivery mechanism that sends the transcript to the customer's email address.</p>
+
+    <table class="opt-table">
+      <thead><tr><th style="width:22%">Aspect</th><th>MVP — ACS (Azure Communication Services)</th><th>Phase 2 — URA (Universal Reply Agent)</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Scope</strong></td>
+          <td>Outbound only — send transcript email to customer</td>
+          <td>Inbound + Outbound — customer can reply to the transcript email to continue the conversation</td>
+        </tr>
+        <tr>
+          <td><strong>Precedent</strong></td>
+          <td>Same pattern as Quotex flow (proven, in production) <span class="rec-tag">MVP REC</span></td>
+          <td>BEAM / Universal Reply Agent infrastructure <span class="p2-tag">PHASE 2</span></td>
+        </tr>
+        <tr>
+          <td><strong>Integration</strong></td>
+          <td>API call from chat backend → ACS email send → customer inbox</td>
+          <td>ACS email includes reply-to address → URA routes inbound replies → reconnects to Ask Microsoft agent</td>
+        </tr>
+        <tr>
+          <td><strong>Complexity</strong></td>
+          <td>Low — ACS email send is a well-understood, lightweight integration</td>
+          <td>Higher — requires reply routing, session reconnection, and agent context restoration</td>
+        </tr>
+        <tr>
+          <td><strong>Why not URA for MVP?</strong></td>
+          <td colspan="2">MVP only requires <strong>outbound email delivery</strong>. ACS is simpler, faster to ship, and already used in the Quotex flow. URA adds value only when we need to handle <strong>inbound customer replies</strong> — that's a Phase 2 capability.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="decision rec">
+      <strong>MVP Recommendation (confirmed Srikar sync 5/15):</strong> Use ACS for outbound transcript email delivery (mirrors Quotex pattern). Claire confirmed the URA is being reworked (V-Next) — her recommendation is to keep MVP simple on ACS. Switching to URA in Phase 2 is a lightweight change (update the reply-to address to point to URA instead of unmonitored inbox).
+    </div>
+
+    <div class="decision">
+      <strong>Action item:</strong> Check with Claire on whether ACS has any built-in email validation or abuse prevention before sending (rate limiting, blocklist checks, etc.).
+    </div>
+
+    <p><strong>Email content (what the customer receives):</strong></p>
+    <ul>
+      <li><strong>Subject:</strong> "Your Ask Microsoft conversation transcript" (or similar branded)</li>
+      <li><strong>Body — Summary section:</strong> LLM-generated summary of key topics, recommendations, and links from the conversation</li>
+      <li><strong>Body — Full transcript:</strong> Raw conversation transcript (PII scrubbed) — either inline as an expandable section or as an attachment</li>
+      <li><strong>Branding:</strong> Microsoft branded HTML template with appropriate headers/footers</li>
+      <li><strong>No marketing CTAs in MVP:</strong> Keep it clean — transcript delivery only. Cross-sell / recommended next steps can be a Phase 2 enhancement</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== COMPONENT 4: UCMP ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <div class="comp-num" style="background:#d83b01">4</div>
+    <h2>UCMP — Contact Profile Create / Update (No Insights for MVP)</h2>
+    <span class="phase">MVP</span>
+  </div>
+  <div class="comp-body">
+    <p><strong>What's built:</strong> When the customer submits their contact info, we write to UCMP to create or update a contact profile. <strong>Contact creation/update only — no insights or marketing activity writes for MVP.</strong></p>
+
+    <div class="decision rec">
+      <strong>Scope narrowed (Srikar sync 5/15):</strong> MVP scope is <strong>send the email + create/update the contact in UCMP</strong>. That's it. Insights (marketing activities) are removed from MVP scope for the following reasons:
+      <ul style="margin:6px 0 0 16px;font-size:12px">
+        <li><strong>Authenticated user conflict:</strong> If a user is signed into the site AND provides a different email in chat, there's a conflict on which identity to associate insights with</li>
+        <li><strong>Consent complexity:</strong> Insights require checking cookie banner + MSRs consent — contact creation does NOT (confirmed by privacy)</li>
+        <li><strong>Permutation explosion:</strong> Factoring in authenticated vs. anonymous × cookie consent × MSRs consent × form consent creates too many edge cases for MVP</li>
+      </ul>
+    </div>
+
+    <div class="decision">
+      <strong>Privacy confirmed:</strong> Creating or updating a contact in UCMP does <strong>not</strong> require honoring cookie consent or MSRs controls. The consent captured on the form (opt-in/opt-out) is sufficient. This significantly simplifies the MVP flow.
+    </div>
+
+    <ul>
+      <li><strong>New contact:</strong> If the email doesn't exist in UCMP, create a new contact profile with the captured fields (name, email, country, company, job title, company size)</li>
+      <li><strong>Existing contact:</strong> If the email already exists in UCMP, update the profile with any new or missing fields (dedup by email)</li>
+      <li><strong>Source attribution:</strong> Tag the contact as a web agent lead — <strong>lead source</strong>, <strong>site URL</strong>, <strong>session ID</strong>, <strong>timestamp</strong>. <em>Note: Srikar confirmed source attribution does not currently exist in UCMP — needs validation with Dayton/UCMP team.</em></li>
+      <li><strong>Transcript link:</strong> Optionally store a reference/link to the transcript for seller context when the lead is handed off</li>
+    </ul>
+
+    <div class="decision warn">
+      <strong>Open questions for UCMP:</strong>
+      <ul style="margin:6px 0 0 16px;font-size:12px">
+        <li>What is the dedup strategy if the same email submits across multiple sessions? (Overwrite concern — can't distinguish new vs. update)</li>
+        <li>Does UCMP have a LeadSpace or ingestion layer that validates incoming contacts for bot/spam prevention?</li>
+        <li>What data retention / purge process applies? (GDPR Art. 17, CCPA)</li>
+        <li>If the customer already has a profile from the Quoting Agent flow, how do we merge?</li>
+        <li>Is source attribution feasible as a new field? Needs UCMP intake submission (this doc serves as the basis).</li>
+      </ul>
+    </div>
+
+    <div class="decision rec">
+      <strong>Seller handoff context:</strong> When a contact is created/updated in UCMP, the seller who picks up the lead should see: (1) the AI-generated conversation summary, (2) products/plans discussed, (3) customer's stated needs — giving them pre-qualified context instead of a cold call.
+    </div>
+  </div>
+</div>
+
+<!-- ===== COMPONENT 5: CPM ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <div class="comp-num" style="background:#5c2d91">5</div>
+    <h2>CPM — Consent Preference Management</h2>
+    <span class="phase">MVP</span>
+  </div>
+  <div class="comp-body">
+    <p><strong>What's built:</strong> A separate API call to CPM (Consent Preference Management) to store the customer's marketing consent preference. This is distinct from the UCMP contact write.</p>
+
+    <ul>
+      <li><strong>What gets sent:</strong> Email address + SBO topic + consent state (opted-in or opted-out)</li>
+      <li><strong>New contacts:</strong> CPM can create a new entry even for net-new contacts — just needs email + topic + consent</li>
+      <li><strong>Consent logic:</strong> Driven dynamically by country (non-GDPR = opt-out default, GDPR = opt-in default). The form captures the customer's choice and passes it to CPM.</li>
+      <li><strong>Downstream impact:</strong> Once a contact has an opt-in state in CPM, marketing can send promotional emails (promotions, offers, etc.) until the customer opts out</li>
+    </ul>
+
+    <div class="decision warn">
+      <strong>Open question (Srikar sync 5/15):</strong> If a customer does NOT tick the opt-in checkbox, does that just mean "no action" (preserve any prior consent state), or does it actively opt them OUT of any pre-existing consent? This has materially different implications. Needs clarification with CPM team.
+    </div>
+
+    <div class="decision">
+      <strong>Action item:</strong> Srikar to connect with CPM contact to schedule alignment call. Sunil to check if there's a new PM on the CPM side (previous contact moved out).
+    </div>
+  </div>
+</div>
+
+<!-- ===== SUMMARY TABLE ===== -->
+<div class="divider">Quick Reference</div>
+
+<div class="comp">
+  <div class="comp-head">
+    <h2 style="font-size:15px;">Component Build Summary</h2>
+  </div>
+  <div class="comp-body">
+    <table class="opt-table">
+      <thead>
+        <tr>
+          <th style="width:5%">#</th>
+          <th style="width:20%">Component</th>
+          <th style="width:30%">MVP Scope</th>
+          <th style="width:18%">Builds On</th>
+          <th style="width:27%">Phase 2 Extension</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>Ask Microsoft Chat</td>
+          <td>Trigger (TBD — options in table above) + collection card with dynamic consent + consent notice &amp; Transparency FAQ link</td>
+          <td>Existing Quoting Agent form component</td>
+          <td>Smarter intent detection, returning customer recognition, AB testing trigger types</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>Transcript Save</td>
+          <td>Save full conversation on session end, PII scrub, LLM summary generation</td>
+          <td>Existing chat backend session data</td>
+          <td>Transcript persistence for multi-session history, insights generation</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>Email Agent</td>
+          <td>ACS outbound email — summary + full transcript delivery</td>
+          <td>Quotex ACS pattern (in production)</td>
+          <td>URA integration for inbound reply routing (URA V-Next)</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>UCMP</td>
+          <td>Create/update contact profile only (no insights for MVP), source attribution (pending UCMP validation)</td>
+          <td>Existing UCMP APIs</td>
+          <td>Insights/marketing activities (post auth user conflict resolution), richer profile enrichment</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td>CPM</td>
+          <td>Separate API call to store consent preference (email + SBO topic + opt-in/out state)</td>
+          <td>Existing CPM APIs (new integration)</td>
+          <td>Richer consent granularity, multi-topic consent management</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== OPEN ITEMS ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <h2 style="font-size:15px;">Open Items &amp; Action Items (from Srikar sync 5/15)</h2>
+  </div>
+  <div class="comp-body">
+    <table class="opt-table">
+      <thead><tr><th style="width:5%">#</th><th style="width:45%">Item</th><th style="width:20%">Owner</th><th style="width:30%">Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Trigger mechanism decision — which option(s) for MVP? Present options to Chris/engineering.</td><td>Sunil</td><td>Pending — options documented above</td></tr>
+        <tr><td>2</td><td>CPM integration — clarify behavior when customer does NOT tick opt-in (no action vs. active opt-out)</td><td>Srikar + CPM team</td><td>Pending — need CPM alignment call</td></tr>
+        <tr><td>3</td><td>UCMP source attribution — validate if a new field is feasible. Submit this doc for UCMP intake.</td><td>Sunil (Dayton) + Srikar (intake)</td><td>Pending</td></tr>
+        <tr><td>4</td><td>LeadSpace / ingestion layer — does UCMP validate incoming contacts for bot/spam prevention?</td><td>Sunil (Dayton)</td><td>Pending</td></tr>
+        <tr><td>5</td><td>ACS email validation — check with Claire if ACS has built-in abuse prevention before sending</td><td>Sunil (Claire)</td><td>Pending</td></tr>
+        <tr><td>6</td><td>Authenticated user conflict — if user is signed into site AND enters email in chat, what happens? Defer from MVP but needs resolution.</td><td>Srikar + Jimmy</td><td>Flagged yellow — MVP deferred</td></tr>
+        <tr><td>7</td><td>AB testing for trigger types (P1) — store trigger type, compare turn-based vs. always-on vs. others, measure impact on intent rates</td><td>Jimmy / Engineering</td><td>P1 — not blocking MVP</td></tr>
+        <tr><td>8</td><td>Contact Me form reuse — Ryan's V-Next Contact Me is in flux (forms may be going away). Do not rely on this path; Quoting Agent form is safer bet.</td><td>Info only</td><td>Noted — no action needed</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== LINKS ===== -->
+<div class="comp">
+  <div class="comp-head">
+    <h2 style="font-size:15px;">Related Resources</h2>
+  </div>
+  <div class="comp-body">
+    <ul>
+      <li><strong>Interactive Prototype:</strong> <a href="https://sunilmsft.github.io/consent-ux-prototype/transcript-email-flow.html" target="_blank">Transcript Email UX Prototype (live)</a></li>
+      <li><strong>Privacy Review Prototype:</strong> <a href="https://sunilmsft.github.io/consent-ux-prototype/privacy-review-prototype.html" target="_blank">Privacy Review Prototype (live)</a> — includes consent notice, Transparency FAQ link, and collection card walkthrough</li>
+      <li><strong>BRD:</strong> Web Agent Contact Capture (W107) — Jimmy Lin</li>
+      <li><strong>BRD Review:</strong> Engineering review with gaps and open questions (April 14, 2026)</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

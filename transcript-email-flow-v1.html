@@ -34,7 +34,6 @@
   }
 
   .layout {
-    position: relative;
     min-height: calc(100vh - 14px);
     display: grid;
     grid-template-columns: minmax(0, 1fr) 430px;
@@ -124,172 +123,23 @@
     margin-top: 2px;
   }
 
+  #startFlowTop,
   #resetFlowTop {
     flex-shrink: 0;
-    border: none;
-    border-radius: 8px;
-    width: 34px;
-    height: 34px;
-    font-size: 16px;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-  }
-
-  /* Walkthrough controller card */
-  .walkthrough-ctrl {
-    position: fixed;
-    bottom: 28px;
-    right: 450px;
-    z-index: 200;
-    background: linear-gradient(135deg, #1b3a5c 0%, #0f2a47 100%);
-    color: #fff;
-    border-radius: 14px;
-    padding: 16px 20px;
-    width: 340px;
-    box-shadow: 0 8px 32px rgba(0,0,0,.28), 0 2px 8px rgba(0,0,0,.12);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    transition: opacity .3s ease, transform .3s ease;
-  }
-
-  .walkthrough-ctrl.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(12px);
-  }
-
-  .walkthrough-ctrl.email-view {
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .ctrl-top {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  #startFlowTop {
-    flex-shrink: 0;
-    border: none;
-    background: #0078d4;
-    color: #fff;
-    font-size: 16px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    box-shadow: 0 2px 12px rgba(0,120,212,.5);
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    animation: pulsePlay 1.8s ease-in-out infinite;
-    transition: background .15s;
-  }
-
-  #startFlowTop.playing {
-    animation: none;
-  }
-
-  @keyframes pulsePlay {
-    0%, 100% { box-shadow: 0 2px 12px rgba(0,120,212,.5); transform: scale(1); }
-    50% { box-shadow: 0 0 24px rgba(0,120,212,.7); transform: scale(1.1); }
-  }
-
-  #startFlowTop:hover {
-    background: #106ebe;
-  }
-
-  .ctrl-info {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .ctrl-title {
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.25;
-  }
-
-  .ctrl-step {
-    font-size: 11.5px;
-    color: rgba(255,255,255,.6);
-    margin-top: 2px;
-  }
-
-  .ctrl-actions {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-left: auto;
-    flex-shrink: 0;
-  }
-
-  .ctrl-actions button {
-    border: 1px solid rgba(255,255,255,.25);
-    background: rgba(255,255,255,.1);
-    color: #fff;
-    border-radius: 8px;
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    transition: background .15s;
-  }
-
-  .ctrl-actions button:hover {
-    background: rgba(255,255,255,.2);
-  }
-
-  #pauseFlowBtn {
-    display: none;
-  }
-
-  #pauseFlowBtn.visible {
-    display: grid;
-  }
-
-  #pauseFlowBtn.paused {
-    background: rgba(232,164,53,.3);
-    border-color: rgba(232,164,53,.6);
-  }
-
-  .ctrl-desc {
-    font-size: 12.5px;
-    line-height: 1.45;
-    color: rgba(255,255,255,.78);
-    border-top: 1px solid rgba(255,255,255,.12);
-    padding-top: 10px;
-    margin: 0;
-  }
-
-  #resetFlowTop {
-    background: #fff;
     border: 1px solid #d0d0d0;
+    background: #fff;
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
     color: #555;
+    display: grid;
+    place-items: center;
   }
 
+  #startFlowTop:hover,
   #resetFlowTop:hover { background: #f4f4f4; }
-
-  .prev-version-link {
-    font-size: 10px;
-    color: rgba(255,255,255,.6);
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,.25);
-    padding: 3px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    transition: .2s;
-  }
-  .prev-version-link:hover {
-    color: #fff;
-    border-color: rgba(255,255,255,.5);
-  }
 
   #toggleBackend {
     flex-shrink: 0;
@@ -1140,7 +990,6 @@
   .btn.primary:hover { background: var(--brand-dark); }
 
   .chat-shell {
-    position: relative;
     background: #fff;
     border-left: 1px solid var(--line);
     display: flex;
@@ -1572,272 +1421,62 @@
   .collect-card {
     align-self: flex-start;
     width: 100%;
-    border: 1px solid #e0e0e0;
+    border: 1px dashed #d6d6d6;
     border-radius: 10px;
     background: #fff;
-    padding: 14px 16px;
-    font-size: 12.5px;
-    color: #4f4f4f;
-    line-height: 1.5;
-  }
-
-  .collect-card .card-disclaimer {
-    margin-bottom: 12px;
+    padding: 10px;
     font-size: 12px;
-    color: #555;
-    line-height: 1.5;
+    color: #4f4f4f;
+    line-height: 1.45;
   }
 
-  .collect-card .card-disclaimer a {
+  .privacy-checkpoint {
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    border-left: 3px solid #0078d4;
+    background: #eef6ff;
+    border-radius: 4px;
+    color: #0a4f86;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .privacy-checkpoint strong {
     color: #0078d4;
-    text-decoration: none;
   }
 
-  .collect-card .card-disclaimer a:hover {
-    text-decoration: underline;
-  }
-
-  .collect-section-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    color: #777;
-    letter-spacing: .6px;
-    margin: 10px 0 4px;
-    font-weight: 600;
-  }
-
-  .collect-fields {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  .collect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
   }
 
   .collect-field {
-    display: flex;
-    align-items: baseline;
-    border-left: 3px solid #0078d4;
-    padding: 8px 10px;
-    background: #fafbfc;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1.5px solid #0078d4;
+    padding-bottom: 2px;
   }
 
-  .collect-field.optional {
-    border-left-color: #0078d4;
+  .collect-field.full {
+    grid-column: 1 / -1;
   }
 
   .collect-field label {
-    flex: 0 0 120px;
-    font-size: 11.5px;
+    display: block;
+    font-size: 11px;
     color: #0958a8;
-    font-weight: 600;
+    margin-bottom: 2px;
   }
 
-  .collect-field label .req {
-    color: #d83b01;
-  }
-
-  .collect-field .field-value {
-    flex: 1;
+  .collect-field span {
     font-size: 13px;
     color: #222;
-    padding: 0;
-    border: none;
-    background: transparent;
-    outline: none;
-  }
-
-  .field-value.typing-cursor::after {
-    content: '';
-    display: inline-block;
-    width: 1.5px;
-    height: 14px;
-    background: #0078d4;
-    margin-left: 1px;
-    vertical-align: text-bottom;
-    animation: blink .6s step-end infinite;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-
-  .country-field .field-value {
-    min-height: 16px;
   }
 
   .collect-actions {
     display: flex;
     gap: 8px;
-    margin-top: 12px;
-  }
-
-  .consent-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    margin: 10px 0 0;
-    padding: 8px 10px;
-    background: #fafbfc;
-    border: 1px solid #e8ecf0;
-    border-radius: 6px;
-    font-size: 11.5px;
-    color: #444;
-    line-height: 1.4;
-    cursor: pointer;
-  }
-
-  .consent-row input[type="checkbox"] {
-    margin-top: 2px;
-    flex-shrink: 0;
-    accent-color: #0078d4;
-  }
-
-  .consent-row.consent-animated {
-    opacity: 0;
-    max-height: 0;
-    padding: 0 10px;
-    margin: 0;
-    overflow: hidden;
-    border-color: transparent;
-    transition: opacity .4s ease, max-height .4s ease, padding .4s ease, margin .4s ease, border-color .3s ease;
-  }
-
-  .consent-row.consent-animated.revealed {
-    opacity: 1;
-    max-height: 60px;
-    padding: 8px 10px;
-    margin: 10px 0 0;
-    border-color: #e8ecf0;
-  }
-
-  .flow-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,.92);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .4s ease;
-    border-radius: 12px;
-  }
-
-  .flow-overlay.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .flow-overlay .overlay-badge {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 28px;
-    background: #fff;
-    border: 1px solid #d4e4f7;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,.08);
-  }
-
-  .flow-overlay .overlay-icon {
-    font-size: 28px;
-  }
-
-  .flow-overlay .overlay-text {
-    font-size: 14px;
-    color: #1a3a5c;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  .flow-overlay .overlay-sub {
-    font-size: 11.5px;
-    color: #6a8aaa;
-    font-weight: 400;
-    margin-top: 2px;
-  }
-
-  /* Full-page transition overlay */
-  .page-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(15, 42, 71, .88);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 500;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .5s ease;
-  }
-
-  .page-overlay.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .page-overlay .overlay-badge {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 22px 32px;
-    background: rgba(255,255,255,.12);
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 14px;
-    backdrop-filter: blur(8px);
-  }
-
-  .page-overlay .overlay-icon {
-    font-size: 32px;
-  }
-
-  .page-overlay .overlay-text {
-    font-size: 16px;
-    color: #fff;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  .page-overlay .overlay-sub {
-    font-size: 12px;
-    color: rgba(255,255,255,.65);
-    font-weight: 400;
-    margin-top: 3px;
-  }
-
-  .chat-nudge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    margin: 6px auto;
-    padding: 6px 16px;
-    background: transparent;
-    border-top: 1px solid #e4e9ef;
-    border-bottom: 1px solid #e4e9ef;
-    font-size: 10.5px;
-    color: #7a8da4;
-    line-height: 1.4;
-    opacity: 0;
-    transition: opacity .4s ease;
-  }
-
-  .chat-nudge.visible {
-    opacity: 1;
-  }
-
-  .chat-nudge .nudge-icon {
-    flex-shrink: 0;
-    font-size: 12px;
-  }
-
-  .chat-nudge .nudge-label {
-    font-weight: 600;
-    color: #5a7a9a;
+    margin-top: 9px;
   }
 
   .confirm {
@@ -1866,7 +1505,6 @@
   .chat-foot {
     border-top: 1px solid #f0f0f0;
     padding: 8px 12px 12px;
-    position: relative;
   }
 
   .foot-tools {
@@ -1878,7 +1516,7 @@
   }
 
   .foot-note {
-    text-align: right;
+    text-align: left;
     font-size: 10.5px;
     color: #9a9a9a;
     margin-bottom: 0;
@@ -1896,87 +1534,30 @@
   .foot-action {
     border: none;
     background: transparent;
-    color: #6b7fa0;
+    color: #455f7f;
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 10.5px;
+    font-size: 11px;
     line-height: 1;
-    font-weight: 400;
-    padding: 3px 6px;
+    font-weight: 600;
+    padding: 0;
     cursor: pointer;
     white-space: nowrap;
-    justify-self: start;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .35s ease, color .2s, background .2s;
-    position: relative;
-  }
-
-  .foot-action .foot-icon-wrap {
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(145deg, #4a90d9, #2b6cb0);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(43,108,176,.35), inset 0 1px 0 rgba(255,255,255,.25);
-    flex-shrink: 0;
-  }
-
-  .foot-action .foot-icon-wrap svg {
-    width: 12px;
-    height: 12px;
-    stroke: #fff;
-    fill: none;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .foot-action.revealed {
-    opacity: 1;
-    pointer-events: auto;
+    justify-self: end;
   }
 
   .foot-action:hover {
-    color: #3a6da8;
-    background: #f0f5fc;
-    border-radius: 4px;
-    text-decoration: none;
-  }
-
-  .foot-action:hover .foot-icon-wrap {
-    box-shadow: 0 3px 7px rgba(43,108,176,.45), inset 0 1px 0 rgba(255,255,255,.3);
+    color: #2e4f77;
+    text-decoration: underline;
   }
 
   .foot-action svg {
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     stroke: currentColor;
     fill: none;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .foot-action:disabled .foot-icon-wrap {
-    background: linear-gradient(145deg, #8aabbf, #6d8fa8);
-    box-shadow: 0 1px 3px rgba(0,0,0,.15), inset 0 1px 0 rgba(255,255,255,.15);
-  }
-
-  .foot-auto-tip {
-    display: none;
-  }
-
-  .email-hint-bubble {
-    display: none;
-  }
-
-  #fixedTip {
-    display: none;
-  }
+    stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
@@ -2051,9 +1632,10 @@
         <div class="panel-head-text">
           <h1>Transcript Email -> Summary -> Reply Routing to URA</h1>
           <p>Guided walkthrough: click the play icon to begin, then each step pauses until you move to the next stage. | Build: 2026-04-27.38</p>
-          <a class="prev-version-link" href="transcript-email-flow-v1.html" target="_blank">&#8599; Previous version</a>
         </div>
         <div class="panel-head-actions">
+          <button id="startFlowTop" type="button" title="Start walkthrough" aria-label="Start walkthrough">▶</button>
+          <button id="resetFlowTop" type="button" title="Reset flow" aria-label="Reset flow">↺</button>
         </div>
       </header>
 
@@ -2079,15 +1661,15 @@
 
         <article class="scene" id="scene-1">
           <p class="kicker">Step 2</p>
-          <h2>Customer receives email with summary, next steps, and full transcript</h2>
-          <p class="lead">A professional email is delivered with a concise conversation summary, actionable next steps with relevant links, and the complete chat transcript.</p>
+          <h2>Enhanced email arrives with summary and full transcript</h2>
+          <p class="lead">Email sent to customer with conversation summary, plan recommendations, and AI capabilities overview. Full chat transcript included for reference.</p>
 
           <div class="email-shot">
             <div class="email-headlines">
               <div><b>From:</b> Ask Microsoft (M365 Assistant) &lt;<a href="#">AskMicrosoft@e-mails.microsoft.com</a>&gt;</div>
-              <div><b>Sent:</b> Thursday, May 22, 2026 9:40 AM</div>
-              <div><b>To:</b> Sarah Chen &lt;<a href="#">sarah.chen@contoso.com</a>&gt;</div>
-              <div><b>Subject:</b> Your Microsoft 365 conversation summary and next steps</div>
+              <div><b>Sent:</b> Friday, April 24, 2026 9:40 AM</div>
+              <div><b>To:</b> Alex Rivera &lt;<a href="#">alex.rivera@contoso.com</a>&gt;</div>
+              <div><b>Subject:</b> Your Microsoft 365 plan recommendations + full transcript</div>
             </div>
 
             <div class="email-canvas">
@@ -2098,49 +1680,199 @@
                     <span>Microsoft</span>
                   </div>
                   <h3>Ask Microsoft</h3>
-                  <p>Hi Sarah,</p>
-                  <p>Thank you for chatting with <b>Ask Microsoft</b>. Below is a summary of your conversation, recommended next steps, and the full transcript for your records.</p>
+                  <p>Hi Alex,</p>
+                  <p>I am <b>Ask Microsoft</b>, an AI agent here to help your business. Based on your chat, I prepared a concise summary and your full transcript so you can review plan options, pricing direction, and AI add-ons with your team.</p>
+                  <p class="reply-inline">You can keep this thread and ask follow-up questions by <strong>replying directly to this email</strong>. There is no new form and no need to restart the conversation.</p>
                 </section>
 
                 <section class="email-block">
-                  <h3>Conversation Summary</h3>
-                  <p>You explored Microsoft 365 Business plans with Teams for a 40-person retail team across 6 stores. Here are the key takeaways:</p>
+                  <h3>Conversation Summary for Your 40-Person Retail Team</h3>
+                  <p><b>AI summary:</b> You are evaluating Microsoft 365 plans with Teams for a 40-person retail team across 6 stores. The conversation focused on which licenses fit frontline associates, store managers, and IT owners, plus where Copilot could add value.</p>
                   <ul class="key-list">
-                    <li><b>Recommended plan mix:</b> Business Basic for 30 frontline staff, Business Standard for 8 store managers, and Business Premium for 2 IT/owner roles.</li>
-                    <li><b>Estimated cost:</b> ~$324/month for all 40 users (vs. ~$880/month if all on Premium).</li>
-                    <li><b>AI recommendation:</b> Start with Copilot Chat (included), then add Microsoft 365 Copilot for select manager and analyst roles.</li>
+                    <li>Plan guidance: Business Basic for frontline staff, Business Standard for managers, Business Premium for owner or IT leads.</li>
+                    <li>Cost direction: estimated mixed-plan monthly total of about $324 for all 40 users.</li>
+                    <li>Feature focus: Teams collaboration, desktop apps for managers, device/security controls, and built-in scheduling options like Bookings.</li>
+                    <li>AI follow-up: start with Copilot Chat, then evaluate Microsoft 365 Copilot for select manager and analyst roles.</li>
                   </ul>
                 </section>
 
                 <section class="email-block">
-                  <h3>Recommended Next Steps</h3>
+                  <h3>Common Next Questions from Teams Like Yours</h3>
+                  <p class="muted">I can help answer questions like:</p>
                   <div class="blue-link-list">
-                    <a href="#">1. Compare Microsoft 365 Business plans in detail</a>
-                    <a href="#">2. Start a free trial of Microsoft 365 Business Premium</a>
-                    <a href="#">3. Learn more about Microsoft 365 Copilot for business</a>
-                    <a href="#">4. Request a quote for 40 users</a>
+                    <a href="#">01 - Which users should be on Basic, Standard, or Premium?</a>
+                    <a href="#">02 - Which plan includes scheduling plus AI features?</a>
+                    <a href="#">03 - What is the right starting point for Microsoft 365 Copilot?</a>
                   </div>
-                </section>
+                  <p class="reply-inline">You can ask any of these by <strong>replying directly to this email</strong>, or use the actions below.</p>
+                  <div class="cta-link-row">
+                    <a class="link-btn" href="#">Chat with Ask Microsoft</a>
+                    <a class="link-btn" href="#">Request 40-User Quote</a>
+                    <a class="link-btn" href="#">Compare Copilot Options</a>
+                  </div>
 
-                <section class="email-block">
                   <div class="transcript-shell">
-                    <div class="transcript-head">Full conversation transcript</div>
+                    <div class="transcript-head">Detailed transcript (full conversation)</div>
                     <div class="transcript-body">
                       <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Hi. I am an AI agent, I can help you compare plans and features, start a free trial, answer support questions, or connect you with a Microsoft seller.</div></div>
-                      <div class="transcript-line customer"><div class="transcript-speaker">Sarah Chen</div><div class="transcript-text">Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">Hi, can you help me understand which Microsoft 365 Business plans make sense for a 40-person retail team across 6 stores?</div></div>
                       <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Microsoft 365 Business plans are available with or without Microsoft Teams. Do you want plans that include Teams or plans without Teams?</div></div>
-                      <div class="transcript-line customer"><div class="transcript-speaker">Sarah Chen</div><div class="transcript-text">with teams</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">with teams</div></div>
                       <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">For retail teams using Teams, most customers evaluate Business Basic, Business Standard, and Business Premium. Would you like a quick recommendation for a 40-user mix?</div></div>
-                      <div class="transcript-line customer"><div class="transcript-speaker">Sarah Chen</div><div class="transcript-text">We still haven't decided. What would be your recommendation?</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">We still haven't decided. What would be your recommendation?</div></div>
                       <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">A practical setup is 30 users on Basic, 8 on Standard, and 2 on Premium, for about $324/month total.</div></div>
-                      <div class="transcript-line customer"><div class="transcript-speaker">Sarah Chen</div><div class="transcript-text">What AI features do you recommend?</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">What AI features do you recommend?</div></div>
                       <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Start with Copilot Chat, then add Microsoft 365 Copilot for selected manager and analyst roles if you need AI in Word, Excel, Outlook, PowerPoint, and Teams.</div></div>
+                      <div class="transcript-line customer"><div class="transcript-speaker">Customer</div><div class="transcript-text">Please email this conversation so I can share with IT and finance.</div></div>
+                      <div class="transcript-line agent"><div class="transcript-speaker">Ask Microsoft</div><div class="transcript-text">Done. I will send your transcript and summary when this chat session ends.</div></div>
                     </div>
                   </div>
                 </section>
               </div>
             </div>
           </div>
+        </article>
+
+        <article class="scene" id="scene-2">
+          <p class="kicker">Step 3</p>
+          <h2>Customer replies to the email with a follow-up question</h2>
+          <p class="lead">No new form, no restart. The customer simply replies in the same thread.</p>
+
+          <div class="email-shot">
+            <div class="email-headlines">
+              <div><b>From:</b> Alex Rivera &lt;<a href="#">alex.rivera@contoso.com</a>&gt;</div>
+              <div><b>Sent:</b> Monday, April 27, 2026 9:12 AM</div>
+              <div><b>To:</b> Ask Microsoft &lt;<a href="#">AskMicrosoft@e-mails.microsoft.com</a>&gt;</div>
+              <div><b>Subject:</b> RE: Your Microsoft 365 plan recommendations + full transcript</div>
+            </div>
+            <div class="email-canvas">
+              <div class="email-card">
+                <section class="email-block">
+                  <p>Thanks, this is helpful. Which plan includes all of this and also scheduling?</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="scene" id="scene-3">
+          <p class="kicker">Step 4</p>
+          <h2>URA classifies intent and prepares response path</h2>
+          <p class="lead">Behind the scenes, URA performs real-time classification to understand customer intent and route to the best outcome. Here's the process:</p>
+
+          <div class="ura-pipeline">
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">1</div>
+              <div class="ura-body">
+                <h4>Intent Analysis</h4>
+                <p><strong>Detected:</strong> M365 plan recommendation + feature bundling &nbsp;|&nbsp; Confidence: 94%<br>Customer wants the best-fit plan that includes Teams, scheduling, and optional AI capabilities.</p>
+                <div class="prog"><span></span></div>
+              </div>
+            </div>
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">2</div>
+              <div class="ura-body">
+                <h4>Context Extraction</h4>
+                <p><strong>Entities:</strong> 40 users | 6 stores | Teams included | Business Standard | Business Premium | Bookings | Copilot | role-based mix<br>All relevant conversation details captured and structured.</p>
+              </div>
+            </div>
+            <div class="ura-step">
+              <div class="ura-num done">✓</div>
+              <div class="ura-body">
+                <h4>Validation Checks</h4>
+                <p><strong>Status:</strong> Consent honored | Route matched | Knowledge answerable<br>All policy checks pass. Ready for routing decision.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ura-outcome">→ System routes only the right conversations to the right seller →</div>
+        </article>
+
+        <article class="scene" id="scene-4">
+          <p class="kicker">Step 5A</p>
+          <h2>Outcome A: URA auto-answers immediately</h2>
+          <p class="lead">For straightforward questions, customer gets a quick accurate response.</p>
+
+          <div class="email-shot">
+            <div class="email-headlines">
+              <div><b>From:</b> Ask Microsoft (M365 Assistant) &lt;<a href="#">AskMicrosoft@e-mails.microsoft.com</a>&gt;</div>
+              <div><b>Sent:</b> Monday, April 27, 2026 9:15 AM</div>
+              <div><b>To:</b> Alex Rivera &lt;<a href="#">alex.rivera@contoso.com</a>&gt;</div>
+              <div><b>Subject:</b> RE: Which plan includes Teams, scheduling, and AI features?</div>
+            </div>
+            <div class="email-canvas">
+              <div class="email-card">
+                <section class="email-block">
+                <p>Hi Alex,</p>
+                <p>To get desktop apps, Teams, scheduling tools, and optional premium AI features, the best fit is usually <b>Microsoft 365 Business Standard or Business Premium with Microsoft 365 Copilot added for selected users</b>.</p>
+                <div style="background:#ecf5ff;border-left:3px solid #0078d4;border-radius:4px;padding:12px;margin:12px 0;"><b>Business Standard — Best core fit for managers</b>
+                  <ul style="margin:8px 0 0 16px;font-size:12px;line-height:1.6;">
+                    <li><b>Includes:</b> desktop, web, and mobile Office apps plus Teams</li>
+                    <li><b>Scheduling:</b> Microsoft Bookings for appointments and simple scheduling workflows</li>
+                    <li><b>Collaboration:</b> Outlook, OneDrive, Teams meetings, shared files, and day-to-day productivity</li>
+                    <li><b>Good for:</b> store managers and back-office roles that need full apps without advanced security requirements</li>
+                  </ul>
+                </div>
+                <div style="background:#e9f6ea;border-left:3px solid #2e7d32;border-radius:4px;padding:12px;margin:12px 0;"><b>Business Premium — Best when you also need stronger security</b>
+                  <ul style="margin:8px 0 0 16px;font-size:12px;line-height:1.6;">
+                    <li><b>Everything in Standard +</b> Intune device management and Microsoft Defender for Business</li>
+                    <li><b>Security:</b> Conditional Access, MFA enforcement, and stronger protection for shared/store devices</li>
+                    <li><b>Good for:</b> owner, IT, operations, finance, or any role handling sensitive information</li>
+                  </ul>
+                </div>
+                <div style="background:#fff7ea;border-left:3px solid #d88900;border-radius:4px;padding:12px;margin:12px 0;"><b>AI add-on option — Microsoft 365 Copilot</b>
+                  <ul style="margin:8px 0 0 16px;font-size:12px;line-height:1.6;">
+                    <li>Add Copilot for users who need help with reports, email drafting, meeting recaps, and content creation</li>
+                    <li>Typical starting point: manager, analyst, or owner seats rather than every frontline user</li>
+                  </ul>
+                </div>
+                <p><b>Recommended path:</b> Use Business Standard for manager productivity, Business Premium where you need stronger protection, and add Copilot selectively. For frontline associates, many teams still keep Business Basic to control cost.</p>
+                <p>Next: Would you like a quote that compares Standard + Copilot versus Premium + Copilot for your 40-user setup?</p>
+              </section>
+              </div>
+            </div>
+          </div>
+
+          <div class="status">
+            <span><b>SLA:</b> 3 minutes</span>
+            <span style="color:var(--ok);"><b>Result:</b> Fast customer resolution</span>
+          </div>
+        </article>
+
+        <article class="scene" id="scene-5">
+          <p class="kicker">Step 6</p>
+          <h2>Outcome B: URA hands off to seller with full context</h2>
+          <p class="lead">High-value, pre-qualified signals with context are handed off to sellers so they can act fast without manual triage. Here's what happens:</p>
+
+          <div class="ura-pipeline">
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">1</div>
+              <div class="ura-body">
+                <h4>Seller Handoff Triggered</h4>
+                <p><strong>Lead Info:</strong> alex@contoso.com &nbsp;|&nbsp; <strong>Intent:</strong> Licensing + AI upsell guidance &nbsp;|&nbsp; Confidence: 94%<br>Classified as high-value and pre-qualified for seller handoff.</p>
+              </div>
+            </div>
+            <div class="ura-step">
+              <div class="ura-connector"></div>
+              <div class="ura-num">2</div>
+              <div class="ura-body">
+                <h4>Context Package Built</h4>
+                <p><strong>Attached to ticket:</strong><br>• Full transcript • Summary highlights • Entity extraction (40 users, 6 stores, roles) • Teams/scheduling requirements • Copilot interest • Cost comparison context</p>
+              </div>
+            </div>
+            <div class="ura-step">
+              <div class="ura-num done">✓</div>
+              <div class="ura-body">
+                <h4>Seller Handoff Complete</h4>
+                <p><strong>Assignment:</strong> M365 SMB Seller Queue &nbsp;|&nbsp; <strong>Priority:</strong> Licensing + Copilot specialist<br><strong>Target Response:</strong> Under 4 hours &nbsp;|&nbsp; Seller has all context, ready to close.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ura-outcome" style="background:#e9f6ea;border-left-color:#2e7d32;color:#2e7d32;">✓ High-value, pre-qualified signals with full context are handed off to the right seller at the right time</div>
 
           <div class="actions">
             <button id="replayFlow" class="btn primary" type="button">↻ Replay full flow</button>
@@ -2164,15 +1896,6 @@
   </main>
 
   <aside class="chat-shell" aria-label="Ask Microsoft chat simulation">
-    <div id="flowOverlay" class="flow-overlay">
-      <div class="overlay-badge">
-        <span class="overlay-icon">🌍</span>
-        <div>
-          <div class="overlay-text">Now showing: EU / Non-US Flow</div>
-          <div class="overlay-sub">Opt-in consent required for marketing communications</div>
-        </div>
-      </div>
-    </div>
     <div class="auto">
       MANUAL DEMO
       <button id="replayChat" class="auto-btn" title="Replay chat">↻</button>
@@ -2194,12 +1917,12 @@
 
     <div class="chat-foot">
       <div class="foot-tools">
-        <button id="emailSummaryBtn" class="foot-action" type="button" title="Summary, next steps, and full transcript will be included in the email">
-          <span class="foot-icon-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></span>
+        <div class="foot-note">AI-generated content may be incorrect</div>
+        <span class="foot-divider" aria-hidden="true"></span>
+        <button id="emailSummaryBtn" class="foot-action" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z"></path><path d="M3 7l9 7 9-7"></path></svg>
           <span class="email-summary-label">Email chat summary</span>
         </button>
-        <span class="foot-divider" aria-hidden="true"></span>
-        <div class="foot-note">AI-generated content may be incorrect</div>
       </div>
       <div class="composer">
         <input type="text" value="Ask a work question or make a request..." disabled>
@@ -2207,39 +1930,15 @@
       </div>
     </div>
   </aside>
-
-  <div id="emailOverlay" class="page-overlay">
-    <div class="overlay-badge">
-      <span class="overlay-icon">✉️</span>
-      <div>
-        <div class="overlay-text">Now showing: Summary Email</div>
-        <div class="overlay-sub">The email the customer receives with conversation summary, next steps, and full transcript</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="walkthroughCtrl" class="walkthrough-ctrl">
-    <div class="ctrl-top">
-      <button id="startFlowTop" type="button" title="Start walkthrough" aria-label="Start walkthrough">▶</button>
-      <div class="ctrl-info">
-        <div class="ctrl-title" id="ctrlTitle">Welcome</div>
-        <div class="ctrl-step" id="ctrlStep">Click play to start walkthrough</div>
-      </div>
-      <div class="ctrl-actions">
-        <button id="pauseFlowBtn" type="button" title="Pause" aria-label="Pause autoplay">⏸</button>
-        <button id="resetFlowTop" type="button" title="Reset walkthrough" aria-label="Reset walkthrough">↺</button>
-      </div>
-    </div>
-    <p class="ctrl-desc" id="ctrlDesc">The customer opens a chat with Ask Microsoft and sees the welcome message with options.</p>
-  </div>
 </div>
-
-<div id="fixedTip">Summary, next steps, and full transcript will be included in the email.</div>
 
 <script>
   const timelineStages = [
-    { label: "Chat + summary requested", scenes: [0] },
-    { label: "Summary email delivered", scenes: [1] }
+    { label: "Chat initiated + summary requested", scenes: [0] },
+    { label: "Summary email delivered", scenes: [1] },
+    { label: "Customer email follow-up", scenes: [2] },
+    { label: "URA classifies + response path", scenes: [3, 4] },
+    { label: "Seller handoff", scenes: [5] }
   ];
 
   function getStageIndexForScene(sceneIndex) {
@@ -2257,15 +1956,6 @@
   const prevStep = document.getElementById("prevStep");
   const nextStep = document.getElementById("nextStep");
   const startFlowTop = document.getElementById("startFlowTop");
-  const ctrlTitle = document.getElementById("ctrlTitle");
-  const ctrlStep = document.getElementById("ctrlStep");
-  const ctrlDesc = document.getElementById("ctrlDesc");
-
-  function updateCtrl(title, step, desc) {
-    if (ctrlTitle) ctrlTitle.textContent = title;
-    if (ctrlStep) ctrlStep.textContent = step;
-    if (ctrlDesc) ctrlDesc.textContent = desc;
-  }
   const emailSummaryBtn = document.getElementById("emailSummaryBtn");
   const totalScenes = scenes.length;
   let currentSceneIndex = 0;
@@ -2289,6 +1979,38 @@
         "[READ] Email agent composes the customer email using transcript content and AI-generated actionable insights.",
         "[READ] Template personalization is applied from UCMP profile attributes.",
         "[WRITE] Outbound send service dispatches the email and logs delivery metadata + message ID for traceability."
+      ]
+    },
+    {
+      title: "Step 3: Attach customer reply to the same thread",
+      items: [
+        "[READ] Inbound reply is matched to the original thread using message headers and contact identity.",
+        "[WRITE] Reply content is appended to the same conversation record.",
+        "[ORCH] Follow-up question is queued for URA classification with prior context attached."
+      ]
+    },
+    {
+      title: "Step 4: Classify intent and decide next path",
+      items: [
+        "[READ] URA performs intent classification and entity extraction (plan type, role mapping, rollout scope).",
+        "[READ] Policy and grounding checks validate that response can use approved Microsoft 365 business knowledge.",
+        "[ROUTE] Decision engine selects path: immediate auto-answer or seller handoff."
+      ]
+    },
+    {
+      title: "Step 5: Generate and send auto-answer",
+      items: [
+        "[READ] URA drafts an answer grounded in approved M365 Business feature knowledge.",
+        "[WRITE] Response is formatted for thread continuity and sent as a same-thread email response.",
+        "[LOG] Outcome and SLA metrics are logged for model and workflow performance reporting."
+      ]
+    },
+    {
+      title: "Step 6: Package context and hand off to seller",
+      items: [
+        "[RW] Seller handoff package is created with transcript, summary insights, extracted entities, and confidence signals.",
+        "[READ] UCMP contact context and campaign metadata are attached to the seller handoff payload.",
+        "[ROUTE] High-value, pre-qualified ticket is routed to the M365 SMB seller queue with response-time target tracking."
       ]
     }
   ];
@@ -2346,17 +2068,6 @@
     paintTimeline(index);
     renderBackend(index);
     updateStepNav();
-
-    // Reposition controller for email view
-    const ctrl = document.getElementById('walkthroughCtrl');
-    if (ctrl) ctrl.classList.toggle('email-view', index > 0);
-
-    // Update walkthrough controller when scene changes
-    if (index === 1) {
-      updateCtrl('Summary Email', 'Step 2 of 2', 'The customer receives a summary email with conversation highlights, next steps, and full transcript.');
-    } else if (index === 0 && !isAutoPlayingChat) {
-      updateCtrl('Chat Flow', 'Step 1 of 2', 'Click play to start the walkthrough.');
-    }
   }
 
   const chatBody = document.getElementById("chatBody");
@@ -2371,52 +2082,6 @@
   let submitBtnRef = null;
   let collectionCardRef = null;
   let emailSummaryRequested = false;
-  let chatTurnCount = 0;
-  let nudgeShown = false;
-
-  function addNudge() {
-    if (nudgeShown) return;
-    nudgeShown = true;
-    const nudge = document.createElement("div");
-    nudge.className = "chat-nudge";
-    nudge.innerHTML = "<span class='nudge-icon'>\ud83d\udca1</span><span><span class='nudge-label'>Tip</span> \u2014 You can request an email summary of this chat at any time using the button below.</span>";
-    chatBody.appendChild(nudge);
-    stickChatToBottom();
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => nudge.classList.add('visible'));
-    });
-  }
-
-  function showAutoTip() {
-    var tip = document.getElementById('fixedTip');
-    if (!tip || !emailSummaryBtn) return;
-    var rect = emailSummaryBtn.getBoundingClientRect();
-    tip.style.left = rect.left + 'px';
-    tip.style.top = (rect.top - tip.offsetHeight - 10) + 'px';
-    tip.classList.add('show');
-    setTimeout(function() { tip.classList.remove('show'); }, 4000);
-  }
-
-  function hideAutoTip() {
-    var tip = document.getElementById('fixedTip');
-    if (tip) tip.classList.remove('show');
-  }
-
-  function revealEmailSummary() {
-    if (emailSummaryBtn && chatTurnCount >= 2) {
-      const wasHidden = !emailSummaryBtn.classList.contains('revealed');
-      emailSummaryBtn.classList.add('revealed');
-      if (isAutoPlayingChat && wasHidden) {
-        updateCtrl('New: Email Summary', 'Step 2 of 8', 'The "Email chat summary" button appears in the footer after 2 messages. Hovering shows a tooltip: summary, next steps, and full transcript will be included.');
-        setTimeout(showAutoTip, 100);
-      }
-    }
-  }
-
-  function hideEmailSummary() {
-    if (emailSummaryBtn) emailSummaryBtn.classList.remove('revealed');
-    hideAutoTip();
-  }
 
   function setEmailSummaryLabel(text) {
     if (!emailSummaryBtn) return;
@@ -2540,64 +2205,8 @@
     subtree: true
   });
 
-  let isPaused = false;
-  let resumeCallback = null;
-
   function wait(ms) {
-    return new Promise(resolve => {
-      let remaining = ms;
-      let start = Date.now();
-      function tick() {
-        if (isPaused) {
-          remaining -= (Date.now() - start);
-          if (remaining < 0) remaining = 0;
-          resumeCallback = () => {
-            start = Date.now();
-            tick();
-          };
-          return;
-        }
-        const elapsed = Date.now() - start;
-        if (elapsed >= remaining) {
-          resolve();
-        } else {
-          setTimeout(tick, Math.min(remaining - elapsed, 50));
-        }
-      }
-      tick();
-    });
-  }
-
-  function togglePause() {
-    const btn = document.getElementById('pauseFlowBtn');
-    if (!isAutoPlayingChat) return;
-    isPaused = !isPaused;
-    if (isPaused) {
-      btn.textContent = '▶';
-      btn.title = 'Resume';
-      btn.classList.add('paused');
-    } else {
-      btn.textContent = '⏸';
-      btn.title = 'Pause';
-      btn.classList.remove('paused');
-      if (resumeCallback) {
-        const cb = resumeCallback;
-        resumeCallback = null;
-        cb();
-      }
-    }
-  }
-
-  function showPauseButton(show) {
-    const btn = document.getElementById('pauseFlowBtn');
-    if (show) {
-      btn.classList.add('visible');
-      btn.textContent = '⏸';
-      btn.title = 'Pause';
-      btn.classList.remove('paused');
-    } else {
-      btn.classList.remove('visible');
-    }
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   async function animateAutoClick(button) {
@@ -2659,10 +2268,6 @@
 
     chatBody.appendChild(msg);
     addStamp(role);
-    if (role === 'user') {
-      chatTurnCount++;
-      revealEmailSummary();
-    }
     stickChatToBottom();
   }
 
@@ -2699,50 +2304,19 @@
     stickChatToBottom();
   }
 
-  const demoProfiles = {
-    us: {
-      firstName: "Sarah", lastName: "Chen",
-      email: "sarah.chen@contoso.com", country: "United States",
-      company: "Contoso Ltd", jobTitle: "IT Manager",
-      companySize: "10\u201349 employees",
-      consentType: "optout",
-      consentText: "Opt out of tailored recommendations from Microsoft"
-    },
-    eu: {
-      firstName: "Lukas", lastName: "M\u00fcller",
-      email: "lukas.mueller@fabrikam.de", country: "Germany",
-      company: "Fabrikam GmbH", jobTitle: "Product Manager",
-      companySize: "50\u2013249 employees",
-      consentType: "optin",
-      consentText: "Yes, I would like to receive tailored recommendations from Microsoft"
-    }
-  };
-
-  let activeProfile = demoProfiles.us;
-
-  function addCollectionCard(profile, autoplay) {
+  function addCollectionCard() {
     if (collectionShown) return;
     collectionShown = true;
-    const p = profile || activeProfile;
-    const countryDisplay = autoplay ? '' : p.country;
 
     const card = document.createElement("div");
     card.className = "collect-card";
     card.innerHTML = [
-      "<div class='card-disclaimer'>I will need some information in order to email you a copy of this conversation transcript.</div>",
-      "<div class='card-disclaimer'>The information provided here will be used to send you the transcript. Also, a Microsoft Sales representative may contact you to discuss your needs, and a copy of chat transcript will be provided to them. <a href='https://privacy.microsoft.com/en-us/privacystatement' target='_blank'>Microsoft Privacy Statement</a></div>",
-      "<div class='collect-fields'>",
-      "  <div class='collect-field'><label>First Name <span class='req'>*</span></label><span class='field-value'>" + p.firstName + "</span></div>",
-      "  <div class='collect-field'><label>Last Name <span class='req'>*</span></label><span class='field-value'>" + p.lastName + "</span></div>",
-      "  <div class='collect-field'><label>Email <span class='req'>*</span></label><span class='field-value'>" + p.email + "</span></div>",
-      "  <div class='collect-field'><label>Company Name <span class='req'>*</span></label><span class='field-value'>" + p.company + "</span></div>",
-      "  <div class='collect-field country-field'><label>Country <span class='req'>*</span></label><span class='field-value country-value'>" + countryDisplay + "</span></div>",
-      "</div>",
-      "<label class='consent-row consent-animated'><input type='checkbox'> " + p.consentText + "</label>",
-      "<div class='collect-section-label'>Optional</div>",
-      "<div class='collect-fields'>",
-      "  <div class='collect-field optional'><label>Job Title</label><span class='field-value'>" + p.jobTitle + "</span></div>",
-      "  <div class='collect-field optional'><label>Company Size</label><span class='field-value'>" + p.companySize + "</span></div>",
+      "We may save conversations to improve your experience and personalize future interactions with Microsoft. If you later sign in or share your email, this conversation may be connected to your profile to provide more seamless and personalized experiences.",
+      "<div class='collect-grid'>",
+      "  <div class='collect-field'><label>First Name *</label><span>Alex</span></div>",
+      "  <div class='collect-field'><label>Last Name *</label><span>Rivera</span></div>",
+      "  <div class='collect-field full'><label>Email *</label><span>alex@contoso.com</span></div>",
+      "  <div class='collect-field full'><label>Company *</label><span>Contoso Ltd</span></div>",
       "</div>",
       "<div class='collect-actions'>",
       "  <button class='btn primary js-submit-transcript' type='button'>Submit</button>",
@@ -2770,62 +2344,18 @@
     chatBody.appendChild(card);
     collectionCardRef = card;
     stickChatToBottom();
-
-    // In manual mode, animate consent row in after card renders
-    if (!autoplay) {
-      const consentRow = card.querySelector('.consent-animated');
-      if (consentRow) {
-        setTimeout(() => {
-          consentRow.classList.add('revealed');
-          stickChatToBottom();
-        }, 600);
-      }
-    }
-
     updateEmailSummaryAction();
   }
 
-  // Typewriter for country field during autoplay
-  async function typeCountryField(card, profile, token) {
-    const countryEl = card.querySelector('.country-value');
-    const consentRow = card.querySelector('.consent-animated');
-    if (!countryEl) return;
-
-    const text = profile.country;
-    // Brief pause before typing starts
-    await wait(600);
-
-    // Add blinking cursor
-    countryEl.classList.add('typing-cursor');
-
-    for (let i = 0; i < text.length; i++) {
-      if (token !== runToken) return;
-      countryEl.textContent = text.slice(0, i + 1);
-      await wait(55 + Math.random() * 40);
-    }
-
-    // Remove cursor
-    countryEl.classList.remove('typing-cursor');
-
-    // Brief pause, then reveal consent
-    await wait(400);
-    if (consentRow) {
-      consentRow.classList.add('revealed');
-      stickChatToBottom();
-    }
-    await wait(800);
-  }
-
-  function addConfirmationCard(profile) {
+  function addConfirmationCard() {
     if (confirmationShown) return;
     confirmationShown = true;
-    const p = profile || activeProfile;
 
     const card = document.createElement("div");
     card.className = "confirm";
     card.innerHTML = [
       "<h4>✓</h4>",
-      "<p><b>Transcript sent to " + p.email + "</b></p>",
+      "<p><b>Transcript sent to alex@contoso.com</b></p>",
       "<p>Summary of the email with the chat transcript has been sent to you.</p>"
     ].join("");
     chatBody.appendChild(card);
@@ -2835,26 +2365,11 @@
 
   let runToken = 0;
 
-  function endAutoplay() {
-    isAutoPlayingChat = false;
-    isPaused = false;
-    resumeCallback = null;
-    startFlowTop.classList.remove('playing');
-    updateCtrl('Walkthrough complete', 'Click play to restart', 'The full flow has finished. Press play or reset to run it again.');
-    showPauseButton(false);
-    stopAutoFollowLoop();
-  }
-
   async function runChatDemo() {
     hasStartedFlow = true;
     runToken += 1;
     const token = runToken;
     isAutoPlayingChat = true;
-    isPaused = false;
-    resumeCallback = null;
-    startFlowTop.classList.add('playing');
-    updateCtrl('Playing...', 'Step 1 of 8', 'Customer is chatting with Ask Microsoft about M365 plans.');
-    showPauseButton(true);
     startAutoFollowLoop();
     const forceFollowTimer = setInterval(() => stickChatToBottom(true, true), 120);
 
@@ -2868,10 +2383,7 @@
     submitBtnRef = null;
     collectionCardRef = null;
     emailSummaryRequested = false;
-    chatTurnCount = 0;
-    nudgeShown = false;
     chatReadyForNext = false;
-    hideEmailSummary();
     showScene(0);
     updateEmailSummaryAction();
 
@@ -2960,20 +2472,6 @@
       }
 
       addMessage(step.role, step.text, step.note, step.html, step.referenceHtml);
-
-      // Pause when email summary button first appears so viewers notice it
-      if (step.role === 'user' && chatTurnCount === 2) {
-        await wait(2000);
-      }
-
-      // Show nudge after 3rd user turn — slow down for passive viewers
-      if (step.role === 'user' && chatTurnCount === 3 && !nudgeShown) {
-        updateCtrl('Mid-chat nudge', 'Step 4 of 8', 'A subtle tip reminds the customer they can request an email summary.');
-        await wait(600);
-        addNudge();
-        await wait(2500);
-      }
-
       await wait(step.delay);
     }
 
@@ -2983,26 +2481,25 @@
       stopAutoFollowLoop();
       return;
     }
-
-    // ── US Flow ──
-    activeProfile = demoProfiles.us;
-    updateCtrl('US Flow', 'Step 5 of 8', 'Customer clicks "Email chat summary" — US gets opt-out consent.');
-
-    // Brief pause after last message, then auto-click "Email chat summary"
-    await wait(1200);
+    const typing = addTyping();
+    await wait(700);
     if (token !== runToken) {
       clearInterval(forceFollowTimer);
       isAutoPlayingChat = false;
       stopAutoFollowLoop();
       return;
     }
+    typing.remove();
+    stickChatToBottom(true, true);
 
-    // Visually highlight the email summary button, then show collection card directly
-    if (emailSummaryBtn) {
-      await animateAutoClick(emailSummaryBtn);
-      emailSummaryRequested = true;
-      updateEmailSummaryAction();
+    await wait(900);
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      stopAutoFollowLoop();
+      return;
     }
+    addTranscriptPrompt();
 
     await wait(700);
     if (token !== runToken) {
@@ -3011,16 +2508,21 @@
       stopAutoFollowLoop();
       return;
     }
-    addCollectionCard(demoProfiles.us, true);
-    stickChatToBottom(true, true);
-
-    // Type country and reveal consent
-    if (collectionCardRef) {
-      updateCtrl('US Flow', 'Step 5 of 8', 'Typing country triggers opt-out consent for US customers.');
-      await typeCountryField(collectionCardRef, demoProfiles.us, token);
+    if (!collectionShown && getTranscriptBtnRef && !getTranscriptBtnRef.disabled) {
+      await animateAutoClick(getTranscriptBtnRef);
+      getTranscriptBtnRef.click();
     }
 
-    await wait(600);
+    await wait(900);
+    if (token !== runToken) {
+      clearInterval(forceFollowTimer);
+      isAutoPlayingChat = false;
+      stopAutoFollowLoop();
+      return;
+    }
+    if (!collectionShown) addCollectionCard();
+
+    await wait(900);
     if (token !== runToken) {
       clearInterval(forceFollowTimer);
       isAutoPlayingChat = false;
@@ -3040,135 +2542,22 @@
       stopAutoFollowLoop();
       return;
     }
-    if (!confirmationShown) addConfirmationCard(demoProfiles.us);
+    if (!confirmationShown) addConfirmationCard();
 
     await wait(180);
-    stickChatToBottom(true, true);
-
-    // ── Pause, then show EU overlay ──
-    updateCtrl('US Flow', 'Step 6 of 8', 'Transcript submitted for US customer (Sarah Chen). Switching to EU flow next.');
-    await wait(2500);
     if (token !== runToken) {
       clearInterval(forceFollowTimer);
       isAutoPlayingChat = false;
       stopAutoFollowLoop();
       return;
     }
-
-    const overlay = document.getElementById("flowOverlay");
-    overlay.classList.add("visible");
-    await wait(3000);
-    if (token !== runToken) {
-      overlay.classList.remove("visible");
-      clearInterval(forceFollowTimer);
-      isAutoPlayingChat = false;
-      stopAutoFollowLoop();
-      return;
-    }
-
-    // Remove US collection card and confirmation, reset state for EU
-    activeProfile = demoProfiles.eu;
-    if (collectionCardRef) collectionCardRef.remove();
-    const confirmCards = chatBody.querySelectorAll(".confirm");
-    confirmCards.forEach(c => c.remove());
-    collectionShown = false;
-    confirmationShown = false;
-    submitInFlight = false;
-    submitBtnRef = null;
-    collectionCardRef = null;
-    emailSummaryRequested = false;
-    updateEmailSummaryAction();
-
-    overlay.classList.remove("visible");
-
-    // ── EU Flow — show collection card directly ──
-    updateCtrl('EU Flow', 'Step 7 of 8', 'Same chat, now with EU customer (Lukas Müller) — opt-in consent required.');
-    await wait(600);
-    if (token !== runToken) {
-      clearInterval(forceFollowTimer);
-      isAutoPlayingChat = false;
-      stopAutoFollowLoop();
-      return;
-    }
-
-    if (emailSummaryBtn) {
-      await animateAutoClick(emailSummaryBtn);
-      emailSummaryRequested = true;
-      updateEmailSummaryAction();
-    }
-
-    await wait(700);
-    if (token !== runToken) {
-      clearInterval(forceFollowTimer);
-      isAutoPlayingChat = false;
-      stopAutoFollowLoop();
-      return;
-    }
-    addCollectionCard(demoProfiles.eu, true);
-    stickChatToBottom(true, true);
-
-    // Type country and reveal consent
-    if (collectionCardRef) {
-      updateCtrl('EU Flow', 'Step 7 of 8', 'Typing country triggers opt-in consent for EU customers.');
-      await typeCountryField(collectionCardRef, demoProfiles.eu, token);
-    }
-
-    await wait(600);
-    if (token !== runToken) {
-      clearInterval(forceFollowTimer);
-      isAutoPlayingChat = false;
-      stopAutoFollowLoop();
-      return;
-    }
-
-    if (!confirmationShown && submitBtnRef && !submitBtnRef.disabled) {
-      await animateAutoClick(submitBtnRef);
-      submitBtnRef.click();
-      await wait(500);
-    }
-
-    if (token !== runToken) {
-      clearInterval(forceFollowTimer);
-      isAutoPlayingChat = false;
-      stopAutoFollowLoop();
-      return;
-    }
-    if (!confirmationShown) addConfirmationCard(demoProfiles.eu);
-    updateCtrl('Complete', 'Step 8 of 8', 'Both US and EU flows demonstrated. Consent adapts by country.');
-
-    await wait(180);
     stickChatToBottom(true, true);
     clearInterval(forceFollowTimer);
+    isAutoPlayingChat = false;
+    stopAutoFollowLoop();
 
-    // Auto-advance to the email scene with overlay transition
-    updateCtrl('Email Preview', 'Loading next...', 'Now showing the summary email the customer receives.');
-    await wait(1500);
-    if (token !== runToken) {
-      endAutoplay();
-      return;
-    }
-
-    const emailOv = document.getElementById('emailOverlay');
-    emailOv.classList.add('visible');
-    await wait(3000);
-    if (token !== runToken) {
-      emailOv.classList.remove('visible');
-      endAutoplay();
-      return;
-    }
-
-    endAutoplay();
     chatReadyForNext = true;
     updateStepNav();
-
-    // Advance to Step 2 (email scene)
-    if (currentSceneIndex < totalScenes - 1) {
-      showScene(currentSceneIndex + 1);
-    }
-
-    // Fade out overlay after scene has switched
-    await wait(600);
-    emailOv.classList.remove('visible');
   }
 
   function goNextStep() {
@@ -3208,7 +2597,6 @@
   if (showBackendBtn) showBackendBtn.addEventListener("click", toggleBackendView);
   if (emailSummaryBtn) emailSummaryBtn.addEventListener("click", () => requestTranscript(emailSummaryBtn));
   if (startFlowTop) startFlowTop.addEventListener("click", replayFlow);
-  document.getElementById("pauseFlowBtn").addEventListener("click", togglePause);
   document.getElementById("resetFlowTop").addEventListener("click", replayFlow);
   document.getElementById("replayChat").addEventListener("click", replayFlow);
   document.getElementById("replayFlow").addEventListener("click", replayFlow);

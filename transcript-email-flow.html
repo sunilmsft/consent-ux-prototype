@@ -1666,6 +1666,17 @@
     min-height: 16px;
   }
 
+  .country-select {
+    flex: 1;
+    font-size: 13px;
+    color: #222;
+    border: 1px solid #d6dde6;
+    border-radius: 4px;
+    padding: 4px 8px;
+    background: #fff;
+    min-height: 28px;
+  }
+
   .collect-actions {
     display: flex;
     gap: 8px;
@@ -1687,6 +1698,11 @@
     cursor: pointer;
   }
 
+  .consent-row a {
+    color: #2a4fbf;
+    text-decoration: underline;
+  }
+
   .consent-row input[type="checkbox"] {
     margin-top: 2px;
     flex-shrink: 0;
@@ -1705,7 +1721,7 @@
 
   .consent-row.consent-animated.revealed {
     opacity: 1;
-    max-height: 60px;
+    max-height: 96px;
     padding: 8px 10px;
     margin: 10px 0 0;
     border-color: #e8ecf0;
@@ -2703,28 +2719,61 @@
     us: {
       firstName: "Sarah", lastName: "Chen",
       email: "sarah.chen@contoso.com", country: "United States",
-      company: "Contoso Ltd", jobTitle: "IT Manager",
-      companySize: "10\u201349 employees",
-      consentType: "optout",
-      consentText: "Opt out of tailored recommendations from Microsoft"
+      company: "Contoso Ltd"
     },
     eu: {
       firstName: "Lukas", lastName: "M\u00fcller",
       email: "lukas.mueller@fabrikam.de", country: "Germany",
-      company: "Fabrikam GmbH", jobTitle: "Product Manager",
-      companySize: "50\u2013249 employees",
-      consentType: "optin",
-      consentText: "Yes, I would like to receive tailored recommendations from Microsoft"
+      company: "Fabrikam GmbH"
     }
   };
 
+  const consentLabelHtml = "I would like information, tips, and offers about Microsoft products and services. <a href='https://privacy.microsoft.com/en-us/privacystatement' target='_blank'>Privacy Statement</a>.";
+  const countryOptions = [
+    "United States",
+    "Germany",
+    "Canada",
+    "United Kingdom",
+    "France",
+    "India",
+    "Australia"
+  ];
+
   let activeProfile = demoProfiles.us;
+
+  function buildCountryOptionsHtml(selectedCountry) {
+    const placeholder = "<option value=''" + (selectedCountry ? "" : " selected") + ">Select country</option>";
+    const options = countryOptions.map(country => {
+      const selectedAttr = country === selectedCountry ? " selected" : "";
+      return "<option value='" + country + "'" + selectedAttr + ">" + country + "</option>";
+    }).join("");
+    return placeholder + options;
+  }
+
+  function updateConsentForCountry(card, reveal) {
+    const countrySelect = card.querySelector('.js-country-select');
+    const consentRow = card.querySelector('.consent-animated');
+    const consentCheckbox = card.querySelector('.js-consent-checkbox');
+    if (!countrySelect || !consentRow || !consentCheckbox) return;
+
+    const selectedCountry = countrySelect.value;
+    if (!selectedCountry) {
+      consentRow.classList.remove('revealed');
+      return;
+    }
+
+    consentCheckbox.checked = selectedCountry === 'United States';
+    if (reveal) {
+      consentRow.classList.add('revealed');
+      stickChatToBottom();
+    }
+  }
 
   function addCollectionCard(profile, autoplay) {
     if (collectionShown) return;
     collectionShown = true;
     const p = profile || activeProfile;
-    const countryDisplay = autoplay ? '' : p.country;
+    const selectedCountry = autoplay ? "" : p.country;
 
     const card = document.createElement("div");
     card.className = "collect-card";
@@ -2736,19 +2785,21 @@
       "  <div class='collect-field'><label>Last Name <span class='req'>*</span></label><span class='field-value'>" + p.lastName + "</span></div>",
       "  <div class='collect-field'><label>Email <span class='req'>*</span></label><span class='field-value'>" + p.email + "</span></div>",
       "  <div class='collect-field'><label>Company Name <span class='req'>*</span></label><span class='field-value'>" + p.company + "</span></div>",
-      "  <div class='collect-field country-field'><label>Country <span class='req'>*</span></label><span class='field-value country-value'>" + countryDisplay + "</span></div>",
+      "  <div class='collect-field country-field'><label>Country <span class='req'>*</span></label><select class='country-select js-country-select'>" + buildCountryOptionsHtml(selectedCountry) + "</select></div>",
       "</div>",
-      "<label class='consent-row consent-animated'><input type='checkbox'> " + p.consentText + "</label>",
-      "<div class='collect-section-label'>Optional</div>",
-      "<div class='collect-fields'>",
-      "  <div class='collect-field optional'><label>Job Title</label><span class='field-value'>" + p.jobTitle + "</span></div>",
-      "  <div class='collect-field optional'><label>Company Size</label><span class='field-value'>" + p.companySize + "</span></div>",
-      "</div>",
+      "<label class='consent-row consent-animated'><input class='js-consent-checkbox' type='checkbox'><span>" + consentLabelHtml + "</span></label>",
       "<div class='collect-actions'>",
       "  <button class='btn primary js-submit-transcript' type='button'>Submit</button>",
       "  <button class='btn' type='button'>Dismiss</button>",
       "</div>"
     ].join("");
+
+    const countrySelect = card.querySelector('.js-country-select');
+    if (countrySelect) {
+      countrySelect.addEventListener('change', () => {
+        updateConsentForCountry(card, true);
+      });
+    }
 
     const submitBtn = card.querySelector(".js-submit-transcript");
     submitBtnRef = submitBtn;
@@ -2771,48 +2822,26 @@
     collectionCardRef = card;
     stickChatToBottom();
 
-    // In manual mode, animate consent row in after card renders
+    // In manual mode, reveal consent after initial country selection is shown.
     if (!autoplay) {
-      const consentRow = card.querySelector('.consent-animated');
-      if (consentRow) {
-        setTimeout(() => {
-          consentRow.classList.add('revealed');
-          stickChatToBottom();
-        }, 600);
-      }
+      setTimeout(() => {
+        updateConsentForCountry(card, true);
+      }, 600);
     }
 
     updateEmailSummaryAction();
   }
 
-  // Typewriter for country field during autoplay
-  async function typeCountryField(card, profile, token) {
-    const countryEl = card.querySelector('.country-value');
-    const consentRow = card.querySelector('.consent-animated');
-    if (!countryEl) return;
+  async function selectCountryField(card, profile, token) {
+    const countrySelect = card.querySelector('.js-country-select');
+    if (!countrySelect) return;
 
-    const text = profile.country;
-    // Brief pause before typing starts
     await wait(600);
+    if (token !== runToken) return;
 
-    // Add blinking cursor
-    countryEl.classList.add('typing-cursor');
+    countrySelect.value = profile.country;
+    countrySelect.dispatchEvent(new Event('change', { bubbles: true }));
 
-    for (let i = 0; i < text.length; i++) {
-      if (token !== runToken) return;
-      countryEl.textContent = text.slice(0, i + 1);
-      await wait(55 + Math.random() * 40);
-    }
-
-    // Remove cursor
-    countryEl.classList.remove('typing-cursor');
-
-    // Brief pause, then reveal consent
-    await wait(400);
-    if (consentRow) {
-      consentRow.classList.add('revealed');
-      stickChatToBottom();
-    }
     await wait(800);
   }
 
@@ -2986,7 +3015,7 @@
 
     // ── US Flow ──
     activeProfile = demoProfiles.us;
-    updateCtrl('US Flow', 'Step 5 of 8', 'Customer clicks "Email chat summary" — US gets opt-out consent.');
+    updateCtrl('US Flow', 'Step 5 of 8', 'Customer clicks "Email chat summary" and selects country in the form.');
 
     // Brief pause after last message, then auto-click "Email chat summary"
     await wait(1200);
@@ -3014,10 +3043,10 @@
     addCollectionCard(demoProfiles.us, true);
     stickChatToBottom(true, true);
 
-    // Type country and reveal consent
+    // Select country and reveal consent
     if (collectionCardRef) {
-      updateCtrl('US Flow', 'Step 5 of 8', 'Typing country triggers opt-out consent for US customers.');
-      await typeCountryField(collectionCardRef, demoProfiles.us, token);
+      updateCtrl('US Flow', 'Step 5 of 8', 'Selecting United States checks consent by default.');
+      await selectCountryField(collectionCardRef, demoProfiles.us, token);
     }
 
     await wait(600);
@@ -3082,7 +3111,7 @@
     overlay.classList.remove("visible");
 
     // ── EU Flow — show collection card directly ──
-    updateCtrl('EU Flow', 'Step 7 of 8', 'Same chat, now with EU customer (Lukas Müller) — opt-in consent required.');
+    updateCtrl('EU Flow', 'Step 7 of 8', 'Same chat, now with EU customer (Lukas Müller), showing non-US default consent state.');
     await wait(600);
     if (token !== runToken) {
       clearInterval(forceFollowTimer);
@@ -3107,10 +3136,10 @@
     addCollectionCard(demoProfiles.eu, true);
     stickChatToBottom(true, true);
 
-    // Type country and reveal consent
+    // Select country and reveal consent
     if (collectionCardRef) {
-      updateCtrl('EU Flow', 'Step 7 of 8', 'Typing country triggers opt-in consent for EU customers.');
-      await typeCountryField(collectionCardRef, demoProfiles.eu, token);
+      updateCtrl('EU Flow', 'Step 7 of 8', 'Selecting Germany leaves consent unchecked by default.');
+      await selectCountryField(collectionCardRef, demoProfiles.eu, token);
     }
 
     await wait(600);
@@ -3134,7 +3163,7 @@
       return;
     }
     if (!confirmationShown) addConfirmationCard(demoProfiles.eu);
-    updateCtrl('Complete', 'Step 8 of 8', 'Both US and EU flows demonstrated. Consent adapts by country.');
+    updateCtrl('Complete', 'Step 8 of 8', 'Both US and EU flows demonstrated. Consent checkbox state adapts by country.');
 
     await wait(180);
     stickChatToBottom(true, true);

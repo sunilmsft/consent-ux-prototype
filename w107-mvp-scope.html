@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Srikar 1:1 Meeting Prep — MVP Scope & Breakdown — 6.1.2026</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 940px; margin: 40px auto; padding: 0 28px 60px; color: #222; line-height: 1.55; background: #fafbfc; }
+  header.page { background: linear-gradient(135deg, #0078d4, #005a9e); color: white; padding: 28px 32px; border-radius: 10px; margin-bottom: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  header.page h1 { margin: 0 0 6px; font-size: 24px; font-weight: 600; }
+  header.page .subtitle { font-size: 14px; opacity: 0.92; margin-bottom: 14px; }
+  header.page .meta { font-size: 13px; opacity: 0.85; }
+  header.page .meta span { margin-right: 18px; }
+
+  h2 { color: #005a9e; font-size: 18px; margin-top: 32px; padding-bottom: 8px; border-bottom: 2px solid #e1e8ef; }
+  h3 { color: #333; font-size: 15px; margin-top: 20px; margin-bottom: 8px; }
+
+  .purpose { background: #eef6fc; border-left: 4px solid #0078d4; padding: 14px 18px; border-radius: 4px; margin-bottom: 24px; font-size: 14px; }
+  .purpose strong { color: #005a9e; }
+
+  .callout { background: #fff7e6; border-left: 4px solid #f0a020; padding: 12px 16px; border-radius: 4px; margin: 16px 0; font-size: 14px; }
+  .callout-blue { background: #eef6fc; border-left: 4px solid #0078d4; padding: 12px 16px; border-radius: 4px; margin: 16px 0; font-size: 14px; }
+  .callout-green { background: #ecf7ec; border-left: 4px solid #2e8b57; padding: 12px 16px; border-radius: 4px; margin: 16px 0; font-size: 14px; }
+
+  /* Component diagram */
+  .flow { display: flex; align-items: stretch; gap: 12px; margin: 20px 0 8px; flex-wrap: wrap; }
+  .comp { flex: 1 1 0; min-width: 180px; background: white; border: 2px solid #0078d4; border-radius: 8px; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .comp.fast-follow { border-color: #f0a020; border-style: dashed; opacity: 0.85; }
+  .comp .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; margin-bottom: 6px; }
+  .comp .badge.mvp { background: #0078d4; color: white; }
+  .comp .badge.ff { background: #f0a020; color: white; }
+  .comp h4 { margin: 0 0 6px; font-size: 14px; color: #222; }
+  .comp p { margin: 0; font-size: 12.5px; color: #555; line-height: 1.45; }
+  .comp ul { margin: 0; padding-left: 16px; font-size: 12.5px; color: #555; line-height: 1.45; }
+  .comp ul li { margin-bottom: 4px; }
+  .comp ul li:last-child { margin-bottom: 0; }
+  .arrow { align-self: center; font-size: 22px; color: #0078d4; padding: 0 2px; }
+  .arrow.dashed { color: #f0a020; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden; }
+  th { background: #f3f6f9; color: #005a9e; text-align: left; padding: 10px 12px; font-weight: 600; border-bottom: 2px solid #e1e8ef; }
+  td { padding: 10px 12px; border-bottom: 1px solid #eef2f5; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+
+  .pill { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+  .pill.mvp { background: #0078d4; color: white; }
+  .pill.ff { background: #f0a020; color: white; }
+  .pill.p2 { background: #888; color: white; }
+  .pill.tbd { background: #6c757d; color: white; }
+  .pill.open { background: #d83b01; color: white; }
+  .pill.beyond { background: #6b5b95; color: white; }
+  .badge.beyond { background: #6b5b95; color: white; }
+  .comp.beyond { border-color: #6b5b95; border-style: dashed; opacity: 0.85; }
+
+  ul.tight { margin: 8px 0; padding-left: 22px; }
+  ul.tight li { margin-bottom: 4px; font-size: 14px; }
+
+  .footer-note { margin-top: 40px; padding: 14px 18px; background: #f3f6f9; border-radius: 6px; font-size: 13px; color: #666; }
+</style>
+</head>
+<body>
+
+<header class="page">
+  <h1>Web Agent Contact Capture (W107) — MVP Scope & Breakdown</h1>
+  <div class="subtitle">My current thinking ahead of our 1:1 — want to make sure we're aligned before I take this further into engineering.</div>
+  <div class="meta">
+    <span><strong>Author:</strong> Sunil Venugopal</span>
+    <span><strong>For:</strong> Srikar Potluri (1:1)</span>
+    <span><strong>Date:</strong> June 1, 2026</span>
+  </div>
+</header>
+
+<div class="purpose">
+  <strong>Goal of this doc:</strong> Walk through how I'm framing the MVP scope, the customer experience, and the open items — so we're aligned on the deliverable before I take this further into engineering. <em>Not committing timelines today</em>; those are TBD pending an engineering working session.
+</div>
+
+<!-- ====================================================== -->
+<h2>1. What MVP is designed to learn</h2>
+
+<p>The MVP is intentionally focused on answering two questions about customer intent. The eventual goal of this capability is to create a new top-of-funnel lead generation channel for the web agent — contacts that downstream Microsoft sellers and marketing can engage with through follow-up activities. Before we build out the full pipeline (UCMP contact creation, marketing taxonomy, Email Agent follow-ups), we need to know whether customers actually <em>want</em> what we're offering and, if so, what level of follow-up they're open to.</p>
+
+<div class="callout-green">
+  <strong>The two signals we want to measure in MVP:</strong>
+  <ol style="margin: 8px 0 0; padding-left: 22px;">
+    <li><strong>Transcript opt-in rate</strong> — how many customers voluntarily share their name and email to receive a transcript, AI summary, and recommended next steps from their chat conversation.</li>
+    <li><strong>Marketing-comms opt-in rate</strong> — of those customers, how many also opt in to receive information, tips, and offers about Microsoft products and services — the signal that turns a transcript request into a marketable lead.</li>
+  </ol>
+</div>
+
+<p>These two numbers together tell us whether the Business Opportunity Impact Estimate in the BRD (the sizing model projecting 900–5,400 monthly contacts and $2.2M–$13M annual pipeline; <em>BRD Section 2.3</em> for details) is grounded in real customer behavior. They also tell us how aggressively to invest in the downstream pieces — UCMP integration is where these contacts actually become leads that sellers can act on, but that work only pays off if the upstream opt-in rates are healthy.</p>
+
+<p>Two MVP design choices flow directly from this learning goal:</p>
+<ul class="tight">
+  <li>A <strong>customer-controlled entry point</strong> (Always-On button — see Section 3) so the opt-in signal is clean and unambiguously customer-initiated.</li>
+  <li>A <strong>minimal MVP surface area</strong> (no UCMP write, no marketing automation, no auth) so we can measure intent quickly, without confounding variables or long dependency chains.</li>
+</ul>
+
+<!-- ====================================================== -->
+<h2>2. MVP at a glance</h2>
+
+<p>Working from the latest BRD (W107) and our 5/27 sync with Jimmy and Chris, this is the MVP I'm working toward.</p>
+
+<div class="callout-blue">
+  <strong>MVP in one line:</strong> A customer chatting with the Ask Microsoft web agent can click an Always-On "Get Transcript" button, share their name and email, and receive an email containing the verbatim transcript plus an AI-generated <strong>conversation summary and recommended next steps</strong> — with the option (independently) to also receive marketing communications from Microsoft.
+</div>
+
+<p>At a scope level, MVP work splits into four areas. Section 4 shows how they connect end-to-end; this is what's in each.</p>
+
+<h3>Frontend — the Ask Microsoft chat surface</h3>
+<p>Everything the customer sees and interacts with:</p>
+<ul>
+  <li>Placement of the Always-On <strong>"Get Transcript"</strong> button on the chat surface</li>
+  <li>A soft nudge reminding customers the button is available anytime during the conversation</li>
+  <li>The inline, non-blocking <strong>contact capture card</strong> (name + email)</li>
+  <li>Two-part consent UI: transcript consent + marketing-comms opt-in, with <strong>country-specific defaults</strong> for the marketing opt-in (US opt-out default; non-US opt-in default)</li>
+  <li>Opt-in disclaimers and the privacy/transparency link</li>
+  <li><strong>Coexistence with the Quoting flow:</strong> the Quoting experience already adds an "End quoting experience" button to the same chat-bar slot we plan to use for "Get Transcript." My current thinking: treat them as <strong>mutually exclusive</strong> — when the customer is in the quoting flow, "End quoting experience" takes the slot; outside it, "Get Transcript" is shown. Quote requests are infrequent enough that this trade-off seems reasonable, but worth a quick gut-check.</li>
+</ul>
+
+<h3>Backend — processing &amp; handoff</h3>
+<p>Everything that happens once the customer submits the card:</p>
+<ul>
+  <li>Capture the details from the contact card and save the conversation transcript</li>
+  <li><strong>PII scrubbing</strong> on the transcript and on the AI outputs, per CELA guidance</li>
+  <li><strong>LLM generation</strong> (GPT-5 via Azure Foundry) of a conversation summary <em>and</em> recommended next steps — per Chris's prototyping approach, not just a summary</li>
+  <li>Hand off the assembled payload (transcript + summary + next steps + recipient info) to the email engine</li>
+  <li>Record the customer's consent choices (transcript consent + marketing opt-in) in our system so we have an audit trail of what each customer agreed to (<em>note:</em> these aren't yet passed through to CPM in MVP — that integration is beyond MVP)</li>
+</ul>
+
+<h3>Email delivery</h3>
+<p>The customer-facing artifact:</p>
+<ul>
+  <li>"Ask Microsoft"-branded format, tone, and layout</li>
+  <li>Body contains the summary and recommended next steps; full transcript follows</li>
+  <li>Assembled and sent by Claire's email engine (ACS)</li>
+  <li><strong>Outbound-only for MVP:</strong> the customer receives the email but cannot reply and get a response back — inbound/reply handling is planned beyond MVP</li>
+</ul>
+
+<h3>Measurement &amp; telemetry</h3>
+<p>What we need in place to actually call MVP a success or not:</p>
+<ul>
+  <li>Transcript opt-in rate, card completion, drop-off, country mix</li>
+  <li>Marketing-comms opt-in rate (conditional on transcript opt-in)</li>
+  <li>Reporting plumbing to read both signals from Section 1</li>
+</ul>
+
+<!-- ====================================================== -->
+<h2>3. The customer experience: entry point &amp; consent</h2>
+
+<p>The customer experience is where the two MVP signals get generated, so the design choices here matter directly to what we can learn.</p>
+
+<h3>Entry point: Always-On button</h3>
+<div class="callout-blue">
+  <strong>Decision:</strong> MVP uses an <strong>Always-On "Get Transcript" button/link</strong> in the chat surface. The customer decides when (and whether) to invoke the transcript flow.
+</div>
+
+<p>The Always-On entry point gives us a clean opt-in signal to measure (intent is unambiguous when the customer clicks the button), keeps the chat surface non-intrusive, and simplifies the CELA conversation.</p>
+
+<h3>Consent: two independent consents</h3>
+<p>Per privacy and CELA guidance, consent in the collection card is split into two separate, independent checkboxes — each tied to a distinct purpose. This split is already reflected in the current prototype.</p>
+
+<table>
+  <thead>
+    <tr><th style="width:24%;">Consent</th><th>Purpose / wording</th><th>Default behavior</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Consent 1 — Transcript email</strong></td>
+      <td>Permission to use the customer's email to send the chat transcript, AI summary, and recommended next steps. Required for the customer to receive the email.</td>
+      <td>Customer must affirmatively consent to receive the transcript. (Without this, no email is sent.)</td>
+    </tr>
+    <tr>
+      <td><strong>Consent 2 — Marketing comms</strong></td>
+      <td>"I would like information, tips, and offers about Microsoft products and services." Country-specific behavior.</td>
+      <td><strong>US:</strong> opt-out (pre-checked) &nbsp;|&nbsp; <strong>Non-US (GDPR markets):</strong> opt-in (unchecked)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The two consents are <strong>independent</strong>. A customer can give Consent 1 only (just wants the transcript, declines marketing comms) or give both. This structure is what lets us read the second signal in Section 1 — the conditional rate at which transcript-requesters also opt into marketing follow-up.</p>
+
+<!-- ====================================================== -->
+<h2>4. How it fits together: components &amp; flow</h2>
+
+<p>Section 2 listed <em>what</em> is in each area. This is <em>how</em> they connect — the end-to-end path from a customer click to a delivered email. The three boxes below are the MVP components; UCMP sits alongside as a Beyond MVP component that would turn these transcript requesters into trackable leads.</p>
+
+<div class="flow">
+  <div class="comp">
+    <span class="badge mvp">MVP</span>
+    <h4>1. Web Agent Frontend</h4>
+    <ul>
+      <li>Always-On "Get Transcript" entry point</li>
+      <li>Inline contact capture card <em>(specific card to use is <strong>TBD</strong> — reuse Quoting Agent form vs. lightweight Contact-Me variant)</em></li>
+      <li>Two-part consent UX (transcript + country-specific marketing)</li>
+    </ul>
+  </div>
+  <div class="arrow">→</div>
+  <div class="comp">
+    <span class="badge mvp">MVP</span>
+    <h4>2. Backend — Prompts &amp; Processing</h4>
+    <ul>
+      <li>Two GPT-5 prompts (summary + recommended next steps)</li>
+      <li>Called via Azure Foundry, per Chris's prototyping approach</li>
+      <li>PII scrubbing applied before output</li>
+      <li>Outputs the text strings that feed the email engine</li>
+    </ul>
+  </div>
+  <div class="arrow">→</div>
+  <div class="comp">
+    <span class="badge mvp">MVP</span>
+    <h4>3. Email Delivery (ACS)</h4>
+    <ul>
+      <li>Claire's email engine ingests the prompt outputs</li>
+      <li>Assembles the "Ask Microsoft"-branded transcript email (summary + next steps in body, full transcript below)</li>
+      <li>Sends the email</li>
+      <li><strong>Outbound-only in MVP</strong> — no inbound/reply handling</li>
+    </ul>
+  </div>
+  <div class="arrow dashed">⇢</div>
+  <div class="comp beyond">
+    <span class="badge beyond">Beyond MVP</span>
+    <h4>4. UCMP Contact Storage</h4>
+    <ul>
+      <li>Contact creation/update in UCMP</li>
+      <li>Lead-source tagging (<code>Web Agent</code>) for downstream pipeline attribution</li>
+      <li>Kickstart conversation with UCMP team now so it's in their backlog</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<h2>5. Phasing — what's intentionally deferred and why</h2>
+
+<p>MVP scope = everything detailed in Section 2. This section is about what we're <em>holding back</em>, and why.</p>
+
+<div class="callout-blue">
+  <strong>Why this phasing:</strong> Holding UCMP and downstream integrations back lets us "light up MVP faster and start getting numbers sooner" (Srikar, 5/27). The MVP components are enough to produce the two opt-in signals we need; everything else becomes a follow-on investment once those signals justify it. We're intentionally <em>not</em> pre-bucketing Beyond MVP work into fast-follow vs. later phases yet — that should wait until we have MVP results in hand.
+</div>
+
+<h3>Beyond MVP (deferred)</h3>
+<table>
+  <thead>
+    <tr><th>Item</th><th>Why it's not in MVP</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>UCMP contact creation/update</strong> + lead-source tagging (<code>Web Agent</code>)</td>
+      <td>Turns captured contacts into trackable leads — the lead-gen outcome the BRD ultimately targets. Held back so MVP can ship without UCMP team dependency.</td>
+    </tr>
+    <tr>
+      <td><strong>CPM consent write-through</strong></td>
+      <td>Consent choices are recorded in our system in MVP, just not pushed to CPM. Write-through pairs with UCMP enablement.</td>
+    </tr>
+    <tr>
+      <td><strong>Email Agent reply / multi-turn follow-up</strong></td>
+      <td>MVP is outbound-only. Inbound/reply handling requires the Email Agent platform and is a meaningful additional surface.</td>
+    </tr>
+    <tr>
+      <td><strong>UCMP Insights with marketing taxonomy</strong></td>
+      <td>Personalized follow-up and marketing automation depend on UCMP being live first.</td>
+    </tr>
+    <tr>
+      <td><strong>Authenticated experiences</strong></td>
+      <td>MVP signals can be read from unauthenticated traffic; auth adds complexity without changing the learning goals.</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ====================================================== -->
+<h2>6. Deltas from the current BRD</h2>
+
+<p>The latest BRD still reflects pre-5/27 thinking on a couple of points. Flagging them so we can decide together whether the BRD needs an update before broader review, or whether we just track the delta separately.</p>
+
+<table>
+  <thead>
+    <tr><th>Topic</th><th>BRD (latest)</th><th>Post-5/27 understanding</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>UCMP storage</strong></td>
+      <td>BRD calls UCMP storage a P0 MVP requirement under <strong>Functional Requirements — Contact Capture</strong> ("Contact information shall be stored in UCMP"; <em>BRD Section 4.1</em>)</td>
+      <td>Beyond MVP — kickstart UCMP convo, keep in backlog</td>
+      <td><span class="pill open">Confirm</span></td>
+    </tr>
+    <tr>
+      <td><strong>Long-form collection card</strong></td>
+      <td>First/last name, email, country, company, plus optional Job Title &amp; Company Size</td>
+      <td>If no UCMP dependency in MVP, do we simplify the form? (Sunil, 18:58 5/27)</td>
+      <td><span class="pill open">Decide</span></td>
+    </tr>
+    <tr>
+      <td><strong>Entry point</strong></td>
+      <td>BRD describes a configurable, system-initiated entry point</td>
+      <td><strong>Always-On button</strong> — customer-controlled entry in MVP</td>
+      <td><span class="pill mvp">Decided</span></td>
+    </tr>
+    <tr>
+      <td><strong>Consent model</strong></td>
+      <td>"Consent notice and FAQ link displayed within form"; dynamic CPM consent based on country</td>
+      <td>Two independent consents: (1) transcript email, (2) marketing comms (US opt-out / non-US opt-in). Both tagged in MVP, not passed to CPM yet.</td>
+      <td><span class="pill mvp">Locked</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ====================================================== -->
+<h2>7. Timing</h2>
+
+<div class="callout">
+  <strong><span class="pill tbd">TBD</span> &nbsp; MVP timing is not yet committed.</strong> Several pieces of pre-work need to land before we can put dates against MVP — those are tracked in <strong>Section 8 (Next Steps)</strong>. Once they're in motion, I'd like to walk the MVP component breakdown through an engineering working session (Chris on web agent side, Claire's team on email) and come back with a target window.
+</div>
+
+<table>
+  <thead>
+    <tr><th>Phase</th><th>Target window</th><th>Gating factors</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="pill mvp">MVP</span></td>
+      <td><span class="pill tbd">TBD</span></td>
+      <td>
+        <ul style="margin:0;padding-left:18px;">
+          <li><strong>Pro-code migration</strong> — the large engineering effort currently in flight; team is only taking high-priority requests outside of that, so MVP sequencing has to factor it in</li>
+          <li><strong>Pre-engineering working session</strong> — UX alignment with existing WAA, tagging approach, finalizing model prompts, etc.</li>
+          <li><strong>Final CELA &amp; Privacy review</strong> — sign-off on language, tone, consent copy, and disclaimers</li>
+          <li><strong>ACS email infra readiness</strong> with Claire's team</li>
+          <li><strong>Contact capture card decision</strong> (Quoting Agent form reuse vs. lightweight variant)</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ====================================================== -->
+<h2>8. Next Steps</h2>
+
+<p>The pre-work that needs to happen before MVP can ship — decisions to align on in our 1:1 plus items to hand off with clear ownership.</p>
+
+<table>
+  <thead>
+    <tr><th style="width:40px;">#</th><th style="width:28%;">Item</th><th>Question / decision needed</th><th>Owner to drive</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1</strong></td>
+      <td><strong>E&amp;E intake confirmation</strong></td>
+      <td>Srikar confirmed this ask is <strong>W107</strong> on the eCommerce backlog. Still need confirmation that it has cleared the weekly intake review and is approved to move forward — and where it stacks against the other priorities the eCommerce team is working through (e.g., post pro-code migration, geo expansion).</td>
+      <td>Srikar</td>
+    </tr>
+    <tr>
+      <td><strong>2</strong></td>
+      <td><strong>ADO work item creation + dependency mapping</strong></td>
+      <td>Create the ADO work items for MVP scope and map out dependencies across teams (web agent, email, CELA, etc.) so we have a single source of truth to drive against.</td>
+      <td>Sunil</td>
+    </tr>
+    <tr>
+      <td><strong>3</strong></td>
+      <td><strong>Pro-code migration coordination</strong></td>
+      <td>Confirm how MVP slots into the engineering queue once the pro-code migration wraps — i.e., where it sits in the "what's next" list after that effort completes.</td>
+      <td>Chris + Sunil</td>
+    </tr>
+    <tr>
+      <td><strong>4</strong></td>
+      <td><strong>Pre-engineering working session</strong></td>
+      <td>Walk through UX alignment with existing WAA, tagging approach, finalized model prompts, and the form reuse decision (Quoting Agent form vs. lightweight Contact-Me variant) before engineering scoping begins.</td>
+      <td>Sunil to organize (Chris + Claire's team)</td>
+    </tr>
+    <tr>
+      <td><strong>5</strong></td>
+      <td><strong>Final CELA &amp; Privacy review</strong></td>
+      <td>Sign-off on language, tone, consent copy, and disclaimers before launch. Separate from the open BRD privacy NFRs below.</td>
+      <td>Srikar</td>
+    </tr>
+    <tr>
+      <td><strong>6</strong></td>
+      <td><strong>Email Agent infra readiness</strong></td>
+      <td>Confirm readiness and integration plan for the "Ask Microsoft"-branded outbound email.</td>
+      <td>Claire</td>
+    </tr>
+    <tr>
+      <td><strong>7</strong></td>
+      <td><strong>BRD updates</strong></td>
+      <td>Update the BRD to reflect the 5/27 discussions and align with the deltas captured in Section 6.</td>
+      <td>Jimmy</td>
+    </tr>
+    <tr>
+      <td><strong>8</strong></td>
+      <td><strong>Collection card simplification</strong></td>
+      <td>If no UCMP creation in MVP, do we trim the form (e.g., drop company / optional fields) or keep the full form to avoid rework later?</td>
+      <td>Sunil + Srikar</td>
+    </tr>
+    <tr>
+      <td><strong>9</strong></td>
+      <td><strong>Email abuse vector</strong></td>
+      <td>The BRD's <strong>Performance &amp; Reliability NFRs</strong> flag "email spoofing / abuse vector" as a P0 concern without a defined mitigation (<em>BRD Section 5.2</em>). Need a position before CELA review — rate limiting + one-click unsubscribe is the likely path.</td>
+      <td>Sunil with Claire's team</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ====================================================== -->
+<h2>9. What I'm <em>not</em> asking for today</h2>
+<ul class="tight">
+  <li>Date commitments — those come after the engineering working session</li>
+  <li>Final BRD sign-off — Jimmy is reviewing offline</li>
+  <li>CELA submission go-ahead — pending open items above (abuse vector, how consent choices are recorded)</li>
+</ul>
+
+<div class="footer-note">
+  <strong>Inputs:</strong> Web Agent Contact Capture BRD (latest version — Jimmy Lin, with Srikar &amp; Sunil comments) · Meeting transcript Srikar/Jimmy/Chris/Sunil (5/27 sync) · Component Flow Summary (pre-UCMP-descope) · Transcript Email Prototype (current).
+</div>
+
+</body>
+</html>

@@ -113,7 +113,7 @@
   <li>Placement of the Always-On <strong>"Get Transcript"</strong> button on the chat surface</li>
   <li>A soft nudge reminding customers the button is available anytime during the conversation</li>
   <li>The inline, non-blocking <strong>contact capture card</strong> (name + email)</li>
-  <li>Two-part consent UI: transcript consent + marketing-comms opt-in, with <strong>country-specific defaults</strong> for the marketing opt-in (US opt-out default; non-US opt-in default)</li>
+  <li>Two-part consent UI: transcript consent + marketing-comms opt-in, with <strong>country-specific defaults</strong> for the marketing opt-in (US opt-out default; non-US opt-in default) <span class="pill open" style="margin-left:6px;font-size:10px;vertical-align:middle;">DISCUSS — §8.10</span></li>
   <li>Opt-in disclaimers and the privacy/transparency link</li>
   <li><strong>Coexistence with the Quoting flow:</strong> the Quoting experience already adds an "End quoting experience" button to the same chat-bar slot we plan to use for "Get Transcript." My current thinking: treat them as <strong>mutually exclusive</strong> — when the customer is in the quoting flow, "End quoting experience" takes the slot; outside it, "Get Transcript" is shown. Quote requests are infrequent enough that this trade-off seems reasonable, but worth a quick gut-check.</li>
 </ul>
@@ -125,7 +125,7 @@
   <li><strong>PII scrubbing</strong> on the transcript and on the AI outputs, per CELA guidance</li>
   <li><strong>LLM generation</strong> (GPT-5 via Azure Foundry) of a conversation summary <em>and</em> recommended next steps — per Chris's prototyping approach, not just a summary</li>
   <li>Hand off the assembled payload (transcript + summary + next steps + recipient info) to the email engine</li>
-  <li>Record the customer's consent choices (transcript consent + marketing opt-in) in our system so we have an audit trail of what each customer agreed to (<em>note:</em> these aren't yet passed through to CPM in MVP — that integration is beyond MVP)</li>
+  <li>Record the customer's consent choices (transcript consent + marketing opt-in) in our system so we have an audit trail of what each customer agreed to (<em>note:</em> these aren't yet passed through to CPM in MVP — that integration is beyond MVP) <span class="pill open" style="margin-left:6px;font-size:10px;vertical-align:middle;">DISCUSS — §8.10</span></li>
 </ul>
 
 <h3>Email delivery</h3>
@@ -178,7 +178,7 @@
   </tbody>
 </table>
 
-<p>The two consents are <strong>independent</strong>. A customer can give Consent 1 only (just wants the transcript, declines marketing comms) or give both. This structure is what lets us read the second signal in Section 1 — the conditional rate at which transcript-requesters also opt into marketing follow-up.</p>
+<p>The two consents are <strong>independent</strong>. A customer can give Consent 1 only (just wants the transcript, declines marketing comms) or give both. This structure is what lets us read the second signal in Section 1 — the conditional rate at which transcript-requesters also opt into marketing follow-up. <span class="pill open" style="margin-left:6px;font-size:10px;vertical-align:middle;">DISCUSS — §8.10</span></p>
 
 <!-- ====================================================== -->
 <h2>4. How it fits together: components &amp; flow</h2>
@@ -192,7 +192,7 @@
     <ul>
       <li>Always-On "Get Transcript" entry point</li>
       <li>Inline contact capture card <em>(specific card to use is <strong>TBD</strong> — reuse Quoting Agent form vs. lightweight Contact-Me variant)</em></li>
-      <li>Two-part consent UX (transcript + country-specific marketing)</li>
+      <li>Two-part consent UX (transcript + country-specific marketing) <span class="pill open" style="margin-left:6px;font-size:10px;vertical-align:middle;">DISCUSS — §8.10</span></li>
     </ul>
   </div>
   <div class="arrow">→</div>
@@ -249,8 +249,8 @@
       <td>Turns captured contacts into trackable leads — the lead-gen outcome the BRD ultimately targets. Held back so MVP can ship without UCMP team dependency.</td>
     </tr>
     <tr>
-      <td><strong>CPM consent write-through</strong></td>
-      <td>Consent choices are recorded in our system in MVP, just not pushed to CPM. Write-through pairs with UCMP enablement.</td>
+      <td><strong>CPM consent write-through</strong> <span class="pill open" style="font-size:10px;vertical-align:middle;">DISCUSS — §8.10</span></td>
+      <td>Working assumption: consent choices recorded in our system in MVP, not pushed to CPM. <strong>Claire (6/1) challenged this</strong> — if we record marketing opt-in we may need to write to CPM as system of record, and CPM/UCMP are separate workstreams (can't bundle). Pending business decision.</td>
     </tr>
     <tr>
       <td><strong>Email Agent reply / multi-turn follow-up</strong></td>
@@ -298,8 +298,8 @@
     <tr>
       <td><strong>Consent model</strong></td>
       <td>"Consent notice and FAQ link displayed within form"; dynamic CPM consent based on country</td>
-      <td>Two independent consents: (1) transcript email, (2) marketing comms (US opt-out / non-US opt-in). Both tagged in MVP, not passed to CPM yet.</td>
-      <td><span class="pill mvp">Locked</span></td>
+      <td>Two independent consents: (1) transcript email, (2) marketing comms (US opt-out / non-US opt-in). Both tagged in MVP, not passed to CPM yet. <strong>Claire flagged CPM/marketing classification questions — see §8.10.</strong></td>
+      <td><span class="pill open">Re-open</span></td>
     </tr>
   </tbody>
 </table>
@@ -393,8 +393,14 @@
     <tr>
       <td><strong>9</strong></td>
       <td><strong>Email abuse vector</strong></td>
-      <td>The BRD's <strong>Performance &amp; Reliability NFRs</strong> flag "email spoofing / abuse vector" as a P0 concern without a defined mitigation (<em>BRD Section 5.2</em>). Need a position before CELA review — rate limiting + one-click unsubscribe is the likely path.</td>
+      <td>The BRD's <strong>Performance &amp; Reliability NFRs</strong> flag "email spoofing / abuse vector" as a P0 concern without a defined mitigation (<em>BRD Section 5.2</em>). Need a position before CELA review — rate limiting is the baseline; <strong>unsubscribe handling depends on the transactional-vs-marketing call in §8.10</strong> (one-click unsubscribe is only available if we classify as marketing-class under a CPM topic).</td>
       <td>Sunil with Claire's team</td>
+    </tr>
+    <tr>
+      <td><strong>10</strong></td>
+      <td><strong>CPM + marketing opt-in approach</strong> <span class="pill open" style="font-size:10px;vertical-align:middle;">NEW — from Claire 6/1</span></td>
+      <td>Business decision needed: are these emails <strong>transactional</strong> (no CPM, no marketing opt-in, no unsubscribe) or <strong>marketing-class</strong> (must use a CPM topic, owner consultation required, unsubscribe mandatory)? Claire (6/1) flagged: (a) recording marketing opt-in locally without CPM may be non-compliant since CPM is the system of record; (b) consult the CPM topic owner before adding a new opt-in surface (especially if MSWide); (c) CPM and UCMP are separate systems with separate Privacy Managers, PMs, EMs, and service trees — can't be bundled as one workstream; (d) one-click unsubscribe requires marketing classification. Do not want to descope marketing opt-in before this conversation.</td>
+      <td>Sunil + Srikar + Jimmy</td>
     </tr>
   </tbody>
 </table>
